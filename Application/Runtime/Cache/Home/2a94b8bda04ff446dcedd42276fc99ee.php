@@ -1,40 +1,34 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <title>大学生导航</title>
-  <link rel="stylesheet" href="__PUBLIC__/css/base.css">
-  <link rel="stylesheet" href="__PUBLIC__/css/jquery.dataTables.css">
-  <link rel="stylesheet" href="__PUBLIC__/css/table.css">
-  <link rel="stylesheet" href="__PUBLIC__/css/index.css">
+  <link rel="stylesheet" href="/nav/Public/css/base.css">
+  <link rel="stylesheet" href="/nav/Public/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="/nav/Public/css/table.css">
+  <link rel="stylesheet" href="/nav/Public/css/index.css">
 </head>
 <body>
   <div class="container">
   <table id="user_table">
     <thead>
-      <foreach name="key" item="k">
-        <th>{$k}</th>
-      </foreach>
+      <?php if(is_array($key)): foreach($key as $key=>$k): ?><th><?php echo ($k); ?></th><?php endforeach; endif; ?>
 
       <th>操作</th>
     </thead>
     <tbody>
-      <foreach name="list" item="vo">
-        <tr>
-        <foreach name="vo" item="value">
-          <td>{$value}</td>
-        </foreach>
-        <td><a href="{:U('Index/detail',array('id'=>$vo['id']))}">【详情】</a>
-          <a href="{:U('Index/modify',array('id'=>$vo['id']))}">【修改】</a>
+      <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
+        <?php if(is_array($vo)): foreach($vo as $key=>$value): ?><td><?php echo ($value); ?></td><?php endforeach; endif; ?>
+        <td><a href="<?php echo U('Index/detail',array('id'=>$vo['id']));?>">【详情】</a>
+          <a href="<?php echo U('Index/modify',array('id'=>$vo['id']));?>">【修改】</a>
         </td>
-      </tr>
-      </foreach>
+      </tr><?php endforeach; endif; ?>
   </tbody>
   </table>
 </div>
 
 </body>
-<script src="__PUBLIC__/js/jquery-2.2.3.min.js"></script>
-<script src="__PUBLIC__/js/jquery.dataTables.js"></script>
+<script src="/nav/Public/js/jquery-2.2.3.min.js"></script>
+<script src="/nav/Public/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#user_table').DataTable({
