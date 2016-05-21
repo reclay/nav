@@ -1,0 +1,1053 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>笑话大全，幽默笑话，爆笑冷笑话精选-搜狗哈哈</title>
+    <meta name="keywords" content="笑话，笑话大全，幽默笑话，冷笑话"/>    <meta name="description" content="经典笑话大全，幽默笑话，爆笑冷笑话，搞笑图片尽在搜狗哈哈！海量笑话内容每日定时更新，给您带来更多快乐。"/>    <link rel="stylesheet" href="/views/static/css/main.css?t=134175" type="text/css"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header cf" pbflag="wc_0_顶部">
+        <h1 class="logo">
+            <a href="/" class="logo ct">搜狗哈哈</a>
+        </h1>
+
+        <div class="search">
+            <form id="search_form" action="/search/li/" target="_blank">
+                <input type="text" name="key" value="" id="search_text"/>
+            </form>
+            <a href="#" class="in ct" id="search_in">站内搜索</a>
+            <a href="#" class="out ct" id="search_out">sogou搜索</a>
+        </div>
+        <!--<a href="#" class="app ct">手机也能看笑话</a>-->
+        <div class="help">
+            <a href="http://123.sogou.com/about/feedback.html?url=http://haha.sogou.com" target="_blank">意见反馈</a>
+            <span>|</span>
+            <a href="/help" target="_blank">新手帮助</a>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="nav cf" pbflag="wc_0_导航条">
+        <i class="r_bg ct"></i>
+        <ul class="list">
+            <li class="curr">
+                <span class="ct"></span>
+                <a href="/" class="c" target="_blank">狠搞笑</a>
+                <i class="ct"></i>
+            </li>
+            <li>
+                <a href="/image/" class="c" target="_blank">趣图</a>
+                <i class="ct"></i>
+            </li>
+            <li>
+                <a href="/video/" class="c" target="_blank">搞笑视频</a>
+                <i class="ct"></i>
+            </li>
+            <li>
+                <a href="/exam/" target="_blank">当评委</a>
+                <i class="ct"></i>
+            </li>
+            <li>
+                <a href="/submit/" target="_blank">爆猛料</a>
+            </li>
+        </ul>
+                <ul class="login" id="login_before">
+            <li>
+                <div class="auth_area">
+                    <a href="#" class="sina" data-type="sina" title="用微博登录">新浪微博</a>
+                    <a href="#" class="qq" data-type="qq" title="用QQ登录">QQ</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" id="login_before_btn">登录</a>
+                <i class="ct"></i>
+            </li>
+            <li>
+                <a target="_blank" href="https://account.sogou.com/web/reg/nick?ru=http://haha.sogou.com&client_id=2000">注册</a>
+            </li>
+        </ul>
+        <div id="login_after" style="display: none"></div>
+            </div>
+</div>
+<div class="wrapper">
+    <div class="left mt20">
+        <div class="browser bs" id="browser" pbflag="wc_0_焦点图">
+            <div class="browser_nav">
+                <a class="prev ct" href="#" title="上一条">上一条</a>
+
+                <h2 class="browser_title"></h2>
+                <a class="next ct" href="#" title="下一条">下一条</a>
+            </div>
+            <div class="browser_loading ct">loading</div>
+            <div class="browser_pic" style="display: none"></div>
+            <div class="browser_text" style="display: none"></div>
+            <div class="browser_video" style="display: none;">
+                <div class="mediaplayer" id="mediaplayer"></div> 
+            </div>
+            <div class="browser_top cf">
+                <a class="good" href="#" pburl="顶"></a>
+                <a class="bad" href="#" pburl="踩"></a>
+            </div>
+            <div class="browser_bottom">
+                <p class="tag"></p>
+                <div class="cf">
+                    <a href="#" class="book_mark" data-type="-1">收藏</a>
+                    <span class="ct h"></span>
+                    <div class="copy_link" id="copy_link">
+                        复制连接
+                    </div>
+                    <span class="ct h"></span>
+
+                    <div class="share">
+                        <span>分享：</span>
+                        <!-- JiaThis Button BEGIN -->
+                        <div class="jiathis_style jt-wx" id="shareWechat">
+                            <a class="jiathis_button_weixin"></a>
+                        </div>
+                        <script type="text/javascript" >
+                        var jiathis_config={
+                            siteNum:1,
+                            sm:"weixin",
+                            summary:"",
+                            shortUrl:false,
+                            hideMore:true,
+                            url:location.href
+                        }
+                        </script>
+                        <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+                        <!-- JiaThis Button END -->
+                    </div>
+                    <div class="user_sub_bar cf"></div>
+                </div>
+            </div>
+            <div class="browser_comment">
+                <div class="area_1 cf">
+                    <textarea id="area_1_ta" data-phsel="area_1_ph" data-btnsel="area_1_btn" data-tipsel="area_1_tip"></textarea>
+                    <div class="placeholder" id="area_1_ph" data-sel="area_1_ta">
+                        吐个槽！求调戏！寻笑点！赶快登录哈哈！                    </div>
+                    <div class="mask" id="area_1_mask">
+                        发布成功
+                    </div>
+                </div>
+                <div class="area_2 cf">
+                    <a href="#" class="face face_btn" data-sel="area_1_ta">表情</a>
+                    <span class="ct"></span>
+                    <a href="#" class="num">吐槽(<b id="area_1_count"></b>)</a>
+                    <a id="area_1_btn" class="btn btn_disabled ct" data-tasel="area_1_ta" data-mksel="area_1_mask" data-errtip="area_1_error" href="#">走你</a>
+                    <div class="browser-input-tip" id="area_1_tip">0 / 256</div>
+                    <div class="browser-err" id="area_1_error">您的吐槽还不足5个汉字…多吐点也没关系啦！</div>
+                </div>
+            </div>
+            <div class="browser_comment_list">
+                <i class="shape_a">
+                    <span class="ct a"></span>
+                    <span class="ct b"></span>
+                </i>
+
+                <div class="loading">正在加载中，请稍候...</div>
+                <div class="tips">暂时还没有哈友们评论过哦，快来抢沙发吧！</div>
+                <div class="list"></div>
+                <div class="c_page cf">
+                    <div class="pagination"></div>
+                </div>
+            </div>
+        </div>
+        <div class="index_list bs mt10">
+            <ol class="list_tab cf" pbflag="wc_0_内容">
+                <li class="curr">
+                    <a href="/new/" target="_blank">最新笑话</a>
+                    <i class="ct"></i>
+                </li>
+                <li>
+                    <a href="/whot/" target="_blank">本周热门</a>
+                    <i class="ct"></i>
+                </li>
+                <li>
+                    <a href="/mhot/" target="_blank">本月热门</a>
+                    <i class="ct"></i>
+                </li>
+            </ol>
+                                                <ul class="list_area" id="list_area" pbflag="wc_0_内容">
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/3665547/" class="name">
+                <span>麦芒</span>
+                            </a>
+            <a target="_blank" href="/user/index/3665547/" class="pic">
+                <img src="http://appd.123.sogou.com/u/2014/09/540378fda5c17.png"/>
+                                <i class="ct grade_a g_7"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652599/" target="_blank" >挖掘机技术哪家强？没时间解释了，快上车。</a>
+                    </h2>
+                    <p>
+                                
+                                            </p>
+                            <div class="img">
+                    <div class="min" id="m_image_652599">
+                        <i class="ct loading">loading</i>
+                        <img src="http://appd.123.sogou.com/u/2016/01/56a8abe30fd53.jpg" data-url="http://appd.123.sogou.com/u/2016/01/56a8abe30e1e0.jpg" data-sel="image_652599" />
+                    </div>
+                    <div class="max" id="image_652599">
+                        <a href="#" data-sel="m_image_652599">收起</a>
+                        <img src="http://d.123.sogou.com/imgn/pv.gif" data-sel="m_image_652599" />
+                    </div>
+                </div>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652599">0</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652599">0</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/冷笑话/">冷笑话</a>
+                                <a target="_blank" pburl="标签" href="/tag/li/gif图/">gif图</a>
+                                <a target="_blank" pburl="标签" href="/tag/li/囧人糗事/">囧人糗事</a>
+                                <a target="_blank" pburl="标签" href="/tag/li/内涵/">内涵</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652599" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652599" data-area="comment_area_652599" data-list="comment_list_652599" data-loading="comment_loading_652599" data-tasel="list_ta_652599">吐槽(<b id="comment_list_count_652599">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652599">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652599">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652599">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/9824675/" class="name">
+                <span>哈哈哈哈哈18340</span>
+                            </a>
+            <a target="_blank" href="/user/index/9824675/" class="pic">
+                <img src="/views/static/img/s_image_url.jpg"/>
+                                <i class="ct grade_a g_3"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652637/" target="_blank" >口误也太严重了点吧。。。。。</a>
+                    </h2>
+                    <p>
+                                刚上完厕所回来，想和老妈分享一下感悟,“我今天屎吃多了！”        
+等等！好像有什么不对！
+转头看见妈妈谜一样的笑容。
+感觉有点不好...
+                                                <a href="/652637/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652637">8</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652637">4</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/囧人糗事/">囧人糗事</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652637" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652637" data-area="comment_area_652637" data-list="comment_list_652637" data-loading="comment_loading_652637" data-tasel="list_ta_652637">吐槽(<b id="comment_list_count_652637">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652637">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652637">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652637">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/9144215/" class="name">
+                <span>晕血的吸血鬼</span>
+                            </a>
+            <a target="_blank" href="/user/index/9144215/" class="pic">
+                <img src="http://appd.123.sogou.com/u/2015/09/55f8fe7676259.png"/>
+                                <i class="ct grade_a g_6"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652527/" target="_blank" >怪不得取名这么随意</a>
+                    </h2>
+                    <p>
+                                一天老和尚和两个小和尚说：师傅给你们取名不是随随便便的，是希望你们说到做到！至惜，别睡觉！缘寂快去叫叫他！
+  说罢，两个小和尚死了...
+...
+                                                <a href="/652527/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652527">7</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652527">6</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/冷笑话/">冷笑话</a>
+                                <a target="_blank" pburl="标签" href="/tag/li/内涵/">内涵</a>
+                                <a target="_blank" pburl="标签" href="/tag/li/成人笑话/">成人笑话</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652527" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652527" data-area="comment_area_652527" data-list="comment_list_652527" data-loading="comment_loading_652527" data-tasel="list_ta_652527">吐槽(<b id="comment_list_count_652527">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652527">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652527">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652527">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/8579905/" class="name">
+                <span>韦逆天丿拽</span>
+                            </a>
+            <a target="_blank" href="/user/index/8579905/" class="pic">
+                <img src="/views/static/img/s_image_url.jpg"/>
+                                <i class="ct grade_a g_4"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652621/" target="_blank" >屁香</a>
+                    </h2>
+                    <p>
+                                有一天，我们寝室有一位仁兄泡了一碗泡面，外寝人得知后，来我们寝室，说：“哎呀好香啊，什么啊？（明知故问，该打）”结果我寝另一位仁兄脱口而出：...
+                                                <a href="/652621/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652621">87</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652621">18</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/校园/">校园</a>
+                                <a target="_blank" pburl="标签" href="/tag/li/囧人糗事/">囧人糗事</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652621" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652621" data-area="comment_area_652621" data-list="comment_list_652621" data-loading="comment_loading_652621" data-tasel="list_ta_652621">吐槽(<b id="comment_list_count_652621">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652621">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652621">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652621">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/10167611/" class="name">
+                <span>哈哈网友10167611</span>
+                            </a>
+            <a target="_blank" href="/user/index/10167611/" class="pic">
+                <img src="/views/static/img/s_image_url.jpg"/>
+                                <i class="ct grade_a g_2"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652463/" target="_blank" >小说里霸气的句子，看你知道那个的书名</a>
+                    </h2>
+                    <p>
+                                1、若是有来生，伴君天下舞
+2、吾重临天下之日，诸逆臣皆当死去
+3、岁月如刀斩天骄，长生路上叹妖娆
+4、修我战剑，杀上九天，洒我热血，一往无...
+                                                <a href="/652463/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652463">25</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652463">9</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/内涵/">内涵</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652463" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652463" data-area="comment_area_652463" data-list="comment_list_652463" data-loading="comment_loading_652463" data-tasel="list_ta_652463">吐槽(<b id="comment_list_count_652463">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652463">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652463">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652463">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/7761171/" class="name">
+                <span>唯爱、唯美</span>
+                            </a>
+            <a target="_blank" href="/user/index/7761171/" class="pic">
+                <img src="http://appd.123.sogou.com/u/2015/07/55a2135b819a0.jpg"/>
+                                <i class="ct grade_a g_7"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652517/" target="_blank" >伤不起呀！！！</a>
+                    </h2>
+                    <p>
+                                约了几个朋友到家里打麻将。女友在一旁看，我赢了，她手舞足蹈，我输了，她摇头叹息。我瞪了她一眼说：“我打牌你紧张啥？”“我能不紧张吗？虽说输的...
+                                                <a href="/652517/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652517">39</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652517">14</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/有爱/">有爱</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652517" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652517" data-area="comment_area_652517" data-list="comment_list_652517" data-loading="comment_loading_652517" data-tasel="list_ta_652517">吐槽(<b id="comment_list_count_652517">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652517">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652517">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652517">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/10208475/" class="name">
+                <span>1632771489</span>
+                            </a>
+            <a target="_blank" href="/user/index/10208475/" class="pic">
+                <img src="/views/static/img/s_image_url.jpg"/>
+                                <i class="ct grade_a g_3"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652539/" target="_blank" >做手术</a>
+                    </h2>
+                    <p>
+                                一病人在手术前很紧张，医生安慰他：“不用害怕，我们这次邀请了全国最顶尖的教授全程视频指导。”病人听了放下心。手术一半时医生停了下来，病人问：...
+                                                <a href="/652539/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652539">27</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652539">7</a>
+            </div>
+            <div class="r">
+                                                                <a href="#" class="book_mark" data-id="652539" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652539" data-area="comment_area_652539" data-list="comment_list_652539" data-loading="comment_loading_652539" data-tasel="list_ta_652539">吐槽(<b id="comment_list_count_652539">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652539">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652539">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652539">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/user/index/10248967/" class="name">
+                <span>哈噶呀啊吗嘛</span>
+                            </a>
+            <a target="_blank" href="/user/index/10248967/" class="pic">
+                <img src="/views/static/img/s_image_url.jpg"/>
+                                <i class="ct grade_a g_3"></i>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/652471/" target="_blank" >无语了</a>
+                    </h2>
+                    <p>
+                                从前有座山，山里有座庙，庙里有个小和尚，叫一休。有一天，一休到山下的河边去打水喝，于是遇到了蓝精灵。蓝精灵告诉一休，在山的那边海的那边有一座...
+                                                <a href="/652471/" style="color: #1288cc" target="_blank">查看全部&gt;&gt;</a>
+                            </p>
+                            <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="652471">14</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="652471">14</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/冷笑话/">冷笑话</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="652471" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="652471" data-area="comment_area_652471" data-list="comment_list_652471" data-loading="comment_loading_652471" data-tasel="list_ta_652471">吐槽(<b id="comment_list_count_652471">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_652471">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_652471">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_652471">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/enterprise/li/7/" class="name">
+                <span>美拍</span>
+                                <i class="ct v"></i>
+                            </a>
+            <a target="_blank" href="/enterprise/li/7/" class="pic">
+                <img src="http://appd.123.sogou.com/u/2016/02/56cec9839ad23.jpg"/>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/786250/" target="_blank" >老司机不负众望</a>
+                    </h2>
+                    <div class="video">
+                <a href="/786250/" target="_blank" class="cell">
+                    <img src="http://img03.sogoucdn.com/v2/thumb/resize/h/230/crop/w/230/xy/center?appid=200547&amp;url=http://mvimg1.meitudata.com/573d6489633716141.jpg">
+                    <span class="cover"></span>
+                    <i class="play"></i>
+                </a>
+            </div>
+                <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="786250">26</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="786250">55</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/搞笑视频/">搞笑视频</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="786250" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="786250" data-area="comment_area_786250" data-list="comment_list_786250" data-loading="comment_loading_786250" data-tasel="list_ta_786250">吐槽(<b id="comment_list_count_786250">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_786250">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_786250">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_786250">
+
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="user_sub_bar cf">
+            <!--<span class="text">来源：</span>-->
+                                                    <a target="_blank" href="/enterprise/li/7/" class="name">
+                <span>美拍</span>
+                                <i class="ct v"></i>
+                            </a>
+            <a target="_blank" href="/enterprise/li/7/" class="pic">
+                <img src="http://appd.123.sogou.com/u/2016/02/56cec9839ad23.jpg"/>
+                            </a>
+        </div>
+                                <h2 class="cf">
+            <a href="/786396/" target="_blank" >分分钟发家致富</a>
+                    </h2>
+                    <div class="video">
+                <a href="/786396/" target="_blank" class="cell">
+                    <img src="http://img03.sogoucdn.com/v2/thumb/resize/h/230/crop/w/230/xy/center?appid=200547&amp;url=http://mvimg2.meitudata.com/573e538dac9af5944.jpg">
+                    <span class="cover"></span>
+                    <i class="play"></i>
+                </a>
+            </div>
+                <div class="bottom cf">
+            <div class="l">
+                <a href="#" class="good" pburl="顶" data-id="786396">0</a>
+                <i class="ct"></i>
+                <a href="#" class="bad" pburl="踩" data-id="786396">0</a>
+            </div>
+            <div class="r">
+                                <span class="tag">
+                标签：
+                                <a target="_blank" pburl="标签" href="/tag/li/搞笑视频/">搞笑视频</a>
+                                </span>
+                <i class="ct"></i>
+                                                                <a href="#" class="book_mark" data-id="786396" data-type="1">收藏</a>
+                                <i class="ct"></i>
+                                <a href="#" class="num" data-id="786396" data-area="comment_area_786396" data-list="comment_list_786396" data-loading="comment_loading_786396" data-tasel="list_ta_786396">吐槽(<b id="comment_list_count_786396">0</b>)</a>
+            </div>
+        </div>
+        <div class="comment_area" id="comment_area_786396">
+            <i class="shape_a">
+                <span class="ct a"></span>
+                <span class="ct b"></span>
+            </i>
+            <div class="comment_loading" id="comment_loading_786396">正在加载中，请稍候...</div>
+            <div class="comment_list" id="comment_list_786396">
+
+            </div>
+        </div>
+    </li>
+    </ul>
+    
+    <div class="l_page cf" pbflag="wc_0_内容">
+    <div class="pagination">
+                <span class="prev">上一页</span>
+                                                                                                        <span class="curr">1</span>
+                                                                                                                                                                                        <a href="/list/li/new/2" target=&quot;_blank&quot;>2</a>
+                                                                                                                                                                                                                        <a href="/list/li/new/3" target=&quot;_blank&quot;>3</a>
+                                                                                                                                                                                                                        <a href="/list/li/new/4" target=&quot;_blank&quot;>4</a>
+                                                                                                                                                                                                                        <a href="/list/li/new/5" target=&quot;_blank&quot;>5</a>
+                                                                                                                                                                                                                        <a href="/list/li/new/6" target=&quot;_blank&quot;>6</a>
+                                                                                                                                                                                                                        <a href="/list/li/new/7" target=&quot;_blank&quot;>7</a>
+                                                                                                                                <span>...</span>
+                                                                                                                                                                                                        <a href="/list/li/new/30" target=&quot;_blank&quot;>30</a>
+                                                                                        <a href="/list/li/new/2" target=&quot;_blank&quot; class="next">下一页</a>
+            </div>
+</div>
+        </div>
+    </div>
+    <div class="right mt20">
+        <div class="sub_area browser_num" pbflag="wc_0_阅读激励">
+            <h2>您今天共阅读笑话：</h2>
+            <div class="num">
+                <p class="cf">
+                    <em id="today_read" data-num="0000">0000</em>
+                    <span>条</span>
+                </p>
+            </div>
+            <div class="sum">
+                累计阅读<em id="total_read" data-num="0">0</em>条
+            </div>
+            <p class="text">
+                                                您今天的哈哈指数落后于全国100%的网友，笑少了会长胖！
+                            </p>
+            <ul class="medal cf">
+                                                                                                                                                                                                        <li>
+                        <i class="medal_0 medal_0_3" title=""></i>
+                        <a target='_blank' class='get_medal_btn' href='/help#m'>点亮勋章</a>
+                    </li>
+                                                                                                                                                                                                        <li>
+                        <i class="medal_0 medal_0_4" title=""></i>
+                        <a target='_blank' class='get_medal_btn' href='/help#m'>点亮勋章</a>
+                    </li>
+                            </ul>
+            <p class="tips">
+                                                            已有<em>354611</em>人点亮了勋章，我也要<a target='_blank' href='/help#m'>点亮</a>！
+                                                </p>
+        </div>
+        <div class="hr12 ct"></div>
+        <div class="google-ad">
+<script type="text/javascript">
+document.write('<a style="display:none!important" id="tanx-a-mm_14626936_8346309_28542217"></a>');
+tanx_s = document.createElement("script");
+tanx_s.type = "text/javascript";
+tanx_s.charset = "gbk";
+tanx_s.id = "tanx-s-mm_14626936_8346309_28542217";
+tanx_s.async = true;
+tanx_s.src = "http://p.tanx.com/ex?i=mm_14626936_8346309_28542217";
+tanx_h = document.getElementsByTagName("head")[0];
+if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+
+
+
+
+<!--
+<script type="text/javascript">
+document.write('<a style="display:none!important" id="tanx-a-mm_14616170_2082030_21946481"></a>');
+tanx_s = document.createElement("script");
+tanx_s.type = "text/javascript";
+tanx_s.charset = "gbk";
+tanx_s.id = "tanx-s-mm_14616170_2082030_21946481";
+tanx_s.async = true;
+tanx_s.src = "http://p.tanx.com/ex?i=mm_14616170_2082030_21946481";
+tanx_h = document.getElementsByTagName("head")[0];
+if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+-->
+</div>
+<div class="sub_area" pbflag="wc_0_光荣榜">
+    <h2 class="head">光荣榜</h2>
+    <dl class="side_topten">
+                <dt>
+            <i class="ct"></i>
+            等级最高者
+        </dt>
+        <dd class="cf">
+                        <a target="_blank" href="/user/index/951821" title="我是你星桥哥">
+                <img alt="我是你星桥哥" src="http://appd.123.sogou.com/u/2015/08/55c8a5e354bdf.png"/>
+            </a>
+                        <a target="_blank" href="/user/index/1058330" title="噜噜噜噜">
+                <img alt="噜噜噜噜" src="http://appd.123.sogou.com/u/2016/04/570de08c65e18.png"/>
+            </a>
+                        <a target="_blank" href="/user/index/7903953" title="及时行乐!">
+                <img alt="及时行乐!" src="http://appd.123.sogou.com/u/2015/07/55b9eea274093.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/1695940" title="我咬西红柿">
+                <img alt="我咬西红柿" src="http://appd.123.sogou.com/u/2014/08/5401b2a287ba4.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/1340260" title="Thrones">
+                <img alt="Thrones" src="http://appd.123.sogou.com/u/2015/09/55e81161d4b5d.png"/>
+            </a>
+                    </dd>
+                <dt>
+            <i class="ct"></i>
+            阅读最多者
+        </dt>
+        <dd class="cf">
+                        <a target="_blank" href="/user/index/1347298" title="梧桐一叶">
+                <img alt="梧桐一叶" src="http://appd.123.sogou.com/u/2014/12/547d676f4c188.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/8431433" title="通行禁止">
+                <img alt="通行禁止" src="http://appd.123.sogou.com/u/2015/07/55a1cae13deab.png"/>
+            </a>
+                        <a target="_blank" href="/user/index/7903953" title="及时行乐!">
+                <img alt="及时行乐!" src="http://appd.123.sogou.com/u/2015/07/55b9eea274093.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/9525101" title="IX35">
+                <img alt="IX35" src="http://appd.123.sogou.com/u/2015/11/56459779cd9a2.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/1687469" title="风向北吹">
+                <img alt="风向北吹" src="/views/static/img/s_image_url.jpg"/>
+            </a>
+                    </dd>
+                <dt>
+            <i class="ct"></i>
+            爆料最多者
+        </dt>
+        <dd class="cf">
+                        <a target="_blank" href="/user/index/1695940" title="我咬西红柿">
+                <img alt="我咬西红柿" src="http://appd.123.sogou.com/u/2014/08/5401b2a287ba4.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/1340260" title="Thrones">
+                <img alt="Thrones" src="http://appd.123.sogou.com/u/2015/09/55e81161d4b5d.png"/>
+            </a>
+                        <a target="_blank" href="/user/index/951821" title="我是你星桥哥">
+                <img alt="我是你星桥哥" src="http://appd.123.sogou.com/u/2015/08/55c8a5e354bdf.png"/>
+            </a>
+                        <a target="_blank" href="/user/index/6658169" title="可爱控">
+                <img alt="可爱控" src="http://appd.123.sogou.com/u/2015/05/555044a6a9f4e.jpg"/>
+            </a>
+                        <a target="_blank" href="/user/index/1204577" title="哈哈一哥">
+                <img alt="哈哈一哥" src="/views/static/img/s_image_url.jpg"/>
+            </a>
+                    </dd>
+            </dl>
+</div>
+        <div class="hr12 ct"></div>
+        <div class="sub_area" pbflag="wc_0_热门标签">
+    <h2 class="head">热门标签</h2>
+    <ul class="side_hot_tag cf">
+		<li><a href="http://haha.sogou.com/video/" target="_blank" style="color:red">搞笑视频</a><i class="ct"></i></li>
+        <li><a href="/tag/li/恶搞/" target="_blank">恶搞</a><i class="ct"></i></li>
+        <li><a href="/tag/li/动态图/" target="_blank">gif图</a><i class="ct"></i></li>
+        <li><a href="/tag/li/搞笑图片/" target="_blank">搞笑图片</a><i class="ct"></i></li>
+        <li><a href="/tag/li/校园/" target="_blank">校园</a><i class="ct"></i></li>
+        <li><a href="/tag/li/邪恶/" target="_blank">邪恶</a><i class="ct"></i></li>
+        <li><a href="/tag/li/成人笑话/" target="_blank">成人笑话</a><i class="ct"></i></li>
+        <li><a href="/tag/li/内涵/" target="_blank">内涵</a><i class="ct"></i></li>
+        <li><a href="/tag/li/囧人糗事/" target="_blank" style="color:green">囧人糗事</a><i class="ct"></i></li>
+        <li><a href="/tag/li/有爱/" target="_blank" style="color:green">有爱</a><i class="ct"></i></li>
+        <li><a href="/tag/li/美女/" target="_blank">美女</a><i class="ct"></i></li>
+        <li><a href="/tag/li/冷笑话/" target="_blank">冷笑话</a><i class="ct"></i></li>
+    </ul>
+</div>
+        <div class="hr12 ct"></div>
+        <div class="sub_area" pbflag="wc_0_推荐笑话">
+    <h2 class="head">推荐笑话</h2>
+    <ul class="side_tj cf">
+        <li>
+            <a href="/743520" target="_blank"> 
+                <img src="http://p8.123.sogoucdn.com/imgu/2016/04/20160411160614_272.jpg"/>
+            </a>
+            <span>
+                <a href="/743520" target="_blank">别让女友坐副驾驶</a>
+            </span>
+        </li>
+         <li>
+            <a href="/784730" target="_blank">
+                <img src="http://p1.123.sogoucdn.com/imgu/2016/05/20160518174538_773.jpg"/>
+            </a>
+            <span>
+                <a href="/784730" target="_blank">你男朋友哪里买的？</a>
+            </span>
+        </li>
+        <li>
+            <a href="/784886" target="_blank">
+                <img src="http://p7.123.sogoucdn.com/imgu/2016/05/20160518175005_443.jpg"/>
+            </a>
+            <span>
+                <a href="/784886" target="_blank">舍友正在设计发型</a>
+            </span>
+        </li>
+        <li>
+            <a href="/784164" target="_blank">
+                <img src="http://p9.123.sogoucdn.com/imgu/2016/05/20160518174750_911.jpg"/>
+            </a>
+            <span>
+                <a href="/784164" target="_blank">为何残忍的对待她</a>
+            </span>
+        </li>
+         <li>
+            <a href="/758880" target="_blank">
+                <img src="http://p5.123.sogoucdn.com/imgu/2016/04/20160411162914_278.png"/>
+            </a>
+            <span>
+                <a href="/758880" target="_blank">啪啪后的内心想法！</a>
+            </span>
+        </li>
+        <li>
+            <a href="/754230" target="_blank">
+                <img src="http://p8.123.sogoucdn.com/imgu/2016/04/20160411164301_982.gif"/>
+            </a>
+            <span>
+                <a href="/754230" target="_blank">这才叫老当益壮！</a>
+            </span>
+        </li>
+        <li>
+            <a href="/758640" target="_blank">
+                <img src="http://p1.123.sogoucdn.com/imgu/2016/04/20160411163713_708.png"/>
+            </a>
+            <span>
+                <a href="/758640" target="_blank">恩爱秀着秀着就变了</a>
+            </span>
+        </li>
+        <li>
+            <a href="/756312" target="_blank">
+                <img src="http://p4.123.sogoucdn.com/imgu/2016/04/20160411164539_552.gif"/>
+            </a>
+            <span>
+                <a href="/756312" target="_blank">这速度妹子能行么</a>
+            </span>
+        </li>
+        <li>
+            <a href="/744862" target="_blank"> 
+                <img src="http://p9.123.sogoucdn.com/imgu/2016/04/20160411160144_718.png"/>
+            </a>
+            <span>
+                <a href="/744862" target="_blank">约会时来了大姨妈</a>
+            </span>
+        </li>
+         <li>
+            <a href="/745716" target="_blank">
+                <img src="http://p7.123.sogoucdn.com/imgu/2016/04/20160411155750_784.jpg"/>
+            </a>
+            <span>
+                <a href="/745716" target="_blank">男人爱听的两种声音</a>
+            </span>
+        </li>
+        <li>
+            <a href="/756214" target="_blank">
+                <img src="http://p9.123.sogoucdn.com/imgu/2016/04/20160411160432_620.jpg"/>
+            </a>
+            <span>
+                <a href="/756214" target="_blank">你老公好幸福啊！</a>
+            </span>
+        </li>
+        <li>
+            <a href="/758650" target="_blank">
+                <img src="http://p7.123.sogoucdn.com/imgu/2016/04/20160411163919_447.png"/>
+            </a>
+            <span>
+                <a href="/758650" target="_blank">90后辣妈带娃日常</a>
+            </span>
+        </li>
+    </ul>
+</div>        <div style="clear: both;padding: 12px 0;">
+        <iframe src="http://toutiao.sogou.com/fragment/sogou-haha/1.html" width="290" height="303" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+        </div>
+        <div class="sub_area" pbflag="wc_0_笑话网站">
+    <h2 class="head">笑话网站</h2>
+    <ul class="side_hot_tag side_site cf">
+        <li><a href="http://www.qiushibaike.com/" target="_blank">糗事百科</a><i class="ct"></i></li>
+        <li><a href="http://www.xxhh.net/" target="_blank">嘻嘻哈哈</a><i class="ct"></i></li>
+        <li><a href="http://joke.qq.com/" target="_blank">腾讯笑话</a><i class="ct"></i></li>
+        <li><a href="http://www.mahua.com/" target="_blank">快乐麻花</a><i class="ct"></i></li>
+        <li><a href="http://www.laifu.org/" target="_blank">来福岛</a><i class="ct"></i></li>
+        <li><a href="http://www.guaixun.com/" target="_blank">怪讯网</a><i class="ct"></i></li> 
+        <li><a href="http://www.pengfu.com/" target="_blank">捧腹网</a><i class="ct"></i></li> 
+        <li><a href="http://www.haha365.com/" target="_blank">中文幽默王</a><i class="ct"></i></li>
+        <li><a href="http://www.meipai.com/" target="_blank">美拍</a><i class="ct"></i></li>
+        <li><a href="http://lengxiaohua.com/" target="_blank">我们爱讲冷笑话</a><i class="ct"></i></li>
+    </ul>
+</div>    </div>
+</div>
+<div class="wrapper">
+    <div class="footer">
+        <p class="cf">
+            <i class="ct fLogo"></i>
+            <a href="http://123.sogou.com/about/" target="_blank">关于我们</a>
+            <span class="ct"></span>
+            <a href="http://123.sogou.com/about/feedback.html?url=http://haha.sogou.com" target="_blank">意见反馈</a>
+            <span class="ct"></span>
+            <a href="http://www.sogou.com/docs/terms.htm" target="_blank">免责声明</a>
+            <em>Copyright <b>©</b> 2016 Sogou.com. All Rights Reserved. </em>
+            <a href="http://www.miibeian.gov.cn/" target="_blank" class="icp">京ICP证050897号</a>
+        </p>
+    </div>
+</div>
+<!--登录-->
+<div class="dialog_main login_dialog" id="dialog_login">
+    <div class="head uuiDialog-head">
+        使用搜狗账号登录
+        <a class="close ct uuiDialog-close" href="#" onmousedown="$.UUIBase.stopPropagation(event)" ontouchstart="$.UUIBase.stopPropagation(event)" onclick="return false;">关闭</a>
+    </div>
+    <dl class="auth_login cf">
+        <dt>快速登录：</dt>
+        <dd class="cf">
+            <div class="auth_area">
+                <a href="#" class="sina" data-type="sina" title="用微博登录">微博登录</a>
+                <a href="#" class="qq" data-type="qq" title="用QQ登录">QQ登录</a>
+            </div>
+        </dd>
+    </dl>
+    <div class="hr ct"></div>
+    <div class="login_form cf">
+        <input type="text" class="username" placeholder="搜狗帐号/搜狐帐号/手机号"/>
+        <input type="password" class="password" placeholder="密码"/>
+    </div>
+    <p class="remember cf">
+        <input type="checkbox" checked id="remember"/>
+        <label for="remember">下次自动登录</label>
+        <a target="_blank" href="https://account.sogou.com/web/findpwd?ru=http://haha.sogou.com&client_id=2000">忘记密码</a>
+    </p>
+    <p class="msg"></p>
+    <a class="submit_btn ct" href="#">登录</a>
+    <p class="reg">
+        没有账号？<a target="_blank" href="https://account.sogou.com/web/reg/nick?ru=http://haha.sogou.com&client_id=2000">立即注册</a>
+    </p>
+</div>
+<!--激活-->
+<div class="dialog_main activation_dialog" id="activation_dialog">
+    <div class="head uuiDialog-head">
+        激活搜狗哈哈账号
+        <a class="close ct uuiDialog-close" href="#" onmousedown="$.UUIBase.stopPropagation(event)" ontouchstart="$.UUIBase.stopPropagation(event)" onclick="return false;">关闭</a>
+    </div>
+    <p class="text">
+        搞笑精神无处不在，就从一个响亮的哈哈名号开始吧！
+    </p>
+    <p class="account">
+        登录账号：
+    </p>
+    <div class="login_form cf">
+        <input type="text" placeholder="2-12位中英文字符和数字"/>
+    </div>
+    <p class="tips"></p>
+    <a class="submit_btn ct" href="#">抢注名号</a>
+</div>
+<div class="dialog_card_tips" id="card_tips">
+    <div class="head uuiDialog-head">
+        <span></span>
+        <a class="close ct uuiDialog-close" href="#" onmousedown="$.UUIBase.stopPropagation(event)" ontouchstart="$.UUIBase.stopPropagation(event)" onclick="return false;">关闭</a>
+    </div>
+    <div class="content">
+
+    </div>
+</div>
+<!-- alert dialog -->
+<div class="alert-dialog" id="AlertDialog">
+    <div class="dialog-content"></div>
+    <a href="#" class="close"></a>
+</div>
+<a class="gotop ct" id="gotop" href="#">返回顶部</a>
+<input type="hidden" id="common_isLogin" value="0"/>
+<input type="hidden" id="common_uid" value=""/>
+<div id="login_body"></div>
+<div class="qr_code" style="background:url(http://p4.123.sogoucdn.com/imgu/2016/03/20160324111126_767.gif) no-repeat;">
+<i class="close"></i>
+</div>
+</body>
+<script type="text/javascript" src="http://p0.123.sogou.com/u/js/ursa.js"></script>
+<script type="text/javascript" src="http://account.sogou.com/static/api/passport.js"></script>
+<script type="text/javascript">
+    var loadStartTime = +new Date()
+    require.config({
+        baseUrl: "/views/static/js",
+        urlArgs: "t=074189"
+    });
+    require(['main'], function (main) {
+        main.common && main.common();
+    });
+    var spb_vars = spb_vars || {
+        "ptype":"xiaohua2nd",
+        "pcode":"main",
+        "islogin":"0",
+        "uname":""
+    };
+    (function() {
+        var pb = document.createElement('script');
+        pb.type = 'text/javascript';
+        pb.async = true;
+        pb.src = 'http://pb.i.sogou.com/u/pb/pb.257175.js?t=20130820';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(pb, s);
+    })();
+</script>
+</html>
+<!--zly-->

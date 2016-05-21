@@ -1,0 +1,1245 @@
+
+
+
+
+
+
+<!DOCTYPE HTML>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="MV,MTV,高清MV,MV下载,高清MTV下载,MV免费下载,高清MV免费下载,MV视频,音乐MV,在线观看,MV手机免费下载,视频,在线视频MTV,口袋·FAN"/>
+	<meta name="description" content="音悦Tai-全球最大的高清MV网站，提供高品质音乐视频在线观看服务。同时也是国内最大的粉丝社区，超过2000万音乐爱好者在这里聚集。"/>
+	<meta name="viewport" content="width=1002">
+	<meta name="baidu-site-verification" content="d23b76SBuk"/>
+	<meta name="baidu-tc-cerfication" content="ffb166fcdf37d755dda2b0bd0e707808"/>
+	<meta property="qc:admins" content="647506777761161554116375"/>
+	<link rel="search" type="application/opensearchdescription+xml" title="音悦台MV搜索" href="/glossary/yyt_glossary.xml"/>
+	<title>音悦Tai-口袋·FAN-看好音乐</title>
+	<link href="http://s.c.yinyuetai.com/201605161424/css/common.css" rel="stylesheet" type="text/css">
+	<link href="http://s.c.yinyuetai.com/201605161424/css/app/main/index.css" rel="stylesheet" type="text/css">
+	
+
+<meta name="apple-itunes-app" content="app-id=767238876"/>
+<script src="http://s.c.yinyuetai.com/v2/js/require.2.1.9-jquery.1.10.2-underscore.1.5.2-backbone.1.0.0.js"></script>
+<script>
+	var _hmt = [];
+	var Y = Y || {}, config = config || {};
+	Y.jsBaseUrl = "http://s.c.yinyuetai.com/201605161424/js/";
+	Y.domains = {
+		urlStatic : "http://s.c.yinyuetai.com",
+		loginSite : "http://login.yinyuetai.com",
+		mainSite : "http://www.yinyuetai.com",
+		mvSite : "http://mv.yinyuetai.com",
+		homeSite : "http://i.yinyuetai.com",
+		vchartSite : "http://vchart.yinyuetai.com",
+		commentSite : "http://comment.yinyuetai.com",
+		playlistSite : "http://pl.yinyuetai.com",
+		searcresiehSite : "http://so.yinyuetai.com",
+		vSite : "http://v.yinyuetai.com",
+		fanSite : "",
+		paySite : "",
+		tradeSite : "",
+		shopSite : "",
+		vipSite : ""
+	};
+	Y.swfs = {
+		mvplayer : "http://s.c.yinyuetai.com/swf/common/mvplayer.swf?t=2015110713",
+		playerloader : "http://s.c.yinyuetai.com/swf/common/playerloader.swf?rev",
+		explayer : "http://s.c.yinyuetai.com/swf/common/explayer.swf?rev",
+		markerlocation : 'http://s.c.yinyuetai.com/swf/common/marker.swf?rev'
+	};
+	Y.comment = {};
+	flashObj = {};
+</script>
+<script src="http://s.c.yinyuetai.com/201605161424/js/common.js"></script>
+<script src="https://api.geetest.com/get.php"></script>
+<script type="text/javascript">
+	Y.pcpusher = typeof Y.pcpusher === "undefined" ? true : Y.pcpusher; //默认显示
+	Y.returntop = true;
+	$(function() {
+		if (!Y.isLoadByPartner) {
+			require(["prober"], function(prober) {
+				setTimeout(function() {
+					var n = "pc, mac";
+					if (n.indexOf(prober.device.name) !== -1) {
+						if (Y.returntop) {
+							require(['modules/yinyuetai/returntop']);
+						}
+						if (Y.pcpusher) {
+							require(['modules/yinyuetai/pcpusher']);
+						}
+					}
+				}, 1500)
+			});
+		}
+	})
+</script>
+<script>
+	require(['juicer', 'uri'], function(juicer, Uri) {
+		var uri = new Uri(location.href);
+
+		juicer.register('tongji_link', function(link, index) {
+			if (uri.getQueryParamValue('f')) {
+				return link + '?f=' + uri.getQueryParamValue('f') + '-' + (parseInt(index) + 1);
+			} else {
+				return link;
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	if (!window.UA_Opt) {
+		var UA_Opt = new Object;
+		UA_Opt.SendMethod = 1;
+		UA_Opt.FormId = "loginBoxForm";
+		UA_Opt.ExTarget = ['password'];
+		window[UA_Opt.LogVal] = "";
+		UA_Opt.Token = new Date().getTime() + ":" + Math.random();
+		UA_Opt.MaxMCLog = 50;
+		UA_Opt.MaxKSLog = 50;
+		UA_Opt.MaxMPLog = 50;
+		UA_Opt.MaxTCLog = 50;
+		UA_Opt.MaxFocusLog = 50;
+		UA_Opt.Flag = 1965567;
+	}
+</script>
+<script type='text/javascript' src='//uaction.alicdn.com/js/uab.js'></script>
+<script>
+	//防止加载失败，异步一次
+	(function() {
+		if (typeof(window.acjs) == 'undefined') {
+			var _script = document.createElement('script');
+			_script.src = '//acjs.aliyun.com/js/uab.js';
+			document.body.appendChild(_script);
+		}
+	})();
+</script>
+<script type="text/javascript">
+	function setShareContent(obj){
+		var ua = window.navigator.userAgent.toLowerCase();
+
+		try{
+			if(ua.indexOf("android") > 0) {
+				window.jsObj.setShareContent(JSON.stringify(obj));
+			}else if (ua.indexOf("iphone") > 0) {
+				//iphone需要延迟一秒才能收到消息，原因不明
+				setTimeout(function(){
+					obj.type = "setShareContent";
+					iosSendMessage(obj);
+				},1000);
+			}
+		}catch (e){
+
+		}
+	}
+</script>
+
+    <style>
+        .shopLink{
+            position:fixed;
+            z-index:999;
+            bottom:170px;
+            right:0;
+            width:100px;
+            height:100px;
+            background:url('http://img1.c.yinyuetai.com/user/photo/160329/2841251/-M-f44aaab22c695b7b7567a654083c751f_800x0.jpg') no-repeat;
+            cursor:pointer;
+        }
+    </style>
+	<script type="text/javascript">
+		Y.siteName = "www";
+	</script>
+</head>
+<body>
+
+<script type="text/javascript">
+	var ua = window.navigator.userAgent.toLowerCase();
+
+	if (ua.indexOf("iphone") > 0 || ua.indexOf("android") > 0) {
+		window.location.href = "http://m.yinyuetai.com" + window.location.search;
+	}
+</script>
+
+	<script text="text/javaScript">
+		if (!TRACK_SHOW || TRACK_SHOW.length < 1) {
+			var TRACK_SHOW = new Array();
+		}
+		
+
+		(function() {
+			if (TRACK_SHOW.length && (window != window.parent)) {
+				for (var i = 0; i < TRACK_SHOW.length; i++) {
+					var img = document.createElement('img');
+					img.src = TRACK_SHOW[i] + '&t=' + new Date().getTime();
+					document.body.appendChild(img);
+				}
+
+				window.stop ? window.stop() : document.execCommand("Stop");
+			}
+		})();
+	</script>
+
+<!-- Start topbar -->
+
+	
+
+
+
+
+
+
+
+
+
+<div class="topbar">
+<div class="content">
+<h1 class="fl">
+	<a href="http://www.yinyuetai.com" class="logo" title="音悦Tai">音悦Tai - Logo</a>
+</h1>
+<ul class="menus fl">
+	<li class="menu hoverhandler">
+		
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/mv" class="">我的MV</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/pl" class="">我的悦单</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/blog" class="">我的日志</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/album" class="">我的相册</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/fan" class="">我的饭团</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/friend" class="">我的悦友</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/myhome/preview" class="fillet ">我的展示页</a>
+			</li>
+		</ul>
+	</li>
+	
+	
+	
+
+	<li class="menu">
+		<a href="http://www.yinyuetai.com" class="link current">首页</a>
+	</li>
+	<li class="menu hoverhandler">
+		<a href="http://mv.yinyuetai.com" class="link "><span class="fl"
+		                                                                             style="*margin-top:-1px;">MV</span><b
+				class="fl"></b></a>
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://mv.yinyuetai.com" class="">MV频道</a>
+			</li>
+			<li>
+				<a href="http://mv.yinyuetai.com/recommend" class="">推荐MV</a>
+			</li>
+			<li>
+				<a href="http://mv.yinyuetai.com/all?sort=weekViews" class="fillet ">全部MV</a>
+			</li>
+
+		</ul>
+	</li>
+	<li class="menu hoverhandler">
+		<a href="http://pl.yinyuetai.com" class="link " title="悦单"><span class="fl">悦单</span><b class="fl"></b></a>
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://pl.yinyuetai.com/" class="">推荐悦单</a>
+			</li>
+			<li>
+				<a href="http://pl.yinyuetai.com/person_recommend" class="">悦单达人</a>
+			</li>
+			<li>
+				<a href="http://pl.yinyuetai.com/playlist_newRecommend"
+				   class="fillet ">全部悦单</a>
+			</li>
+		</ul>
+	</li>
+	<li class="menu hoverhandler">
+		<a href="http://vchart.yinyuetai.com/vchart" class="link "><span
+				class="fl">V榜</span><b class="fl"></b></a>
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://vchart.yinyuetai.com/vchart" class="">聚焦</a>
+			</li>
+			<li>
+				<a href="http://vchart.yinyuetai.com/vchart/trends" class="">打榜动态</a>
+			</li>
+			<li>
+				<a href="http://vchart.yinyuetai.com/vchart/v" class="">周榜top20</a>
+			</li>
+			<li>
+				<a href="http://vchart.yinyuetai.com/vchart/month" class="fillet ">月榜top10</a>
+			</li>
+		</ul>
+	</li>
+	<li class="menu">
+		<a href="http://fan.yinyuetai.com" class="link ">粉丝聚焦</a>
+	</li>
+	<li class="menu">
+		<a href="http://shop.yinyuetai.com" class="link " target="_blank">商城</a>
+	</li>
+	
+	<li class="menu">
+		<a href="http://news.yinyuetai.com" class="link ">资讯</a>
+	</li>
+	<li class="menu hoverhandler">
+		<a href="http://www.yinyuetai.com/apps/yinyue_mini" target="_blank" class="link"><span class="fl ">应用</span><b
+				class="fl"></b></a>
+		<span class="top_new"></span>
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://www.yinyuetai.com/apps/mobile" target="_blank" class="">移动客户端</a>
+			</li>
+			<li>
+				<a href="http://yuantv.yinyuetai.com/web" target="_blank" class="">元TV-直播<span class="small_new"></span></a>
+			</li>
+			<li>
+				<a href="http://www.yinyuetai.com/apps/yinyue_mini" target="_blank" class="">PC客户端</a>
+			</li>
+			<li>
+				<a href="http://tv.yinyuetai.com" class="">音悦TV</a>
+			</li>
+			<li>
+				<a href="http://www.yinyuetai.com/apps/mobile/tian" target="_blank" class="fillet " title="舔">舔</a>
+			</li>
+		</ul>
+	</li>
+	<li class="menu hoverhandler">
+		<a href="http://program.yinyuetai.com" class="link "><span
+				class="fl">节目</span><b class="fl"></b></a>
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://program.yinyuetai.com" class="">点播节目</a>
+			</li>
+			<li>
+				<a href="http://www.yinyuetai.com/show" class="">直播节目</a>
+			</li>
+		</ul>
+	</li>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	<li class="menu hoverhandler">
+		
+		<a href="http://www.yinyuetai.com/apps/fan" class="link "><span
+				class="fl">口袋FAN</span></a>
+	</li>
+
+	<li class="menu hoverhandler">
+		
+		<a href="http://stage.yinyuetai.com" class="link " target="_blank"><span class="fl">音悦Stage</span></a>
+	</li>
+
+	<li class="menu hoverhandler">
+		<a href="http://tian.web.yinyuetai.com/" class="link "><span
+				class="fl">舔</span></a>
+	</li>
+	<li class="menu hoverhandler">
+		
+		<a href="http://billboardradio.laylio.radioactive.sg/?p=cea0ad59f9689e8a06500b4709001762&s=gfm-asiahitzchina" target="_blank" class="link "><span
+				class="fl">BRC</span>
+			<span class="arrow"></span></a>
+
+	</li>
+</ul>
+<ul class="userinfo fr hide">
+	<li class="user fr hoverhandler">
+		<a class="link" href="http://i.yinyuetai.com"><span class="fl username"></span><b class="fl"></b></a>
+		<ul class="dropdownmenu fillet">
+			<li>
+				<a href="http://i.yinyuetai.com/userId?preview&setskin=1" class="decoration">装扮我的家</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/settings/profile">个人设置</a>
+			</li>
+			<li>
+				<a href="http://trade.yinyuetai.com?r=1463713587417">我的订单</a>
+			</li>
+			<li>
+				<a href="http://i.yinyuetai.com/authen/index">认证中心</a>
+			</li>
+			<li>
+				<a href="http://login.yinyuetai.com/logout" class="fillet">退出</a>
+			</li>
+		</ul>
+	</li>
+	<li class="notification fr hoverhandler">
+		<a href="http://i.yinyuetai.com/news/index" class="messenger">通知</a>
+		<span class="number hide"></span>
+		<ul class="dropdownmenu fillet hide">
+		</ul>
+	</li>
+	<li class="msg_close_li">
+		<a href="javascript:void(0);" class="msg_close hide"></a>
+	</li>
+</ul>
+<div class="login fr">
+	<a class="loginBtn J_login" href="http://login.yinyuetai.com/login">登录</a>
+	<a href="http://login.yinyuetai.com/register">注册</a>
+</div>
+<div class="login fr" style="width: 50px;">
+	<a class="loginBtn" href="http://vip.yinyuetai.com" style="border-right: 0;padding-right: 0;margin-right: 0;">VIP会员</a>
+</div>
+<div class="search hide fr">
+	<div class="left_park_side"></div>
+	<div class="right_park_side"></div>
+	<form action="http://so.yinyuetai.com" target="_blank">
+		<div class="searchbody">
+			
+			
+				<input type="text" name="keyword" autocomplete="off" data-url="http://v.yinyuetai.com/video/2566584"
+				       placeholder="薛之谦为写段子愁到要脱发"/>
+			
+		</div>
+		<button type="submit">搜索</button>
+	</form>
+	<ul class="autocomplete autocompletehide">
+	</ul>
+</div>
+</div>
+<script type="text/tmp" id="autocompleteTpl">
+	<li class="h39"></li>
+	{@each videos as items}
+	{@each items as item, index}
+	{@if item.type == 'key'}
+	<li>
+		<a href="http://so.yinyuetai.com/mv?keyword={{item.word|encodeURIComponent}}" class="h30 t9 l26"
+		   target="_blank"><strong>{{{item.word}}}</strong></a>
+	</li>
+	{@if index == items.length - 1}
+
+	<li class="dotted"></li>
+	{@/if}
+	{@/if}
+
+	{@/each}
+	{@/each}
+
+	{@each videos as items}
+	{@each items as item, index}
+	{@if item.type == 'video'}
+	{@if index == 0}
+	<li>
+		<a href="http://so.yinyuetai.com/mv?keyword={{keyword|encodeURIComponent}}" class="h30 t9 l26 head video"
+		   target="_blank">搜索<strong>{{keyword}}</strong>的相关视频</a>
+	</li>
+	{@/if}
+	<li>
+		<a href="http://v.yinyuetai.com/video/{{item.id}}" target="_blank" class="h30 t25 l26">{{{item.word}}}</a>
+	</li>
+	{@if index == items.length - 1}
+	<li class="dotted"></li>
+	{@/if}
+	{@/if}
+
+	{@/each}
+	{@/each}
+	{@each videos as items}
+	{@each items as item, index}
+
+	{@if item.type == 'artist'}
+	{@if index == 0}
+	<li>
+		<a href="http://so.yinyuetai.com/artist?keyword={{keyword|encodeURIComponent}}" class="h30 t9 l26 head fans"
+		   target="_blank">搜索<strong>{{keyword}}</strong>的相关饭团</a>
+	</li>
+	{@/if}
+	<li>
+		<a href="http://www.yinyuetai.com/fanclub/{{item.id}}" class="h57" target="_blank">
+			<img class="avatar" src={{item.headImg}}>
+			<span class="title">{{{item.word}}}</span>
+		</a>
+	</li>
+	{@if index == items.length - 1}
+	<li class="dotted"></li>
+	{@/if}
+	{@/if}
+	{@if item.type == 'person'}
+	{@if index == 0}
+	<li>
+		<a href="http://i.yinyuetai.com/s/u?keyword={{keyword|encodeURIComponent}}" class="h30 t9 l26 head firend"
+		   target="_blank">搜索<strong>{{keyword}}</strong>的相关悦友</a>
+	</li>
+	{@/if}
+	<li>
+		<a href="http://i.yinyuetai.com/{{item.id}}/friend" class="h57" target="_blank">
+			<img class="avatar" src={{item.headImg}}>
+			<span class="title">{{{item.word}}}</span>
+		</a>
+	</li>
+	{@if index == items.length - 1}
+	<li class="dotted"></li>
+	{@/if}
+	{@/if}
+	{@/each}
+	{@/each}
+	<li>
+		<a href="http://so.yinyuetai.com/article?keyword={{keyword|encodeURIComponent}}"
+		   class="h30 t9 l26 head other last" target="_blank">搜索<strong>{{keyword}}</strong>的其他信息</a>
+	</li>
+
+</script>
+<script type="text/tmp" id="autocompletenormalTpl">
+	
+		<li class="h39"></li>
+		
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2573501" target="_blank"
+				   class='h30 t25 l26 '>潘玮柏吐槽杨丞琳非贤妻?!</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2569712?f=SY-ZZJM-list-1" target="_blank"
+				   class='h30 t25 l26 '>板野友美&河西智美合体虐狗</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/playlist/4201098" target="_blank"
+				   class='h30 t25 l26 '>韩女团CLC遇灵异事件被吓哭</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2566584" target="_blank"
+				   class='h30 t25 l26 '>薛之谦为写段子愁到要脱发</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2564963" target="_blank"
+				   class='h30 t25 l26 '>妖男当道 魔性来袭！</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/playlist/4195343" target="_blank"
+				   class='h30 t25 l26 '>ASTRO为艺能献身 清新idol变逗比</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2564255" target="_blank"
+				   class='h30 t25 l26 '>UNIQ 汪苏泷 MIC嗨翻后台</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2559332" target="_blank"
+				   class='h30 t25 l26 '>十年追梦 闪耀AKB的毕业生们</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2563209" target="_blank"
+				   class='h30 t25 l26 '>鸟叔为粉丝愿意大胆尝试女装</a>
+			</li>
+		
+			<li>
+				<a href="http://v.yinyuetai.com/video/2562390" target="_blank"
+				   class='h30 t25 l26 last'>【专访】《美国队长3》主创团队!这是一场家庭纠纷?</a>
+			</li>
+		
+	
+
+</script>
+<script type="text/javascript">
+	if (!Y.isLoadByPartner) {
+		require(['modules/yinyuetai/topbar']);
+	}
+</script>
+
+</div>
+
+<!-- End topbar -->
+<div class="index_auto">
+	<!-- Start 焦点图 -->
+	<div class="index_focus">
+		<a href="javascript:;" class="index_focus_pre J_toggle" data-direction="prev" title="上一张">上一张</a>
+		<a href="javascript:;" class="index_focus_next J_toggle" data-direction="next" title="下一张">下一张</a>
+		<ul>
+			
+				
+					<li>
+						<a href="http://v.yinyuetai.com/video/2573540?f=SY-JDT-MV-1" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图0', '0'])">
+							
+							<img class="pic" src="http://img2.c.yinyuetai.com/others/admin/160518/0/-M-c02a7922f071009bf1c9b3367c6882a3_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://v.yinyuetai.com/playlist/4205974?f=SY-JDT-YDM-2" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图1', '1'])">
+							
+								<div class="index_focus_info J_focus_info"
+								     style="
+								     ">
+									<h3>2016第20期V榜周榜节目出炉</h3>
+
+									<p class="text">杨洋《夏日顺发舞》初夏登顶！邓紫棋《给你的歌》开启霸榜模式！Desiigner《Panda》后生可畏！Tiffany《I Just Wanna Dance》空降一位！安室奈美惠《Mint》女王归位！</p>
+								</div>
+							
+							<img class="pic" src="http://img1.c.yinyuetai.com/others/admin/160519/0/-M-669384da94d55a36355370e822f54788_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://v.yinyuetai.com/video/2573501?f=SY-JDT-MV-3" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图2', '2'])">
+							
+							<img class="pic" src="http://img4.c.yinyuetai.com/others/admin/160518/0/-M-bd77cbfc4ff7548612e5119abf11184d_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://v.yinyuetai.com/video/2573339?f=SY-JDT-MV-4" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图3', '3'])">
+							
+								<div class="index_focus_info J_focus_info"
+								     style="
+								     ">
+									<h3>OneRepublic《Wherever I Go》</h3>
+
+									<p class="text">【首播】日复一日的生活早已感到疲倦？快来Take a break！OneRepublic乐队新单曲《Wherever I Go》官方MV公开！每天沉闷又无趣的工作是否让你烦恼不堪，就连脸上的表情是否已经变得呆滞，这支MV让你再激动起来！编曲与旋律十分动感勾人，主唱胖子在里面更是充分展示了柔韧性。</p>
+								</div>
+							
+							<img class="pic" src="http://img1.c.yinyuetai.com/others/admin/160518/0/-M-1a9a232ed702fa69df784f16d4b3cb26_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://v.yinyuetai.com/video/2572234?f=SY-JDT-MV-5" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图4', '4'])">
+							
+								<div class="index_focus_info J_focus_info"
+								     style="
+								     ">
+									<h3>【首播】Coldplay奇幻新单《Up&Up》</h3>
+
+									<p class="text">MV由Vania Heymann和Gal Muggia执导 来自《A Head Full of Dreams》的打单新曲 MV 的创意令歌迷惊喜 这绝对是一首与MV搭配 食用更佳的单曲 在今夜Coldplay所创造的梦境时空下 分不清奇幻的梦想与另一个平行宇宙的现实又有什么所谓呢？跟着MV导演一起大开脑洞吧！</p>
+								</div>
+							
+							<img class="pic" src="http://img2.c.yinyuetai.com/others/admin/160517/0/-M-4fcae0a738a5fb319161d0fdff825e34_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://v.yinyuetai.com/video/2572076?f=SY-JDT-MV-6" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图5', '5'])">
+							
+							<img class="pic" src="http://img4.c.yinyuetai.com/others/admin/160516/0/-M-5eeb884b6187be83a5d229bb9ae5a1e0_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://stage.yinyuetai.com/entrance?f=SY-JDT-YDM-7" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图6', '6'])">
+							
+							<img class="pic" src="http://img0.c.yinyuetai.com/others/admin/160517/0/-M-af558fd400ae55814e7e6b20992c66a8_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://shop.yinyuetai.com/search.action?keyword=SM%E5%AE%98%E6%96%B9%E9%A5%B0%E5%93%81&f=SY-JDT-SHOP-8" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图7', '7'])">
+							
+							<img class="pic" src="http://img1.c.yinyuetai.com/others/admin/160517/0/-M-9ed263b5919ccbc48a1d4beccfccb836_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://feature.yinyuetai.com/fxgl/9?f=SY-JDT-YDM-9" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图8', '8'])">
+							
+							<img class="pic" src="http://img4.c.yinyuetai.com/others/admin/160514/0/-M-04e01d25880f56dee37b238a15fcb933.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+					<li>
+						<a href="http://v.yinyuetai.com/video/2571642?f=SY-JDT-MV-10" class="pic" target="_blank" onclick="_hmt.push(['_trackEvent', '首页大图9', '9'])">
+							
+							<img class="pic" src="http://img4.c.yinyuetai.com/others/admin/160516/0/-M-3fd801e5d477b9e15dd6c4120340761b_0x0.jpg" width="1600" height="600" alt=""/>
+						</a>
+					</li>
+				
+			
+		</ul>
+		<div class="slide_nav J_nav">
+		</div>
+	</div>
+	<!-- End 焦点图 -->
+	
+	<script type="text/javascript">
+		if (!Y.isLoadByPartner) {
+			$.getJSON('/api/directional/get-directional-result?json=true', function(result) {
+				if (result.directionalResult) {
+					$.getJSON('/partner/get-partner-code?json=true&placeIds=index_push', function(result) {
+						if (result.index_push) {
+							var object = $(".index_focus").find("ul li").eq(1);
+							var index_bottom = $.parseJSON(result.index_push.replace(/'/ig, '"'));
+							object.find('a').attr('href', index_bottom.url);
+							object.find('h3').text(index_bottom.title);
+							object.find('.text').text(index_bottom.content);
+							object.find('img').attr('src', index_bottom.img);
+							var imp = index_bottom.imp + '&t=' + new Date();
+							$('<img src="' + imp + '" style="display:none;" />').appendTo(document.body);
+						}
+
+					});
+				}
+			});
+		}
+	</script>
+	
+	<!-- Start 内容 -->
+	<div class="index_content">
+		<!-- Start 广告位 -->
+		<div class="focus_bottom_banner" style="overflow: hidden; text-align: center;">
+			<div class="banner_container" style="margin: 10px auto; display: block;">
+				
+			</div>
+		</div>
+		<!-- End 广告位 -->
+
+		
+
+
+
+
+<!-- Start MV首播 -->
+<div class="index_box clearfix" id="shoubo">
+	<div class="index_title">
+		<h3 class="fl ico_index_premiere01">MV首播1</h3>
+		
+
+<div class="fr group_tab">
+    <a href="javascript:;" class="J_area cur" data-area="all" onclick="_hmt.push(['_trackEvent', 'MV首播*全部', '全部']);">全部</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="ml" onclick="_hmt.push(['_trackEvent', 'MV首播*内地', '内地']);">内地</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="ht" onclick="_hmt.push(['_trackEvent', 'MV首播*港台', '港台']);">港台</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="us" onclick="_hmt.push(['_trackEvent', 'MV首播*欧美', '欧美']);">欧美</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="kr" onclick="_hmt.push(['_trackEvent', 'MV首播*韩国', '韩国']);">韩国</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="jp" onclick="_hmt.push(['_trackEvent', 'MV首播*日本', '日本']);">日本</a>
+</div>
+
+	</div>
+	<a href="javascript:;" class="group_pre1 J_prev" onclick="_hmt.push(['_trackEvent', 'MV首播*上一页', '上一页'])"></a>
+	<a href="javascript:;" class="group_next1 J_next" onclick="_hmt.push(['_trackEvent', 'MV首播*下一页', '下一页'])"></a>
+	<span class="ico_loading"></span>
+
+	<div class="index_list_auto">
+		<ul class="index_list_w">
+			<li class="index_list">
+				
+				<div class="J_add_convenient_container mv_pic mr_r22 shadow">
+					
+					
+						<a href="http://v.yinyuetai.com/video/2574512?f=SY-MKDT-MVSB-1"
+						   class="pic play_pic1" target="_blank" onclick="_hmt.push(['_trackEvent', 'MV首播*大图*左', '大图', '左'])">
+							<img src="http://img3.c.yinyuetai.com/others/frontPageRec/160520/0/-M-0fdd189d8289162ab3015f16ce03e292_0x0.jpg" width="468" height="273" alt="当一个北京人爱你"/>
+
+							<div class="play_name" style="display: block;">
+								<h4 class="text fb14 mr_t75">当一个北京人爱你</h4>
+
+								
+									<p class="text c_cf9">
+										
+											
+											杨玏
+										
+											 & 
+											小老虎
+										
+									</p>
+								
+							</div>
+							<span class="ico_play">播放</span>
+						</a>
+							
+							
+							
+						
+					</div>
+
+			</li>
+		</ul>
+		<div class="clearfloat"></div>
+	</div>
+
+</div>
+
+
+<!-- End MV首播 -->
+
+		
+
+
+
+<!-- Start 正流行 -->
+<div class="index_box clearfix" id="zhengliuxing">
+    <div class="index_title">
+        <h3 class="fl ico_index_popular">正流行</h3>
+        
+
+<div class="fr group_tab">
+    <a href="javascript:;" class="J_area cur" data-area="all" onclick="_hmt.push(['_trackEvent', '正在流行*全部', '全部']);">全部</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="ft" onclick="_hmt.push(['_trackEvent', '正在流行*影视', '影视']);">影视</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="ml" onclick="_hmt.push(['_trackEvent', '正在流行*内地', '内地']);">内地</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="ht" onclick="_hmt.push(['_trackEvent', '正在流行*港台', '港台']);">港台</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="us" onclick="_hmt.push(['_trackEvent', '正在流行*欧美', '欧美']);">欧美</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="kr" onclick="_hmt.push(['_trackEvent', '正在流行*韩国', '韩国']);">韩国</a>
+    <span class="ico_line"></span>
+    <a href="javascript:;" class="J_area" data-area="jp" onclick="_hmt.push(['_trackEvent', '正在流行*日本', '日本']);">日本</a>
+</div>
+
+    </div>
+    <a href="javascript:;" class="group_pre1 J_prev" onclick="_hmt.push(['_trackEvent', '正在流行*上一页', '上一页'])"></a>
+    <a href="javascript:;" class="group_next1 J_next" onclick="_hmt.push(['_trackEvent', '正在流行*下一页', '下一页'])"></a>
+    <span class="ico_loading"></span>
+
+    <div class="index_list_auto">
+        <ul class="index_list_w">
+            <li class="index_list">
+                <div class="mv_pic shadow index_w716">
+	                
+	                
+		                <div class="fl">
+	                
+	                    <a href="http://v.yinyuetai.com/video/2574538?SY-MKDT-ZZLX-1"
+	                       class="fl pic play_pic1" target="_blank" onclick="_hmt.push(['_trackEvent', '正在流行*大图*左', '大图', '左'])">
+	                        <img src="http://img4.c.yinyuetai.com/others/frontPageRec/160520/0/-M-8fd13f8490512bb78f9fb338b8a26466_0x0.jpg" width="468" height="273" alt=""/>
+	                        <span class="ico_play">播放</span>
+	                    </a>
+                        
+                        
+                        
+		            </div>
+
+                    <div class="fl index_info">
+                        <h4 class="title">
+                            <a href="http://v.yinyuetai.com/video/2574538?SY-MKDT-ZZLX-1"
+                               target="_blank">
+                                李宇春《野》概念宣传片
+                            </a>
+                        </h4>
+
+                        
+
+                        
+                        <p class="info">李宇春2016全新专辑《野蛮生长》首张数字EP《野》概念宣传片正式曝光。李宇春凝视镜头，眼神纯净，极具视觉冲击力的画面，表达了《野》“无辜出世，野生野长”的音乐概念。“云层肥厚，天地很宽，疯狂爱你，与你何关。”这四句特意选择在5月20日曝光，表白春春~</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- End 正流行 -->
+
+		
+
+
+
+
+<!-- Start 音悦V榜 -->
+<div class="index_box index_vchart clearfix" id="vchart">
+	<div class="index_title">
+		<h3 class="fl ico_index_vchart">音悦V榜</h3>
+		<a href="http://vchart.yinyuetai.com/vchart/v" target="_blank" class="date">20</a>
+		<a href="http://vchart.yinyuetai.com/vchart/v" target="_blank" class="fl time">2016年 第20期
+			（05.09~05.15）</a>
+
+		<div class="fr group_tab">
+			<a href="javascript:;" class="J_area cur" data-area="vspecial">音悦V榜特别企划</a>
+			<span class="ico_line"></span>
+			<a href="javascript:;" class="J_area" data-area="ml">内地</a>
+			<span class="ico_line"></span>
+			<a href="javascript:;" class="J_area" data-area="ht">港台</a>
+			<span class="ico_line"></span>
+			<a href="javascript:;" class="J_area" data-area="us">欧美</a>
+			<span class="ico_line"></span>
+			<a href="javascript:;" class="J_area" data-area="kr">韩国</a>
+			<span class="ico_line"></span>
+			<a href="javascript:;" class="J_area" data-area="jp">日本</a>
+		</div>
+	</div>
+	<a href="javascript:;" class="group_pre1 J_prev" onclick="_hmt.push(['_trackEvent','音悦V榜*上一页','上一页'])"></a>
+	<a href="javascript:;" class="group_next1 J_next" onclick="_hmt.push(['_trackEvent','音悦V榜*下一页','下一页'])"></a>
+	<span class="ico_loading"></span>
+
+	<div class="index_list_auto">
+		<ul class="index_list_w">
+			<li class="index_list">
+				<div class="mv_pic shadow index_w716">
+					
+					<div class="J_add_convenient_container fl">
+						
+						
+							<a href="http://v.yinyuetai.com/video/2570463?f=SY-MKDT-YYVB-1"
+							   class="fl pic play_pic1" title="EP138 新人女团谁怕谁！" target="_blank" onclick="_hmt.push(['_trackEvent','音悦V榜*大图ml*左','大图ml','左'])">
+								<img src="http://img1.c.yinyuetai.com/others/frontPageRec/160514/0/-M-0da85e806c6ad136d42762e37aa983e0_0x0.jpg" width="468" height="273" alt=""/>
+								<span class="ico_play">播放</span>
+							</a>
+							
+							
+							
+						</div>
+
+						<div class="fl index_info">
+							<h4 class="title">
+								<a href="http://v.yinyuetai.com/video/2570463?f=SY-MKDT-YYVB-1"
+								   title="EP138 新人女团谁怕谁！" target="_blank">EP138 新人女团谁怕谁！</a>
+							</h4>
+
+							
+
+							<p class="info">春风吹！战鼓擂！新人女团谁怕谁！ #GFriend# #April# # I.O.I# #Oh My Girl# #宇宙少女#哪个组合正好戳中你的内心呢?在台上她们是训练有素的女神萌妹,在综艺中则是艺能感爆棚的铁血女汉.所以千万不要小瞧她们,一不小心可会被她们吃的死死的!</p>
+						</div>
+					</div>
+
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- End 音悦V榜 -->
+
+		
+
+<script type="text/tpl" id="video_list_tpl">
+
+	{@each videos as video,index}
+	{@if index%2==0 }
+	<div class="mv_1x2">
+		{@/if}
+		{@if video.videoId >= 0}
+		<div class="{@if video.videoId>0}J_add_convenient_container {@/if} mv_pic shadow{@if video.videoId>0} J_mv{@/if}" data-video-id="{{video.videoId}}">
+			<a href="{@if video.url}{{video.url}}{@else}http://v.yinyuetai.com/video/{{video.videoId}}?f={{video.from}}{@/if}" class="pic play_pic2"
+			   target="_blank" onclick="_hmt.push(['_trackEvent', '{{_hmt.channel}}*小图{{_hmt.areas}}*{{+_hmt.start + +index}}', '{{_hmt.channel}}', '{{+_hmt.start + +index}}'])">
+				<img src="{{video.image}}" width="220" height="124" alt="小图"/>
+
+				<div class="play_name">
+					<h4 class="text fb12 {@if video.artists.length>0}mr_t80{@else}mr_t100{@/if}">{{video.title}}</h4>
+
+					{@if video.artists&&video.artists.length > 0}
+					<p class="text c_cf9">
+						{@each video.artists as artist,index}
+						{@if index>0} & {@/if}
+						{{artist.artistName}}
+						{@/each}
+					</p>
+					{@/if}
+				</div>
+				{@if video.videoId>0}<span class="ico_play">播放</span>{@/if}
+				{@if video.rank}
+                <span class="play_vchart_num"><em>{{video.rank}}</em><i
+		                class="cor{@if video.rank<4}{{video.rank}}{@/if}"></i></span>
+				{@/if}
+			</a>
+			{@if video.partner}<span class="clear_special"></span>{@/if}
+		</div>
+		{@else if video.type=="trends" }
+		<div class="mv_pic shadow">
+			<a href="http://vchart.yinyuetai.com/vchart/trends?f={{video.from}}}" class="index_vchart_dynamic" target="_blank">
+				查看打榜动态<span class="ico20_vchart_dynamic"></span>
+			</a>
+		</div>
+
+		{@else if video.type=="v" }
+		<div class="mv_pic shadow">
+			<a href="http://vchart.yinyuetai.com/vchart/v?f={{video.from}}}" class="index_vchart_dynamic" target="_blank">
+				查看往期榜单<span class="ico20_vchart_time"></span>
+			</a>
+		</div>
+		{@/if}
+		{@if index%2==1||index==videos.length-1}
+	</div>
+	{@/if}
+	{@/each}
+</script>
+<script type="text/tpl" id="video_info_tpl">
+	{@if customTitle}<p class="title">
+	<span class="fl ico20_comma_l"></span>{{customTitle}}<i class="ico20_comma_r"></i></p>
+	{@/if}
+
+	<p class="num">
+		<span class="ico20_play">{{totalViews}}</span>
+		<span class="ico20_comment">{{totalComments}}</span>
+		{@if rank!=0}
+		<a href="http://vchart.yinyuetai.com/vchart/trends" class="ico20_vchart" target="_blank">{{rank}}<i
+				class="{@if up}ico20_rise{@else}ico20_decline{@/if}"></i></a>
+		{@/if}
+	</p>
+
+	<p class="info">{{content}}</p>
+</script>
+<script type="text/tpl" id="vchart_rec_tpl">
+
+	<div class="mv_pic shadow index_w716">
+		{@if videoId}
+		<div class="J_add_convenient_container fl">
+			{@/if}
+			<a href="{@if videoId}http://v.yinyuetai.com/video/{{videoId}}?f=SY-MKDT-YYVB-1{@else}{@/if}" class="fl pic play_pic1" title="{{title}}"
+			   target="_blank">
+				<div class="pic">
+					<img src="{{image}}" width="468" height="273" alt="" onclick="_hmt.push(['_trackEvent','音悦V榜*大图{{area}}*左','大图{{area}}','左'])"/>
+				</div>
+			</a>
+			{@if videoId}
+			<span class="J_add_convenient" title="加入便捷悦单" data-video-id="{{videoId}}"></span>
+		</div>
+		{@/if}
+
+		<div class="fl index_info">
+			<h4 class="title"><a href="{@if videoId}http://v.yinyuetai.com/video/{{videoId}}?f=SY-MKDT-YYVB-1{@else}{@/if}" target="_blank">{{title}}</a>
+			</h4>
+
+			<p class="info">{{content}}</p>
+		</div>
+	</div>
+</script>
+		<script type="text/javascript">
+			require(["app/main/index"], function(index) {
+				var Tray = index.Tray, store = index.store;
+
+				new Tray({
+					el : $('#shoubo'),
+					tpl : $('#video_list_tpl').html(),
+					data : [{"artists":[{"artistName":"谭维维","id":3468}],"from":"SY-MVSB-QB-1","image":"http://img0.c.yinyuetai.com/video/mv/160520/2574539/-M-5d6896b717a7067d9b7fea1f5895ba57_240x135.jpg?t=20160520103300","partner":false,"rank":0,"title":"我亲爱的 电视剧<亲爱的翻译官>主题曲","videoId":2574539},{"artists":[{"artistName":"Lawson","id":23893}],"from":"SY-MVSB-QB-2","image":"http://img3.c.yinyuetai.com/video/mv/160520/2574441/-M-fcd20c9a6f2409109e5d317c8520d2b5_240x135.png","partner":false,"rank":0,"title":"Where My Love Goes","videoId":2574441},{"artists":[{"artistName":"岚","id":194}],"from":"SY-MVSB-QB-3","image":"http://img4.c.yinyuetai.com/video/mv/160520/2573247/-M-9643de3fd296eb138c1c9dab1289d004_240x135.jpg?t=20160518093450","partner":false,"rank":0,"title":"I seek","videoId":2573247},{"artists":[{"artistName":"华语群星","id":4538}],"from":"SY-MVSB-QB-4","image":"http://img3.c.yinyuetai.com/video/mv/160520/2574475/-M-b6fccd723a00c23632a9ad3b8cac1f03_240x135.jpg","partner":false,"rank":0,"title":"烟袋斜街十号 网络剧<烟袋斜街十号>主题曲","videoId":2574475},{"artists":[{"artistName":"Dana","id":1267}],"from":"SY-MVSB-QB-5","image":"http://img2.c.yinyuetai.com/video/mv/160519/2574398/-M-ca7cfcd46a1cd098655ca6accdc860d7_240x135.jpg?t=20160519231014","partner":false,"rank":0,"title":"Touch You 完整版","videoId":2574398},{"artists":[{"artistName":"DNCE","id":39475}],"from":"SY-MVSB-QB-6","image":"http://img3.c.yinyuetai.com/video/mv/160519/2573950/-M-ed4546762c81b8620f84dab7306dd680_240x135.jpg?t=20160519122508","partner":false,"rank":0,"title":"Toothbrush","videoId":2573950},{"artists":[{"artistName":"岚","id":194}],"from":"SY-MVSB-QB-7","image":"http://img3.c.yinyuetai.com/video/mv/160519/2573244/-M-7f71968fb45b672c47021bf34adf7ec0_240x135.jpg?t=20160518093207","partner":false,"rank":0,"title":"Daylight","videoId":2573244},{"artists":[{"artistName":"郑恩地(Apink)","id":25918}],"from":"SY-MVSB-QB-8","image":"http://img3.c.yinyuetai.com/video/mv/160519/2573686/-M-0cc45639acc0de4ee9c716d36400bcac_240x135.jpg?t=20160519094609","partner":false,"rank":0,"title":"在爱情面前 <戏子>OST Part.6","videoId":2573686},{"artists":[{"artistName":"圭贤(Super Junior)","id":16237},{"artistName":"朴载正","id":35178}],"from":"SY-MVSB-QB-9","image":"http://img0.c.yinyuetai.com/video/mv/160518/2573684/-M-7dedd33cdde6958b8672b592fc68a4b8_240x135.jpg?t=20160518232655","partner":false,"rank":0,"title":"两个男人 完整版","videoId":2573684},{"artists":[{"artistName":"OneRepublic","id":665}],"from":"SY-MVSB-QB-10","image":"http://img1.c.yinyuetai.com/video/mv/160518/2573339/-M-d4333d2e811a649a8076b677dcf70cce_240x135.png?t=20160518121628","partner":false,"rank":0,"title":"Wherever I Go","videoId":2573339},{"artists":[{"artistName":"周深","id":39878}],"from":"SY-MVSB-QB-11","image":"http://img3.c.yinyuetai.com/video/mv/160518/2573570/-M-a64c5f92f9ceb6f5482fef382e98f7cc_240x135.jpg?t=20160518202914","partner":false,"rank":0,"title":"大鱼 电影<大鱼海棠>印象曲","videoId":2573570},{"artists":[{"artistName":"薛凯琪","id":246}],"from":"SY-MVSB-QB-12","image":"http://img4.c.yinyuetai.com/video/mv/160518/2573540/-M-6a7c3672b57f02f2edbd818aa30a70e3_240x135.jpg","partner":false,"rank":0,"title":"MISS FIONA 官方版","videoId":2573540},{"artists":[{"artistName":"Amber(f(x))","id":27738},{"artistName":"f(x)","id":1841}],"from":"SY-MVSB-QB-13","image":"http://img2.c.yinyuetai.com/video/mv/160518/2841251/-M-13996f062416e72361eb680fd1b78836_240x135.png?t=20160518144630","partner":false,"rank":0,"title":"On My Own 英文版","videoId":2573406},{"artists":[{"artistName":"余少群","id":19214}],"from":"SY-MVSB-QB-14","image":"http://img3.c.yinyuetai.com/video/mv/160518/2573444/-M-0c61de36941a2eb5125e9d0a1b96fc6b_240x135.jpg?t=20160518161945","partner":false,"rank":0,"title":"为爱成泥 电影<夜孔雀>主题曲","videoId":2573444},{"artists":[{"artistName":"Blake Shelton","id":12157}],"from":"SY-MVSB-QB-15","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573364/-M-ecf6656f151c413f434029044a18a45b_240x135.jpg?t=20160518133146","partner":false,"rank":0,"title":"Savior's Shadow","videoId":2573364},{"artists":[{"artistName":"Coldplay","id":123}],"from":"SY-MVSB-QB-16","image":"http://img3.c.yinyuetai.com/video/mv/160517/2572234/-M-90ce68b0306ecca78d75b310ec580639_240x135.gif?t=20160516233458","partner":false,"rank":0,"title":"Up & Up","videoId":2572234},{"artists":[{"artistName":"寺岛拓笃","id":35530}],"from":"SY-MVSB-QB-17","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573264/-M-943089556114d105c255362b83620178_240x135.jpg?t=20160518100016","partner":false,"rank":0,"title":"0+1","videoId":2573264},{"artists":[{"artistName":"Jessica","id":17105}],"from":"SY-MVSB-QB-18","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573319/-M-188ccc1e5f1aa25406861fd5d202569d_240x135.jpg?t=20160518120439","partner":false,"rank":0,"title":"JESSICA (제시카) - LOVE ME THE SAME Official Music Video","videoId":2573319},{"artists":[{"artistName":"Justin Timberlake","id":152}],"from":"SY-MVSB-QB-19","image":"http://img1.c.yinyuetai.com/video/mv/160517/2572572/-M-cca247c54dabdf4122b1c8415e92e07e_240x135.jpg","partner":false,"rank":0,"title":"Can't Stop the Feeling 正式版","videoId":2572572},{"artists":[{"artistName":"Amber(f(x))","id":27738}],"from":"SY-MVSB-QB-20","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573304/-M-36a4d2ed2a42c35bfe9e46f9e779e89d_240x135.png?t=20160518110539","partner":false,"rank":0,"title":"On My Own(Korean ver.) 完整版","videoId":2573304},{"artists":[{"artistName":"李治廷","id":3847}],"from":"SY-MVSB-QB-21","image":"http://img2.c.yinyuetai.com/video/mv/160513/2569588/-M-ae4877e6d2a2e10dfa46b86831298625_240x135.jpg","partner":false,"rank":0,"title":"绅士作风 官方版","videoId":2569588},{"artists":[{"artistName":"Macklemore & Ryan Lewis","id":20149},{"artistName":"Anderson .Paak","id":35373},{"artistName":"Idris Elba","id":39876}],"from":"SY-MVSB-QB-22","image":"http://img3.c.yinyuetai.com/video/mv/160518/2573165/-M-79a36437806ce8af557834e8d1dda5ea_240x135.jpg?t=20160518082721","partner":false,"rank":0,"title":"Dance Off","videoId":2573165},{"artists":[{"artistName":"杭盖","id":37530}],"from":"SY-MVSB-QB-23","image":"http://img1.c.yinyuetai.com/video/mv/160518/2573258/-M-30541688a79462c9638fbb23f15aaa72_240x135.png?t=20160518094732","partner":false,"rank":0,"title":"初升的太阳 官方版","videoId":2573258},{"artists":[{"artistName":"MC GREE","id":39869}],"from":"SY-MVSB-QB-24","image":"http://img1.c.yinyuetai.com/video/mv/160517/2573066/-M-8fb0cef009e5887bffb8bccc83d90746_240x135.jpg?t=20160517231159","partner":false,"rank":0,"title":"19 完整版","videoId":2573066},{"artists":[{"artistName":"MONSTA X","id":38259}],"from":"SY-MVSB-QB-25","image":"http://img2.c.yinyuetai.com/video/mv/160517/2573062/-M-830e982199e8484f27d3c13d5f6f3cd9_240x135.jpg?t=20160517230545","partner":false,"rank":0,"title":"All in 完整版","videoId":2573062},{"artists":[{"artistName":"As One(香港)","id":25461}],"from":"SY-MVSB-QB-26","image":"http://img0.c.yinyuetai.com/video/mv/160517/2565963/-M-16b0e56200eac4d7649914739cbc403a_240x135.jpg?t=20160508214727","partner":false,"rank":0,"title":"Hey Ya!","videoId":2565963},{"artists":[{"artistName":"李荣浩","id":29074}],"from":"SY-MVSB-QB-27","image":"http://img4.c.yinyuetai.com/video/mv/160517/2572885/-M-55f4e674a62b662029c4f72c653acf1c_240x135.jpg","partner":false,"rank":0,"title":"心里面 官方版","videoId":2572885},{"artists":[{"artistName":"AOA","id":25339}],"from":"SY-MVSB-QB-28","image":"http://img3.c.yinyuetai.com/video/mv/160516/2571488/-M-27489faabd2a886b2eeba3cc460df71e_240x135.jpg","partner":false,"rank":0,"title":"Good Luck 完整版","videoId":2571488},{"artists":[{"artistName":"Jessica","id":17105}],"from":"SY-MVSB-QB-29","image":"http://img1.c.yinyuetai.com/video/mv/160517/2572292/-M-bed60582e1bbd078ee6b341041122ef1_240x135.jpg?t=20160516231129","partner":false,"rank":0,"title":"JESSICA (제시카) (Feat. Fabolous) - FLY Official Music Video","videoId":2572292},{"artists":[{"artistName":"Jake Bugg","id":26595}],"from":"SY-MVSB-QB-30","image":"http://img2.c.yinyuetai.com/video/mv/160517/2572237/-M-171ab5bdbdf84da18c89346d45895481_240x135.jpg?t=20160516221339","partner":false,"rank":0,"title":"Love,Hope And Misery","videoId":2572237},{"artists":[{"artistName":"动力火车","id":103}],"from":"SY-MVSB-QB-31","image":"http://img2.c.yinyuetai.com/video/mv/160517/2572498/-M-270aceee88418eab8c95d583ee6d5049_240x135.jpg","partner":false,"rank":0,"title":"彼此 电视剧<仙剑云之凡>主题曲","videoId":2572498},{"artists":[{"artistName":"San E","id":10599},{"artistName":"Gary","id":33009}],"from":"SY-MVSB-QB-32","image":"http://img0.c.yinyuetai.com/video/mv/160517/2572034/-M-1b60c6871bf7c3df2daa2008fe6a7c30_240x135.jpg?t=20160517000452","partner":false,"rank":0,"title":"Like An Airplane","videoId":2572034}],
+					fetchUrl : '/ajax/shoubo',
+					initSize : 8,
+					channel : 'MV首播'
+
+				});
+				new Tray({
+					el : $('#zhengliuxing'),
+					tpl : $('#video_list_tpl').html(),
+					data : [{"artists":[{"artistName":"Whitney Houston","id":1311},{"artistName":"Christina Aguilera","id":591}],"from":"SY-ZZLX-QB-1","image":"http://img3.c.yinyuetai.com/video/mv/160520/2574537/-M-35ee876b1fda7aee14aee24be089d653_240x135.jpg?t=20160520102756","partner":false,"rank":0,"title":"I Have Nothing & I'm Every Woma(3D全息对唱现场版)","videoId":2574537},{"artists":[{"artistName":"Pink","id":448}],"from":"SY-ZZLX-QB-2","image":"http://img1.c.yinyuetai.com/video/mv/160520/2574525/-M-bd1cefd8879fa0ccb376dd47f480e230_240x135.jpg?t=20160520100839","partner":false,"rank":0,"title":"Just Like Fire<爱丽丝梦游仙境2>主题曲官方正式版","videoId":2574525},{"artists":[{"artistName":"曹轩宾","id":190}],"from":"SY-ZZLX-QB-3","image":"http://img2.c.yinyuetai.com/video/mv/160520/2574536/-M-759cbb66ce9645c60795c39a934af5bd_240x135.jpg?t=20160520101601","partner":false,"rank":0,"title":"Losing You 预告版","videoId":2574536},{"artists":[{"artistName":"李易峰","id":279},{"artistName":"周冬雨","id":14997},{"artistName":"张若昀","id":28716}],"from":"SY-ZZLX-QB-4","image":"http://img3.c.yinyuetai.com/video/mv/160520/2574529/-M-c86d788bd31e4df6deaeaf2c3356627e_240x135.jpg?t=20160520101105","partner":false,"rank":0,"title":"电视剧<麻雀> 520片花致敬浴血青春","videoId":2574529},{"artists":[{"artistName":"金钟铉(SHINee)","id":30282}],"from":"SY-ZZLX-QB-5","image":"http://img3.c.yinyuetai.com/video/mv/160520/2574458/-M-9fa829db07fedf1f451ff63b7ab1a394_240x135.png?t=20160520090605","partner":false,"rank":0,"title":"喜欢(She is) 预告版3","videoId":2574458},{"artists":[{"artistName":"白雅言","id":24101}],"from":"SY-ZZLX-QB-6","image":"http://img3.c.yinyuetai.com/video/mv/160519/2574403/-M-ce2b924b19e0913c41cfc038b425aee6_240x135.jpg?t=20160519231255","partner":false,"rank":0,"title":"so-so 预告版","videoId":2574403},{"artists":[{"artistName":"张学友","id":167}],"from":"SY-ZZLX-QB-7","image":"http://img4.c.yinyuetai.com/video/mv/160519/2574238/-M-f7cbb9931659117d28df0a87631557d9_240x135.jpg","partner":false,"rank":0,"title":"\"A CLASSIC TOUR 学友.经典\"巡演发布会","videoId":2574238},{"artists":[{"artistName":"AKB48","id":994}],"from":"SY-ZZLX-QB-8","image":"http://img4.c.yinyuetai.com/video/mv/160519/2573770/-M-884643b24ee8884341af809eb9b2a486_240x135.jpg?t=20160519082755","partner":false,"rank":0,"title":"AKB48特集～40曲全部見せます!～ Vol.1","videoId":2573770},{"artists":[{"artistName":"Macklemore & Ryan Lewis","id":20149}],"from":"SY-ZZLX-QB-9","image":"http://img3.c.yinyuetai.com/video/mv/160519/2574152/-M-0442bd1dca0d6963acaee3aa2ab7d9a6_240x135.jpg?t=20160519162557","partner":false,"rank":0,"title":"Dance Off (Jimmy Kimmel Live) 现场版","videoId":2574152},{"artists":[{"artistName":"岚","id":194},{"artistName":"Sexy Zone","id":21011}],"from":"SY-ZZLX-QB-10","image":"http://img4.c.yinyuetai.com/video/mv/160519/2574151/-M-47321518374c9e0c00aaf612638d0e6d_240x135.jpg?t=20160519163941","partner":false,"rank":0,"title":"VS岚 嘉宾:SEXY ZONE队 中文字幕 16/05/05","videoId":2574151},{"artists":[{"artistName":"STAR!调查团","id":30971},{"artistName":"Chris Evans","id":37743},{"artistName":"Sebastian Stan","id":37742},{"artistName":"Anthony Mackie","id":39830},{"artistName":"Joe Russo","id":39831}],"from":"SY-ZZLX-QB-11","image":"http://img4.c.yinyuetai.com/video/mv/160506/2562390/-M-420388468a7475ba0d652dec8efa28e1_240x135.jpg?t=20160504171416","partner":false,"rank":0,"title":"[专访]<美国队长3>主创团队!这是一场家庭纠纷?","videoId":2562390},{"artists":[{"artistName":"影视原声","id":15442}],"from":"SY-ZZLX-QB-12","image":"http://img3.c.yinyuetai.com/video/mv/160519/2573914/-M-967ee77e2f0ba2579d6402251fad3e05_240x135.jpg?t=20160519113016","partner":false,"rank":0,"title":"レッドタートル ある島の物語 特報","videoId":2573914},{"artists":[{"artistName":"Coldplay","id":123}],"from":"SY-ZZLX-QB-13","image":"http://img0.c.yinyuetai.com/video/mv/160519/2573473/-M-f5b5fb68e6bc101ab16d82f4cbf7bbc5_240x135.jpg?t=20160519141232","partner":false,"rank":0,"title":"Up & Up 现场版","videoId":2573473},{"artists":[{"artistName":"神谷浩史","id":13086}],"from":"SY-ZZLX-QB-14","image":"http://img4.c.yinyuetai.com/video/mv/160519/2573907/-M-fea926142a15d93a07d0a79f26224859_240x135.jpg?t=20160519135942","partner":false,"rank":0,"title":"Danger Heaven?","videoId":2573907},{"artists":[{"artistName":"魏大勋","id":39471},{"artistName":"梁欢","id":36351},{"artistName":"华语群星","id":4538}],"from":"SY-ZZLX-QB-15","image":"http://img2.c.yinyuetai.com/video/mv/160519/2573537/-M-34bf72375681ae4b98d34f70ffcd647c_240x135.jpg?t=20160518190314","partner":false,"rank":0,"title":"K歌之王 <年代秀>精彩片段","videoId":2573537},{"artists":[{"artistName":"Meghan Trainor","id":34900}],"from":"SY-ZZLX-QB-16","image":"http://img0.c.yinyuetai.com/video/mv/160519/2573760/-M-169d64f66ff1c7ff88120bb9b9805c3b_240x135.jpg?t=20160519081246","partner":false,"rank":0,"title":"NO & Hopeless Romantic & Just A Friend To You 现场版","videoId":2573760},{"artists":[{"artistName":"华晨宇","id":30165}],"from":"SY-ZZLX-QB-17","image":"http://img0.c.yinyuetai.com/video/mv/160519/2573860/-M-75e6782ba9e7d8681760479448fc5e90_240x135.jpg","partner":false,"rank":0,"title":"PUZZLE迷 华晨宇2016火星演唱会宣传片","videoId":2573860},{"artists":[{"artistName":"五月天","id":37}],"from":"SY-ZZLX-QB-18","image":"http://img3.c.yinyuetai.com/video/mv/160519/2573853/-M-f2cd021f7ae5481d0b24d34ccc3503b7_240x135.jpg?t=20160519100423","partner":false,"rank":0,"title":"LET'S GO PARTY PARTY ALL 9 !","videoId":2573853},{"artists":[{"artistName":"OneRepublic","id":665}],"from":"SY-ZZLX-QB-19","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573402/-M-7172db17d6bfa7f98db240dad5cb1603_240x135.jpg?t=20160518143615","partner":false,"rank":0,"title":"Wherever I Go (The Voice)现场版","videoId":2573402},{"artists":[{"artistName":"朴灿烈(EXO)","id":38564},{"artistName":"袁姗姗","id":27266},{"artistName":"姜潮","id":7921},{"artistName":"徐贤(少女时代)","id":17106}],"from":"SY-ZZLX-QB-20","image":"http://img1.c.yinyuetai.com/video/mv/160519/2573836/-M-5641aad86061f2e3cffc9d0d37cc7daf_240x135.jpg?t=20160519094250","partner":false,"rank":0,"title":"<黑粉>对抗预告:朴灿烈(Park Chan Yeol)袁姗姗战况升级","videoId":2573836},{"artists":[{"artistName":"金俊秀","id":2758}],"from":"SY-ZZLX-QB-21","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573685/-M-af7b937756881a7f49ea909873bf4208_240x135.jpg?t=20160518232730","partner":false,"rank":0,"title":"..IS YOU Live版","videoId":2573685},{"artists":[{"artistName":"和楽器バンド","id":35585}],"from":"SY-ZZLX-QB-22","image":"http://img0.c.yinyuetai.com/video/mv/160518/2573489/-M-e893a87b7b3931a9a04bf98d779f55ce_240x135.jpg?t=20160518172227","partner":false,"rank":0,"title":"Valkyrie-戦乙女-(Short Ver.)","videoId":2573489},{"artists":[{"artistName":"神谷浩史","id":13086},{"artistName":"冈本信彦","id":39500},{"artistName":"入野自由","id":12059},{"artistName":"柿原彻也","id":21293},{"artistName":"浪川大辅","id":24601}],"from":"SY-ZZLX-QB-23","image":"http://img4.c.yinyuetai.com/video/mv/160518/2573447/-M-e41e0c5405a718674268a5ca95addce2_240x135.jpg?t=20160518162615","partner":false,"rank":0,"title":"Get Together! (Kiramune Music Festival 2015) 现场版","videoId":2573447},{"artists":[{"artistName":"OneRepublic","id":665}],"from":"SY-ZZLX-QB-24","image":"http://img1.c.yinyuetai.com/video/mv/160518/2841251/-M-455465076f8a1880085090952beefb1b_240x135.png?t=20160518124015","partner":false,"rank":0,"title":"Wherever I Go 中英字幕(Tyler & 肉粒儿)","videoId":2573351},{"artists":[{"artistName":"动漫专属","id":13743}],"from":"SY-ZZLX-QB-25","image":"http://img0.c.yinyuetai.com/video/mv/160518/2573399/-M-4a0ddacb610a5befebb35d789bbaf44f_240x135.jpg?t=20160518143302","partner":false,"rank":0,"title":"マツLOVE1000%","videoId":2573399},{"artists":[{"artistName":"金钟铉(SHINee)","id":30282}],"from":"SY-ZZLX-QB-26","image":"http://img1.c.yinyuetai.com/video/mv/160518/2573303/-M-76cc3cd64d0c27084db96d511ed42967_240x135.jpg?t=20160518110346","partner":false,"rank":0,"title":"She Is 预告版1","videoId":2573303},{"artists":[{"artistName":"影视原声","id":15442}],"from":"SY-ZZLX-QB-27","image":"http://img2.c.yinyuetai.com/video/mv/160518/2573297/-M-bf0ca5dc1899687be80d3a83e2b4c2e6_240x135.jpg?t=20160518104654","partner":false,"rank":0,"title":"DON&#39T BREATHE ( Official Trailer )","videoId":2573297},{"artists":[{"artistName":"朴经(Block B)","id":28639}],"from":"SY-ZZLX-QB-28","image":"http://img1.c.yinyuetai.com/video/mv/160517/2573063/-M-60d3cce263f9bfc431e00991eb5eeeba_240x135.png?t=20160517231011","partner":false,"rank":0,"title":"自卑情结(Inferiority complex) 预告版","videoId":2573063},{"artists":[{"artistName":"动漫专属","id":13743}],"from":"SY-ZZLX-QB-29","image":"http://img1.c.yinyuetai.com/video/mv/160517/2572437/-M-1a2951baa047a780a1581fcaa11c93a2_240x135.jpg?t=20160517092630","partner":false,"rank":0,"title":"TV动画<WWW.WORKING!!>角色介绍PV","videoId":2572437},{"artists":[{"artistName":"影视原声","id":15442}],"from":"SY-ZZLX-QB-30","image":"http://img3.c.yinyuetai.com/video/mv/160517/2572449/-M-de96d34789d288e622ecb9cb07988d2d_240x135.jpg?t=20160517093344","partner":false,"rank":0,"title":"\"ひるね姫\" 特報","videoId":2572449}],
+					fetchUrl : '/ajax/zhengliuxing',
+					initSize : 6,
+					channel : '正在流行'
+				});
+				var vchartVideos = [{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"I.O.I","id":39797},{"artistName":"GFriend","id":37017},{"artistName":"宇宙少女","id":39611},{"artistName":"OH MY GIRL","id":37822},{"artistName":"April(韩国)","id":39084}],"image":"http://img1.c.yinyuetai.com/video/mv/160514/2570463/-M-0da85e806c6ad136d42762e37aa983e0_240x135.jpg","partner":false,"rank":0,"title":"EP138 新人女团谁怕谁!","videoId":2570463},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"LADYBABY","id":38924},{"artistName":"Kazaky","id":11791},{"artistName":"Conchita Wurst","id":34305}],"image":"http://img4.c.yinyuetai.com/video/mv/160507/2564963/-M-3c41e962524ce2faf05f3fee36dbc3bd_240x135.jpg","partner":false,"rank":0,"title":"EP137 妖男当道","videoId":2564963},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"AKB48","id":994},{"artistName":"板野友美","id":13390},{"artistName":"前田敦子","id":17280},{"artistName":"高桥南","id":28181}],"image":"http://img0.c.yinyuetai.com/video/mv/160430/2559332/-M-198d9d66bf34b8828dea84b74a5cf6c1_240x135.jpg","partner":false,"rank":0,"title":"EP136 十年追梦__闪耀AKB的毕业生们","videoId":2559332},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"薛之谦","id":215},{"artistName":"邓紫棋","id":273},{"artistName":"王青","id":39072},{"artistName":"冯建宇","id":37760},{"artistName":"MIC男团","id":7833},{"artistName":"EXID","id":23043}],"image":"http://img3.c.yinyuetai.com/video/mv/160423/2554272/-M-b28bb747e6a98700cb23a9205404a46b_240x135.jpg","partner":false,"rank":0,"title":"EP135 音悦V榜杯表情包大师赛__第四届盛典后台独家放送","videoId":2554272},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"薛之谦","id":215},{"artistName":"王青","id":39072},{"artistName":"冯建宇","id":37760},{"artistName":"邓紫棋","id":273}],"image":"http://img0.c.yinyuetai.com/video/mv/160416/2548825/-M-facd16fddb4c21087730bfae8bb3234b_240x135.jpg","partner":false,"rank":0,"title":"EP134 首届音悦V榜杯 我爱念歌词","videoId":2548825},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"邓紫棋","id":273},{"artistName":"Taylor Swift","id":122},{"artistName":"TFBOYS","id":30905},{"artistName":"林俊杰","id":22},{"artistName":"T-ara","id":1559}],"image":"http://img2.c.yinyuetai.com/video/mv/160402/2537579/-M-ed69b5b0cfbf27b675813219ba2d5b72_240x135.jpg","partner":false,"rank":0,"title":"EP133 音悦V榜 他们值得这样的荣耀","videoId":2537579},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"张智霖","id":2675},{"artistName":"吴奇隆","id":3136},{"artistName":"小栗旬","id":38308},{"artistName":"藤冈靛","id":28774},{"artistName":"贾乃亮","id":13505},{"artistName":"陈小春","id":42}],"image":"http://img3.c.yinyuetai.com/video/mv/160326/2531772/-M-ed03d333511eddf9aa8856783d3005cb_240x135.jpg","partner":false,"rank":0,"title":"EP132 已婚大叔撩妹指南","videoId":2531772},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"Charlie Puth","id":23284},{"artistName":"Troye Sivan","id":13046},{"artistName":"Shawn Mendes","id":34902}],"image":"http://img2.c.yinyuetai.com/video/mv/160319/2525964/-M-91d5f0e2e20ce32f6ed5ce3b9e7bd74f_240x135.jpg","partner":false,"rank":0,"title":"EP131 高颜值音乐才子","videoId":2525964},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"山下智久","id":3250},{"artistName":"宋仲基","id":26814},{"artistName":"魏晨","id":148},{"artistName":"郑允浩","id":6090},{"artistName":"炎亚纶","id":14251},{"artistName":"金在中","id":1699}],"image":"http://img2.c.yinyuetai.com/video/mv/160312/2519449/-M-a18acb969acdee5d6152748c59b8cee3_240x135.jpg","partner":false,"rank":0,"title":"EP130 三十而立の完熟型男","videoId":2519449},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"Adele","id":974},{"artistName":"Taylor Swift","id":122},{"artistName":"Lady Gaga","id":259},{"artistName":"The Weeknd","id":17162}],"image":"http://img0.c.yinyuetai.com/video/mv/160305/2513092/-M-0132f0d3b6ff5a81cd7975d2e058b35a_240x135.jpg","partner":false,"rank":0,"title":"EP129 2016早春顶级颁奖季","videoId":2513092},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"EXO","id":22594},{"artistName":"VIXX","id":24334},{"artistName":"防弹少年团","id":29570},{"artistName":"BigBang","id":12}],"image":"http://img2.c.yinyuetai.com/video/mv/160227/2507964/-M-d0068be40cb6cac9b857c7fbddb7e45f_240x135.jpg","partner":false,"rank":0,"title":"EP128 GAON!没想到你是这种颁奖礼!","videoId":2507964},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"于朦胧","id":31096},{"artistName":"郭俊辰","id":39634},{"artistName":"盛一伦","id":30084}],"image":"http://img1.c.yinyuetai.com/video/mv/160224/2502644/-M-5d7c0fe72769ed69e7751e970485caed_240x135.jpg","partner":false,"rank":0,"title":"EP127 太子妃颜值升\"值\"记","videoId":2502644},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"苏打绿","id":390},{"artistName":"陈奕迅","id":157},{"artistName":"张靓颖","id":27},{"artistName":"张韶涵","id":168},{"artistName":"罗志祥","id":15}],"image":"http://img0.c.yinyuetai.com/video/mv/160205/2492953/-M-16d5676a45a1b6b385424aa7b0a33ce6_240x135.jpg","partner":false,"rank":0,"title":"EP126 第三届 音悦V榜杯 我爱记歌词","videoId":2492953},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"李玉玺","id":33601}],"image":"http://img1.c.yinyuetai.com/video/mv/160130/2487987/-M-d1b308949cc1a8ffe25f564aaa8f2f1f_240x135.jpg","partner":false,"rank":0,"title":"EP125 听了内牛满面的青春岁月","videoId":2487987},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"One Direction","id":12910},{"artistName":"5 Seconds of Summer","id":31322}],"image":"http://img4.c.yinyuetai.com/video/mv/160123/2482688/-M-9a8387962baefba3e5412a98d5d22fcf_240x135.jpg","partner":false,"rank":0,"title":"EP124 鲜肉男团 欧美的也不错哦","videoId":2482688},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"岚","id":194},{"artistName":"小栗旬","id":38308},{"artistName":"生田斗真","id":19652},{"artistName":"山田凉介","id":2233}],"image":"http://img1.c.yinyuetai.com/video/mv/160116/2477736/-M-5f3ae4b47ccaa347a5e8689bd292c164_240x135.jpg","partner":false,"rank":0,"title":"EP123 高能满满,粉红无边__霓虹CP大盘点","videoId":2477736},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"刘昊然","id":26610},{"artistName":"张子枫","id":39639}],"image":"http://img1.c.yinyuetai.com/video/mv/160109/2471927/-M-0f5eeae0ad0edb55433c665296bf5b5b_240x135.jpg","partner":false,"rank":0,"title":"EP122 别看我小 我有\"杀人微笑\"__刘昊然x张子枫独家专访","videoId":2471927},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"Selena Gomez","id":2581},{"artistName":"Demi Lovato","id":1354},{"artistName":"Miley Cyrus","id":280}],"image":"http://img3.c.yinyuetai.com/video/mv/160102/2463817/-M-3d0879f5d8bb938749698e1195cdf28e_240x135.jpg","partner":false,"rank":0,"title":"EP121 迪士尼公主变形记","videoId":2463817},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"SpeXial","id":27113}],"image":"http://img1.c.yinyuetai.com/video/mv/151226/2459321/-M-3530acefc7f260ed21bb44e2ea6f50f0_240x135.jpg","partner":false,"rank":0,"title":"EP120 偶像包袱粉碎机第四弹__SpeXial特辑","videoId":2459321},{"artists":[{"artistName":"音悦V榜特别企划","id":32393},{"artistName":"王青","id":39072},{"artistName":"冯建宇","id":37760}],"image":"http://img4.c.yinyuetai.com/video/mv/151219/2453372/-M-cb3d7f0639b6ec38134e176ccad3d6c4_240x135.jpg","partner":false,"rank":0,"title":"EP119 偶像包袱粉碎机第三弹__青宇特辑 完整版","videoId":2453372}];
+				//首页显示 默认显示音悦V榜特别企划 所以不追加这两个元素
+				/*vchartVideos = vchartVideos.concat([
+					{type : 'trends', area : 'VSPECIAL'},
+					{type : 'v', area : 'VSPECIAL'}
+				]);*/
+				var vchart = new Tray({
+					el : $('#vchart'),
+					tpl : $('#video_list_tpl').html(),
+					data : vchartVideos,
+					fetchUrl : '/ajax/vchart',
+					initSize : 6,
+					special : 'vchart',
+					channel : '音悦V榜'
+				});
+				vchart.on('loadArea', function(area) {
+					store.set('index-vchart-area', area);
+				});
+				var area = store.get('index-vchart-area');
+				if (area && area != 'vspecial') {
+					vchart.on('init', function() {
+						vchart.$el.find('.J_area[data-area=' + area + ']').click();
+
+					})
+				}
+			});
+		</script>
+	</div>
+	<!-- End 内容 -->
+	
+	
+<!-- Strat Footer-->
+<div class="footer">
+	<p class="footer_link">
+		<a href="http://www.yinyuetai.com/article/3" target="_blank" title="关于我们">关于我们</a>
+		<span class="ico_line"></span>
+		<a href="http://www.yinyuetai.com/joinus" target="_blank" title="人才招聘">人才招聘</a>
+		<span class="ico_line"></span>
+		<a href="http://www.yinyuetai.com/article/1" target="_blank" title="联系我们">联系我们</a>
+		<span class="ico_line"></span>
+		<a href="http://www.yinyuetai.com/links" target="_blank" title="友情链接">友情链接</a>
+		<span class="ico_line"></span>
+		<a href="http://www.yinyuetai.com/article/4" target="_blank" title="版权声明">版权声明</a>
+		<span class="ico_line"></span>
+		<a href="http://www.yinyuetai.com/service/problem" target="_blank" title="客服中心">客服中心</a>
+	</p>
+
+	<p class="footer_copy">
+        <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/4028c08b5414482e015417e9da8803e3" target="_blank"><img src="http://s.c.yinyuetai.com/v2/images/topbar/culture.png" style="vertical-align: top;width:25px;height:25px;margin-right:3px;"/></a>Copyright &copy; 2009 - 2016 yinyuetai.com 广播电视节目制作经营 许可证编号(京)字第1891号 | <a href="http://www.yinyuetai.com/cert" target="_blank">京网文[2014]2037-287号</a>
+		| <a href="http://www.yinyuetai.com/permit" title="网络视听许可证0110413号">网络视听许可证0110413号</a><br/>
+		<a class="police-store" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502014900" target="_blank"><img src="http://s.c.yinyuetai.com/v2/images/topbar/ghs.png" style="vertical-align: top;"/> 京公网安备11010502014900号</a> | 京ICP证060716号 |京ICP备11024134号-1 | 出版物经营许可证 新出发京零字第朝130062号 | 增值电信业务经营许可证B2-20140501
+		<a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202013092900002" target="_blank" class="positionImg"><img src="http://cheetah.yfcdn.net/biaoshi.gif" style="vertical-align: top; margin-top: -25px;"/></a>
+	</p>
+</div>
+<!-- End Footer -->
+
+<script type="text/javascript">
+    (function () {
+        var counter = 1;
+
+        var timer = setInterval(function () {
+            counter = counter + 2;
+        }, 2000);
+
+        if ($.toString().indexOf('fn') !== -1 || $.toString().indexOf('J.init') !== -1) {
+            $.ajax({
+                url: 'http://gettime.yinyuetai.com/time?t=' + new Date().getTime(),
+                dataType: 'jsonp',
+                success: function (data) {
+                    $(window).on('beforeunload', function () {
+                        clearInterval(timer);
+                        $.ajax({
+                            cache: false,
+                            async: false,
+                            type: 'post',
+                            url: '/onunload?start=' + counter + '&date=' + data.time + '&seconds=' + counter
+                        });
+                    });
+                }
+            });
+        } else if ($.toString().indexOf('document.id') !== -1) {
+            new Request.JSONP({
+                url: 'http://gettime.yinyuetai.com/time?t=' + new Date().getTime(),
+                onComplete: function (data) {
+                    $(window).addEvent('beforeunload', function () {
+                        clearInterval(timer);
+                        new Request({
+                            method: "post",
+                            async: false,
+                            noCache: true,
+                            url: '/onunload?start=' + counter + '&date=' + data.time + '&seconds=' + counter
+                        }).send();
+                    });
+                }
+            }).send();
+        }
+    })();
+</script>
+<script type="text/javascript">
+    (function () {
+        var urls = window.TRACK_SHOW;
+        if (!urls || !urls.push) {
+            urls = [];
+        }
+        urls.push("http://log.collect.yinyuetai.com/view-log?referUrl=" + document.referrer);
+        urls.push("http://log.collect.yinyuetai.com/page?referUrl=" + document.referrer);
+	    urls.push("http://cc.xtgreat.com/cm.gif?dspid=100082");
+        for (var i = 0, len = urls.length; i < len; i++) {
+            var url = urls[i];
+            if (url.indexOf("?") < 0)
+                url += "?" + (new Date()).getTime();
+            else
+                url += "&" + (new Date()).getTime();
+            document.write('<img style="display: none;" width="1" height="1" src="' + url + '">');
+        }
+    })();
+</script>
+<script type="text/javascript">
+    (function (G, D, s, c, p) {
+        c = {
+            UA: "UA-yinyuetai-000001",
+            NO_FLS: 0,
+            WITH_REF: 1,
+            URL: "http://s.c.yinyuetai.com/js/utils/iwt-min-yyt.js"
+        };
+        G._iwt ? G._iwt.track(c, p) : (G._iwtTQ = G._iwtTQ || []).push([c, p]), !G._iwtLoading && lo();
+        function lo(t) {
+            G._iwtLoading = 1;
+            s = D.createElement("script");
+            s.src = c.URL;
+            t = D.getElementsByTagName("script");
+            t = t[t.length - 1];
+            t.parentNode.insertBefore(s, t);
+        }
+    })(this, document);
+</script>
+
+<span style="display:none">
+
+<script language="JavaScript">
+    <!--
+    pagechoice_t_url = 'http://col.hztags.net/dap/www/delivery/hztags.php?random=' + ( Math.floor(Math.random() * 10000 + 1) );
+    document.write("<img width='1' height='1' style='position: absolute' src='" + pagechoice_t_url + "'/>");
+    //--></script>
+<script src="http://s4.cnzz.com/stat.php?id=1330456&web_id=1330456" type="text/javascript"></script>
+
+	
+	
+	
+			
+
+<script type="text/javascript">
+    window.YYTrev = "###revision###";
+    window.YYThostName = "BGP-LF-1RS1056";
+    window.YYTrequestStart = "1463713587417";
+    window.YYTrequestEnd = "1463713587477";
+    var uid1 = "aNIduadoBabNCpLdyQcblsCl";
+    var uid = null;
+    try {
+        uid = Y.Cookie.get("yinyuetai_uid");
+        if (uid == null) {
+            uid = uid1;
+        }
+        var ref = document.referrer || "";
+        if (uid != null && uid.length > 0) {
+            var masterUrl = "http://cm.admaster.com.cn/?tid=1635&type=1&uid=" + uid + "&loc=" + encodeURIComponent(location.href) +
+                    "&ref=" + encodeURIComponent(ref);
+            var img = new Image();
+            img.src = masterUrl;
+            img.width = 1;
+            img.height = 1;
+            //document.body.appendChild(img);
+        }
+
+    } catch (ex) {
+    }
+</script>
+
+
+	
+		
+		
+		
+		
+	
+
+
+<script type="text/javascript">
+    (function () {
+        var csid = "F09828";
+        var bpid = "yinyuetai";
+        var e = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        e.src = "//js.revsci.net/gateway/gw.js?auto=t&csid=" + csid + "&bpid=" + bpid;
+        e.async = true;
+        s.parentNode.insertBefore(e, s);
+    })();
+</script>
+</span>
+
+
+	
+
+   
+</div>
+
+</body>
+</html>
+
+

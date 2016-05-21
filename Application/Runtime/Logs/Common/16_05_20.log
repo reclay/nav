@@ -1,0 +1,66 @@
+[ 2016-05-20T10:21:48+08:00 ] 127.0.0.1 /nav/robot
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.047500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:22:28+08:00 ] 127.0.0.1 /nav/robot/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:07+08:00 ] 127.0.0.1 /nav/robot/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:07+08:00 ] 127.0.0.1 /nav/robot/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:10+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:11+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:11+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:11+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:11+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.022500s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:11+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Robot
+
+[ 2016-05-20T10:23:11+08:00 ] 127.0.0.1 /nav/robot/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002500s ]
+ERR: 无法加载模块:Robot
+

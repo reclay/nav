@@ -1,0 +1,455 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>创客中国</title>
+    <meta name="keywords" content="创客中国,创客中国官网,中国创客,创客,Maker,创客空间,创新,创业" />
+    <meta name="Description" content="创客中国是工业和信息化部信息中心重点打造的，为广大中小企业及创客搭建的线上线下相结合的公共服务平台" />
+    <link rel="shortcut icon" type="image/x-icon" href="resource/images/favicon.ico" />
+    <link rev="bookmark" rel="bookmark" title="tobacco" type="image/x-icon" href="resource/images/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="resource/css/new_index.css" />
+    <script src="scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.imgscroll.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.cookie.js" type="text/javascript"></script>
+    <script src="scripts/json2.js" type="text/javascript"></script>
+    <script src="scripts/common.js" type="text/javascript"></script>
+    <script src="scripts/config.js" type="text/javascript"></script>
+    <script src="scripts/sessionHelper.js" type="text/javascript"></script>
+    <script src="share/scripts/common_old.js" type="text/javascript"></script>
+    <script src="home/scripts/new_index.js" type="text/javascript"></script>
+    <style type="text/css">
+        .maker_window {
+            width: 0px;
+            height: 0px;
+            background-color: #fff;
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            z-index: 9999;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-left: 1px solid rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(0,0,0,0.2);
+            box-shadow: 2px 3px 4px rgba(0,0,0,0.3);
+            -webkit-transition: all ease-out 1000ms;
+            -o-transition: all ease-out 1000ms;
+            -moz-transition: all ease-out 1000ms;
+            transition: all ease-out 1000ms;
+            overflow: hidden;
+        }
+        .maker_window.show {
+            width: 350px;
+            height: 380px;
+        }
+        .open_window_wrap {
+            width: 37px;
+            padding: 35px 0px 5px;
+            height: 100px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 23px;
+            background-color: #e50012;
+            color: #fff;
+            position: fixed;
+            left: 10px;
+            bottom: 10px;
+            box-shadow: 2px 3px 4px rgba(0,0,0,0.3);
+            -webkit-transition: all ease-out 1000ms;
+            -o-transition: all ease-out 1000ms;
+            -moz-transition: all ease-out 1000ms;
+            transition: all ease-out 1000ms;
+            overflow: hidden;
+            cursor: pointer;
+        }
+            .open_window_wrap.hide {
+                width: 0px;
+                height: 0px;
+            }
+    </style>
+</head>
+<body>
+    <div id="llq_tip" style="width: 100%; height: 40px; background-color: #ffcf3b; color: #e50012;display:none">
+        <div style="margin: 0px auto; width: 1200px; position: relative;height:40px; line-height: 35px; ">
+            创客中国提醒：为获得最佳浏览效果请使用ie8以上或是chrome，360极速，火狐等浏览器访问！
+            <div id="close_tip_btn" style="position:absolute;right:0px;height:40px;top:0px;cursor:pointer;color:#555">
+                X 关闭
+            </div>
+        </div>
+    </div>
+    <div class="head">
+        <div class="header">
+            <div class="header_box">
+                <p class="header1_p1 fl">
+                    <span class="header1_p1_span1" style="display:none;"></span>
+                    <span class="header1_p1_span2" style="display:none;"></span>
+                </p>
+                <p class="header1_p2 fr" id="head_f_span">
+                    <span>
+                        <label><img onclick="gopage(1)" id="user_photo" src="resource/images/moren_tx.png" /></label>
+                        <a onclick="gopage(1)" href="javascript:void(0)">用户中心</a>
+                    </span>
+                    <span><a onclick="gopage(3)" href="javascript:void(0)">我的众筹</a></span>
+                    <span><a onclick="gopage(4)" href="javascript:void(0)">账户信息</a></span>
+                    <span><a onclick="gopage(5)" href="javascript:void(0)">个人信息</a></span>
+                    <span><a onclick="gopage(7)" href="javascript:void(0)">联系客服</a></span>
+                    <span><a onclick="gopage(8)" href="javascript:void(0)">中文</a> | <a onclick="gopage(9)" href="javascript:void(0)">English</a></span>
+                </p>
+            </div>
+        </div>
+        <div class="header_ss">
+            <div class="header_ss1 fl">
+                <p class="header_ss1_p1 fl"><a href="index.html"><img src="resource/images/logo1_03.jpg" /></a></p>
+                <p class="header_ss1_p2 fr">国家创新创业<br />公共服务平台</p>
+            </div>
+            <div class="header_ss2 fl search_input">
+                <div class="header_ss2_div1">
+                    <input maxlength="30" id="seachval" type="text" placeholder="请输入搜索信息" />
+                    <span id="btnSearch"><img src="resource/images/head_ss.jpg" /></span>
+                </div>
+                <div class="header_ss2_div2">
+                    热门搜索:
+                    <a style="padding:0 3px;">任务</a>
+                    <a style="padding:0 3px;">作品</a>
+                    <a style="padding:0 3px;">创客空间</a>
+                </div>
+            </div>
+            <div class="header_ss3 fr">
+                <p><img src="resource/images/top_xlwb.jpg" /></p>
+                <p><img src="resource/images/top_gzh.jpg" /></p>
+            </div>
+        </div>
+        <div class="header_nav">
+            <p id="nacbg1" class="active">
+                <a href="index.html">
+                    <i></i>
+                    <span>首页</span>
+                </a>
+            </p>
+            <p id="nacbg2">
+                <a href="cesasia/index.html" target="_blank">
+                    <i></i>
+                    <span>创客大赛</span>
+                </a>
+            </p>
+            <p id="nacbg3">
+                <a href="makerspace.html">
+                    <i></i>
+                    <span>创客空间</span>
+                </a>
+            </p>
+            <p id="nacbg4">
+                <a href="z/index.html" target="_blank">
+                    <i></i>
+                    <span>项目众筹</span>
+                </a>
+            </p>
+            <p id="nacbg8">
+                <a href="products.html">
+                    <i></i>
+                    <span>作品一览</span>
+                </a>
+            </p>
+            <p id="nacbg5">
+                <a href="companies.html">
+                    <i></i>
+                    <span>企业云</span>
+                </a>
+            </p>
+            <p id="nacbg6">
+                <a href="demands.html">
+                    <i></i>
+                    <span>任务众包</span>
+                </a>
+            </p>
+            <p id="nacbg7" style="display:none">
+                <a href="eschool/index.jsp" target="_blank">
+                    <i></i>
+                    <span>创客大学</span>
+                </a>
+            </p>
+            <p style="display:none">
+                <a href="pt/index.html">
+                    <i></i>
+                    <span>成果交易</span>
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="web_box">
+        <div class="syhd fl">
+            <div id="sqhd" style="width:600px; height:450px; position:relative; margin:0px auto; overflow:hidden;">
+                <div class="sqhd fr">
+                    <div class="sqhdnr" id="sqhdnr">
+                        <p>
+                            <a href="#" style="position:relative" target="_blank">
+                                <span class="b_title">
+                                </span>
+                                <img width="600" height="450" src="" />
+                            </a>
+                        </p>
+                        <p>
+                            <a href="#" style="position:relative" target="_blank">
+                                <span class="b_title">
+                                </span>
+                                <img width="600" height="450" src="" />
+                            </a>
+                        </p>
+                    </div>
+                    <div id="sqbanner_yuan">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="index_new_wrap" class="new_tj fl">
+            <div class="index_new_scroll" id="index_new_scroll">
+                <div class="index_new_box" id="new_scroll">
+
+                </div>
+                <div class="index_new_bs" id="index_new_bs">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="ksfb fr">
+            <div class="ksfb1">
+                <p class="ksfb1_p1">快速发布</p>
+                <p class="ksfb1_p3" style="display:none;">
+                    <img id="rtx" src="resource/images/moren_tx.png" />
+                    <span>
+                        <label id="username">Hi</label><br />
+                        欢迎来到创客中国
+                    </span>
+                </p>
+                <p class="ksfb1_p2">
+                    <a id="btn_login" href="login/login.html" class="fl active transition">登录</a>
+                    <a id="btn_righster" href="register/registeruser.html" class="fr transition">注册</a>
+                    <a id="btn_admin" onclick="gopage(1)" href="javascript:void(0)" class="fl active transition">用户中心</a>
+                    <a id="btn_user"  onclick="gopage(5)" href="javascript:void(0)" class="fr transition">个人信息</a>
+                    <a id="btnCreateTaskold" onclick="tzloginjudgeold('account/demandadd_bylink.html', 'account/index.html', '', 'certification')"  href="javascript:void(0)" class="fl active transition">发布众包</a>
+                    <a onclick="tzloginjudgeold('zone/workscommit.html', 'login/login.html', '../zone/workscommit.html', '')" href="javascript:void(0)" class="fr transition">发布作品/参赛</a>
+                    <a onclick="tzloginjudgeold('z/addproject.html', 'login/login.html', '../z/addproject.html', '')" href="javascript:void(0)" class="fl transition">发布众筹</a>
+                    <a onclick="tzloginjudgeold('account/applyticket.html', 'login/login.html', '../account/applyticket.html', '')" href="javascript:void(0)" class="fr transition">我的CES门票</a>
+                </p>
+            </div>
+            <div class="ksfb2">
+                <a href="http://www.cismef.com.cn/" target="_blank"><img id="rtx" src="resource/images/top_10.jpg" /></a>
+                <a href="http://www.cesasia.cn/" target="_blank"><img id="rtx" src="resource/images/logo-v4.jpg" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="write_bg">
+        <div class="web_box">
+            <div class="qyxx fl">
+                <div class="qyxx1">
+                    <ul>
+                        <li index="3" class="active">综合</li>
+                        <li index="0">区域</li>
+                        <li index="2">行业</li>
+                        <li index="1">专题</li>
+                    </ul>
+                    <p><a href="#" style="display:none">更多</a></p>
+                </div>
+                <div id="new_zh_wrap" index="3" class="qyxx2">
+                </div>
+                <div id="new_qy_wrap" index="0" class="qyxx2" style="display:none">
+                </div>
+                <div id="new_zt_wrap" index="1" class="qyxx2" style="display:none">
+                </div>
+                <div id="new_hy_wrap" index="2" class="qyxx2" style="display:none">
+                </div>
+
+            </div>
+            <div id="zhxx_wrap" class="zhxxnew fl" style="margin-left:20px;width:290px;">
+                <div class="zhxx1" style="width: 290px;">
+                    创新活动
+                    <a href="#" style="display:none">更多</a>
+                </div>
+
+                <div id="zhxx_sun_wrap" class="qyxx2" style="width:310px;">
+                </div>
+            </div>
+            <div class="zhxxnew fl" style="margin-left:20px;width:270px;">
+                <div class="zhxx1" style="width: 270px;">
+                    中国中小企业公共服务平台
+                </div>
+                <div class="ggfwpt">
+                    <ul>
+                        <li><a href="http://www.c-sme.com/" target="_blank"><img src="resource/images/zxqyxxh.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.smebj.cn/" target="_blank"><img src="resource/images/bjzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.96871.com.cn/" target="_blank"><img src="resource/images/zjzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.smesd.gov.cn/" target="_blank"><img src="resource/images/sdzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.ssme.gov.cn/" target="_blank"><img src="resource/images/shzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.smejs.cn/" target="_blank"><img src="resource/images/jszxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.968115.cn/" target="_blank"><img src="resource/images/gdzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.smehn.cn/" target="_blank"><img src="resource/images/hnzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.cqsme.gov.cn/" target="_blank"><img src="resource/images/cqzxqy.png" style="width:270px;height:70px;" /></a></li>
+                        <li><a href="http://www.smesc.gov.cn/" target="_blank"><img src="resource/images/sczxqy.png" style="width:270px;height:70px;" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="web_box">
+        <div id="wrap_zb" class="zbbox_top fl">
+            <p>任务众包</p>
+            <span id="rwzblist"><a href="demands.html?cid=1" target="_blank">智能硬件</a><a href="demands.html?cid=2" target="_blank">移动应用</a><a href="demands.html?cid=3" target="_blank">创意设计</a><a href="demands.html?cid=6" target="_blank">其它</a></span>
+        </div>
+        <div id="rwzb_content_wrap">
+            <div class="zb_item" index="0">
+
+            </div>
+            <div class="zbbox1 fl"><div class="zbbox1_div1"><a href="demand.html?demandid=ad6dca1603ae4f64b255bae61d9dc578" target="_blank"><img src="upload/news/0356055f-31a3-456c-a19e-a07bc2adc9b4.jpg" /><span>衣物材质高精度识别技术</span></a></div><div class="zbbox1_div1"><a href="demand.html?demandid=f29c9dc2e6994770963f50852831510b" target="_blank"><img src="upload/news/ec131345-79e5-4746-bb49-83262ff15e40.jpg" /><span>污渍识别技术研究及原型开发</span></a></div></div><div class="zbbox2 fl"><div class="zbbox2_div1"><a href="demand.html?demandid=33b95241c53549e7af36642330ad0758" target="_blank"><img src="upload/news/5c38ecc4-04da-46c2-b99c-5edcd86b237b.jpg" /><p>智能洗衣柜</p><div><span class="zbbox2_span1">108</span><span class="zbbox2_span2">140</span><span class="zbbox2_span3">0</span></div></a></div><div class="zbbox2_div1"><a href="demand.html?demandid=90feeb57da0b4e38bbd3e326499da997" target="_blank"><img src="upload/news/ea22d87d-81a1-4195-ac4c-43ee30ff26e7.jpg" /><p>手势识别</p><div><span class="zbbox2_span1">131</span><span class="zbbox2_span2">282</span><span class="zbbox2_span3">0</span></div></a></div><div class="zbbox2_div1"><a href="demand.html?demandid=86aefba60d9548c8bf0516ff043f7137" target="_blank"><img src="upload/news/411cb2f8-896e-4490-a571-cf7effa68eee.jpg" /><p>洗涤剂识别技术研究及原型开发</p><div><span class="zbbox2_span1">61</span><span class="zbbox2_span2">129</span><span class="zbbox2_span3">0</span></div></a></div><div class="zbbox2_div1"><a href="demand.html?demandid=8645657f825b44a987b47cab1b2f1b42" target="_blank"><img src="upload/news/3e03d452-4722-4f8b-adda-79f939d5c50f.jpg" /><p>易掉色织物识别技术研究及原型开发</p><div><span class="zbbox2_span1">11</span><span class="zbbox2_span2">259</span><span class="zbbox2_span3">0</span></div></a></div><div class="zbbox2_div1"><a href="demand.html?demandid=dd3de92e914740779c0b0d7c8912e7ce" target="_blank"><img src="upload/news/a18fc99a-4f4d-4368-8588-61320a24f37c.png" /><p>污浊和残留感知技术研究及原型开发</p><div><span class="zbbox2_span1">67</span><span class="zbbox2_span2">5</span><span class="zbbox2_span3">0</span></div></a></div></div><div class="tjzb fr"><div class="tjzb1"><p class="tjzb1_p1"><a href="demand.html?demandid=e302890d79444638ad730cab0981f1f7" target="_blank"><img src="upload/news/d20543c2-2b4a-4a05-9be1-6cd83fd0c811.jpg" /><span>水质识别技术研究及原型开发</span></a></p><p class="tjzb1_p2"><span class="tjzb1_p2_span1">124</span><span class="tjzb1_p2_span2">4</span><span class="tjzb1_p2_span3">0</span></p></div><div class="tjzb1"><p class="tjzb1_p1"><a href="demand.html?demandid=1e5411e9813d40b38021e88088c84be8" target="_blank"><img src="upload/news/3e458429-7f0b-4d64-895d-d07fe1d71317.jpg" /><span>衣物颜色和质地识别技术研究及原型开发</span></a></p><p class="tjzb1_p2"><span class="tjzb1_p2_span1">122</span><span class="tjzb1_p2_span2">130</span><span class="tjzb1_p2_span3">0</span></p></div></div>
+        </div>
+    </div>
+    <div class="write_bg">
+        <div class="web_box">
+            <div id="wrap_zc" class="zbbox_top fl">
+                <p class="hjmd1_p1">项目众筹</p>
+                <p class="hjmd1_p3" style="text-align:right;float:right;font-weight:400"><a href="z/index.html" target="_blank">更多</a></p>
+            </div>
+            <div class="zxsx fl">
+                <div class="zxsx1 fl">最新项目</div>
+                <div class="zxsx2 fl" id="newChips1"><div class="zxsx2_div1">    <a href="z/chip.html?chipid=4224c92a1d9845d4b06dc2025f078d08" target="_blank" title="本作品具有一键求救、跌倒警示、智能定位、照明等多种功能。">        <img src="upload/z/d390ae4e-b0c1-449d-a6c1-ccd6b2ebbcba.jpg" width="285" />        <div>            <p class="zxsx2_div1_p1">“一键求救”智能定位拐杖</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx2_div1">    <a href="z/chip.html?chipid=a7c6f5e8b297408ba71bbeb05b3bc54b" target="_blank" title="能通过位置感应探头感应打水者身高，保护儿童。">        <img src="upload/z/a98e8708-2810-4fb7-9722-2e753da1b899.jpg" width="285" />        <div>            <p class="zxsx2_div1_p1">带儿童保护装置的智能饮水机</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx3_div1">    <a href="z/chip.html?chipid=bfb809b9dba94cf4aa87cfec387f8f98" target="_blank" title="负离子氧吧，等离子除菌，除异味，除二手烟">        <img src="upload/z/997cfdb8-0d11-4557-8f7a-a80598742def.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">九殿汽车车载空气净化器 PM2.5负离子</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div></div>
+                <div class="zxsx4 fr">
+                    <div class="zxsx4_div1" id="newChips2"><div class="zxsx2_div1">    <a href="z/chip.html?chipid=47e03efb28494f00b79d3ea2e411b01d" target="_blank" title="易拆卸、易组装、年轻人的生活理念，颠覆传统电动车的结构设计。">        <img src="upload/z/38be39fd-6191-4c72-9035-73e130e2cf60.jpg" width="285" />        <div>            <p class="zxsx2_div1_p1">"尖叫"！青年人的酷爱、漂移电动三轮车</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx2_div1">    <a href="z/chip.html?chipid=f431bdaf24b549f7be11c9b697d33c90" target="_blank" title="全球首创车载咖啡机，真正实现车内加热冲腾式咖啡">        <img src="upload/z/9e04d359-c6db-4555-99a9-e6d6cba1cdda.jpg" width="285" />        <div>            <p class="zxsx2_div1_p1">车载咖啡机</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx2_div1">    <a href="z/chip.html?chipid=e5991611474041ada91cdb14ab84c504" target="_blank" title="已经实现商业量产的、被广大妇产科医生推荐的智能备孕神器！">        <img src="upload/z/360bec3f-a8c5-4ccb-a04e-bbe33ad814c9.png" width="285" />        <div>            <p class="zxsx2_div1_p1">孕律——被医生推荐的智能备孕基础体温计</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx2_div1">    <a href="z/chip.html?chipid=a4ce6d93608540b7b768cd1d7d4bacec" target="_blank" title="国内第一批通过3D打印技术生产的陶艺作品">        <img src="upload/z/efd62513-61b4-4fbf-9571-56297602bb1b.jpg" width="285" />        <div>            <p class="zxsx2_div1_p1">3D陶瓷打印作品</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div></div>
+                    <div class="zxsx4_div2" id="newChips3"><div class="zxsx3_div1 paddingzc borderzc">    <a href="z/chip.html?chipid=e5f89967d694423482bb3866682040d8" target="_blank" title="可实现油烟消灭在烟机当中，出来的气体接近空气状态">        <img src="upload/z/686e9281-86b1-4e1b-b2c4-96af5f066e7d.png" width="115" />        <div>            <p class="zxsx3_div1_p1">村田自净化吸油烟机</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx3_div1 paddingzc borderzc">    <a href="z/chip.html?chipid=16e3fe98b89248ba91bc4404db960f1b" target="_blank" title="国内首台滚筒式炒菜机，云控全自动无油烟烹饪，颠覆传统做饭炒菜">        <img src="upload/z/64fb1624-ebbc-4807-90c1-8e1659c73fe4.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">云控.智能滚筒炒菜机</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx3_div1 paddingzc borderzc">    <a href="z/chip.html?chipid=1120edbddf304c8c863fe9139353bba8" target="_blank" title="老人一周药箱，可以对老人一周的药量进行设置。">        <img src="upload/z/d9744ac3-7192-43a3-9cf3-ad3dc6e73fb5.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">老人一周药箱</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div></div>
+                </div>
+            </div>
+            <div class="zxsx fr">
+                <div class="zxsx1 fl">热门项目</div>
+                <div class="zxsx2 fl" id="hotChips1"><div class="zxsx2_div1">    <a href="z/chip.html?chipid=dd2eb8c72c1f44a797713efe78f01eaf" target="_blank" title="采集脚部数据，建立脚部的三维数字模型，然后3D打印出脚的模型">        <img src="upload/z/237ee22d-1b7e-49b0-bedf-ed7a720dee14.png" width="285" />        <div>            <p class="zxsx2_div1_p1">3D深度定制鞋</p>            <p class="zxsx2_div1_p2"><span style="width:0.60%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.60%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx2_div1">    <a href="z/chip.html?chipid=11e1ded4cb5e47e8bd1cd9daf4083952" target="_blank" title="手机软件和测温硬件的结合，让您的手机变成智能测温计">        <img src="upload/z/35358f79-42de-4cc3-8f70-34925c1b4919.png" width="285" />        <div>            <p class="zxsx2_div1_p1">滴滴测</p>            <p class="zxsx2_div1_p2"><span style="width:0.20%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.20%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx3_div1">    <a href="z/chip.html?chipid=1120edbddf304c8c863fe9139353bba8" target="_blank" title="老人一周药箱，可以对老人一周的药量进行设置。">        <img src="upload/z/d9744ac3-7192-43a3-9cf3-ad3dc6e73fb5.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">老人一周药箱</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div></div>
+                <div class="zxsx4 fr">
+                    <div class="zxsx4_div1" id="hotChips2"><div class="zxsx2_div1">    <a href="z/chip.html?chipid=16e3fe98b89248ba91bc4404db960f1b" target="_blank" title="国内首台滚筒式炒菜机，云控全自动无油烟烹饪，颠覆传统做饭炒菜">        <img src="upload/z/64fb1624-ebbc-4807-90c1-8e1659c73fe4.jpg" width="285" />        <div>            <p class="zxsx2_div1_p1">云控.智能滚筒炒菜机</p>            <p class="zxsx2_div1_p2"><span style="width:0.00%"></span></p>            <p class="zxsx2_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div></div>
+                    <div class="zxsx4_div2" id="hotChips3"><div class="zxsx3_div1 paddingzc borderzc">    <a href="z/chip.html?chipid=9b0cdcbdfb20463d86ca7cb69dfb7b99" target="_blank" title="可通过石灰石逐渐渗出保持植物湿润 过在延长的时间周期。">        <img src="upload/z/e5ff3aa4-9346-4982-ab58-8a2411c0425e.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">岩趣</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx3_div1 paddingzc borderzc">    <a href="z/chip.html?chipid=565de679db574c34b3e83cd9f18b142b" target="_blank" title="主要功能特点：地面环境清洁，远程视频监控，智能家电管理">        <img src="upload/z/0ad926e1-f7c7-46ae-82dc-1005e5471516.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">智能家居服务机器人</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div><div class="zxsx3_div1 paddingzc borderzc">    <a href="z/chip.html?chipid=bfb809b9dba94cf4aa87cfec387f8f98" target="_blank" title="负离子氧吧，等离子除菌，除异味，除二手烟">        <img src="upload/z/997cfdb8-0d11-4557-8f7a-a80598742def.jpg" width="115" />        <div>            <p class="zxsx3_div1_p1">九殿汽车车载空气净化器 PM2.5负离子</p>            <p class="zxsx3_div1_p2"><span></span></p>            <p class="zxsx3_div1_p3">                <span>已经筹<label>0.00%</label></span>                <span>已结束</span>            </p>        </div>    </a></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style=" width:1200px; margin:20px auto; height:auto; overflow: hidden;">
+        <ul id="corp_pics" style="width: 4000px;position: relative;">
+            <li class="fl">
+                <a href="company/index_old.html?companyid=67d786c2e85b4ec29709f8d512fcbc04" target="_blank">
+                    <img src="upload/company/media.jpg" style="border:0;width:575px;height:283px;" alt="美的" />
+                </a>
+            </li>
+
+            <li class="fl">
+                <img src="upload/company/wanhe.png" style="border:0;width:575px;height:283px;" alt="万和" />
+            </li>
+            <li class="fl">
+                <a href="company/index_old.html?companyid=209317aace904e33b84cb9e30badb227" target="_blank">
+                    <img src="upload/company/sunshine.png" style="border:0;width:575px;height:283px;" alt="光韵达" />
+                </a>
+            </li>
+            <li class="fl">
+                <a href="company/index_old.html?companyid=faeb24cfe22d482889e94453caa1c8fc" target="_blank">
+                    <img src="upload/company/elion.jpg" style="border:0;width:575px;height:283px;" alt="亿利洁能科技有限公司" />
+                </a>
+            </li>
+
+            <li class="fl">
+                <a href="company/index_old.html?companyid=ba8dacc3038842e990a25948678c9041" target="_blank">
+                    <img src="upload/company/intel.png" style="border:0;width:575px;height:283px;" alt="英特尔" />
+                </a>
+            </li>
+            <li class="fl">
+                <a href="http://www.autodesk.com.cn/" target="_blank">
+                    <img src="upload/company/autodesk.png" style="border:0;width:575px;height:283px;" alt="autodesk" />
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="web_box" style="display:none">
+        <a href="company/index_old.html?companyid=51dd79f377e14036853609b35752361e" target="_blank"><img src="resource/images/ad_1.jpg" /></a>
+    </div>
+    <div class="web_box">
+        <div id="wrap_ck" class="hjmd1">
+            <p class="hjmd1_p1">创客空间</p>
+            <p class="hjmd1_p3">
+                <a href="makerspace.html" target="_blank">更多</a>
+            </p>
+        </div>
+        <div class="ckkj">
+            <div class="fl"><a href="maker/index.html?spaceid=c298cafc64f6442fbd20a08535057139" title="南京创客空间是由南京地区一群软、硬件技术人才发起的民间科技公益组织（平台），成立于2012年5月，现有核心成员200人，成员专业方向涵盖计算机、电子、电力、建筑、艺术、机械制造、管理、经济等诸多领域，人员来自全国各地各行各业，现有开放工作室3间，总计800多平。截止到2015年4月，成员人数超过1200人，成员里面藏龙卧虎，在校学生、资深工程师、大学教授、艺术家、知名专家等人才济济。" target="_blank">        <img src="upload/space/logo/8092fd0f-fc17-47ca-898f-17c900ce8733.jpg" />        <p>智能家居，可穿戴设备，无人机</p>    </a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=f5128c25cfd34b1eb6a8f7a3d28fc08c" title="合创邦·创客空间是由智慧城市、智能家居、物联网、互联网领域的资深创客共同发起，发起人有来自国内顶尖科技公司、军工集团科研人员，也有持续创业的互联网创业代表，可以为创客和创业者提供交流、学习、路演、原型制造、办公场地、新材料、新工艺、新技术、作品展示、供应链、产业链、推广销售通道、投融资对接、工商税务法务等创新创业服务。" target="_blank">        <img src="upload/space/logo/5f954a20-3521-4a0e-b4c1-479421eed8c7.jpg" />        <p>智能家居，3D打印，可穿戴设备</p>    </a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=c323674fbda24c31aefad8634f338be0" title="淄博创客空间是由一群热衷创新，敢于尝试的教育实践者发起的公益组织，秉承“开放、平等、协作、分享”的精神，立足于创客教育，结合开源软硬件，为不同基础的爱好者开发一系列课程，同时致力于传播创客理念，研发开源智能设备，创建本土创客文化。今后，淄博创客空间将在培养创新人才，开发科技创新产品等方面做出更大的努力。" target="_blank">        <img src="upload/space/logo/2b0e5c38-2501-447d-9618-5132c873fdbd.jpg" />        <p>智能家居，3D打印</p>    </a></div>
+            <div class="fr"><a href="maker/index.html?spaceid=667f7b98d0a64ff5806c6455b1b434bc" title="武汉光谷创客空间" target="_blank">        <img src="upload/space/logo/cc340afe-90ac-4d6a-b0b3-3560a974a86a.jpg" />        <p>智能家居,机器人,节能环保</p>    </a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=e644baf69c584576a575adffedc0a142" title="成都创客空间" target="_blank">        <img src="upload/space/logo/4dad8607-c1bb-43d2-bdba-4a06b092721f.jpg" />        <p>机器人,3D打印,</p>    </a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=3e24372a43e944559fc0dd1d7e9c7c82" title="2015年3月9日，为了顺应网络时代推动大众创业、万众创新的形势，在温州创客空间等孵化模式的基础上，融合发展为市场化、专业化、集成化、网络化的“温州众创空间”。温州众创空间由温州创客空间、酷乐宅创客空间、时尚社区创客空间、本位创客空间、时尚技术创客空间、快乐发明创客空间、天工创客空间、人人创客空间、金种子智汇园等12个创客组织联盟组成。" target="_blank">        <img src="upload/space/logo/6936c9a7-c742-404f-9669-8aaff04a4bb0.jpg" />        <p>智能家居，3D打印，节能环保</p>    </a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=c94cfe8734f54d1fac064c27e1dbed7b" title="柴火创客空间" target="_blank">        <img src="upload/space/logo/a71c1843-6c41-4279-9445-66b3b209cbf0.jpg" />        <p>机器人,3D打印,可穿戴设备</p>    </a></div>
+
+            <div class="fr">    <a href="maker/index.html?spaceid=52a8bc2f177848189d382d5e6f8cec43" title="新车间" target="_blank">        <img src="upload/space/logo/7033b3d6-505b-4384-b494-46dbed82e34d.jpg" />        <p>智能家居,可穿戴设备,</p>    </a></div>
+
+            <div class="fl">    <a href="maker/index.html?spaceid=375a4f6619bb45a990bd6b946a89ced4" title="北方创客体验中心是河西区委、区政府为贯彻落实国务院和天津市政府关于发展众创空间推进大众创新创业要求的具体实践，是河西区与清华大学按照“有效整合资源、集成落实政策、完善服务模式、培育创新文化”的建设理念，共同打造的集科技创新与创客教育、创新创意产品研发孵化与创新思维普及等功能为一体的综合性众创空间。中心坐落于有着150年历史的天津人民公园内，两栋建筑共2200平方米，总投资将近1000万元。内部空间和功能布局由清华大学创客教育实验室和清华大学美术学院共同设计，河西区投资建设。" target="_blank">        <img src="upload/space/logo/7d5641f7-2524-4090-b105-086aeea46f7b.jpg" />        <p>智能家居，机器人，3D打印</p>    </a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=210791cccd5b464bb3a2a8d8aeabc8ff" title="我们是一群来自台北与长三角喜爱动手做、喜欢探寻梦想、实现未来创意互动的科技艺术研究者与设计者，我们自称为 FAB Lab FBI 探员 (Futuristic Brilliant Interaction, FBI)。Fab Lab FBI 于2014年4月于国际FabLab组织申请注册，并落地于江苏太仓市。这是全国第一个海峡两岸共建的 FabLab 创客空间。" target="_blank"><img src="upload/space/logo/a3a7ca86-b98c-48cb-8f4d-c9b78bff3796.jpg" /><p>智能家居，3D打印，可穿戴设备</p></a></div>
+            <div class="fl">    <a href="maker/index.html?spaceid=548b510e49644af392a10cebf432ba4d" title="北京创客空间" target="_blank">        <img src="upload/space/logo/0eae7ecf-3eac-4753-9ae1-9eb0cbd3291d.jpg" />        <p>机器人,3D打印,</p>    </a></div>
+            <div class="fr">    <a href="maker/index.html?spaceid=a573e3db1c1d4255aad81a465cb0f68c" title="   蚂蚁创客空间成立于2015年3月21日，是安徽省首家创客空间，目前位于马鞍山市科技大厦。蚂蚁创客空间致力于培育创客文化，提升城市科技和文化基因，激发全民创新、创业能力。创客空间的口号是“坚守创新，持续实践，团结合作，乐于分享并且追求美好生活！”。" target="_blank">        <img src="upload/space/logo/838b1646-3324-427f-86b1-367a6acf4f47.jpg" />        <p>智能家居，机器人，其它</p>    </a></div>
+        </div>
+    </div>
+    <div class="comfooter" id="foot_block" style="width:100%; background:#ffffff; height:180px; border-top:1px solid #e50012; overflow:hidden;">
+        <div class="comfot" style="width:1190px; margin:0 auto;">
+            <iframe style="width:100%;height:180px; background:#ffffff;" frameborder="0" src="share/footer.html"></iframe>
+        </div>
+    </div>
+    <div class="nav_right">
+        <p><a href="javascript:;" goto="#wrap_zb">众包</a></p>
+        <p><a href="javascript:;" goto="#wrap_zc">众筹</a></p>
+        <!--<p><a href="javascript:;" goto="#wrap_ds">大赛</a></p>-->
+        <p style="display:none"><a href="javascript:;" goto="#wrap_cg">成果</a></p>
+        <p><a href="javascript:;" goto="#wrap_ck">创客</a></p>
+        <p style="display:none" class="head_f_span" onclick="userCenter()" style="cursor:pointer"><img id="user_photo1" src="resource/images/moren_tx.png" /></p>
+        <p id="nav_gotop"><a href="javascript:void(0)"><img src="resource/images/r_nav1.jpg" /></a></p>
+    </div>
+    <div class="maker_window">
+        <div style="height: 28px; background-color: #e50012;color:#fff;text-align:left;font-size:15px;line-height:26px;position:relative">
+            &nbsp;&nbsp;创客中国公告<span class="window_close" style="color:#fff;position:absolute;right:0px;top:0px;display:block;cursor:pointer;width:30px;text-align:center">X</span>
+        </div>
+        <div style="text-align:center;font-weight:bold;font-size:16px;padding:8px;">
+            严重声明
+        </div>
+        <div style="padding:0px 10px;font-size:15px;line-height:24px;width:330px">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;近期有不法分子以“工业和信息化部信息中心”的名义举办“创客中国”等相关活动，为避免更多不明真像的个人和单位受骗，也为更好维护本单位的声誉，特严正声明：
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、工业和信息化部信息中心举办的活动均在本网站公布，未公布的活动不属于本单位行为，请各界人士提高警惕，以免造成不必要的损失。
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、工业和信息化部信息中心保留追究违法行为的权利。
+            <br />特此声明。
+            <div style="text-align:right;padding-top:10px;">
+                工业和信息化部信息中心
+                <br />2016年3月<span style="display:inline-block;width:55px;"></span>
+            </div>
+        </div>
+    </div>
+    <div class="open_window_wrap">
+        <img src="resource/images/gth.png" width="24" height="24" style="position:absolute;left:7px;top:5px;"/>
+        严<br/>重<br />声<br />明
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#nav_gotop').click(function () { $('html,body').animate({ scrollTop: '0px' }, 800); });
+        $(".nav_right a").click(function () {
+            $('html,body').animate({ scrollTop: '' + $($(this).attr("goto")).offset().top + 'px' }, 800);
+        });
+
+        $(".open_window_wrap").click(function () {
+            $(".maker_window").addClass("show");
+            $(".open_window_wrap").addClass("hide");
+        });
+        $(".window_close").click(function () {
+            $(".maker_window").removeClass("show");
+            $(".open_window_wrap").removeClass("hide");
+        });
+        $(".open_window_wrap").click();
+        setTimeout(function () {
+            $(".window_close").click();
+        }, 60000);
+    });
+
+    window.onscroll = function () {
+        var a = $(document).scrollTop();
+        //console.log($('#wrap_zb').offset().top)
+    };
+</script>

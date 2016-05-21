@@ -1,0 +1,1397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>【58同城交友_高品质交友网站】- 58同城交友网</title>
+<meta name="baidu-site-verification" content="zsaESSIhhP" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="58同城交友,同城交友网站" />
+<meta name="description" content="58同城交友网,是第一家以同城为概念的大型交友网站,所有交友信息都经过严格审核,为用户提供一个高品质的同城约会平台。找美女、帅哥约会,就来58同城交友网站！" />
+<meta name="mobile-agent" content="format=html5; url=http://m.jiaoyou.58.com/">
+<link href="http://c.58cdn.com.cn/jiaoyou/css/jiaoyou_v1_v1.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/jquery-1.6.2.min_v1.js"></script>
+<script type="text/javascript" src="/js/common.js?v=120625" charset="UTF-8"></script>
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/cookie_v1.js?v=120625" charset="UTF-8"></script>
+<script>
+
+var userid = '';
+var islogin =false;
+var _provinceid = '1';
+var _olduser = '';
+	var _citypinyin = 'bj';
+var photoHeadIsCheck = '';
+var _memberprovinceid = '';
+var cityrecord = {
+   topname : '',
+   seccityname : '',
+   thirdcityname : '',
+   seccity : '',
+   thirdcity : ''
+}
+
+	
+
+var advance = {
+	ageFrom : 18,
+	ageTo : 50,
+	citypingyin : _citypinyin,
+		sex :2
+	}
+</script><body>
+<link href="http://c.58cdn.com.cn/jiaoyou/css/head_v2_v2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/win_div_v1.js"></script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+BAIDU_CLB_preloadSlots("859953","850086","849670","892164","895194","901191","901188","901187","926278","924841","927870","946851");
+</script>
+<link rel="shortcut icon" href="http://pic2.58.com/images/favicon.ico" />
+<div class="head">
+    <div class="top">
+		<a class="logo" href="http://jiaoyou.58.com" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/logo']);"><img src="http://pic2.58.com/jiaoyou/index_img/jy_logo.jpg?t=3" /></a><!--logo_end-->
+		<div class="nav_all">
+			<ul>
+				<li id="jyzh"><a href="http://jiaoyou.58.com" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/jyzh']);"  class="nav_a" id="top_div">交友征婚</a>
+					<div class="y_icon" style="display:none">
+						<ol>
+                            <li><a href="http://jiaoyou.58.com/usercenter/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/jyzh']);" ><em class="jiaoyou"></em>我的交友</a></li>
+							<li><a href="http://jiaoyou.58.com/sjjy/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/zhenghun']);"><em class="zhenghun"></em>征婚</a></li>
+                            <li><a href="http://jiaoyou.58.com/encounter/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/encounter']);"><em class="xiehou"></em>邂逅缘分</a></li>
+                            								<li><a href="#" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/nearby']);this.href='/'+_citypinyin + '/';"><em class="fjdr"></em>附近的人</a></li>
+                           
+														<li><a href="http://jiaoyou.58.com/giftmall/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/gift']);"><em class="lwsc"></em>礼物商场</a></li>
+                            <li><a href="http://jiaoyou.58.com/skills/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/skills']);"><em class="jnjh"></em>技能交换</a></li>
+                            <li><a href="http://jiaoyou.58.com/photowall/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/photowall']);"><em class="zpq"></em>照片墙</a></li>
+                        </ol>
+                        <p class="d_x"></p>
+                    </div><!--y_icon_end-->
+				</li>
+				<li id="spxc"><a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/jyzh']);"  class="nav_a" id="top_div">美女直播</a>
+    				<div class="y_icon" style="display:none">
+						<ol>
+                            <li><a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/mnzb']);"><em class="mnzb"></em>美女表演</a></li>
+                            <!--<li><a href="http://jiaoyou.58.com/oksina/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/zy']);"><em class="zongyi"></em>美女主播</a></li>-->
+                            <li><a href="http://jiaoyou.58.com/mmvideo/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/spjy']);"><em class="spjy"></em>视频聊天</a></li>
+                            <li><a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/lb']);"><em class="liaoba"></em>聊吧</a></li>
+                            <li><a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/wq']);"><em class="wuqu"></em>舞区</a></li>
+                            <li><a href="http://jiaoyou.58.com/wohai/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/xiuchang', 'top/zy']);"><em class="zongyi"></em>美女主播</a></li>
+                            <!--li><a href="#" target="_blank" ><em class="gequ"></em>歌区</a></li>
+                            <li><a href="#" target="_blank" ><em class="leba"></em>乐吧</a></li-->
+                        </ol>
+                        <p class="d_x"></p>
+                    </div>
+                </li>
+				<li id="yxdt"><a href="http://wan.58.com/?utm_source=top_jiaoyou_0" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/wan', 'top/wan']);" class="nav_a" id="top_div">游戏中心</a>
+    				<div class="y_icon" style="display:none">
+    					<ol>
+							<li><a href="http://bbs.wan.58.com/ad/wan/jjsg/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top_jiaoyou', 'top/jjsg']);" target="_blank"><em class="n_jjsg"></em>街机三国</a></li><!--
+                            <li><a href="http://bbs.wan.58.com/ad/wan/dxz/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/dxz']);" target="_blank"><em class="n_dxz"></em>大侠传</a></li>
+                            --><li><a href="http://bbs.wan.58.com/ad/wan/9lc/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/9lc']);" target="_blank"><em class="n_jlc"></em>九龙朝</a></li>
+                            <li><a href="http://bbs.wan.58.com/ad/wan/rxhzw/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/rxhzw']);" target="_blank"><em class="n_rxhzw"></em>热血海贼王</a></li>
+                            <li><a href="http://bbs.wan.58.com/ad/wan/mm/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/mm']);" target="_blank"><em class="n_nslm"></em>女神联盟</a></li>
+                            <!--
+                            <li><a href="http://bbs.wan.58.com/ad/wan/wz/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/wz']);" target="_blank"><em class="n_wz"></em>武尊</a></li>
+                            <li><a href="http://bbs.wan.58.com/ad/wan/qszg/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/qszg']);" target="_blank"><em class="n_qszg"></em>骑士战歌</a></li>
+                            -->
+                            <!-- <li><a href="http://bbs.wan.58.com/ad/wan/qh/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'top/jiaoyou', 'top/qh']);" target="_blank"><em class="n_qh"></em>枪魂</a></li> -->
+                        </ol>
+                        <p class="d_x"></p>
+                    </div>
+				</li>
+			</ul>
+		</div><!--nav_end-->
+		<ul class="user_top">
+			    		<li><a href="#" onclick="headlogin()">登录</a><i>|</i></li>
+    		<li><a href="/user/reg/" onclick="_gaq.push(['pageTracker._trackEvent', 'topbar', 'click', 'top/reg']);">注册</a></li>
+			<script language="javascript">
+                $("#head_nav_login").click(function(){
+                    var currLocation = window.location.href;
+                    var reg=new RegExp("^.*jiaoyou\.58\.com","gmi");
+                    var redirectLocation = currLocation.replace(reg,"");
+                    window.location.href = "/user/tologin?path=" + redirectLocation;
+                    return false;
+                });
+                		
+                function checkold(){
+                    if(_olduser=="true"){
+                        finishprofile();
+                        return false;
+                    }
+                	return true;
+                }
+            </script>
+            <input type="hidden" value="f" id="autologining" name="autologining">
+			    	</ul><!--user_top_end-->
+    </div>
+</div><!--head_end-->
+<div class="jy_head_07">
+<a href="http://jiaoyou.58.com/6rooms/?utm_source=jiaoyou_spxc_mnzb01" class="jy_logo" target="_blank"></a>
+	<span class="city_07" id="iconcity"><i>北京 </i></span>
+	<div class="city_box win300 top_thirdcitydiv" style="display:none;">
+    	<div class="city_box_top">
+    		<div class="left">
+    			<p><b class="c_000"></b><a href="javascript:void(0)" class="ml15">返回上级</a></p>
+    		</div>
+    		<a class="close_ct" href="javascript:void(0)"></a>
+    		<i class="fix"></i>
+    	</div>
+    	<dl class="dl_city_box">
+    		<dt>                            
+    			<p><a class="c_000" href="javascript:void(0)"></a></p>
+    		</dt>
+    		<dd>
+    			<p class="citywh" ><!-- 城市 --></p>
+    		</dd>                            
+    	</dl>
+    </div>
+    <div class="city_box win300 top_seccitydiv" style="display:none;">
+    	<div class="city_box_top"  >
+    		<div class="left">
+    			<p><b class="c_000">北京</b><a href="javascript:void(0)" class="ml15">返回其他省市</a></p>
+    		</div>
+    		<i class="fix"></i> 
+    	</div>
+    	<dl class="dl_city_box">
+    		<dd>
+    			<p  class="citywh" ><!-- 二级城市  --></p>
+    		</dd>
+    	</dl>
+    </div>
+	<!--所在城市开始-->
+    <div style="display:none;" class="city_box win300 top_citydiv">
+        <div class="city_box_top">
+            <div class="left">
+                <p class="c_aaa">热门</p>
+                <p class="hot_citya">
+					<a href="javascript:void(0)">北京</a>
+					<a href="javascript:void(0)">上海</a>
+					<a href="javascript:void(0)">广东</a>
+					<a href="javascript:void(0)">四川</a>
+					<a href="javascript:void(0)">重庆</a>
+				</p>
+            </div>
+            <a href="javascript:void(0)" class="close_ct"></a> <i class="fix"></i>
+        </div>
+        <dl class="dl_city_box">
+            <dd>
+                <p class="zimu">A-G</p>
+                <p>
+        			<a href="javascript:void(0)">安徽</a>
+        			<a href="javascript:void(0)">北京</a>
+        			<a href="javascript:void(0)">重庆</a>
+        			<a href="javascript:void(0)">福建</a>
+        			<a href="javascript:void(0)">甘肃</a>
+        			<a href="javascript:void(0)">广东</a>
+        			<a href="javascript:void(0)">广西</a>
+        			<a href="javascript:void(0)">贵州</a>
+        			<a href="javascript:void(0)">澳门</a>
+        		</p>
+            </dd>
+            <dd>
+                <p class="zimu">H-J</p>
+                <p>
+        			<a href="javascript:void(0)">海南</a>
+        			<a href="javascript:void(0)">河南</a>
+        			<a href="javascript:void(0)">河北</a>
+        			<a href="javascript:void(0)">黑龙江</a>
+        			<a href="javascript:void(0)">湖北</a>
+        			<a href="javascript:void(0)">湖南</a>
+        			<a href="javascript:void(0)">吉林</a>
+        			<a href="javascript:void(0)">江苏</a>
+        			<a href="javascript:void(0)">江西</a>
+        		</p>
+            </dd>
+            <dd>
+                <p class="zimu">L-S</p>
+                <p>
+        			<a href="javascript:void(0)">辽宁</a>
+        			<a href="javascript:void(0)">内蒙古</a>
+        			<a href="javascript:void(0)">宁夏</a>
+        			<a href="javascript:void(0)">青海</a>
+        			<a href="javascript:void(0)">山东</a>
+        			<a href="javascript:void(0)">山西</a>
+        			<a href="javascript:void(0)">陕西</a>
+        			<a href="javascript:void(0)">上海</a>
+        			<a href="javascript:void(0)">四川</a>
+        		</p>
+            </dd>
+            <dd>
+                <p class="zimu">T-Z</p>
+                <p>
+        			<a href="javascript:void(0)">台湾</a>
+        			<a href="javascript:void(0)">天津</a>
+        			<a href="javascript:void(0)">西藏</a>
+        			<a href="javascript:void(0)">香港</a>
+        			<a href="javascript:void(0)">新疆</a>
+        			<a href="javascript:void(0)">云南</a>
+        			<a href="javascript:void(0)">浙江</a>
+        		</p>
+            </dd>
+        </dl>
+    </div>
+	<!--所在城市结束-->
+</div><!--jy_head_07_end-->
+<div class="jy_top">
+	<div class="jy_nav_07">
+        <ul id="ul_new_nav">
+            <li><a href="http://jiaoyou.58.com/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/plaza']);" ><span>交友首页</span></a></li>
+            				<li><a href="http://jiaoyou.58.com/user/tologin/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/usercenter']);"><span>我的交友</span></a></li>
+				<li><a href="#" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/nearby']);return check('/nearby/')"><span>附近的人</span></a></li>
+						
+            <li><a href="http://jiaoyou.58.com/encounter/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/encounter']);"><span>邂逅缘分</span></a></li>
+			<li><a href="http://jiaoyou.58.com/photowall/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/photowall']);"><span>照片墙</span></a></li>
+            <li><a href="http://jiaoyou.58.com/skills/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/skills']);"><span>技能交换</span></a></li>
+            <li class="spjy-m" onmouseover="$('#spjy-sub').show();$(this).children('a:first').addClass('nav_hover')" onmouseout="$('#spjy-sub').hide();$(this).children('a:first').removeClass('nav_hover')"><a href="http://jiaoyou.58.com/6rooms/?utm_source=jiaoyou_spxc_mnzb0" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/mmvideo']);"><span>视频交友<i class="icon-arr1"></i></span></a><div class="spjy-sub" id="spjy-sub" style="display:none">
+            <a href="http://jiaoyou.58.com/6rooms/?utm_source=jiaoyou_spxc_mnzb" target="_blank"><span class="mvzbico">美女表演</span></a>
+            <!--  <a href="http://jiaoyou.58.com/oksina/" target="_blank"><span class="mvbyico">美女主播</span></a> -->
+            <a href="http://jiaoyou.58.com/mmvideo/?utm_source=jiaoyou_spxc_splt" target="_blank"><span class="spltico">视频聊天</span></a>
+            <a href="http://jiaoyou.58.com/wohai/" target="_blank"><span class="mvbyico">美女主播</span></a>
+            </div></li>
+            <!--li><a href="#"><span>同城聊吧</span></a></li-->
+            <li><a href="http://jiaoyou.58.com/sjjy/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/zhenghun']);"><span>同城征婚</span></a></li>
+            <li><a href="http://i.wan.58.com/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/daohang/youxi']);"><span>同城游戏</span></a></li>
+        </ul>
+	</div><!--jy_nav_07_end-->
+	
+</div><!--jy_top_end-->
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/cities_v1.js?v=120625" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/headjs.js?v=130815" charset="UTF-8"></script>
+<script>
+function headlogin() {
+	var path = window.location.href;
+	window.location.href = "https://passport.58.com/login/?path="+path;
+}
+</script><div class="jy_search">
+    <ul>
+    	<li>我要找：
+    		<span class="s_list" id="sex-sec-p"><em> 女朋友</em></span>
+			<div class="se_ce" id="sex-p" style="display:none;">
+				<ol>
+					<a name="sexsec" fid="2">女朋友</a>
+					<a name="sexsec" fid="1">男朋友</a>
+				</ol>
+			</div>
+    	</li>
+    	<li>年龄：
+    		<span class="s_list" id="age-start-p"><em>18岁</em></span>
+			<div class="se_ce" style="display:none" id="age-start">
+				<div class="se_nl" id="mainBox">
+					<ol id="content">
+						                			<a fid="18" name="agefrom" class="selLi">18岁</a>
+                		                			<a fid="19" name="agefrom" class="selLi">19岁</a>
+                		                			<a fid="20" name="agefrom" class="selLi">20岁</a>
+                		                			<a fid="21" name="agefrom" class="selLi">21岁</a>
+                		                			<a fid="22" name="agefrom" class="selLi">22岁</a>
+                		                			<a fid="23" name="agefrom" class="selLi">23岁</a>
+                		                			<a fid="24" name="agefrom" class="selLi">24岁</a>
+                		                			<a fid="25" name="agefrom" class="selLi">25岁</a>
+                		                			<a fid="26" name="agefrom" class="selLi">26岁</a>
+                		                			<a fid="27" name="agefrom" class="selLi">27岁</a>
+                		                			<a fid="28" name="agefrom" class="selLi">28岁</a>
+                		                			<a fid="29" name="agefrom" class="selLi">29岁</a>
+                		                			<a fid="30" name="agefrom" class="selLi">30岁</a>
+                		                			<a fid="31" name="agefrom" class="selLi">31岁</a>
+                		                			<a fid="32" name="agefrom" class="selLi">32岁</a>
+                		                			<a fid="33" name="agefrom" class="selLi">33岁</a>
+                		                			<a fid="34" name="agefrom" class="selLi">34岁</a>
+                		                			<a fid="35" name="agefrom" class="selLi">35岁</a>
+                		                			<a fid="36" name="agefrom" class="selLi">36岁</a>
+                		                			<a fid="37" name="agefrom" class="selLi">37岁</a>
+                		                			<a fid="38" name="agefrom" class="selLi">38岁</a>
+                		                			<a fid="39" name="agefrom" class="selLi">39岁</a>
+                		                			<a fid="40" name="agefrom" class="selLi">40岁</a>
+                		                			<a fid="41" name="agefrom" class="selLi">41岁</a>
+                		                			<a fid="42" name="agefrom" class="selLi">42岁</a>
+                		                			<a fid="43" name="agefrom" class="selLi">43岁</a>
+                		                			<a fid="44" name="agefrom" class="selLi">44岁</a>
+                		                			<a fid="45" name="agefrom" class="selLi">45岁</a>
+                		                			<a fid="46" name="agefrom" class="selLi">46岁</a>
+                		                			<a fid="47" name="agefrom" class="selLi">47岁</a>
+                		                			<a fid="48" name="agefrom" class="selLi">48岁</a>
+                		                			<a fid="49" name="agefrom" class="selLi">49岁</a>
+                		                			<a fid="50" name="agefrom" class="selLi">50岁</a>
+                		                			<a fid="51" name="agefrom" class="selLi">51岁</a>
+                		                			<a fid="52" name="agefrom" class="selLi">52岁</a>
+                		                			<a fid="53" name="agefrom" class="selLi">53岁</a>
+                		                			<a fid="54" name="agefrom" class="selLi">54岁</a>
+                		                			<a fid="55" name="agefrom" class="selLi">55岁</a>
+                		                    </ol>
+                </div>
+            </div>
+    	</li>
+    
+    	<li class="nl">－
+    		<span class="s_list" id="age-end-p"><em>28岁</em></span>
+			<div class="se_ce" style="display:none" id="age-end">
+				<div class="se_nl" id="mainBox">
+					<ol id="content">
+						                			<a fid="18" name="ageto" class="selLi">18岁</a>
+                		                			<a fid="19" name="ageto" class="selLi">19岁</a>
+                		                			<a fid="20" name="ageto" class="selLi">20岁</a>
+                		                			<a fid="21" name="ageto" class="selLi">21岁</a>
+                		                			<a fid="22" name="ageto" class="selLi">22岁</a>
+                		                			<a fid="23" name="ageto" class="selLi">23岁</a>
+                		                			<a fid="24" name="ageto" class="selLi">24岁</a>
+                		                			<a fid="25" name="ageto" class="selLi">25岁</a>
+                		                			<a fid="26" name="ageto" class="selLi">26岁</a>
+                		                			<a fid="27" name="ageto" class="selLi">27岁</a>
+                		                			<a fid="28" name="ageto" class="selLi">28岁</a>
+                		                			<a fid="29" name="ageto" class="selLi">29岁</a>
+                		                			<a fid="30" name="ageto" class="selLi">30岁</a>
+                		                			<a fid="31" name="ageto" class="selLi">31岁</a>
+                		                			<a fid="32" name="ageto" class="selLi">32岁</a>
+                		                			<a fid="33" name="ageto" class="selLi">33岁</a>
+                		                			<a fid="34" name="ageto" class="selLi">34岁</a>
+                		                			<a fid="35" name="ageto" class="selLi">35岁</a>
+                		                			<a fid="36" name="ageto" class="selLi">36岁</a>
+                		                			<a fid="37" name="ageto" class="selLi">37岁</a>
+                		                			<a fid="38" name="ageto" class="selLi">38岁</a>
+                		                			<a fid="39" name="ageto" class="selLi">39岁</a>
+                		                			<a fid="40" name="ageto" class="selLi">40岁</a>
+                		                			<a fid="41" name="ageto" class="selLi">41岁</a>
+                		                			<a fid="42" name="ageto" class="selLi">42岁</a>
+                		                			<a fid="43" name="ageto" class="selLi">43岁</a>
+                		                			<a fid="44" name="ageto" class="selLi">44岁</a>
+                		                			<a fid="45" name="ageto" class="selLi">45岁</a>
+                		                			<a fid="46" name="ageto" class="selLi">46岁</a>
+                		                			<a fid="47" name="ageto" class="selLi">47岁</a>
+                		                			<a fid="48" name="ageto" class="selLi">48岁</a>
+                		                			<a fid="49" name="ageto" class="selLi">49岁</a>
+                		                			<a fid="50" name="ageto" class="selLi">50岁</a>
+                		                			<a fid="51" name="ageto" class="selLi">51岁</a>
+                		                			<a fid="52" name="ageto" class="selLi">52岁</a>
+                		                			<a fid="53" name="ageto" class="selLi">53岁</a>
+                		                			<a fid="54" name="ageto" class="selLi">54岁</a>
+                		                			<a fid="55" name="ageto" class="selLi">55岁</a>
+                		                    </ol>
+                </div>
+            </div>
+    	</li>
+    	<li class="quyu">区域：
+            <span class="s_list_qy" id="preProvince"><em id="preProvince">北京</em></span>
+    		<div class="city_box win300 thirdcitydiv" style="display:none;">
+            	<div class="city_box_top">
+                	<div class="city_hot">
+                    <p><b class="c_000"></b><a href="javascript:void(0)" class="ml15">返回上级</a></p>
+                    </div><a class="close_ct" href="javascript:void(0)"></a>
+                    <i class="fix"></i>
+                </div>
+                <dl class="dl_city_box">
+                	<dt>                            
+                    <p><a class="c_000" href="javascript:void(0)"></a></p>
+                    </dt>
+                    <dd>
+                    <p class="citywh" ><!-- 城市 --></p>
+                    </dd>                            
+                </dl>
+            </div>
+        	
+        	<div class="city_box win300 seccitydiv" style="display:none;">
+            	<div class="city_box_top">
+                	<div class="city_hot">
+                    <p><b class="c_000">北京</b><a href="javascript:void(0)" class="ml15">返回上级</a></p>
+                    </div>
+                    <i class="fix"></i>
+                </div>
+                <dl class="dl_city_box">
+                    <dd>
+                    <p class="citywh" ><!-- 城市 --></p>
+                    </dd>                            
+                </dl>
+            </div>
+        		
+        	<div class="city_box win300 citydiv" style="display:none;">
+                <div class="city_box_top">
+                    <div class="city_hot">
+                        <p class="c_aaa">热门</p>
+                        <p class="hot_citya">
+        					<a href="javascript:void(0)">北京</a>
+        					<a href="javascript:void(0)">上海</a>
+        					<a href="javascript:void(0)">广东</a>
+        					<a href="javascript:void(0)">四川</a>
+        					<a href="javascript:void(0)">重庆</a>
+        				</p>
+                    </div>
+        			<a href="javascript:void(0)" class="close_ct"></a>
+        			<i class="fix"></i> 
+        		</div>
+                <dl class="dl_city_box">
+                    <dd>
+                        <p class="zimu">A-G</p>
+                        <p>
+        					<a href="javascript:void(0)">安徽</a>
+        					<a href="javascript:void(0)">北京</a>
+        					<a href="javascript:void(0)">重庆</a>
+        					<a href="javascript:void(0)">福建</a>
+        					<a href="javascript:void(0)">甘肃</a>
+        					<a href="javascript:void(0)">广东</a>
+        					<a href="javascript:void(0)">广西</a>
+        					<a href="javascript:void(0)">贵州</a>
+        					<a href="javascript:void(0)">澳门</a>
+        				</p>
+                    </dd>
+                    <dd>
+                        <p class="zimu">H-J</p>
+                        <p>
+        					<a href="javascript:void(0)">海南</a>
+        					<a href="javascript:void(0)">河南</a>
+        					<a href="javascript:void(0)">河北</a>
+        					<a href="javascript:void(0)">黑龙江</a>
+        					<a href="javascript:void(0)">湖北</a>
+        					<a href="javascript:void(0)">湖南</a>
+        					<a href="javascript:void(0)">吉林</a>
+        					<a href="javascript:void(0)">江苏</a>
+        					<a href="javascript:void(0)">江西</a>
+        				</p>
+                    </dd>
+                    <dd>
+                        <p class="zimu">L-S</p>
+                        <p>
+        					<a href="javascript:void(0)">辽宁</a>
+        					<a href="javascript:void(0)">内蒙古</a>
+        					<a href="javascript:void(0)">宁夏</a>
+        					<a href="javascript:void(0)">青海</a>
+        					<a href="javascript:void(0)">山东</a>
+        					<a href="javascript:void(0)">山西</a>
+        					<a href="javascript:void(0)">陕西</a>
+        					<a href="javascript:void(0)">上海</a>
+        					<a href="javascript:void(0)">四川</a>
+        				</p>
+                    </dd>
+                    <dd>
+                        <p class="zimu">T-Z</p>
+                        <p>
+        					<a href="javascript:void(0)">台湾</a>
+        					<a href="javascript:void(0)">天津</a>
+        					<a href="javascript:void(0)">西藏</a>
+        					<a href="javascript:void(0)">香港</a>
+        					<a href="javascript:void(0)">新疆</a>
+        					<a href="javascript:void(0)">云南</a>
+        					<a href="javascript:void(0)">浙江</a>
+        				</p>
+                    </dd>
+                </dl>
+                </div><!--热门城市-->
+    	</li>
+    	<li><a class="ks_button" href="javascript:void(0)" onclick="_gaq.push(['pageTracker._trackEvent','jiaoyou', 'click', '/nearby/search']);indexsearch()">快速搜索</a></li>
+    </ul>
+<!-->
+<div class="gifts">
+<script type="text/javascript">BAIDU_CLB_fillSlot("892164");</script>
+</div>
+</div><!--jy_search_end-->
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/newsearch_v1.js?v=130827" charset="UTF-8"></script><div class="jy_mian">
+    <div class="jy_left">
+    
+					<div class="jy_left_column jy_login">
+    			<p class="d_text">立即登录，与<i class="color_hover">23415560</i>位会员一起寻找真爱!</p>
+                <script src="http://passport.58.com/uiscript?successFunction=successFunction&unionLogin=true" type="text/javascript"></script>
+            	<a onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/user/reg']);" class="zc-login-button" href="/user/reg/">注册</a>
+            	<p class="dx_y"></p>
+			</div><!--jy_login_end-->
+		    
+    <div class="jy_left_column jy_splt">
+        <h2 class="jy_l_bt"><strong>视频聊天</strong><a href="/6rooms/">更多</a></h2>
+        <dl>
+    		<dt><a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/splt1']);"><img src="http://pic2.58.com/jiaoyou/index_img/spjy_01.jpg" width="200" height="143" /></a>
+                <span class="zb">直播</span>
+                <span class="zb_di"></span>
+                <a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/splt1']);" class="z_js"><i>人鱼小公主</i><i>21岁</i><i>北京</i></a>
+                <span class="z_js_di"></span>
+            </dt>
+    		<dd><a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/splt2']);"><img src="http://pic2.58.com/jiaoyou/index_img/spjy_02.jpg" width="60" height="45" /></a>
+                <a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/splt3']);"><img src="http://pic2.58.com/jiaoyou/index_img/spjy_03.jpg" width="60" height="45" /></a>
+                <a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/splt4']);"><img src="http://pic2.58.com/jiaoyou/index_img/spjy_04.jpg" width="60" height="45" /></a>
+    		</dd>
+    	</dl>
+    	<p class="dx_y"></p>
+    </div><!--jy_splt_end-->
+    <div class="jy_left_column jy_rmyy">
+        <h2 class="jy_l_bt"><strong>热门应用</strong></h2>
+        <ul>
+    		<li><a href="http://jiaoyou.58.com/encounter/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/encounter']);" target="_blank"><i class="hot_xh"></i><span><em>邂逅</em><label>茫茫人海，相遇即是缘分来邂逅，寻找我的有缘人</label></span></a></li>
+            <li><a href="http://jiaoyou.58.com/photowall/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/photowall']);" target="_blank"><i class="hot_zpq"></i><span><em>照片墙</em><label>帅哥美女集中营，美丽就是要秀出来</label></span></a></li>
+            <li><a href="http://jiaoyou.58.com/mmvideo/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/mmvideo2']);" target="_blank"><i class="hot_zbx"></i><span><em>视频交友</em><label>网络人气主播，每日线上等你来</label></span></a></li>
+            <li><a href="http://jiaoyou.58.com/giftmall/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/gift']);" target="_blank"><i class="hot_lw"></i><span><em>礼物</em><label>小小礼物动人心，快来送出你的祝福</label></span></a></li>
+    	</ul>
+        <p class="dx_y"></p>
+    </div><!--jy_rmyy_end-->
+    <div class="db_ad">
+    	<a href="http://jiaoyou.58.com/photowall/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazabottom']);" title="照片墙" target="_blank"><img src="http://pic2.58.com/jiaoyou/index_img/3_body_img_06.jpg" width="240" height="100" /></a>
+    </div><!--db_ad_end-->
+</div><!--jy_left_end-->	<div class="jy_right">
+        <div class="jy_banner">
+            <span class="bn_qh">					
+                <a class="homeads_tabm cur">1</a>
+    			<a class="homeads_tabm">2</a>
+                <a class="homeads_tabm">3</a>
+                <a class="homeads_tabm">4</a>
+            </span>
+            <div class="foxbox" style="width: 1500px; margin-left: 0px;">
+                <a href="http://jiaoyou.58.com/6rooms/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay3']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/jy-banner1.jpg"  width="750" height="265"/></a>
+                <a href="http://jiaoyou.58.com/sjjy/?utm_source=jiaoyou_sjjy" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay3']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/jy-banner0928.jpg"  width="745" height="265"/></a>
+                <a href="http://jiaoyou.58.com/mmvideo/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay1']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/jy-banner02.jpg"  width="747" height="265"/></a>
+				<a href="http://jiaoyou.58.com/wohai/" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay2']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/jiaoyou_0927.jpg"  width="745" height="265"/></a>
+    			
+    			
+<!--				<a href="http://jiaoyou.58.com/mmvideo" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay2']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/jiaoyou_0813.jpg"  width="750" height="265"/></a>-->
+                
+                
+<!--    			<a href="http://jiaoyou.58.com/6rooms/?bgurl=http://v.6.cn/51314122?coop=1017" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay3']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/banner-jeyx.jpg"  width="750" height="265"/></a>-->
+    			<!--a href="http://www.darengong.com/tuiguang.html" target="_blank" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazaplay3']);" class="homeads_tabc"><img src="http://pic2.58.com/jiaoyou/images/banner3.jpg"  width="750" height="265"/></a -->
+    		</div>
+        </div><!--jy_banner_end-->
+        <div class="jy_right_column czjr">
+        	<h2 class="jy_l_bt">
+        		<strong>才子佳人</strong>
+                <ul class="qh_tab">
+                    <li><a class="kjy_a" id="Button21" onmousemove="TabMove(2,1,4);_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr/tab'])">青葱校园</a></li>
+                    <li><a id="Button22" onmousemove="TabMove(2,2,4);_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr/tab'])">潜力股</a></li>
+                    <li><a id="Button23" onmousemove="TabMove(2,3,4);_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr/tab'])">时尚前沿</a></li>
+                    <li><a id="Button24" onmousemove="TabMove(2,4,4);_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr/tab'])">有车一族</a></li>
+                </ul>
+            </h2>
+            <ul class="tj_tab"  id="ContentBox21">
+															<li><a href="/user/1900856243206/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/1900856243206/n_14130982861058.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">ゝ向R1葵」</em><em>22岁</em><em>北京通州</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/7319974182147/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_19412913038850.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">梦寶_</em><em>23岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/46778409/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/46778409/n_15077563126529.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">   crystal</em><em>26岁</em><em>北京大兴</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4213701567749/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_16290417285644.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">小甜心</em><em>27岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/5610705754117/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_17687407586820.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">华妹</em><em>22岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/32067807/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_16206319565578.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">琦琦</em><em>24岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/2828516051463/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/2828516051463/n_16022271490561.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">❤阳阳</em><em>22岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/5719078877188/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_17934233439491.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">yuki</em><em>26岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/15785128668423/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/15785128668423/n_s11783277271122201.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">我是谁</em><em>24岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/3983087256322/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_16059762334732.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">见过无痕</em><em>24岁</em><em>北京丰台</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/3981706412806/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/3981706412806/n_16058439603458.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">萱萱</em><em>25岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/9389102716422/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/9389102716422/n_s11776020428554520.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">cute云儿</em><em>23岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/6026546634754/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_18113325072385.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">灵狐者</em><em>24岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/3427090836738/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/mobile/r/tiny/n_15979506843151.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">王一元</em><em>23岁</em><em>北京西城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    								                
+            </ul>
+            <ul class="tj_tab"  id="ContentBox22" style="display:none">
+                											<li><a href="/user/4372163273223/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4372163273223/n_16452928939523.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">johnrus</em><em>34岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/26619379/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/26619379/n_s01869970035920664.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">读你</em><em>29岁</em><em>北京大兴</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/22553959/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/22553959/n_s11835436483693848.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">andy</em><em>30岁</em><em>北京石景山</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/40805907/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/40805907/n_16468351299585.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">萧宇</em><em>28岁</em><em>北京西城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4226403939847/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4226403939847/n_16303068656131.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">京城富二商</em><em>26岁</em><em>北京顺义</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/1450076508931/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/1450076508931/n_s01861007575484186.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">谁的菜谁吃</em><em>31岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4332132222983/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4332132222983/n_16408862142210.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">奔跑的忧伤</em><em>30岁</em><em>北京丰台</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/16664902028294/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/16664902028294/n_s11839461321018905.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">玫瑰钻</em><em>26岁</em><em>北京昌平</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/16763713780231/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/16763713780231/n_s11856572426503449.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">葫芦娃</em><em>31岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/16316441110022/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/16316441110022/n_s01817190896451864.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">学车</em><em>32岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4313366118918/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4313366118918/n_16390126943489.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">高心</em><em>35岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/18150476/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/18150476/n_s11855813658037271.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">李子</em><em>28岁</em><em>北京丰台</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/24037696/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/24037696/n_s01866866519297047.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">混小子</em><em>28岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/16358427415559/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/16358427415559/n_s01824168244839706.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">勇敢青春</em><em>29岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    								            </ul>
+            <ul class="tj_tab"  id="ContentBox23" style="display:none">
+                											<li><a href="/user/3265053304071/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/s/tiny/3265053304071/n_17774064475906.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">向日葵</em><em>28岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4376853114886/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4376853114886/n_16453643542532.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">丹丹</em><em>26岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4256825586183/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4256825586183/n_16447762368516.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">晓霞</em><em>28岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/2829520286214/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/2829520286214/n_15280880738308.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">不解释</em><em>30岁</em><em>北京通州</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/6811215349511/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/6811215349511/n_18889204173828.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">卿竹倩</em><em>28岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4063661223686/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4063661223686/n_16140316617220.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">Q咹晓</em><em>27岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/15669700668679/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/15669700668679/n_s11775784757985305.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">见面交友</em><em>28岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/3508984818182/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/3508984818182/n_15585662289154.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">朵朵</em><em>26岁</em><em>北京丰台</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4280519790599/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4280519790599/n_16357262433538.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">爱使的手</em><em>29岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/3578084112391/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/3578084112391/n_15654796007169.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc"> Andy</em><em>27岁</em><em>北京西城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4238684632327/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4238684632327/n_16315423449346.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">小菲没人爱</em><em>36岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/15302018278663/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/15302018278663/n_1752237044189463.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">幸福的石榴</em><em>24岁</em><em>北京西城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4205352544774/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4205352544774/n_16282098439682.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">桃之妖妖</em><em>24岁</em><em>北京房山</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/3902721326854/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/3902721326854/n_15979397437444.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">求爱姐</em><em>27岁</em><em>北京西城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    								            </ul>
+            <ul class="tj_tab"  id="ContentBox24" style="display:none">
+                											<li><a href="/user/38681373/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/38681373/n_18702237272835.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">一叶知秋</em><em>41岁</em><em>北京西城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/49797521/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/49797521/n_1672038885001752.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">Tim</em><em>45岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4373228766727/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4373228766727/n_16452721466370.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc"> 里奇.蒙德</em><em>26岁</em><em>北京顺义</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4103700902919/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4103700902919/n_16180472976131.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">king</em><em>31岁</em><em>武汉江岸</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/6192993148423/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/s/tiny/6192993148423/n_s12469403580321572153.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">林森</em><em>36岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/5343733040902/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/5343733040902/n_s12046328737713808144.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">゛Jason_,</em><em>25岁</em><em>北京门头沟</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4373023516422/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4373023516422/n_16450290343938.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">大汉</em><em>30岁</em><em>钦州钦南</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/1557655387398/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/1557655387398/n_16314806361604.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">夜游狼</em><em>30岁</em><em>承德承德</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/24278916/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/24278916/n_17341048074753.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">行动</em><em>33岁</em><em>北京海淀</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4419504506886/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4419504506886/n_16496168410626.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">KUIS</em><em>28岁</em><em>北京东城</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/6004398446343/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/6004398446343/n_18081601508865.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">哥特式唯美</em><em>29岁</em><em>北京朝阳</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/4423074849286/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/4423074849286/n_16500047441156.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">胖大培</em><em>28岁</em><em>北京昌平</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/6255146206726/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/6255146206726/n_18546162233603.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">吉他英雄</em><em>24岁</em><em>北京石景山</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    										<li><a href="/user/45946874/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/czjr']);" target="_blank"><img src="http://pic1.58cdn.com.cn/jiaoyou/r/tiny/45946874/n_21563854580228.jpg" width="93" height="93" />
+							<span style="display:none;" class="tm_zi"><em class="nc">千年</em><em>29岁</em><em>北京通州</em></span><span class="tm_bj" style="display:none;"></span></a>
+						</li>
+    								            </ul>
+        	<p class="dx_y"></p>
+        </div>
+        <!--czjr_end-->
+		<!--<div class="right_ad">
+		  <a href="/encounter/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/ad/plazamiddle']);" title="邂逅" target="_blank">
+		 <img src="http://pic2.58.com/jiaoyou/index_img/3_body_img_05.jpg" width="750" height="90" />
+		 </a>
+		</div>
+		--><!--right_ad_end-->
+		<div class="zb_tj1">
+          <h4><b>主播推荐</b><a href="http://jiaoyou.58.com/6rooms/?utm_source=wan_more" target="_blank">更多</a></h4>
+          <ul id="mmzb">
+          </ul>
+          <p class="dx_y"></p>
+         </div>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			jQuery.jqtab = function(tabtit,tabcontent,shijian) {
+				$(tabcontent).find("ul").hide();
+				$(tabtit).find("li:first").addClass("on").show(); 
+				$(tabcontent).find("ul:first").show();
+			
+				$(tabtit).find("li").bind(shijian,function(){
+				  $(this).addClass("on").siblings("li").removeClass("on"); 
+					var activeindex = $(tabtit).find("li").index(this);
+					$(tabcontent).children().eq(activeindex).show().siblings().hide();
+					return false;
+				});
+			};
+			/*调用方法如下：*/
+			$.jqtab(".jy_l_tab","#tabcontent","click");
+			$.jqtab(".jy_l_tab",".tabcontent","mouseenter");
+		});
+		</script>
+        <div class="jy_right_column rmhy">
+            <h2 class="jy_l_bt">
+	   			<div class="jy_l_tab">
+				  <ul>
+				    <li class="on"><span>热门会员</span></li>
+				    <li><span>最新会员</span></li>
+				  </ul>
+				</div>
+            <a href="#" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy/more']);window.location.href='/'+_citypinyin + '/';">更多</a>
+            </h2>
+            <div class="tabcontent" id="tabcontent">
+            <ul>
+        		        			                        <li>
+                			<a target="_blank" href="/user/27418785443846/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/27418785443846/n_s12695874290208872156.jpg" width="93" height="93" />
+                				<span><em>闲来雅叙</em><em>39岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/26787609108487/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/26787609108487/n_s02508200475153295163.jpg" width="93" height="93" />
+                				<span><em>sergres</em><em>52岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/18074976/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/18074976/n_s1200356692708559254.jpg" width="93" height="93" />
+                				<span><em>冬季</em><em>57岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/38694014565651/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/38694014565651/n_v1bl2lwxrkleifol75ujqa.jpg" width="93" height="93" />
+                				<span><em>小楠</em><em>33岁 </em><em>北京东城</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/18642883399686/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/18642883399686/n_s11968517281284631.jpg" width="93" height="93" />
+                				<span><em>阗儿</em><em>44岁 </em><em>北京东城</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/55115515/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/55115515/n_s12678385542402213163.jpg" width="93" height="93" />
+                				<span><em>秋</em><em>40岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/9541332818438/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/9541332818438/n_s12322586639355498146.jpg" width="93" height="93" />
+                				<span><em>懒惰气死猫</em><em>40岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/34977561043721/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/s/small/34977561043721/n_v1bl2lwtp2oayvnapb3rha.jpg" width="93" height="93" />
+                				<span><em>心如思雨</em><em>32岁 </em><em>北京顺义</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			        		            </ul>
+            <ul>
+        		        			                        <li>
+                			<a target="_blank" href="/user/31909095736075/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/31909095736075/n_v1bj3gzsdg246vo6xkjjxa.jpg" width="93" height="93" />
+                				<span><em>魂尊</em><em>30岁 </em><em>北京通州</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/39479432305424/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/39479432305424/n_v1bl2lwtkkyy6vpadaa5hq.jpg" width="93" height="93" />
+                				<span><em>枫叶在飘</em><em>23岁 </em><em>北京</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/39477990376461/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/39477990376461/n_v1bkujjd6rwe6vputb6jtq.jpg" width="93" height="93" />
+                				<span><em>敬业福</em><em>25岁 </em><em>北京密云</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/16928991962374/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/16928991962374/n_v1bkuyfvmfeq6voxe2ensq.jpg" width="93" height="93" />
+                				<span><em>潘小师</em><em>28岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/39467407949076/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/s/small/39467407949076/n_v1bl2lwtnrb46vpmssnrta.jpg" width="93" height="93" />
+                				<span><em>大大</em><em>36岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/22454941490695/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/22454941490695/n_v1bj3gzseujy6voexrsmda.jpg" width="93" height="93" />
+                				<span><em>henry</em><em>46岁 </em><em>北京海淀</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/39453774643469/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/39453774643469/n_v1bkuymc4lie6fo5a6xrka.jpg" width="93" height="93" />
+                				<span><em>前前</em><em>47岁 </em><em>北京朝阳</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			                        <li>
+                			<a target="_blank" href="/user/39446344200207/" onclick="_gaq.push(['pageTracker._trackEvent', 'jiaoyou', 'click', '/plaza/zxhy']);">
+                				<img src="http://pic1.58cdn.com.cn/jiaoyou/r/small/39446344200207/n_v1bl2lwxu7zy5vobeeb4ca.jpg" width="93" height="93" />
+                				<span><em>海洋人生</em><em>30岁 </em><em>北京海淀</em><label class="rst">认识Ta</label></span>
+                			</a>
+                		</li>
+        			        		            </ul>
+            </div>
+        	<p class="dx_y"></p>
+        </div><!--rmhy_end-->
+        <div class="jy_right_column d_ts">
+            <span class="d_ts1">不要轻易与他人发生任何形式的金钱往来</span>
+            <span class="d_ts2">初次约会安排在双方都熟悉的公共场所，不要去陌生地点</span>
+            <span class="d_ts3">不要轻易透露个人信息，如手机，qq号，住址等</span>
+            <p class="dx_y"></p>
+        </div><!--d_ts_end-->
+	</div><!--jy_right_end-->
+	<div class="clear"></div>
+</div>
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/plaza_v1.js?v=130808" charset="UTF-8"></script>
+<script>
+$.ajax({
+	type : "POST",
+	url  : "http://jiaoyou.58.com/ajaxnearbyRoom",
+	success: function(res){
+		$(res).appendTo("#mmzb");
+		$("#mmzb").find("li").find("a").mouseover(function(){
+			$(this).find("#a1").hide();
+			$(this).find("#a2").show();
+		});
+		$("#mmzb").find("li").find("a").mouseout(function(){
+			$(this).find("#a1").show();
+			$(this).find("#a2").hide();
+		});
+	},
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+    	alert("操作失败，稍微再试");
+    }
+});
+</script>
+<link href="http://c.58cdn.com.cn/jiaoyou/css/foot-jy_v1.css" rel="stylesheet" type="text/css" />
+<div class="jy_bottom">
+    <div class="bottom_mian">
+    
+    <dl class="linksItem relatelink" id="hotarea">
+    	<p>北京同城交友网为您提供真实的北京征婚，同城交友、找女朋友、找男朋友、同城邂逅等北京交友信息，欢迎您使用58同城北京交友网。</p>
+          <dt class="b-left">类目：</dt>
+          <dd class="b-right">
+            <a href="/bj/mm/">北京美女</a><a href="/bj/gg/">北京帅哥</a>
+          </dd>
+        </dl>
+		<dl class="linksItem relatelink" id="relatelink">
+  <dt class="b-left">地区：</dt>
+  <dd class="b-right">
+  	<ul class="list-qu">
+  						        <li id="dongcheng"><a href="/dongcheng/bj/">东城</a></li>  
+		        		        <li id="xicheng"><a href="/xicheng/bj/">西城</a></li>  
+		        		        <li id="chongwen"><a href="/chongwen/bj/">崇文</a></li>  
+		        		        <li id="xuanwu"><a href="/xuanwu/bj/">宣武</a></li>  
+		        		        <li id="chaoyang"><a href="/chaoyang/bj/">朝阳</a></li>  
+		        		        <li id="haidian"><a href="/haidian/bj/">海淀</a></li>  
+		        		        <li id="fengtai"><a href="/fengtai/bj/">丰台</a></li>  
+		        		        <li id="shijingshan"><a href="/shijingshan/bj/">石景山</a></li>  
+		        		        <li id="tongzhouqu"><a href="/tongzhouqu/bj/">通州</a></li>  
+		        		        <li id="changping"><a href="/changping/bj/">昌平</a></li>  
+		        		        <li id="fangshan"><a href="/fangshan/bj/">房山</a></li>  
+		        		        <li id="daxing"><a href="/daxing/bj/">大兴</a></li>  
+		        		        <li id="shunyi"><a href="/shunyi/bj/">顺义</a></li>  
+		        		        <li id="miyun"><a href="/miyun/bj/">密云</a></li>  
+		        		        <li id="huairou"><a href="/huairou/bj/">怀柔</a></li>  
+		        		        <li id="yanqing"><a href="/yanqing/bj/">延庆</a></li>  
+		        		        <li id="pinggu"><a href="/pinggu/bj/">平谷</a></li>  
+		        		        <li id="mentougou"><a href="/mentougou/bj/">门头沟</a></li>  
+		        		        <script>
+		        	var city = window.location.pathname;
+		        	var cityarr = city.split("/");
+		        	if (cityarr.length>1) {
+		        		$("#"+cityarr[1]).addClass("has");
+		        	}
+		        </script>
+            </ul>
+    <dl id="relateSelect" class="relateSelect"> 
+    	    <dt><span>A</span></dt><dd>
+	        	        	        <a href="/anzhenqiao/bj/" target="_blank">安贞</a>        
+	        	        <a href="/anhuili/bj/" target="_blank">安慧桥</a>        
+	        	        <a href="/aoyuncun/bj/" target="_blank">奥运村</a>        
+	        	        <a href="/andingmen/bj/" target="_blank">安定门</a>        
+	        	    	    <dt><span>B</span></dt><dd>
+	        	        	        <a href="/beishatan/bj/" target="_blank">北沙滩</a>        
+	        	        <a href="/bjbeiyuan/bj/" target="_blank">北苑</a>        
+	        	        <a href="/baiziwan/bj/" target="_blank">百子湾</a>        
+	        	        <a href="/beijingdaxue/bj/" target="_blank">北京大学</a>        
+	        	        <a href="/beihangbj/bj/" target="_blank">北航</a>        
+	        	        <a href="/beitaipingzhuang/bj/" target="_blank">北太平庄</a>        
+	        	        <a href="/baishiqiao/bj/" target="_blank">白石桥</a>        
+	        	        <a href="/beiwalu/bj/" target="_blank">北洼路</a>        
+	        	        <a href="/beixinqiao/bj/" target="_blank">北新桥</a>        
+	        	        <a href="/beijingzhan/bj/" target="_blank">北京站</a>        
+	        	        <a href="/baiwanzhuang/bj/" target="_blank">百万庄</a>        
+	        	        <a href="/baizhifang/bj/" target="_blank">白纸坊</a>        
+	        	        <a href="/baiguanglu/bj/" target="_blank">白广路</a>        
+	        	        <a href="/beidadi/bj/" target="_blank">北大地</a>        
+	        	        <a href="/bgbeiguan/bj/" target="_blank">北关</a>        
+	        	        <a href="/beiguanhuandao/bj/" target="_blank">北关环岛</a>        
+	        	        <a href="/baliqiao/bj/" target="_blank">八里桥</a>        
+	        	        <a href="/batongqinggui/bj/" target="_blank">八通轻轨沿线</a>        
+	        	        <a href="/babaoshan/bj/" target="_blank">八宝山</a>        
+	        	        <a href="/bajiao/bj/" target="_blank">八角</a>        
+	        	    	    <dt><span>C</span></dt><dd>
+	        	        	        <a href="/cbd/bj/" target="_blank">CBD </a>        
+	        	        <a href="/chaowaidajie/bj/" target="_blank">朝外大街</a>        
+	        	        <a href="/chaoyanggongyuan/bj/" target="_blank">朝阳公园</a>        
+	        	        <a href="/changying/bj/" target="_blank">常营</a>        
+	        	        <a href="/chaoyangmen/bj/" target="_blank">朝阳门</a>        
+	        	        <a href="/chegongzhuang/bj/" target="_blank">车公庄</a>        
+	        	        <a href="/chongwenmen/bj/" target="_blank">崇文门</a>        
+	        	        <a href="/ciqikou/bj/" target="_blank">磁器口</a>        
+	        	        <a href="/chunshujiedao/bj/" target="_blank">椿树街道</a>        
+	        	        <a href="/caishikou/bj/" target="_blank">菜市口</a>        
+	        	        <a href="/caihuying/bj/" target="_blank">菜户营</a>        
+	        	        <a href="/caoqiao/bj/" target="_blank">草桥</a>        
+	        	        <a href="/chengshousi/bj/" target="_blank">成寿寺</a>        
+	        	        <a href="/cpchengbei/bj/" target="_blank">城北</a>        
+	        	    	    <dt><span>D</span></dt><dd>
+	        	        	        <a href="/dawanglu/bj/" target="_blank">大望路</a>        
+	        	        <a href="/dongdaqiao/bj/" target="_blank">东大桥</a>        
+	        	        <a href="/datun/bj/" target="_blank">大屯</a>        
+	        	        <a href="/dashanzi/bj/" target="_blank">大山子</a>        
+	        	        <a href="/dongba/bj/" target="_blank">东坝</a>        
+	        	        <a href="/dingfuzhuang/bj/" target="_blank">定福庄</a>        
+	        	        <a href="/dougezhuang/bj/" target="_blank">豆各庄</a>        
+	        	        <a href="/dazhongsi/bj/" target="_blank">大钟寺</a>        
+	        	        <a href="/dinghuisi/bj/" target="_blank">定慧寺</a>        
+	        	        <a href="/dongzhimen/bj/" target="_blank">东直门</a>        
+	        	        <a href="/dongzhimenwai/bj/" target="_blank">东直门外</a>        
+	        	        <a href="/dongsishitiao/bj/" target="_blank">东四十条</a>        
+	        	        <a href="/dengshikou/bj/" target="_blank">灯市口</a>        
+	        	        <a href="/dongsan/bj/" target="_blank">东单</a>        
+	        	        <a href="/dongsi/bj/" target="_blank">东四</a>        
+	        	        <a href="/deshengmen/bj/" target="_blank">德胜门</a>        
+	        	        <a href="/dianmen/bj/" target="_blank">地安门</a>        
+	        	        <a href="/donghuashi/bj/" target="_blank">东花市</a>        
+	        	        <a href="/daguanyuan/bj/" target="_blank">大观园</a>        
+	        	        <a href="/dazhalan/bj/" target="_blank">大栅栏</a>        
+	        	    	    <dt><span>E</span></dt><dd>
+	        	        	        <a href="/erlizhuang/bj/" target="_blank">二里庄</a>        
+	        	    	    <dt><span>F</span></dt><dd>
+	        	        	        <a href="/fatou/bj/" target="_blank">垡头</a>        
+	        	        <a href="/fuchengmen/bj/" target="_blank">阜成门</a>        
+	        	        <a href="/fuxingmen/bj/" target="_blank">复兴门</a>        
+	        	        <a href="/fahuasi/bj/" target="_blank">法华寺</a>        
+	        	        <a href="/fengtailu/bj/" target="_blank">丰台路</a>        
+	        	        <a href="/fengtaitiyuguan/bj/" target="_blank">丰台体育馆</a>        
+	        	        <a href="/fangzhuang/bj/" target="_blank">方庄</a>        
+	        	        <a href="/fangshancg/bj/" target="_blank">房山城关</a>        
+	        	    	    <dt><span>G</span></dt><dd>
+	        	        	        <a href="/guomao/bj/" target="_blank">国贸</a>        
+	        	        <a href="/guangqumen/bj/" target="_blank">广渠门</a>        
+	        	        <a href="/gongti/bj/" target="_blank">工体</a>        
+	        	        <a href="/guozhan/bj/" target="_blank">国展</a>        
+	        	        <a href="/gaobeidianbj/bj/" target="_blank">高碑店</a>        
+	        	        <a href="/guanzhuang/bj/" target="_blank">管庄</a>        
+	        	        <a href="/ganjiakou/bj/" target="_blank">甘家口</a>        
+	        	        <a href="/gongzhufen/bj/" target="_blank">公主坟</a>        
+	        	        <a href="/guanyuan/bj/" target="_blank">官园</a>        
+	        	        <a href="/shishahai/bj/" target="_blank">鼓楼</a>        
+	        	        <a href="/guangqumennei/bj/" target="_blank">广渠门</a>        
+	        	        <a href="/guangminglou/bj/" target="_blank">光明楼</a>        
+	        	        <a href="/guanganmenwai/bj/" target="_blank">广安门外</a>        
+	        	        <a href="/guanganmennei/bj/" target="_blank">广安门内</a>        
+	        	        <a href="/guoyuan/bj/" target="_blank">果园</a>        
+	        	        <a href="/guchenglu/bj/" target="_blank">古城</a>        
+	        	        <a href="/jingkaigaosu/bj/" target="_blank">观音寺</a>        
+	        	        <a href="/guangming/bj/" target="_blank">光明 </a>        
+	        	    	    <dt><span>H</span></dt><dd>
+	        	        	        <a href="/hujialou/bj/" target="_blank">呼家楼</a>        
+	        	        <a href="/hepingjie/bj/" target="_blank">和平街</a>        
+	        	        <a href="/huajiadi/bj/" target="_blank">花家地</a>        
+	        	        <a href="/hongmiao/bj/" target="_blank">红庙</a>        
+	        	        <a href="/huayuanqiao/bj/" target="_blank">花园桥</a>        
+	        	        <a href="/hangtianqiao/bj/" target="_blank">航天桥</a>        
+	        	        <a href="/hepingli/bj/" target="_blank">和平里</a>        
+	        	        <a href="/haiyuncang/bj/" target="_blank">海运仓</a>        
+	        	        <a href="/honglian/bj/" target="_blank">红莲</a>        
+	        	        <a href="/hufangqiao/bj/" target="_blank">虎坊桥</a>        
+	        	        <a href="/hepingmen/bj/" target="_blank">和平门</a>        
+	        	        <a href="/huaxiang/bj/" target="_blank">花乡</a>        
+	        	        <a href="/ftheyi/bj/" target="_blank">和义</a>        
+	        	        <a href="/hanhecun/bj/" target="_blank">韩村河</a>        
+	        	        <a href="/huoying/bj/" target="_blank">霍营</a>        
+	        	        <a href="/huilongguan/bj/" target="_blank">回龙观</a>        
+	        	    	    <dt><span>I</span></dt><dd>
+	        	        	    	    <dt><span>J</span></dt><dd>
+	        	        	        <a href="/jinsong/bj/" target="_blank">劲松</a>        
+	        	        <a href="/jianwaidajie/bj/" target="_blank">建外大街</a>        
+	        	        <a href="/jingguangqiao/bj/" target="_blank">京广桥</a>        
+	        	        <a href="/jiuxianqiao/bj/" target="_blank">酒仙桥</a>        
+	        	        <a href="/jiangtailu/bj/" target="_blank">将台路</a>        
+	        	        <a href="/jimenqiao/bj/" target="_blank">蓟门桥</a>        
+	        	        <a href="/junbo/bj/" target="_blank">军博</a>        
+	        	        <a href="/jiaodaokou/bj/" target="_blank">交道口</a>        
+	        	        <a href="/jianguomen/bj/" target="_blank">建国门</a>        
+	        	        <a href="/jingshan/bj/" target="_blank">景山</a>        
+	        	        <a href="/jierongjie/bj/" target="_blank">金融街</a>        
+	        	        <a href="/jishuitan/bj/" target="_blank">积水潭</a>        
+	        	        <a href="/jiayuan/bj/" target="_blank">嘉园</a>        
+	        	        <a href="/jiaomen/bj/" target="_blank">角门</a>        
+	        	        <a href="/jiukeshu/bj/" target="_blank">九棵树</a>        
+	        	        <a href="/jindingjie/bj/" target="_blank">金顶街</a>        
+	        	        <a href="/jiugong/bj/" target="_blank">旧宫 </a>        
+	        	        <a href="/jichangbj/bj/" target="_blank">机场</a>        
+	        	    	    <dt><span>K</span></dt><dd>
+	        	        	        <a href="/kejiyuanqu/bj/" target="_blank">科技园区</a>        
+	        	    	    <dt><span>L</span></dt><dd>
+	        	        	        <a href="/liufang/bj/" target="_blank">柳芳</a>        
+	        	        <a href="/laiguangying/bj/" target="_blank">来广营</a>        
+	        	        <a href="/liupukang/bj/" target="_blank">六铺炕</a>        
+	        	        <a href="/longtanhu/bj/" target="_blank">龙潭湖</a>        
+	        	        <a href="/liuliqiao/bj/" target="_blank">六里桥</a>        
+	        	        <a href="/lugouqiao/bj/" target="_blank">卢沟桥</a>        
+	        	        <a href="/lizeqiao/bj/" target="_blank">丽泽桥</a>        
+	        	        <a href="/liujiayao/bj/" target="_blank">刘家窑</a>        
+	        	        <a href="/liyuan/bj/" target="_blank">梨园</a>        
+	        	        <a href="/linheli/bj/" target="_blank">临河里</a>        
+	        	        <a href="/luc/bj/" target="_blank">潞城</a>        
+	        	        <a href="/lugu/bj/" target="_blank">鲁谷</a>        
+	        	        <a href="/laoshanbj/bj/" target="_blank">老山</a>        
+	        	        <a href="/liangxiang/bj/" target="_blank">良乡</a>        
+	        	        <a href="/lishuiqiao/bj/" target="_blank">立水桥</a>        
+	        	        <a href="/longze/bj/" target="_blank">龙泽</a>        
+	        	        <a href="/linxiaolu/bj/" target="_blank">林校路</a>        
+	        	        <a href="/liqiao/bj/" target="_blank">李桥</a>        
+	        	    	    <dt><span>M</span></dt><dd>
+	        	        	        <a href="/maizidian/bj/" target="_blank">麦子店</a>        
+	        	        <a href="/mudanyuan/bj/" target="_blank">牡丹园</a>        
+	        	        <a href="/malianwa/bj/" target="_blank">马连洼</a>        
+	        	        <a href="/madian/bj/" target="_blank">马甸</a>        
+	        	        <a href="/muxidi/bj/" target="_blank">木樨地</a>        
+	        	        <a href="/maliandao/bj/" target="_blank">马连道</a>        
+	        	        <a href="/muxiyuan/bj/" target="_blank">木樨园</a>        
+	        	        <a href="/majiabao/bj/" target="_blank">马家堡</a>        
+	        	        <a href="/majuqiao/bj/" target="_blank">马驹桥</a>        
+	        	        <a href="/mushikou/bj/" target="_blank">模式口</a>        
+	        	        <a href="/mapo/bj/" target="_blank">马坡</a>        
+	        	        <a href="/miyunchengqu/bj/" target="_blank">密云城区</a>        
+	        	    	    <dt><span>N</span></dt><dd>
+	        	        	        <a href="/nanmofang/bj/" target="_blank">南磨房</a>        
+	        	        <a href="/baiyunlu/bj/" target="_blank">南礼士路</a>        
+	        	        <a href="/nancaiyuan/bj/" target="_blank">南菜园</a>        
+	        	        <a href="/niujie/bj/" target="_blank">牛街</a>        
+	        	        <a href="/nanyuan/bj/" target="_blank">南苑</a>        
+	        	        <a href="/nankou/bj/" target="_blank">南口</a>        
+	        	        <a href="/nancai/bj/" target="_blank">南彩</a>        
+	        	    	    <dt><span>O</span></dt><dd>
+	        	        	    	    <dt><span>P</span></dt><dd>
+	        	        	        <a href="/panjiayuan/bj/" target="_blank">潘家园</a>        
+	        	        <a href="/puhuangyu/bj/" target="_blank">蒲黄榆</a>        
+	        	        <a href="/pingguoyuan/bj/" target="_blank">苹果园</a>        
+	        	        <a href="/pingguchengqu/bj/" target="_blank">平谷城区</a>        
+	        	    	    <dt><span>Q</span></dt><dd>
+	        	        	        <a href="/qinghuadaxue/bj/" target="_blank">清华大学</a>        
+	        	        <a href="/qinghe/bj/" target="_blank">清河</a>        
+	        	        <a href="/qianmen/bj/" target="_blank">前门</a>        
+	        	        <a href="/qingta/bj/" target="_blank">青塔</a>        
+	        	        <a href="/qiaozhuang/bj/" target="_blank">乔庄</a>        
+	        	        <a href="/qingy/bj/" target="_blank">清源</a>        
+	        	        <a href="/qiaozi/bj/" target="_blank">桥梓</a>        
+	        	    	    <dt><span>R</span></dt><dd>
+	        	        	        <a href="/renmindaxue/bj/" target="_blank">人民大学</a>        
+	        	    	    <dt><span>S</span></dt><dd>
+	        	        	        <a href="/bjsihui/bj/" target="_blank">四惠</a>        
+	        	        <a href="/shuangjing/bj/" target="_blank">双井</a>        
+	        	        <a href="/sanlitun/bj/" target="_blank">三里屯</a>        
+	        	        <a href="/sanyuanqiao/bj/" target="_blank">三元桥</a>        
+	        	        <a href="/shaoyaoju/bj/" target="_blank">芍药居</a>        
+	        	        <a href="/shoudujichang/bj/" target="_blank">首都机场</a>        
+	        	        <a href="/shuiduizi/bj/" target="_blank">水碓子</a>        
+	        	        <a href="/shifoying/bj/" target="_blank">石佛营</a>        
+	        	        <a href="/shilibao/bj/" target="_blank">十里堡</a>        
+	        	        <a href="/bjshuangqiao/bj/" target="_blank">双桥</a>        
+	        	        <a href="/shibalidian/bj/" target="_blank">十八里店</a>        
+	        	        <a href="/shangdi/bj/" target="_blank">上地</a>        
+	        	        <a href="/shuangyushu/bj/" target="_blank">双榆树</a>        
+	        	        <a href="/sijiqinghd/bj/" target="_blank">四季青</a>        
+	        	        <a href="/shijicheng/bj/" target="_blank">世纪城</a>        
+	        	        <a href="/suzhouqiao/bj/" target="_blank">苏州桥</a>        
+	        	        <a href="/suzhoujie/bj/" target="_blank">苏州街</a>        
+	        	    	    <dt><span>T</span></dt><dd>
+	        	        	        <a href="/tuanjiehu/bj/" target="_blank">团结湖</a>        
+	        	        <a href="/taiyanggong/bj/" target="_blank">太阳宫</a>        
+	        	        <a href="/tianshuiyuan/bj/" target="_blank">甜水园</a>        
+	        	        <a href="/tiancunlu/bj/" target="_blank">田村</a>        
+	        	        <a href="/tiyuguanlu/bj/" target="_blank">体育馆路</a>        
+	        	        <a href="/tiantan/bj/" target="_blank">天坛</a>        
+	        	        <a href="/tianningsi/bj/" target="_blank">天宁寺</a>        
+	        	        <a href="/taoranting/bj/" target="_blank">陶然亭</a>        
+	        	        <a href="/bjtianqiao/bj/" target="_blank">天桥</a>        
+	        	        <a href="/taipingqiao/bj/" target="_blank">太平桥</a>        
+	        	        <a href="/beiyuan/bj/" target="_blank">通州北苑</a>        
+	        	        <a href="/tuqiao/bj/" target="_blank">土桥</a>        
+	        	        <a href="/tiantongyuan/bj/" target="_blank">天通苑</a>        
+	        	        <a href="/tongxingyuan/bj/" target="_blank">同兴园</a>        
+	        	        <a href="/tianzhu/bj/" target="_blank">天竺</a>        
+	        	        <a href="/tanzhesi/bj/" target="_blank">潭柘寺</a>        
+	        	    	    <dt><span>U</span></dt><dd>
+	        	        	    	    <dt><span>V</span></dt><dd>
+	        	        	    	    <dt><span>W</span></dt><dd>
+	        	        	        <a href="/wangjing/bj/" target="_blank">望京</a>        
+	        	        <a href="/wudaokou/bj/" target="_blank">五道口</a>        
+	        	        <a href="/baiyilu/bj/" target="_blank">魏公村</a>        
+	        	        <a href="/wanshouluhd/bj/" target="_blank">万寿路</a>        
+	        	        <a href="/wukesong/bj/" target="_blank">五棵松</a>        
+	        	        <a href="/wanliu/bj/" target="_blank">万泉河</a>        
+	        	        <a href="/wanliubj/bj/" target="_blank">万柳</a>        
+	        	        <a href="/wangfujing/bj/" target="_blank">王府井</a>        
+	        	        <a href="/wuyihuayuan/bj/" target="_blank">武夷花园</a>        
+	        	        <a href="/wulituo/bj/" target="_blank">五里坨</a>        
+	        	    	    <dt><span>X</span></dt><dd>
+	        	        	        <a href="/xibahe/bj/" target="_blank">西坝河</a>        
+	        	        <a href="/xiaoguan/bj/" target="_blank">小关</a>        
+	        	        <a href="/xiaohongmen/bj/" target="_blank">小红门</a>        
+	        	        <a href="/xisanqi/bj/" target="_blank">西三旗</a>        
+	        	        <a href="/xierqi/bj/" target="_blank">西二旗</a>        
+	        	        <a href="/xueyuanlu/bj/" target="_blank">学院路</a>        
+	        	        <a href="/xiaoxitian/bj/" target="_blank">小西天</a>        
+	        	        <a href="/balizhuang/bj/" target="_blank">西八里庄</a>        
+	        	        <a href="/xiangshanhd/bj/" target="_blank">香山</a>        
+	        	        <a href="/xiyuanbj/bj/" target="_blank">西苑</a>        
+	        	        <a href="/xibeiwang/bj/" target="_blank">西北旺</a>        
+	        	        <a href="/xizhimen/bj/" target="_blank">西直门</a>        
+	        	        <a href="/xisi/bj/" target="_blank">西四</a>        
+	        	        <a href="/xidan/bj/" target="_blank">西单</a>        
+	        	        <a href="/xinjie/bj/" target="_blank">新街口</a>        
+	        	        <a href="/xibianmen/bj/" target="_blank">西便门</a>        
+	        	        <a href="/xinshijie/bj/" target="_blank">新世界</a>        
+	        	    	    <dt><span>Y</span></dt><dd>
+	        	        	        <a href="/yansha/bj/" target="_blank">燕莎</a>        
+	        	        <a href="/yayuncun/bj/" target="_blank">亚运村</a>        
+	        	        <a href="/xiaoying/bj/" target="_blank">亚运村小营</a>        
+	        	        <a href="/yaojiayuan/bj/" target="_blank">姚家园</a>        
+	        	        <a href="/yongdinglu/bj/" target="_blank">永定路</a>        
+	        	        <a href="/yonghegong/bj/" target="_blank">雍和宫</a>        
+	        	        <a href="/yuetan/bj/" target="_blank">月坛</a>        
+	        	        <a href="/yongdingmen/bj/" target="_blank">永定门</a>        
+	        	        <a href="/yuegezhuang/bj/" target="_blank">岳各庄</a>        
+	        	        <a href="/yungang/bj/" target="_blank">云岗</a>        
+	        	        <a href="/yuquanying/bj/" target="_blank">玉泉营</a>        
+	        	        <a href="/youanmen/bj/" target="_blank">右安门</a>        
+	        	        <a href="/yangqiao/bj/" target="_blank">洋桥</a>        
+	        	        <a href="/yongshun/bj/" target="_blank">永顺</a>        
+	        	        <a href="/yunhedajie/bj/" target="_blank">运河大街</a>        
+	        	        <a href="/yuqiao/bj/" target="_blank">玉桥</a>        
+	        	        <a href="/yuquanlu/bj/" target="_blank">玉泉路</a>        
+	        	        <a href="/yongle/bj/" target="_blank">永乐</a>        
+	        	        <a href="/yamenkou/bj/" target="_blank">衙门口</a>        
+	        	    	    <dt><span>Z</span></dt><dd>
+	        	        	        <a href="/zuojiazhuang/bj/" target="_blank">左家庄</a>        
+	        	        <a href="/zhongguancun/bj/" target="_blank">中关村</a>        
+	        	        <a href="/zhichunlu/bj/" target="_blank">知春路</a>        
+	        	        <a href="/zhaojunmiao/bj/" target="_blank">皂君庙</a>        
+	        	        <a href="/zizhuqiao/bj/" target="_blank">紫竹桥</a>        
+	        	        <a href="/zhanlanlu/bj/" target="_blank">展览路</a>        
+	        	        <a href="/changchunjie/bj/" target="_blank">长椿街</a>        
+	        	        <a href="/zhushikou/bj/" target="_blank">珠市口</a>        
+	        	        <a href="/changxindian/bj/" target="_blank">长辛店</a>        
+	        	        <a href="/zhaogongkou/bj/" target="_blank">赵公口</a>        
+	        	        <a href="/zuoanmen/bj/" target="_blank">左安门</a>        
+	        	        <a href="/zhongcang/bj/" target="_blank">中仓</a>        
+	        	        <a href="/zhangjiawan/bj/" target="_blank">张家湾</a>        
+	        	        <a href="/changyangbj/bj/" target="_blank">长阳</a>        
+	        	                
+    </dl>
+    <script>
+	////附近商圈
+	var alldt = $("#relateSelect>dt");
+	function showNear(dt){
+	    alldt.each(function(){
+	        if(this == dt) {$(this).next("dd").show();$(this).addClass("select");}
+	        else {$(this).next("dd").hide();$(this).removeClass("select");}
+	    });
+	}
+	alldt.each(function(){
+	    $(this).click(function(){showNear(this);}).hover(function(){showNear(this);});
+	});
+	showNear(alldt[0]);
+	</script>
+  </dd>
+</dl>
+    
+    	<p class="jy_link">
+    		<a href="http://jiaoyou.58.com/bj/">北京交友网</a>
+            <a href="http://jiaoyou.58.com/sh/">上海交友网</a>
+            <a href="http://jiaoyou.58.com/tj/">天津交友网</a>
+            <a href="http://jiaoyou.58.com/gz/">广州交友网</a>
+            <a href="http://jiaoyou.58.com/zz/">郑州交友网</a>
+            <a href="http://jiaoyou.58.com/xa/">西安交友网</a>
+            <a href="http://jiaoyou.58.com/sz/">深圳交友网</a>
+            <a href="http://jiaoyou.58.com/su/">苏州交友网</a>
+            <a href="http://jiaoyou.58.com/cq/">重庆交友网</a>
+            <a href="http://jiaoyou.58.com/wh/">武汉交友网</a>
+            <a href="http://jiaoyou.58.com/nj/">南京交友网</a>
+            <a href="http://jiaoyou.58.com/hz/">杭州交友网</a>
+            <a href="http://jiaoyou.58.com/cd/">成都交友网</a>
+            <a href="http://jiaoyou.58.com/hrb/">哈尔滨交友网</a>	
+            <a href="http://jiaoyou.58.com/cc/">长春交友网</a>
+            <a href="http://jiaoyou.58.com/sjz/">石家庄交友网</a>	
+            <a href="http://jiaoyou.58.com/jn/">济南交友网</a>
+            <a href="http://jiaoyou.58.com/ty/">太原交友网</a>
+            <a href="http://jiaoyou.58.com/fz/">福州交友网</a>
+            <a href="http://jiaoyou.58.com/nc/">南昌交友网</a>
+            <a href="http://jiaoyou.58.com/city/">更多交友网</a>
+    	</p>
+    	<p>
+    		<strong>友情链接</strong>:<a href='http://wan.58.com/' target='_blank'>58游戏</a>&nbsp;<a href='http://www.youyuan.com/' target='_blank'>有缘交友网</a>&nbsp;<a href='http://www.51taonan.com' target='_blank'>免费交友</a>&nbsp;<a href='http://emotion.szhk.com/' target='_blank'>情感故事</a>&nbsp;<a href='http://www.juqingba.cn' target='_blank'>分集剧情</a>&nbsp;<a href='http://nanjing.city8.com' target='_blank'>南京地图</a>&nbsp;<a href='http://jiaoyou.51.com' target='_blank'>51同城交友</a>&nbsp;<a href='http://baike.mipang.com' target='_blank'>热点新闻</a>&nbsp;<a href='http://qianming.vipyl.com/' target='_blank'>个性签名</a>&nbsp;<a href='http://www.hongniang.com' target='_blank'>相亲网</a>&nbsp;<a href='http://www.showself.com' target='_blank'>美女主播</a>&nbsp;<a href='http://www.diandao.org/' target='_blank'>点到</a>&nbsp;<a href='http://www.iqingren.com/' target='_blank'>同城交友</a>&nbsp;<a href='http://www.puahome.com' target='_blank'>PUA</a>&nbsp;<a href='http://tongxiehui.net' target='_blank'>博客</a>&nbsp;<a href='http://www.71lady.com/' target='_blank'>奇丽女性网</a>&nbsp;<a href='http://hair.2liang.net' target='_blank'>爱靓网发型</a>&nbsp;<a href='http://www.psycofe.com' target='_blank'>心灵咖啡网</a>&nbsp;<a href='http://www.fengdu100.com/' target='_blank'>风度男人网</a>&nbsp;<a href='http://v.shcaoan.com' target='_blank'>电影</a>&nbsp;<a href='http://www.99wed.com' target='_blank'>婚纱摄影</a>&nbsp;<a href='http://www.xiziwang.net' target='_blank'>发型设计</a>&nbsp;<a href='http://www.3jy.com/' target='_blank'>叽歪笑话</a>&nbsp;<a href='http://www.8090.com' target='_blank'>美女模特</a>&nbsp;<a href='http://bbs.8264.com/' target='_blank'>旅游论坛</a>&nbsp;<a href='http://www.zzlnet.net/' target='_blank'>折800天天特价</a>&nbsp;<a href='http://tool.cncn.com/' target='_blank'>欣欣百宝箱</a>&nbsp;<a href='http://woman.39.net/' target='_blank'>女性健康网</a>&nbsp;<a href='http://www.yuejianaiqing.com/' target='_blank'>约见爱情栏目官网</a>&nbsp;
+    		    		<br/>
+    					<a target="_blank" href="/about/jiaoyoufangpian.html" rel="nofollow">安全交友</a><i>|</i>
+			<a target="_blank" href="/about/shiyongtiaokuan.html" rel="nofollow">使用条款</a><i>|</i>
+			<a target="_blank" href="/about/yinsishuoming.html" rel="nofollow">隐私声明</a><i>|</i>
+			<a target="_blank" href="/about/manual.html" rel="nofollow">帮助中心</a>
+			<br />
+			京公网安备110105000809号 
+			<a href="http://www.miibeian.gov.cn/" style="color:#666" rel="nofollow">
+			京ICP证060405</a>乙测资字11018014
+			<a id='___szfw_logo___' href='https://search.szfw.org/cert/l/CX20120918001650001720' rel="nofollow">
+			<img src='http://img.58cdn.com.cn/ui6/index/rongyum.png' align="absmiddle" width="88" height="20"/></a>
+			违法信息举报：022-5986 7111/7112 &nbsp; jubao@58.com
+			<script type='text/javascript'>
+			(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();
+			</script>
+    	</p>
+    </div>
+</div><!--jy_bottom_end-->
+
+<div class="box_gd" id="back-to-top" style="display:none;">
+	<a class="g_top" href="javascript:void(0);"></a>
+	<a class="g_wxsys" href="javascript:void(0);">微信</br>扫一扫 </a>
+    <div class="g_wxsys_hover" style="display: none;">
+    </div>
+	<a class="g_tsjy" href="javascript:void(0);">投诉建议</a>
+</div>
+<script type="text/javascript" src="http://j1.58cdn.com.cn/jiaoyou/js/win_div_v1.js"></script>
+<script type="text/javascript" src="http://j1.58cdn.com.cn/bangbang/webim2/interface_v1.js"></script>
+<script type="text/javascript"> 
+var cookieID = '';
+$(document).ready(function(){
+	$("#back-to-top").hide();
+	
+	$(".g_wxsys").hover(
+	        function(){
+	            
+	            $('#back-to-top>.g_wxsys_hover').show();
+	        },
+	        function(){
+	            $('#back-to-top>.g_wxsys_hover').hide();
+	            
+	 });
+
+
+	
+	$(function () {
+        $(window).scroll(function(){
+            if ($(window).scrollTop()>100){
+            	$("#back-to-top").fadeIn(1500);
+            }else{
+            	$("#back-to-top").fadeOut(1500);
+            }
+        });
+        if('' != 'true'){
+            var bb='';
+      		var cc='';
+      		var www58com=bzt_getCookie("www58com");
+      		var aa=www58com.split('&');
+      		for(var i=0;i<aa.length;i++){
+      			if(aa[i].indexOf('SiteKey')!=-1){
+      				bb=aa[i].split('=');
+      			}
+      			
+      			if(aa[i].indexOf('UserID')!=-1){
+      				cc=aa[i].split('=');
+      				cookieID = cc[1];
+      			}
+      		}
+		
+            if(''!=''){
+        		var bb_content = bb != '' ? bb[1] : "";
+        			IM_Init('' + ";" + bb_content, "jiaoyou,bj");
+        	}else if(cookieID != ''){
+        		var bb_content = bb != '' ? bb[1] : "";
+        		IM_Init(cookieID + ";" + bb_content, "jiaoyou,bj");
+        	}
+			
+			if('' != ''){
+        	  	IM_QueryUserState([],function (json){
+        			if(json[0].status==0){
+        				if($(".otherinfo_rconbox .online").size()==0){
+        					$(".c_090").html("当前在线  ");
+        					$(".c_090").before("<span class='online'>&nbsp;</span>");
+        				}
+        				$('#bangbangchat').addClass("online_im");
+        			}
+        		});
+        	}
+		}
+	});
+	
+	
+});
+	$(".g_top").click(function(){
+		$('html,body').animate({ scrollTop:0},0);
+	})
+	$(".g_tsjy").click(function(){
+		dialog("lei03","投诉建议","iframe:/about/feedback.html","400","340","iframe","","true")
+	})
+</script>
+
+<!--基本统计代码begin--> 
+<script type="text/javascript"> 
+var _trackURL = "{'cate':'3','area':'','pagetype':'list','page':'','GA_pageview':'','post_count':'','pagesize':'','pagenum':'','level1':'','level2':'','level3':'','level4':'','level5':'','level6':''}"; 
+</script> 
+<script src="http://tracklog.58.com/referrer4.js"></script> 
+<!--基本统计代码end--> 
+
+<script type="text/javascript">BAIDU_CLB_fillSlot("859953");</script>
+<div class="baidu_icon">
+<script>
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8ab01ecc799088a215d40f579da8fc64' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div></body>
+</html>

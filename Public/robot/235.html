@@ -1,0 +1,1266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="证券时报,证券时报网,证券时报快讯,时报快讯,证券时报电子版,股票行情,证券新闻,A股资讯,公告,信披平台,创业板信披,财苑社区,公司舆情,网上路演">
+<meta http-equiv="description" content="证券时报网是中国证监会指定创业板、沪港通信息披露网站。提供7X24小时财经证券资讯，覆盖深沪港股票、债券、基金、期货、外汇、信托、理财等各类市场。">
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache,must-revalidate">
+<!--meta http-equiv="refresh" content="600"-->
+<title>《证券时报》官网，股票、上市公司、行情、数据、公告、新股……</title>
+<link rel="stylesheet" href="http://www.stcn.com/common28/front-end/style/base.css" />
+<link rel="stylesheet" href="http://img.stcn.com/templates/stcn/css/index2015/style.css" />
+<link rel="stylesheet" href="http://www.stcn.com/common/include/style/style_foot.css" />
+<script type="text/javascript" src="http://www.stcn.com/common28/front-end/script/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.stcn.com/common28/front-end/script/plugins/myfocus/myfocus-1.2.0.min.js"></script>
+<script type="text/javascript" src="http://img.stcn.com/templates/stcn/css/index2015/plugin1.js"></script>
+<script type="text/javascript" src="http://img.stcn.com/templates/stcn/js/common/suggestfinance.js" charset="gb2312"></script>
+<script type="text/javascript" src="http://img.stcn.com/templates/stcn/js/common/stocksuggest.js" charset="gb2312"></script>
+<script type="text/javascript" src="http://img.stcn.com/templates/stcn/js/common/fundsuggest.js" charset="gb2312"></script>
+<script type="text/javascript" language="javascript" src="http://img.stcn.com/templates/stcn/css/index2015/cookDemoNew.js"></script>
+<script type="text/javascript" language="javascript" src="http://img.stcn.com/templates/stcn/css/index2015/jquery.cookie.js" charset="gb2312"></script>
+<script type="text/javascript" src="http://img.stcn.com/templates/stcn/css/index2015/index.js" ></script>
+
+<script type="text/javascript">
+	if($.cookie("showFlag") == "1"){
+		
+	}else{
+		//判断网页是被何种浏览器打开  安卓、苹果、微信
+		if( /android/i.test(navigator.userAgent) || /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || /MicroMessenger/i.test(navigator.userAgent)){
+			if(location.href.indexOf('showFlag') < 0){
+				var cookietime = new Date(); 
+				cookietime.setTime(cookietime.getTime() + (60 * 60 * 1000));//coockie保存一小时 
+				$.cookie("showFlag" ,"1" ,{expires:cookietime});
+				location.href="http://wap.stcn.com";		
+			}
+		}
+	}
+
+</script>
+
+<!-- 百度tongji文件star -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?133a62ebec86c23f2cbdb05e39d77631";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 百度tongji文件end -->
+
+</head>
+<body>
+
+<div class="top">
+	<div class="logo"><img src="http://img.stcn.com/templates/stcn/css/index2015/logo.gif"></div>
+	<div class="select">
+		<div class="select_hq">
+			<SELECT id=b style="display: none" name=b>
+				<OPTION value=1 selected>新闻</OPTION>
+                                <OPTION value=2>行情</OPTION>
+				<OPTION value=3>净值</OPTION>
+			</SELECT>
+		</div>
+		<div class="select_txt">
+                	<input type="text" onkeydown="javascript:if(event.keyCode==13){ toSearchContent(); }" value="输入关键字" onclick="if(this.value == '输入关键字') this.value='';" class="select_ipt" id="contentInput_0">
+                        <input type="text" onkeydown="javascript:if(event.keyCode==13){ toSearchFund(); }" class="select_ipt" id="fundInput_0" autocomplete="off" style=" display:none;" >
+			<input type="text" onkeydown="javascript:if(event.keyCode==13){ toSearchStock(); }" class="select_ipt" id="suggestInput_0" autocomplete="off" style=" display:none;">
+			<img src="http://img.stcn.com/templates/stcn/css/index2015/fdj.gif">
+		</div>
+		<div class="select_search">
+			<input name="" type="button" class="select_btn" onclick="selectSearch();">
+		</div>
+	</div>
+	<script type="text/javascript">
+		function selectSearch(){
+			var seleted_value = $(".selected").html();
+			if(seleted_value == '行情'){
+				toSearchStock();
+			}else if(seleted_value == '净值'){
+				toSearchFund()
+			}else if(seleted_value == '新闻'){
+				toSearchContent()
+			}
+		}
+
+                $(".select_txt img").bind("click",function(){
+                    selectSearch();
+                });
+
+                //判断网页是被何种浏览器打开  安卓、苹果、微信
+		if( /android/i.test(navigator.userAgent) || /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || /MicroMessenger/i.test(navigator.userAgent)){
+			$(document).ready(function(){
+				$(function(){
+					$("a[href^='http']").attr('target','_self');
+				});
+			});
+                }
+	</script>
+	<div class="member">
+		<div class="rili">
+			<div class="weak">
+				<script language="JavaScript">
+					var str = "星期" + "日一二三四五六".charAt(new Date().getDay());
+                                        $(".weak").html(str);
+				</script>
+			</div>
+			<div class="date">
+				<script language="JavaScript">
+                                    var mydate = new Date();
+                                    var str = "" + mydate.getFullYear() + "年";
+                                    str += (mydate.getMonth()+1) + "月";
+                                    str += mydate.getDate() + "日";
+                                    $(".date").html(str);
+				</script>
+			</div>
+		</div>
+		<div class="denglu" id="notLogin"><a href="javascript:void(0);">登录</a></div>
+		<div class="denglu2" id="hasLogin" style="display:none"><a href="http://passport.stcn.com/basic/main.do" target="_blank" id="nick"></a><br><a href="javascript:logout();">退出</a></div>
+	</div>
+</div>
+<div class="menu">
+	<div class="menu_con">
+		<ul class="mainNav clearfix">
+			<li><a href="http://www.stcn.com/">首页</a></li><li class="line2"></li>
+			<li><a href="http://kuaixun.stcn.com/kuaixun.shtml">快讯</a></li><li class="line2"></li>
+			<li><a href="http://stock.stcn.com/">股市</a></li><li class="line2"></li>
+			<li><a href="http://company.stcn.com/">公司</a></li><li class="line2"></li>
+			<li><a href="http://finance.stcn.com/">机构</a></li><li class="line2"></li>
+			<li><a href="http://xinpi.stcn.com/" target="_blank">公告</a></li><li class="line2"></li>
+			<li><a href="http://data.stcn.com/">数据</a></li><li class="line2"></li>
+			<li id="common"><a href="http://video.stcn.com/">视频</a></li><li class="line2"></li>
+			<li class="mo"><strong class="fwn" id="more_show"><a href="###" target="_blank">更多</a></strong>
+				<div class="downNav hide">
+					<dl class="downNav_con" id="link_more">
+						<dd><a href="http://rs.stcn.com/rsIndexAction.do?method=initIndex" target="_blank"><span>路演</span></a></dd>
+						<dd><a href="http://yq.stcn.com/" target="_blank"><span>舆情</span></a></dd>
+						<dd><a href="http://csr.stcn.com/"><span>社会责任</span></a></dd>
+						<dd><a href="http://cy.stcn.com/channels" target="_blank"><span>热评</span></a></dd>
+						<dd><a href="http://cy.stcn.com/" target="_blank"><span>财苑社区</span></a></dd>
+						<dd><a href="http://zt.stcn.com/"><span>专题</span></a></dd>
+                                               	<dd><a href="http://www.chnfund.com/" target="_blank"><span>基金</span></a></dd>
+                                                <dd><a href="http://chinext.stcn.com/" target="_blank"><span>创业板信披</span></a></dd>
+                                                <dd><a href="http://hgt.stcn.com/" target="_blank"><span>沪股通信披</span></a></dd>
+                                                <dd><a class="downNav_last" href="http://www.cfpo.cn/" target="_blank"><span>财经图库</span></a></dd>        
+					</dl>
+				</div>
+			</li>		
+		</ul>
+                <script type="text/javascript">
+                    $(window).load(function(){
+                        var url = document.URL;
+                        var $mainNav = $('.mainNav').find('li');
+                        $mainNav.removeClass('cur');
+                        $mainNav.removeClass('cur1');
+                        if(url.indexOf('kuaixun') > 0){
+                            $mainNav.eq(2).addClass('cur');
+                        }else if(url.indexOf('stock') > 0){
+                            $mainNav.eq(4).addClass('cur');
+                        }else if(url.indexOf('company') > 0){
+                            $mainNav.eq(6).addClass('cur');
+                        }else if(url.indexOf('finance') > 0){
+                            $mainNav.eq(8).addClass('cur');
+                        }else if(url.indexOf('news') > 0){
+                            $mainNav.eq(10).addClass('cur');
+                        }else if(url.indexOf('data') > 0){
+                            $mainNav.eq(12).addClass('cur');
+                        }else if(url.indexOf('csr') > 0){
+                            if($("#common").find('a').html()!="社会责任"){
+                                 $("#link_more dd").eq(2).find('span').html('视频');
+			         $("#link_more dd").eq(2).find('a').attr('href' ,'http://video.stcn.com/');
+                                 $('#common').find('a').html('社会责任');                                    
+                                 $('#common').find('a').attr('http://csr.stcn.com/'); 
+                              }
+                            $(".cur").removeClass("cur");
+                            $("#common").addClass("cur");
+                        }else if(url.indexOf('zt') > 0){
+                            if($("#common").find('a').html()!="专题"){
+                                 $("#link_more dd").eq(6).find('span').html('视频');
+			         $("#link_more dd").eq(6).find('a').attr('href' ,'http://video.stcn.com/');
+                                 $('#common').find('a').html('专题');                                    
+                                 $('#common').find('a').attr('http://zt.stcn.com/'); 
+                              }
+                            $(".cur").removeClass("cur");
+                            $("#common").addClass("cur");
+                        }else if(url.indexOf('video') > 0){
+                            $mainNav.eq(14).addClass('cur');
+                        }else{
+                            $mainNav.eq(0).addClass('cur');
+                        }
+                    });
+                </script>
+		<ul class="menu_pic">
+			<li>
+                            <div class="epaperW epaperW1">
+                                <a href="http://epaper.stcn.com/" target="_blank"><img src="http://img.stcn.com/templates/stcn/css/index2015/menu1.gif"></a>
+                                <a target="_blank" href="http://epaper.stcn.com" class="epaperImg fn-hide"><img align="电子版" src="http://www.stcn.com/common/apaper/curpaperpic381x540.jpg"></a>
+                            </div>
+                        </li>
+			<li class="line2"></li>
+			<li class="mobile">
+                            <a href="http://wap.stcn.com" target="_blank"><img src="http://img.stcn.com/templates/stcn/css/index2015/menu2.gif"></a>
+                            <div class="mobile_ewm" style="display: none;"><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_app.jpg"></div>    
+                        </li>
+		</ul>
+                <script type="text/javascript">
+                    var $mobile = $('.mobile');
+                    var $mobile_ewm = $('.mobile_ewm');
+                
+                    $(".mobile").mouseover(function (){
+                        $(".mobile_ewm").show();
+                    }).mouseout(function (){
+                        $(".mobile_ewm").hide();
+		    });
+                </script>
+                <style type="text/css">
+                    .menu_pic li.mobile{ float:left; width:76px; position:relative;}
+                    .mobile_ewm{ display:none; position:absolute; top:66px; left:-140px; width:220px; height:220px; background:#fff; border:2px solid #a1a0a0}
+                    li.mobile img{ margin-left:15px;}
+                </style>
+	</div>
+</div>
+<div class="content clearfix">
+	<div class="box1">
+		<div class="box1_left">
+			<div class="hotNews">
+				<div class="main_news">
+					<h2>
+	<a  href="http://stock.stcn.com/2016/0520/12723947.shtml" target="_blank" title="A股小幅反弹 特斯拉概念大涨">A股小幅反弹 特斯拉概念大涨</a>
+    </h2>
+					<p class="exp">
+            <a  href="http://www.stcn.com/2016/0520/12723682.shtml" target="_blank" title="不确定因素增多 A股地量酝酿变盘">不确定因素增多 A股地量酝酿变盘</a>
+            <a  href="http://www.stcn.com/2016/0520/12723887.shtml" target="_blank" title="2800点横盘8日">2800点横盘8日</a>
+           
+</p>
+<p class="exp">
+            <a  href="http://www.stcn.com/2016/0520/12724057.shtml" target="_blank" title="机构大跌中趁机捡货">机构大跌中趁机捡货</a>
+            <a  href="http://www.stcn.com/2016/0520/12724055.shtml" target="_blank" title="“5·19”梦未圆 股指欲振还休">“5·19”梦未圆 股指欲振还休</a>
+           
+</p>    
+				</div>
+				<ul class="news_list">
+        <li class="weight">
+                <a href="http://www.stcn.com/2016/0520/12723674.shtml" target="_blank" title="国务院印发国家创新驱动发展战略纲要">国务院印发国家创新驱动发展战略纲要</a>
+            </li>
+            <li>
+                <a href="http://kuaixun.stcn.com/2016/0520/12724087.shtml" target="_blank" title="人民币中间价升值21点">人民币中间价升值21点</a>
+                    <a href="http://kuaixun.stcn.com/2016/0520/12724061.shtml" target="_blank" title="两市融资余额止跌微升">两市融资余额止跌微升</a>
+            </li>
+            <li>
+                <a href="http://kuaixun.stcn.com/2016/0520/12724180.shtml" target="_blank" title="央行本周净投放500亿">央行本周净投放500亿</a>
+                    <a href="http://kuaixun.stcn.com/2016/0520/12723934.shtml" target="_blank" title="影响股价重要资讯速递">影响股价重要资讯速递</a>
+            </li>
+            <li>
+                <a href="http://www.stcn.com/2016/0520/12723665.shtml" target="_blank" title="中行打响信贷不良ABS重启“首枪” 规模3亿">中行打响信贷不良ABS重启“首枪” 规模3亿</a>
+            </li>
+            <li class="weight">
+                <a href="http://kuaixun.stcn.com/2016/0520/12724284.shtml" target="_blank" title="林业发展十三五规划正式印发 附受益股">林业发展十三五规划正式印发 附受益股</a>
+            </li>
+            <li>
+                <a href="http://www.stcn.com/2016/0520/12723694.shtml" target="_blank" title="大跌期间机构买了哪些股 25股净买入超亿元">大跌期间机构买了哪些股 25股净买入超亿元</a>
+            </li>
+            <li>
+                <a href="http://www.stcn.com/2016/0520/12723673.shtml" target="_blank" title="年内66家公司终止重组 多公司收到监管关注">年内66家公司终止重组 多公司收到监管关注</a>
+            </li>
+            <li>
+                <a href="http://www.stcn.com/2016/0520/12723689.shtml" target="_blank" title="*ST金瑞变五矿金控平台">*ST金瑞变五矿金控平台</a>
+                    <a href="http://www.stcn.com/2016/0520/12723690.shtml" target="_blank" title="中国武夷担保案生变">中国武夷担保案生变</a>
+            </li>
+            <li class="weight">
+                <a href="http://www.stcn.com/2016/0520/12723841.shtml" target="_blank" title="中概股私有化盛宴 散户或再成"接盘侠"">中概股私有化盛宴 散户或再成"接盘侠"</a>
+            </li>
+            <li>
+                <a href="http://data.stcn.com/2016/0520/12723972.shtml" target="_blank" title="机构上调13股评级">机构上调13股评级</a>
+                    <a href="http://data.stcn.com/2016/0520/12723968.shtml" target="_blank" title="57股机构首次关注(名单)">57股机构首次关注(名单)</a>
+            </li>
+            <li>
+                <a href="http://www.stcn.com/2016/0520/12723824.shtml" target="_blank" title="监管层掀私募自查大幕">监管层掀私募自查大幕</a>
+                    <a href="http://www.stcn.com/2016/0520/12724075.shtml" target="_blank" title="大宗商品二轮行情可期">大宗商品二轮行情可期</a>
+            </li>
+            <li>
+                <a href="http://www.stcn.com/2016/0520/12723826.shtml" target="_blank" title="互联网金融整顿时间表">互联网金融整顿时间表</a>
+                    <a href="http://www.stcn.com/2016/0520/12723844.shtml" target="_blank" title="跨界并购一日折戟两例">跨界并购一日折戟两例</a>
+            </li>
+    </ul>
+			</div>
+			<div class="pic_news">
+				<div class="ban">
+					<div class="slide">
+						<div id="slidepic"><a href="#" target="_blank"><img src="" alt="" ><span id="span1"></span> <span id="span2"></span></a></div>
+						<div class="pics">
+							<div id="listwrap">
+								<div class="listwrap">
+								<ul id="list1">
+   
+    <li class="opacity"><a href="http://www.stcn.com/2016/0520/12723676.shtml" target="_blank" title="美联储"缩表"又喊加息 人民币汇率应顺"市"而为"><img src="http://upload.stcn.com/2016/0520/1463704587983.jpg" border="0"></a><span>美联储"缩表"又喊加息 人民币汇率应顺"市"而为</span></li>
+       
+    <li class="opacity"><a href="http://www.stcn.com/2016/0520/12723953.shtml" target="_blank" title="多部委释放权威声音 中国经济“稳中有进”格局未变"><img src="http://upload.stcn.com/2016/0520/1463701881312.jpg" border="0"></a><span>多部委释放权威声音 中国经济“稳中有进”格局未变</span></li>
+       
+    <li class="opacity"><a href="http://kuaixun.stcn.com/2016/0520/12724079.shtml" target="_blank" title=""土十条"出台时间窗口已临近 三类公司望起飞"><img src="http://upload.stcn.com/2016/0520/1463707275788.jpg" border="0"></a><span>"土十条"出台时间窗口已临近 三类公司望起飞</span></li>
+       
+    <li class="opacity"><a href="http://kuaixun.stcn.com/2016/0520/12724072.shtml" target="_blank" title="国务院任命张涛为央行副行长"><img src="http://upload.stcn.com/2016/0520/1463707731237.jpg" border="0"></a><span>国务院任命张涛为央行副行长</span></li>
+       
+    <li class="opacity"><a href="http://kuaixun.stcn.com/2016/0520/12724048.shtml" target="_blank" title="人民日报：二线城市会否重走限购“老路”"><img src="http://upload.stcn.com/2016/0520/1463707389315.jpg" border="0"></a><span>人民日报：二线城市会否重走限购“老路”</span></li>
+       
+    <li class="opacity"><a href="http://www.cfpo.cn/ztl_1/zt.shtml?from=stcn" target="_blank" title="图片专题：第三届中国机构投资者峰会暨财富管理国际论坛"><img src="http://upload.stcn.com/2016/0517/1463472312171.jpg" border="0"></a><span>图片专题：第三届中国机构投资者峰会暨财富管理国际论坛</span></li>
+    </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pictext_list">
+    <dl>
+        <dt><img src="http://upload.stcn.com/2016/0401/1459504308947.jpg"></dt>
+        <dd class="tit"><a href="http://www.stcn.com/2016/0520/12723994.shtml" target="_blank" title="IPO上会节奏放缓">IPO上会节奏放缓</a></dd>
+        <dd class="exp">值得注意的是，近两月来，每周的上会企业数量已从6家缩减至4家，上会节奏出现放缓特征。</dd>
+    </dl>
+        <dl>
+        <dt><img src="http://upload.stcn.com/2016/0520/1463704218512.jpg"></dt>
+        <dd class="tit"><a href="http://www.stcn.com/2016/0520/12723999.shtml" target="_blank" title="地王井喷背后资本力量">地王井喷背后资本力量</a></dd>
+        <dd class="exp">截至5月15日，包括一线城市以及南京等热点二线城市共计21城，今年有110幅土地产生了地王。</dd>
+    </dl>
+    </div>
+			</div>
+		</div>
+		<div class="box1_maj">
+			<div class="kuaixun">
+				<div class="tit"><input name="" type="button" value="" class="button_sd" onclick="window.location.reload();"><a href="http://kuaixun.stcn.com/kuaixun.shtml" target="_blank" class="kx_link"></a></div>
+				<ul>
+    <li><span>10:54</span><a href="http://kuaixun.stcn.com/2016/0520/12723934.shtml" target="_blank" title="5月20日可能影响股价重要资讯速递(更新中)">5月20日可能影响股价重要资讯速递(更新中)</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>11:00</span><a href="http://kuaixun.stcn.com/2016/0520/12724448.shtml" target="_blank" title="触摸屏概念股走强 士兰微等涨停">触摸屏概念股走强 士兰微等涨停</a><a href="http://kuaixun.stcn.com/stock/disk/" target="_blank" class="title"> [ 盘面 ]</a></li>					
+    <li><span>10:42</span><a href="http://kuaixun.stcn.com/2016/0520/12724400.shtml" target="_blank" title="创业板指拉升 涨逾1%">创业板指拉升 涨逾1%</a><a href="http://kuaixun.stcn.com/stock/disk/" target="_blank" class="title"> [ 盘面 ]</a></li>					
+    <li><span>10:42</span><a href="http://kuaixun.stcn.com/2016/0520/12724401.shtml" target="_blank" title="发改委：部分民营医院收费价格过高 明码标价不规范">发改委：部分民营医院收费价格过高 明码标价不</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>10:40</span><a href="http://kuaixun.stcn.com/2016/0520/12723963.shtml" target="_blank" title="20日中央部委等重要政策、消息速递(更新中)">20日中央部委等重要政策、消息速递(更新中)</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>10:36</span><a href="http://data.stcn.com/2016/0520/12724367.shtml" target="_blank" title="今日沪指涨0.04%  计算机行业涨幅最大">今日沪指涨0.04%  计算机行业涨幅最大</a><a href="http://data.stcn.com/qita/" target="_blank" class="title"> [ 其他 ]</a></li>					
+    <li><span>10:30</span><a href="http://kuaixun.stcn.com/2016/0520/12724344.shtml" target="_blank" title="山西高速公路20日起将对货车大幅优惠减费">山西高速公路20日起将对货车大幅优惠减费</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>10:25</span><a href="http://kuaixun.stcn.com/2016/0520/12724333.shtml" target="_blank" title="特斯拉概念股大涨 4只个股涨停">特斯拉概念股大涨 4只个股涨停</a><a href="http://kuaixun.stcn.com/stock/disk/" target="_blank" class="title"> [ 盘面 ]</a></li>					
+    <li><span>10:24</span><a href="http://kuaixun.stcn.com/2016/0520/12724332.shtml" target="_blank" title="海通证券姜超：不良资产证券化正式启航 关注投资价值">海通证券姜超：不良资产证券化正式启航 关注投</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>10:19</span><a href="http://kuaixun.stcn.com/2016/0520/12724284.shtml" target="_blank" title="林业发展十三五规划正式印发 力推国土绿化（受益股）">林业发展十三五规划正式印发 力推国土绿化（受</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>10:09</span><a href="http://kuaixun.stcn.com/2016/0520/12724246.shtml" target="_blank" title="沪指低开高走 成功翻红">沪指低开高走 成功翻红</a><a href="http://kuaixun.stcn.com/stock/disk/" target="_blank" class="title"> [ 盘面 ]</a></li>					
+    <li><span>10:04</span><a href="http://kuaixun.stcn.com/2016/0520/12724235.shtml" target="_blank" title="国土部：继续加大产业用地政策落实力度">国土部：继续加大产业用地政策落实力度</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+    <li><span>10:03</span><a href="http://kuaixun.stcn.com/2016/0520/12724269.shtml" target="_blank" title="林业发展十三五规划印发 推进林业现代化建设">林业发展十三五规划印发 推进林业现代化建设</a><a href="http://kuaixun.stcn.com/finance/internal/" target="_blank" class="title"> [ 财经新闻 ]</a></li>					
+</ul>
+
+			</div>
+		</div>
+	</div>
+	<div class="adv">
+    <embed width="1010" height="100" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent" quality="high" src="http://upload.stcn.com/2016/0429/1461921878251.swf"></object>
+    <!--a href="http://www.stcn.com/common/mobile/xinguzhushou/index.html" target="_blank"><img src="http://upload.stcn.com/2015/1231/1451545600820.jpg"></a-->
+    <!--a href="http://mp.weixin.qq.com/s?__biz=MjM5NDEzMTAwMA==&mid=401408172&idx=1&sn=4368502ad9a1ee631be5d1f4be595111&scene=25#wechat_redirect" target="_blank"><img src="http://upload.stcn.com/2015/1217/1450342952531.jpg"></a-->
+</div>
+	<div class="gushi">
+		<div class="a_title"><a href="http://stock.stcn.com" target="_blank">股市</a></div>
+		<div class="line4"></div>
+		<div class="ui-tab-cnt">
+			<div class="t1"><span>A股</span>
+    <a  href="http://stock.stcn.com/2016/0520/12723947.shtml" target="_blank" title="创业板拉升 特斯拉概念股大涨">创业板拉升 特斯拉概念股大涨</a>
+</div>
+<ul class="ui-list">
+    <li>
+                    <a  href="http://stock.stcn.com/2016/0520/12723944.shtml" target="_blank" title="两融余额跌破8300亿 创近18个月以来新低">两融余额跌破8300亿 创近18个月以来新低</a>
+            </li>
+        <li>
+                    <a  href="http://stock.stcn.com/2016/0520/12724023.shtml" target="_blank" title="风向真的变了 审核收紧互联网金融难闯关">风向真的变了 审核收紧互联网金融难闯关</a>
+            </li>
+        <li>
+                    <a  href="http://stock.stcn.com/2016/0520/12724026.shtml" target="_blank" title="675公司半年报业绩预喜 并购重组成重要推手">675公司半年报业绩预喜 并购重组成重要推手</a>
+            </li>
+    </ul>
+			<div class="t1"><span>主力</span>
+    <a  href="http://stock.stcn.com/2016/0520/12723950.shtml" target="_blank" title="九鼎新材连续跌停 主力或出逃">九鼎新材连续跌停 主力或出逃</a>
+</div>
+<ul class="ui-list">
+    <li>
+                    <a  href="http://stock.stcn.com/2016/0520/12723957.shtml" target="_blank" title="国家队悄悄加仓 嫡系基金净值波动明显加大">国家队悄悄加仓 嫡系基金净值波动明显加大</a>
+            </li>
+        <li>
+                    <a  href="http://stock.stcn.com/2016/0520/12724012.shtml" target="_blank" title="A股迎MSCI窗口期 QFII提前卡位重仓股受青睐">A股迎MSCI窗口期 QFII提前卡位重仓股受青睐</a>
+            </li>
+        <li>
+                    <a  href="http://stock.stcn.com/2016/0520/12724015.shtml" target="_blank" title="5月以来QFII调研82股 青睐高成长绩优蓝筹股">5月以来QFII调研82股 青睐高成长绩优蓝筹股</a>
+            </li>
+    </ul>
+		</div>
+		<div class="tuijian">
+        <h2><a  href="http://stock.stcn.com/2016/0520/12723964.shtml" target="_blank" title="A股哪些公司可以穿越L型经济">A股哪些公司可以穿越L型经济</a></h2>
+        <p class="txt">真正能带领整个经济从L型往上走的，只有科技创新，也只有科技创新才能真正穿越牛熊。</p>
+        <a href="http://stock.stcn.com/2016/0520/12723964.shtml" target="_blank" title="A股哪些公司可以穿越L型经济"><img src="http://upload.stcn.com/2016/0519/1463645874616.jpg"></a>
+    </div>
+		<div class="qiehuan2">
+				<div class="x_tabW">
+					<div class="x_tabNavW x_tabNav_level">
+						<ol class="x_tabNav clearfix">
+							<li><a class="active" href="#"><span>沪深</span></a></li>
+							<li><a href="#"><span>香港</span></a></li>
+							<li><a href="#"><span>欧美</span></a></li>
+							<li><a href="#"><span>基金</span></a></li>
+							<li><a href="#"><span>外汇</span></a></li>
+						</ol>
+					</div>
+					<div class="x_tabBoxW">
+						<div class="x_tabBox">
+							<div class="qiehuan_con">
+								<ul>
+									<li class="show">
+										<span class="t1"><a href="http://cy.stcn.com/S/SH000001" target="_blank">上证综指</a></span>
+										<div id="000001">
+											
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_SH_NEW_000001.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+									<li><span class="t1"><a href="http://cy.stcn.com/S/SZ399001" target="_blank">深证成指</a></span>
+										<div id="399001">
+											
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_SZ_NEW_399001.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+									<li><span class="t1"><a href="http://cy.stcn.com/S/SZ399300" target="_blank">沪深300</a></span>
+										<div id="000300">
+											
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_2_HS300_000300.gif">
+											</div>
+										</div>
+									</li>
+									<li><span class="t1"><a href="http://cy.stcn.com/S/SZ399005" target="_blank">中小板</a></span>
+										<div id="399005">
+											
+										</div>
+										<div class="tt">
+											<div class="gushi_pic"><img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_SZ_NEW_399005.gif"></div>
+										</div>
+									</li>
+									<li><span class="t1"><a href="http://cy.stcn.com/S/SZ399006" target="_blank">创业指数</a></span>
+										<div id="399006">
+											
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_SZ_NEW_399006.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="x_tabBox hide">
+							<div class="qiehuan_con">
+								<ul>
+									<li class="show"><span class="t1">恒生指数</span>
+										<div id="HSI">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_XG_NEW_HSI.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+									<li><span class="t1">红筹指数</span>
+										<div id="CCI">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_XG_NEW_CCI.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+									<li><span class="t1">国企指数</span>
+										<div id="CEI">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_XG_NEW_CEI.gif">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="x_tabBox hide">
+							<div class="qiehuan_con">
+								<ul>
+									<li class="show"><span class="t1">道琼斯</span>
+										<div id="DJI">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li>
+										<span class="t1">标普500</span>
+										<div id="S5CI">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li><span class="t1">纳斯达克</span>
+										<div id="COMP">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li class="show">
+										<span class="t4">法国CAC40</span>
+										<div id="CAC">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li>
+										<span class="t1">英国FT100</span>
+										<div id="UKX">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li>
+										<span class="t1">日经225</span>
+										<div id="NKY">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="x_tabBox hide">
+							<div class="qiehuan_con">
+								<ul>
+									<li class="show"><span class="t1">上证基指</span>
+										<div id="000011">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_SH_NEW_000011.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+									<li><span class="t1">深圳基指</span>
+										<div id="399305">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+										<div class="tt">
+											<div class="gushi_pic">
+												<img src="http://stock.stcn.com/common27/marketgif/index/IDX_IDX_SZ_NEW_399305.gif" class="block bc">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="x_tabBox hide">
+							<div class="qiehuan_con">
+								<ul>
+									<li class="show">
+										<span class="t0">美元兑人民币</span>
+										<div id="USDCNY">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+
+									</li>
+									<li>
+										<span class="t0">英镑兑美元</span>
+										<div id="GBPUSD">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li>
+										<span class="t0">欧元兑美元</span>
+										<div id="EURUSD">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li class="show">
+										<span class="t0">美元兑日元</span>
+										<div id="USDJPY">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+									<li>
+										<span class="t0">澳元兑美元</span>
+										<div id="AUDUSD">
+											<span class="t2">3263.05</span><span class="t2">-73.23</span><span class="t2">-2.20%</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+	</div>
+	<div class="gongsi">
+		<div class="a_title"><a href="http://company.stcn.com" target="_blank">公司</a></div>
+		<div class="line4"></div>
+		<div class="ui-title-subcnt"><a href="http://info.stcn.com/companydata/newShareDataSearch.jsp" target="_blank">资料检索</a></div>
+		<ul class="gongsi_list">
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12723937.shtml" target="_blank" title="获注大股东资产 *ST金瑞变身五矿金控平台">获注大股东资产 *ST金瑞变身五矿金控平台</a>
+            </li>
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12723939.shtml" target="_blank" title="历时17年未决 中国武夷担保纠纷案波澜再起">历时17年未决 中国武夷担保纠纷案波澜再起</a>
+            </li>
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12723967.shtml" target="_blank" title="大股东回避小股东搅局 茅台关联担保被否">大股东回避小股东搅局 茅台关联担保被否</a>
+            </li>
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12723943.shtml" target="_blank" title="ST华泽急于补缺 两被调查高管获提名董事">ST华泽急于补缺 两被调查高管获提名董事</a>
+            </li>
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12723945.shtml" target="_blank" title="变更重组标的 *ST天利称与借壳上市无关">变更重组标的 *ST天利称与借壳上市无关</a>
+            </li>
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12724029.shtml" target="_blank" title="一汽富维16年首次高送转或纳入集团国企改革">一汽富维16年首次高送转或纳入集团国企改革</a>
+            </li>
+    <li>
+                    <a href="http://company.stcn.com/2016/0520/12724040.shtml" target="_blank" title="中国动力大股东一致人给力拟增持最多18亿元">中国动力大股东一致人给力拟增持最多18亿元</a>
+            </li>
+</ul>
+		<div class="tuijian">
+        <h2><a href="http://company.stcn.com/2016/0520/12723985.shtml" target="_blank" title="保利地产拿“地王”的底气何在">保利地产拿“地王”的底气何在</a></h2>
+        <p class="txt">在库存高压的背景下，保利地产为何有勇气发起对商业地产的冲击？</p>
+        <a href="http://company.stcn.com/2016/0520/12723985.shtml" target="_blank" title="保利地产拿“地王”的底气何在"><img src="http://upload.stcn.com/2016/0518/1463555375288.jpg"></a>
+    </div>
+		<div class="gs_adv"><img src="http://upload.stcn.com/2016/0517/1463479304973.jpg"></div>
+		<div class="gonggao">
+			<div class="gonggao_tit">公告解读：</div>
+			<div id="demo" class="qimo8">
+				<div class="qimo">
+					<div id="demo1">
+						<ul>
+    <li>
+                    <a href="http://kuaixun.stcn.com/2016/0104/12535831.shtml" target="_blank" title="超图软件4.7亿元收购国图信息 再次发力不动产登记市场">超图软件4.7亿元收购国图信息 再次发力不动产登记市场</a>
+            </li>
+    <li>
+                    <a href="http://kuaixun.stcn.com/2015/1225/12526609.shtml" target="_blank" title="*ST新亿投资人妥协 股东将获得少量转增股份">*ST新亿投资人妥协 股东将获得少量转增股份</a>
+            </li>
+    <li>
+                    <a href="http://kuaixun.stcn.com/2015/1224/12525204.shtml" target="_blank" title="粤国资集团混改首单落地 广弘控股资产注入预期升温">粤国资集团混改首单落地 广弘控股资产注入预期升温</a>
+            </li>
+    <li>
+                    <a href="http://kuaixun.stcn.com/2015/1223/12523576.shtml" target="_blank" title="STCN解读:绿盟科技定增12亿元 投资智慧安防和安全数据平台">STCN解读:绿盟科技定增12亿元 投资智慧安防和安全数据平台</a>
+            </li>
+</ul>
+					</div>
+					<div id="demo2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="jigou">
+		<div class="a_title"><a href="http://finance.stcn.com" target="_blank">机构</a></div>
+		<div class="line4"></div>
+		<ul class="gongsi_list">
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723659.shtml" target="_blank" title="华鑫信托产品兑付纠纷：尽调是否失职成焦点">华鑫信托产品兑付纠纷：尽调是否失职成焦点</a>
+            </li>
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723666.shtml" target="_blank" title="工商银行买下伦敦最大金库 ">工商银行买下伦敦最大金库 </a>
+            </li>
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723665.shtml" target="_blank" title="中行打响信贷不良ABS重启“首枪” 规模3亿">中行打响信贷不良ABS重启“首枪” 规模3亿</a>
+            </li>
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723671.shtml" target="_blank" title="中银航空租赁下个月赴香港上市">中银航空租赁下个月赴香港上市</a>
+            </li>
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723667.shtml" target="_blank" title="证券经纪进入精细化时代 投顾客服成为标配">证券经纪进入精细化时代 投顾客服成为标配</a>
+            </li>
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723660.shtml" target="_blank" title="上海保交所91家股东认缴股本22.35亿">上海保交所91家股东认缴股本22.35亿</a>
+            </li>
+    <li>
+                    <a href="http://www.stcn.com/2016/0520/12723661.shtml" target="_blank" title="券商资管座次重排 一创华融首度杀入前20">券商资管座次重排 一创华融首度杀入前20</a>
+            </li>
+</ul>
+		<div class="tuijian">
+        <h2><a href="http://www.stcn.com/2016/0520/12723668.shtml" target="_blank" title="广东证监局组织私募基金自查">广东证监局组织私募基金自查</a></h2>
+        <p class="txt">监管部门对私募基金的监管日趋严格，地方证监局将私募纳入常规抽查范围。</p>
+        <a href="http://www.stcn.com/2016/0520/12723668.shtml" target="_blank" title="广东证监局组织私募基金自查"><img src="http://upload.stcn.com/2016/0520/1463703355751.jpg"></a>
+    </div>
+		<div class="sj_news">
+			<div class="x_tabW">
+				<div class="x_tabNavW qiehuan3">
+					<ol class="x_tabNav clearfix">
+						<li><a href="#" class="active"><span>券商</span></a></li>
+						<li><a href="#" class=""><span>银行</span></a></li>
+						<li><a href="#" class=""><span>保险</span></a></li>
+					</ol>
+				</div>
+				<div class="x_tabBoxW">
+	<div class="x_tabBox">
+		<div class="qiehuan3_con">
+			<div class="tab1">
+				<table class="tabstyle2">
+					<tr class="tabhead">
+						<td>
+							代码
+						</td>
+						<td>
+							简称
+						</td>
+						<td>
+							最新
+						</td>
+						<td>
+							<em class="down_sj">涨跌幅</em>
+						</td>
+					</tr>
+					<tr><td>002500</td><td><a class='tdn' href='http://stock.stcn.com/sz/002500' target='_blank'>山西证券</a></td><td><span class='red'>13.33</span></td><td><span class='red'>1.06</span></td></tr><tr><td>601688</td><td><a class='tdn' href='http://stock.stcn.com/sh/601688' target='_blank'>华泰证券</a></td><td><span class='red'>16.02</span></td><td><span class='red'>0.57</span></td></tr><tr><td>002736</td><td><a class='tdn' href='http://stock.stcn.com/sz/002736' target='_blank'>国信证券</a></td><td><span class='red'>14.58</span></td><td><span class='red'>0.55</span></td></tr><tr><td>600958</td><td><a class='tdn' href='http://stock.stcn.com/sh/600958' target='_blank'>东方证券</a></td><td><span class='red'>16.75</span></td><td><span class='red'>0.42</span></td></tr><tr><td>600837</td><td><a class='tdn' href='http://stock.stcn.com/sh/600837' target='_blank'>海通证券</a></td><td><span class='red'>14.74</span></td><td><span class='red'>0.41</span></td></tr><tr><td>000750</td><td><a class='tdn' href='http://stock.stcn.com/sz/000750' target='_blank'>国海证券</a></td><td><span class='red'>10.41</span></td><td><span class='red'>0.39</span></td></tr><tr><td>601211</td><td><a class='tdn' href='http://stock.stcn.com/sh/601211' target='_blank'>国泰君安</a></td><td><span class='red'>17.28</span></td><td><span class='red'>0.23</span></td></tr><tr><td>000686</td><td><a class='tdn' href='http://stock.stcn.com/sz/000686' target='_blank'>东北证券</a></td><td><span class='red'>11.46</span></td><td><span class='red'>0.18</span></td></tr>
+				</table>
+			</div>
+			<div class="tab2" style="display: none">
+				<table class="tabstyle2">
+					<tr class="tabhead">
+						<td>
+							代码
+						</td>
+						<td>
+							简称
+						</td>
+						<td>
+							最新
+						</td>
+						<td>
+							<em class="up_sj">涨跌幅</em>
+						</td>
+					</tr>
+					<tr><td>002797</td><td><a class='tdn' href='http://stock.stcn.com/sz/002797' target='_blank'>第一创业</a></td><td><span class='red'>22.82</span></td><td><span class='grn'>-4.44</span></td></tr><tr><td>002673</td><td><a class='tdn' href='http://stock.stcn.com/sz/002673' target='_blank'>西部证券</a></td><td><span class='red'>22.13</span></td><td><span class='grn'>-0.54</span></td></tr><tr><td>600109</td><td><a class='tdn' href='http://stock.stcn.com/sh/600109' target='_blank'>国金证券</a></td><td><span class='red'>12.09</span></td><td><span class='grn'>-0.41</span></td></tr><tr><td>600369</td><td><a class='tdn' href='http://stock.stcn.com/sh/600369' target='_blank'>西南证券</a></td><td><span class='red'>7.72</span></td><td><span class='grn'>-0.39</span></td></tr><tr><td>000783</td><td><a class='tdn' href='http://stock.stcn.com/sz/000783' target='_blank'>长江证券</a></td><td><span class='red'>8.83</span></td><td><span class='grn'>-0.34</span></td></tr><tr><td>601099</td><td><a class='tdn' href='http://stock.stcn.com/sh/601099' target='_blank'>太平洋  </a></td><td><span class='red'>6.08</span></td><td><span class='grn'>-0.33</span></td></tr><tr><td>601198</td><td><a class='tdn' href='http://stock.stcn.com/sh/601198' target='_blank'>东兴证券</a></td><td><span class='red'>21.80</span></td><td><span class='grn'>-0.32</span></td></tr><tr><td>601901</td><td><a class='tdn' href='http://stock.stcn.com/sh/601901' target='_blank'>方正证券</a></td><td><span class='red'>6.87</span></td><td><span class='grn'>-0.29</span></td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="x_tabBox hide">
+		<div class="qiehuan3_con">
+			<div class="tab1">
+				<table class="tabstyle2">
+					<tr class="tabhead">
+						<td>
+							代码
+						</td>
+						<td>
+							简称
+						</td>
+						<td>
+							最新
+						</td>
+						<td>
+							<em class="down_sj">涨跌幅</em>
+						</td>
+					</tr>
+					<tr><td>600036</td><td><a class='tdn' href='http://stock.stcn.com/sh/600036' target='_blank'>招商银行</a></td><td><span class='red'>17.90</span></td><td><span class='red'>0.51</span></td></tr><tr><td>600000</td><td><a class='tdn' href='http://stock.stcn.com/sh/600000' target='_blank'>浦发银行</a></td><td><span class='red'>17.42</span></td><td><span class='red'>0.40</span></td></tr><tr><td>601998</td><td><a class='tdn' href='http://stock.stcn.com/sh/601998' target='_blank'>中信银行</a></td><td><span class='red'>5.52</span></td><td><span class='red'>0.36</span></td></tr><tr><td>600016</td><td><a class='tdn' href='http://stock.stcn.com/sh/600016' target='_blank'>民生银行</a></td><td><span class='red'>9.03</span></td><td><span class='red'>0.33</span></td></tr><tr><td>601288</td><td><a class='tdn' href='http://stock.stcn.com/sh/601288' target='_blank'>农业银行</a></td><td><span class='red'>3.08</span></td><td><span class='red'>0.33</span></td></tr><tr><td>601009</td><td><a class='tdn' href='http://stock.stcn.com/sh/601009' target='_blank'>南京银行</a></td><td><span class='red'>17.09</span></td><td><span class='red'>0.29</span></td></tr><tr><td>601166</td><td><a class='tdn' href='http://stock.stcn.com/sh/601166' target='_blank'>兴业银行</a></td><td><span class='red'>16.07</span></td><td><span class='red'>0.25</span></td></tr><tr><td>601398</td><td><a class='tdn' href='http://stock.stcn.com/sh/601398' target='_blank'>工商银行</a></td><td><span class='red'>4.25</span></td><td><span class='red'>0.24</span></td></tr>
+				</table>
+			</div>
+			<div class="tab2" style="display: none">
+				<table class="tabstyle2">
+					<tr class="tabhead">
+						<td>
+							代码
+						</td>
+						<td>
+							简称
+						</td>
+						<td>
+							最新
+						</td>
+						<td>
+							<em class="up_sj">涨跌幅</em>
+						</td>
+					</tr>
+					<tr><td>601939</td><td><a class='tdn' href='http://stock.stcn.com/sh/601939' target='_blank'>建设银行</a></td><td><span class='red'>4.69</span></td><td><span class='grn'>-0.21</span></td></tr><tr><td>000001</td><td><a class='tdn' href='http://stock.stcn.com/sz/000001' target='_blank'>平安银行</a></td><td><span class='red'>10.25</span></td><td><span class='red'>0.00</span></td></tr><tr><td>601818</td><td><a class='tdn' href='http://stock.stcn.com/sh/601818' target='_blank'>光大银行</a></td><td><span class='red'>3.51</span></td><td><span class='red'>0.00</span></td></tr><tr><td>601988</td><td><a class='tdn' href='http://stock.stcn.com/sh/601988' target='_blank'>中国银行</a></td><td><span class='red'>3.23</span></td><td><span class='red'>0.00</span></td></tr><tr><td>601169</td><td><a class='tdn' href='http://stock.stcn.com/sh/601169' target='_blank'>北京银行</a></td><td><span class='red'>10.35</span></td><td><span class='red'>0.10</span></td></tr><tr><td>600015</td><td><a class='tdn' href='http://stock.stcn.com/sh/600015' target='_blank'>华夏银行</a></td><td><span class='red'>9.90</span></td><td><span class='red'>0.10</span></td></tr><tr><td>002142</td><td><a class='tdn' href='http://stock.stcn.com/sz/002142' target='_blank'>宁波银行</a></td><td><span class='red'>14.34</span></td><td><span class='red'>0.14</span></td></tr><tr><td>601328</td><td><a class='tdn' href='http://stock.stcn.com/sh/601328' target='_blank'>交通银行</a></td><td><span class='red'>5.24</span></td><td><span class='red'>0.19</span></td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="x_tabBox hide">
+		<div class="qiehuan3_con">
+			<div class="tab1">
+				<table class="tabstyle2">
+					<tr class="tabhead">
+						<td>
+							代码
+						</td>
+						<td>
+							简称
+						</td>
+						<td>
+							最新
+						</td>
+						<td>
+							<em class="down_sj">涨跌幅</em>
+						</td>
+					</tr>
+					<tr><td>601601</td><td><a class='tdn' href='http://stock.stcn.com/sh/601601' target='_blank'>中国太保</a></td><td><span class='red'>26.95</span></td><td><span class='red'>0.15</span></td></tr><tr><td>601628</td><td><a class='tdn' href='http://stock.stcn.com/sh/601628' target='_blank'>中国人寿</a></td><td><span class='red'>20.59</span></td><td><span class='red'>0.10</span></td></tr><tr><td>601318</td><td><a class='tdn' href='http://stock.stcn.com/sh/601318' target='_blank'>中国平安</a></td><td><span class='red'>31.85</span></td><td><span class='red'>0.06</span></td></tr><tr><td>601336</td><td><a class='tdn' href='http://stock.stcn.com/sh/601336' target='_blank'>新华保险</a></td><td><span class='red'>40.31</span></td><td><span class='red'>0.03</span></td></tr>
+				</table>
+			</div>
+			<div class="tab2" style="display: none">
+				<table class="tabstyle2">
+					<tr class="tabhead">
+						<td>
+							代码
+						</td>
+						<td>
+							简称
+						</td>
+						<td>
+							最新
+						</td>
+						<td>
+							<em class="up_sj">涨跌幅</em>
+						</td>
+					</tr>
+					<tr><td>601336</td><td><a class='tdn' href='http://stock.stcn.com/sh/601336' target='_blank'>新华保险</a></td><td><span class='red'>40.31</span></td><td><span class='red'>0.03</span></td></tr><tr><td>601318</td><td><a class='tdn' href='http://stock.stcn.com/sh/601318' target='_blank'>中国平安</a></td><td><span class='red'>31.86</span></td><td><span class='red'>0.09</span></td></tr><tr><td>601628</td><td><a class='tdn' href='http://stock.stcn.com/sh/601628' target='_blank'>中国人寿</a></td><td><span class='red'>20.59</span></td><td><span class='red'>0.10</span></td></tr><tr><td>601601</td><td><a class='tdn' href='http://stock.stcn.com/sh/601601' target='_blank'>中国太保</a></td><td><span class='red'>26.98</span></td><td><span class='red'>0.26</span></td></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="shuju">
+		<div class="a_title"><a href="http://data.stcn.com" target="_blank">数据</a></div>
+		<div class="line4"></div>
+		<div class="gongsi_list">
+			<ul>
+				    <li>
+                    <a href="http://data.stcn.com/2016/0520/12723968.shtml" target="_blank" title="57股机构首次关注 盛通股份涨幅空间最大">57股机构首次关注 盛通股份涨幅空间最大</a>
+            </li>
+    <li>
+                    <a href="http://data.stcn.com/2016/0520/12723959.shtml" target="_blank" title="沪深两市停牌股票一览(5月20日)">沪深两市停牌股票一览(5月20日)</a>
+            </li>
+    <li>
+                    <a href="http://data.stcn.com/2016/0520/12723962.shtml" target="_blank" title="5月20日新股发行日历一览">5月20日新股发行日历一览</a>
+            </li>
+
+				  <li><a href="http://data.stcn.com/2016/0520/12724367.shtml" target="_blank" title="今日沪指涨0.04%  计算机行业涨幅最大">今日沪指涨0.04%  计算机行业涨幅最大</a></li>  
+  <li><a href="http://data.stcn.com/2016/0520/12724135.shtml" target="_blank" title="融资客看好28股 买入占成交超三成">融资客看好28股 买入占成交超三成</a></li>  
+
+
+			</ul>	
+			<div class="box2">
+				<ul>
+    <li>
+                    <a href="http://dty.stcn.com/newfundnav/otherfund.jsp" target="_blank" title="[基金净值]">[基金净值]</a>
+            </li>
+    <li>
+                    <a href="http://data.stcn.com/fivedataInfo.shtml" target="_blank" title="[每笔成交]">[每笔成交]</a>
+            </li>
+    <li>
+                    <a href="http://zt.stcn.com/rongzrq2010.shtml" target="_blank" title="[融资融券]">[融资融券]</a>
+            </li>
+    <li>
+                    <a href="http://data.stcn.com/statics/dataBlockTrade.htm" target="_blank" title="[大宗交易]">[大宗交易]</a>
+            </li>
+    <li>
+                    <a href="http://data.stcn.com/statics/data2795.htm" target="_blank" title="[新股发行]">[新股发行]</a>
+            </li>
+    <li>
+                    <a href="http://dty.stcn.com/baibaobox/notice.jsp" target="_blank" title="[今日提示]">[今日提示]</a>
+            </li>
+</ul>
+			</div>
+		</div>
+		<div class="tuijian">
+        <h2><a  href="http://data.stcn.com/2016/0520/12723969.shtml" target="_blank" title="490股买入评级 76股或涨超50%">490股买入评级 76股或涨超50%</a></h2>
+        <p class="txt">股市大数据新媒体“数据宝”统计，近五日有490只个股被机构评级为买入，其中148股给出目标价位，</p>
+        <a href="http://data.stcn.com/2016/0520/12723969.shtml" target="_blank" title="490股买入评级 76股或涨超50%"><img src="http://upload.stcn.com/2016/0520/1463703359582.jpg"></a>
+    </div>
+		<div class="sj_news">
+			<div class="x_tabW">
+				<div class="x_tabNavW shuju_tit">
+					<ol class="x_tabNav clearfix">
+						<li><a href="#" class="active"><span>市场资金流向</span></a></li>
+						<li><a href="#"><span>行业资金流向</span></a></li>
+					</ol>
+				</div>
+				<div class="x_tabBoxW">
+										<div class="x_tabBox">
+						<div class="qiehuan3_con">
+							<table class="tabstyle3">
+							<tr class="tabhead">
+								<td>类型</td>
+								<td>资金流量<br><i>(亿元)</i></td>
+								<td>主力<br><i>(亿元)</i></td>
+								<td>散户<br><i>(亿元)</i></td>
+							</tr>
+							<tr><td>沪市</td><td><span class="grn">-6.71</span></td><td><span class="grn">-0.41</span></td><td><span class="grn">-4.90</span></td></tr><tr><td>深市</td><td><span class="red">41.90</span></td><td><span class="red">20.52</span></td><td><span class="red">14.97</span></td></tr><tr><td>创业板</td><td><span class="red">21.51</span></td><td><span class="red">9.29</span></td><td><span class="red">8.94</span></td></tr><tr><td>中小企业板</td><td><span class="red">14.86</span></td><td><span class="red">6.82</span></td><td><span class="red">5.43</span></td></tr><tr><td>沪深300</td><td><span class="grn">-5.87</span></td><td><span class="grn">-0.15</span></td><td><span class="grn">-4.06</span></td></tr><tr><td>深证成指</td><td><span class="red">27.70</span></td><td><span class="red">13.33</span></td><td><span class="red">10.24</span></td></tr><tr><td>上证50</td><td><span class="red">1.30</span></td><td><span class="red">0.74</span></td><td><span class="red">0.58</span></td></tr>
+							</table>
+						</div>
+					</div>
+					<div class="x_tabBox hide">
+						<div class="qiehuan3_con">
+						<table class="tabstyle3">
+							<tr class="tabhead">
+								<td>类型</td>
+								<td>资金流量<br><i>(亿元)</i></td>
+								<td>主力<br><i>(亿元)</i></td>
+								<td>散户<br><i>(亿元)</i></td>
+							</tr>
+							<tr><td>有色金属</td><td><span class="red">19.24</span></td><td><span class="red">9.36</span></td><td><span class="red">6.98</span></td></tr><tr><td>计算机</td><td><span class="red">14.59</span></td><td><span class="red">5.99</span></td><td><span class="red">5.93</span></td></tr><tr><td>电子</td><td><span class="red">13.89</span></td><td><span class="red">5.71</span></td><td><span class="red">6.09</span></td></tr><tr><td>传媒</td><td><span class="red">8.49</span></td><td><span class="red">3.51</span></td><td><span class="red">3.69</span></td></tr><tr><td>机械设备</td><td><span class="red">3.61</span></td><td><span class="red">2.88</span></td><td><span class="red">0.59</span></td></tr><tr><td>化工</td><td><span class="red">3.03</span></td><td><span class="red">2.69</span></td><td><span class="grn">-0.01</span></td></tr><tr><td>电气设备</td><td><span class="red">2.09</span></td><td><span class="red">0.29</span></td><td><span class="red">1.34</span></td></tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--财苑引入-->
+		<div class="caiyuan">		<div class="a_title"><a href="http://cy.stcn.com" target="_blank">财苑</a></div>		<div class="line4"></div>		<div class="huati">			<h3><a href="http://cy.stcn.com/index.php?mod=tag&code=%E5%9C%B0%E6%96%B9%E5%9B%BD%E8%B5%84%E5%8D%96%E5%A3%B3%E7%8E%B0%E8%B1%A1%E9%A2%91%E5%87%BA" target="_blank">地方国资卖壳现象频出</a></h3><div class="huati_exp">随着央企及地方国企改革的加速，A股国企上市公司资本运作动作频频。截至5月18日，沪深两市<a href="http://cy.stcn.com/index.php?mod=tag&code=%E5%9C%B0%E6%96%B9%E5%9B%BD%E8%B5%84%E5%8D%96%E5%A3%B3%E7%8E%B0%E8%B1%A1%E9%A2%91%E5%87%BA" target="_blank">[详情]</a></div>						<div class="huati_list">				<dl><dt><img src="http://cy.stcn.com/./images/face/2/48/210570_s.jpg" /></dt><dd class="tit"><a href="http://cy.stcn.com/index.php?mod=210570" target="_blank">荣爱</a></dd><dd class="exp">#地方国资卖壳现象频出#好东西不会那么容易卖出的<a href="http://cy.stcn.com/index.php?mod=topic&code=5115010" target="_blank">[查看全文]</a></dd></dl><dl><dt><img src="http://cy.stcn.com/./images/face/0/65/210401_s.jpg" /></dt><dd class="tit"><a href="http://cy.stcn.com/index.php?mod=210401" target="_blank">贝欢</a></dd><dd class="exp">#地方国资卖壳现象频出#壳资源还是会一直热下去的<a href="http://cy.stcn.com/index.php?mod=topic&code=5115009" target="_blank">[查看全文]</a></dd></dl>			</div>		</div>		<div class="fangtan">			<h3></h3><dl><dt><span>1、</span><a href="http://cy.stcn.com/index.php?mod=talk&code=view&id=775" target="_blank">私募大佬分享A股投资策略</a></dt><dd>对于A股大势私募界有哪些判断？如何在今年灵活调仓换股迎合大势？深圳菁英时代投资管理有限公司董事长陈宏超将做客证券时报<a href="http://cy.stcn.com/index.php?mod=talk&code=view&id=775" target="_blank">[立即提问]</a></dd></dl><dl><dt><span>2、</span><a href="http://cy.stcn.com/index.php?mod=talk&code=view&id=798" target="_blank">私募分享如何在A股震荡中保持正收益？</a></dt><dd>1月份沪指宽幅震荡令不少普通投资者很受伤，然而，私募在这波震荡行情里风生水起，收益率直线飙升令普通投资者望尘莫及。震<a href="http://cy.stcn.com/index.php?mod=talk&code=view&id=798" target="_blank">[立即提问]</a></dd></dl>		</div>		<div class="baike">			<div class="baike_1"><a href="http://cy.stcn.com/index.php?mod=cybk&code=view&name=%E8%9E%8D%E8%B5%84%E8%9E%8D%E5%88%B8" target="_blank">融资融券</a></div><div class="baike_2"><a href="http://cy.stcn.com/index.php?mod=cybk&code=view&name=%E5%B8%82%E7%9B%88%E7%8E%87" target="_blank">市盈率</a></div><div class="baike_3"><a href="http://cy.stcn.com/index.php?mod=cybk&code=view&name=%E6%96%B0%E8%82%A1%E7%94%B3%E8%B4%AD" target="_blank">新股申购</a></div><div class="baike_4"><a href="http://cy.stcn.com/index.php?mod=cybk&code=view&name=BIAS" target="_blank">BIAS</a></div><div class="baike_5"><a href="http://cy.stcn.com/index.php?mod=cybk&code=view&name=%E5%A4%B1%E4%B8%9A%E7%8E%87" target="_blank">失业率</a></div><div class="baike_6"><a href="http://cy.stcn.com/index.php?mod=cybk&code=view&name=GDP" target="_blank">GDP</a></div>		</div>	</div>	
+	<div class="tbtj">
+		<div class="a_title">特别推荐</div>
+		<div class="line4"></div>
+		<div class="tbtj_l">
+    <a href="http://www.stcn.com/2016/0520/12723654.shtml" target="_blank"><img src="http://upload.stcn.com/2016/0321/1458553314330.jpg"></a>
+    <div class="tm_bg"></div>
+    <div class="img_tit"><a href="http://www.stcn.com/2016/0520/12723654.shtml" target="_blank" title="美元强势施压人民币">美元强势施压人民币</a></div>
+</div>
+		<div class="tbtj_r">
+    <dl>
+        <dt><a href="http://www.stcn.com/2016/0520/12723686.shtml" target="_blank" title="出口“死磕”人民币"><img src="http://upload.stcn.com/2016/0413/thumb_100_100_1460514126307.png"></a></dt>
+        <dd class="tit"><a href="http://www.stcn.com/2016/0520/12723686.shtml" target="_blank" title="出口“死磕”人民币">出口“死磕”人民币</a></dd>
+        <dd class="exp">除非人民币突然大幅贬值，否则出口企业胜算不大。</dd>
+    </dl>
+    <dl>
+        <dt><a href="http://www.stcn.com/2016/0520/12723666.shtml" target="_blank" title="工行买下伦敦最大金库"><img src="http://upload.stcn.com/2016/0429/thumb_100_100_1461888528562.jpg"></a></dt>
+        <dd class="tit"><a href="http://www.stcn.com/2016/0520/12723666.shtml" target="_blank" title="工行买下伦敦最大金库">工行买下伦敦最大金库</a></dd>
+        <dd class="exp">工行正加快布局全球贵金属交易业务。</dd>
+    </dl>
+    <dl>
+        <dt><a href="http://www.stcn.com/2016/0520/12723671.shtml" target="_blank" title="中银租赁下月赴港上市"><img src="http://upload.stcn.com/2016/0331/thumb_100_100_1459417541456.png"></a></dt>
+        <dd class="tit"><a href="http://www.stcn.com/2016/0520/12723671.shtml" target="_blank" title="中银租赁下月赴港上市">中银租赁下月赴港上市</a></dd>
+        <dd class="exp">中银航空租赁计划融资约87.45亿港元。</dd>
+    </dl>
+    <dl>
+        <dt><a href="http://www.stcn.com/2016/0520/12723653.shtml" target="_blank" title="创业板业绩创3年新高"><img src="http://upload.stcn.com/2016/0321/thumb_100_100_1458568558640.jpg"></a></dt>
+        <dd class="tit"><a href="http://www.stcn.com/2016/0520/12723653.shtml" target="_blank" title="创业板业绩创3年新高">创业板业绩创3年新高</a></dd>
+        <dd class="exp">去年创业板上市公司整体业绩亮丽。</dd>
+    </dl>
+</div>
+	</div>
+</div>
+
+<div class="ewm1">
+	<div class="ewm_top">
+		<dl>
+			<dt><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_stcn.gif"></dt>
+			<dd>关注证券时报网<br>微信公众号</dd>
+		</dl>
+		<dl>
+			<dt><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_stcn_mob.gif"></dt>
+			<dd>手机访问<br>证券时报网</dd>
+		</dl>
+<dl>
+			<dt><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_app.gif"></dt>
+			<dd>下载证券时报<br>苹果/安卓APP</dd>
+		</dl>
+		<div class="ewm_zk">更多精彩内容，<br><a>点击展开</a>时报财经微信群</div>
+	</div>
+</div>
+<div class="ewm2">
+	<div class="ewm_top">
+		<dl>
+			<dt><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_stcn.gif"></dt>
+			<dd>关注证券时报网<br>微信公众号</dd>
+		</dl>
+		<dl>
+			<dt><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_stcn_mob.gif"></dt>
+			<dd>手机访问<br>证券时报网</dd>
+		</dl>
+<dl>
+			<dt><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm_app.gif"></dt>
+			<dd>下载证券时报<br>苹果/安卓APP</dd>
+		</dl>
+		<div class="ewm_sh">更多精彩内容，<br><a>点击收回</a>时报财经微信群</div>
+	</div>
+	<div class="ewm_bot">
+		<ul>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm1.gif"><span>莲花</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm2.gif"><span>数据宝</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm3.gif"><span>券商中国</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm4.gif"><span>说金道银</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm5.gif"><span>创业资本汇</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm6.gif"><span>求证</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm7.gif"><span>新三板</span></li>
+			<li><img src="http://img.stcn.com/templates/stcn/css/index2015/ewm8.gif"><span>财富资讯</span></li>
+		</ul>
+	</div>
+</div>
+<div class="footer">
+	<p class="pt20 pb5">
+	<a target="_blank" href="http://www.stcn.com/common/include/about/aboutus.html">关于我们</a>|
+	<a target="_blank" href="http://www.stcn.com/common/include/about/regulation.html">服务条例</a>|
+	<a target="_blank" href="http://www.stcn.com/common/include/about/contact.html">联系我们</a>|
+	<a target="_blank" href="http://www.stcn.com/common/include/about/copyright.html">版权声明</a>|
+	<a target="_blank" href="http://www.stcn.com/common/include/about/friendlink.html">友情链接</a>
+	</p>
+	<p class="p5">
+	Copyright &copy; 2008-2015<a target="_blank" href="http://www.miibeian.gov.cn/">备案号：粤ICP备09109218号</a>
+	<a target="_blank" href="http://www.stcn.com/common/include/certificate1.shtml">网络视听许可证：1908317号</a>
+	<a target="_blank" href="http://www.stcn.com/common/include/certificate2.shtml">增值电信业务经营许可证：粤B2-20080118</a>
+	</p>
+	<p class="p5"><a target="_blank" href="http://www.stcn.com/common/include/certificate3.shtml">关于同意证券时报设立互联网站并提供新闻信息服务的批复</a></p>
+	<p class="Copyright">
+	<a class="a4" target="_blank" href="http://www.sznet110.gov.cn/webrecord/innernet/Welcome.jsp?bano=4403101901226"></a>
+	<a class="a5" target="_blank" href="http://www.sznet110.gov.cn/index.jsp"></a>
+	<a class="a6" target="_blank" href="https://cert.ebs.gov.cn/7940B481-FC5C-41C1-B4AB-0A4A97C93C36"></a>
+	</p>
+</div>
+
+<div class="bghover"></div>
+<div class="lay">
+	<div class="lay_con">
+		<div class="tc_box" id="loginBox">
+	<ul class="tc_con">
+		<li class="tit">欢迎登录证券时报网</li>
+		<li class="name"><input id="username" name="username" type="text" class="ipt1"></li>
+		<li class="pass"><input id="password" name="password" type="password" class="ipt2"></li>
+		<li><span class="fl"><input id="remUsername" name="remUsername" type="checkbox"><i>记住登录</i></span><span class="fr"><a href="http://passport.stcn.com/retrievepwd.do" target="_blank">忘记密码</a></span></li>
+		<li><span class="fl"><input id="ajaxlogin" name="ajaxlogin" type="button" class="tc_btn" value="登录"></span><span class="zc">没有账号？<a href="http://passport.stcn.com/reg.do" target="_blank">立即注册</a></span></li>
+	</ul>
+	<div class="tishi" id="loginError" style="display: none"></div>
+	<div class="close"><img src="http://img.stcn.com/templates/stcn/css/index2015/close.gif"></div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function (){
+	var $denglu = $('.denglu');
+	var $tc_box = $('.tc_box');
+	var $bghover = $('.bghover');
+	var $close = $('.close');
+
+	$denglu.bind('click',function(){
+		$tc_box.show();
+		$bghover.show();
+		showCount('.tc_box');
+	});
+	
+	$close.bind('click',function(){
+		$tc_box.hide();
+		$bghover.hide();
+	});
+
+	function showCount(obj){
+		var $body_height = $('body').css('height');
+		$bghover.css('height', $body_height);
+		var $scroll_top = $(window).scrollTop();
+		var $obj = $(obj);
+		var $width = parseInt($obj.css('width'));
+		var $height = parseInt($obj.css('height'));
+		$obj.css({
+			marginLeft : -($width / 2),
+			marginTop : -($height / 2) + $scroll_top
+		});
+	}
+
+  $('#username').keydown(function (event){
+  	if (event.keyCode == 13) {
+  		$('#ajaxlogin').click();
+  	}
+  });
+  
+  $('#password').keydown(function (event){
+  	if (event.keyCode == 13) {
+  		$('#ajaxlogin').click();
+  	}
+  });
+  
+  //手动登录部分与处理
+  $('#ajaxlogin').click(function (){
+	
+  	var message = "";
+  	var err = false;
+  	if($('#username').val()==''){
+  		message = "用户名或密码不能为空";
+  		err = true;
+  	}
+  	if($('#password').val()==''){
+  		message = "用户名或密码不能为空";
+  		err = true;
+  	}
+  	
+  	if(err){
+  		$("#loginError").html("*"+message);
+      	$("#loginError").show();
+  		return false;
+  	}
+  	
+  	$("#ajaxlogin").attr("disabled", true);
+  	$("#ajaxlogin").css("background","#ababab");
+  	
+  	var isrember = '0';
+  	if($("#remUsername").attr("checked")){
+  		isrember = '1';
+  	}
+	
+    $.ajax({
+	  type: "POST",
+	  dataType: "json",
+	  url: "/passport/ajaxLogin.do",
+	  data:{
+	  	username:$('#username').val(),
+        password:$('#password').val(),
+        isrember:isrember
+	  },
+	  cache: false,
+	  success:function (data) //回传函数
+      {
+      	if(data.result==1){
+			//如果已登录，在这里做相应处理
+   			//window.location.href="";
+   			$('#username').val("");
+   			$('#password').val("");
+   			$("#loginError").html("");
+   			$("#loginBox").hide();
+      		$bghover.hide();
+   			$("#notLogin").hide();
+   			$("#nick").html(data.user.nick);
+   			$("#hasLogin").show();
+
+      	}else{
+      		$("#loginError").html("*用户名或密码不正确");
+      		$("#loginError").show();
+      	}
+      	$("#ajaxlogin").removeAttr("disabled");
+      	$("#ajaxlogin").css("background","#b90a0a");
+      },
+      error:function (xmlHttpRequest, textStatus, errorThrown){
+      	$("#ajaxlogin").removeAttr("disabled");
+      	$("#ajaxlogin").css("background","#b90a0a");
+      	//alert("服务器维护，请稍候登录");
+      }
+  	});
+  });
+	
+	$("#loginBox").hide();
+	$("#hasLogin").hide();
+	$("#loginError").hide();
+	//自动登录
+	//检查用户登录状态并处理,注意这里的提交参数与上面方式不同
+	var ssoreceivetgturl = 'https://passport.stcn.com/wsLoginAssis.js?'+new Date().getTime();
+	$.getScript(ssoreceivetgturl, function(){
+		if( typeof tgtId !='undefined' && (tgtId=='null' || tgtId==null)){
+				tgtId = '';
+		}
+		$.post(
+	      '/passport/ajaxLogin.do',
+	      {
+	      	tgtId:(tgtId!==undefined)?tgtId:''
+	      },
+	      function (data) //回传函数
+	      {
+	      	if(data.result==1){
+	      		//如果已登录
+      			//window.location.href="";
+      			$("#notLogin").hide();
+      			$("#loginBox").hide();
+      			$("#nick").html(data.user.nick);
+      			$("#hasLogin").show();
+	      		
+	      		return;
+	      	}
+	      },
+	      'json'
+	    );
+		
+	});
+
+});
+
+function logout(){
+	//处理ajax超时的范例
+	var isneedtoKillAjax = true; // set this true
+	var ssologoutUrl = "https://passport.stcn.com/ajaxlogout?jsoncallback=?";
+	var myAjaxCall = $.getJSON(ssologoutUrl, 
+		function(data) {
+			isneedtoKillAjax = false;
+			//TODO:用户注销后可以做的事
+			$.post("/passport/ajaxLogout.do",{},
+				function(data) {
+					$("#notLogin").show();
+					$("#loginError").html("");
+					$("#loginBox").hide();
+					$("#loginError").hide();
+					$("#hasLogin").hide();
+	      			$("#nick").html("");
+	      			$("#ajaxlogin").removeAttr("disabled");
+				}
+			);
+		}
+	);
+	setTimeout(function() {
+   		if(isneedtoKillAjax){
+	    	myAjaxCall.abort();   
+	   	}
+  	}, 5000); 
+}
+</script>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="http://img.stcn.com/templates/stcn/css/index2015/jQselect.js"></script>
+<script type="text/javascript" >
+	var $menu_li = $('.menu_con').find('li')
+		$menu_li.bind('mouseover',function(){
+			if( $(this).attr('class') != 'cur'){
+				$(this).addClass("cur1").siblings().removeClass("cur1");
+			}else{
+				$(this).addClass("cur").siblings().removeClass("cur1");
+			}		
+		})
+		
+		$menu_li.bind('mouseout',function(){
+			$(this).removeClass('cur1');
+		})
+		
+		var $ewm1 = $('.ewm1');
+		var $ewm2 = $('.ewm2');
+		var $ewm_zk = $('.ewm_zk');
+		var $ewm_sh = $('.ewm_sh');
+		$ewm_zk.bind('click',function(){
+			$ewm2.show();
+			$ewm1.hide();
+		})
+
+		$ewm_sh.bind('click',function(){
+			$ewm2.hide();
+			$ewm1.show();
+		})
+		
+		var $up_sj = $('.up_sj')
+		var $down_sj = $('.down_sj')
+		var $tab1 = $('.tab1')
+		var $tab2 = $('.tab2')
+		$down_sj.bind('click',function(){
+			$tab2.show();
+			$tab1.hide();
+		})
+		$up_sj.bind('click',function(){
+			$tab1.show();
+			$tab2.hide();
+		})	
+</script>
+
+<!--div id="floatadtarget"></div>
+<div id="floatadtarget" style="CLEAR: both"> </div>
+<script language=JavaScript1.1 src="http://img.stcn.com/templates/stcn/css/index2015/piaofu.js"></script-->
+<!--div id="leftfloatadtarget"></div>
+<div id="leftfloatadtarget" style="CLEAR: both"></div>
+<script language=JavaScript1.1 src="http://img.stcn.com/templates/stcn/css/index2015/leftpiaofu.js"></script-->
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+
+<!doctype html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/modules/v2/app/css/home.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title>我来贷 - 放款最快的年轻人借贷</title>
+<meta name="keywords" content="我来贷，WeLab，白领借贷，工薪贷，大学生借贷，借钱神器，学生贷款，小额借贷，网络借贷，分期消费，手机借贷，快速贷款，消费贷款，现金分期，分期购物，wolaidai.com">
+<meta name="description" content="我来贷 wolaidai.com - 全国最快的大学生、白领专用的小额移动贷款产品；提供1500-20000元额度的小额贷款；为大学生、白领提供现金分期、消费贷款等服务">
+<meta name="og:image" content="..."/>
+<link rel="shortcut icon" href="/static/modules/app/images/favicon.png">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?0066c20586bed1cdaceedf17fd203577";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+//处理渠道号
+(function(){
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	};
+
+	var s = window.location.search.replace("?","");
+	if (s && s.indexOf('channel')>-1) {
+		var p, pl = s.split('&');
+		for (var i = pl.length - 1; i >= 0; i--) {
+			if (pl[i].indexOf('channel')>-1) {
+				p = pl[i];
+			};
+		};
+		document.cookie ='OfficialWebsite='+p+'; path=/';
+	}else{
+		var owCookie = readCookie('OfficialWebsite')
+		if(owCookie){
+			if (s) owCookie = "&"+owCookie; else owCookie="?"+owCookie;
+			window.location.href = window.location.href+owCookie;
+		}
+	}
+
+})();
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="/static/lib/mod.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/modules/app/app.css">
+<script type="text/javascript" charset="utf-8" src="/static/pkg/lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/v2/header/header.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/v2/app/app.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/v2/jquery-plugins/rangeslider/rangeslider.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/v2/counter/counter.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/countUp/countUp.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/jquery-plugins/jstorage/jstorage.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/modules/apiConfig/apiConfig.js"></script>
+</head>
+<body data-channel="index">
+  <!-- app-header -->
+  <header class="app-header">
+  <div class="header-info clearfix">
+    <a class="logo fl" href="index.html">
+      <img src="/static/modules/app/images/v2/home/logo.png">
+    </a>
+    <ul class="top-menu global-menu clearfix fr">
+      <li class="menu-item" data-channel="index"><a href="/">首页</a></li>
+      <li class="menu-item" data-channel="how-it-works"><a href="/how-it-works">如何运作</a></li>
+      <li class="menu-item" data-channel="faq"><a href="/faq">问题与帮助</a></li>
+      <li class="menu-item" data-channel="report"><a href="/report">媒体报道</a></li>
+      <li class="menu-item" data-channel="about"><a href="/about">关于我们</a></li>
+      <li class="menu-item qrcode-item">
+        <a class="download-app-link" href="javascript:;">
+          手机APP
+          <div class="app-qrcode-menu arrow-up">
+              <img src="/static/modules/app/images/v2/home/qrcode-app.jpg">
+              <p>手机扫一扫下载APP</p>
+          </div>
+        </a>
+    </li>
+    </ul>
+  </div>
+  <div class="m-menu-icon toggle-menu" data-toggle="m-menu"><i></i></div>
+</header>
+<div class="m-menu toggle-menu" data-toggle="m-menu">
+  <div class="m-menu-info translate-x-out">
+    <div class="m-menu-hd">导航菜单</div>
+    <ul class="m-menu-ct">
+      <li class="menu-item" data-channel="index"><a href="/">首页</a></li>
+      <li class="menu-item" data-channel="how-it-works"><a href="/how-it-works/">如何运作</a></li>
+      <li class="menu-item" data-channel="faq"><a href="/faq/">问题与帮助</a></li>
+      <li class="menu-item" data-channel="report"><a href="/report/">媒体报道</a></li>
+      <li class="menu-item" data-channel="about"><a href="/about/">关于我们</a></li>
+      <li class="menu-item"><a class="download-app-link" href="javascript:;">手机APP</a></li>
+    </ul>
+    <div class="welab-cartoon"></div>
+  </div>
+</div>
+
+
+
+
+  <!-- /app-header -->
+
+  <!-- app-container -->
+  <section class="app-container">
+    <!-- cover-top -->
+    <section class="top-section cover cover-top">
+      <div class="cover-bg slider">
+        <div class="trs-all slider-item slider-item-01"></div>
+        <div class="trs-all slider-item slider-item-02"></div>
+        <div class="trs-all slider-item slider-item-03"></div>
+      </div>
+      <div class="slider-space"></div>
+      <div class="w-media-list">
+        <div class="msg-focus-bar">
+          <a class="report-link" href="/report/report_tech163.html">我来贷获得10亿元B轮融资，为全球最大互联网金融B轮融资之一 </a>
+          <div class="bling pos-abs wave"></div>
+          <div class="pos-abs stars">
+            <span class="bling star"></span>
+            <span class="bling star star-2x"></span>
+          </div>
+          <div class="pos-abs coins">
+            <span class="bling coin"></span>
+            <span class="bling coin coin-2x"></span>
+          </div>
+        </div>
+        <a href="report">
+          <img src="/static/modules/app/images/v2/home/01.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/02.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/03.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/04.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/05.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/06.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/08.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/07.m.logo.png">
+          <img src="/static/modules/app/images/v2/home/09.m.logo.png">
+        </a>
+      </div>
+      <div class="guide-step step-begin">
+        <div class="guide-step-line"></div>
+        <div class="guide-step-index">我来贷APP</div>
+      </div>
+      <div class="welab-focus-box">
+  <div class="welab-cartoon-up-wrap"><div class="welab-cartoon-up"></div></div>
+  <h1 class="slogan clearfix">
+    <span class="fl">急需现金</span>
+    <span class="wanna f60 text-play-list play-list fl">
+      <span class="play-item trs-all">去旅行</span>
+      <span class="play-item trs-all">去购物</span>
+      <span class="play-item trs-all">去进修</span>
+    </span>
+    <span class="fl">?</span>
+  </h1>
+  <div class="desc-up">下载我来贷APP，无需面签，无需按手印，快捷方便，随借随有！</div>
+  <div class="welab-loan-calc">
+    <input class="w100" id="amount-slider" type="range" min="0" step="1" value="0">
+    <input class="w100" id="tenor-slider" type="range" min="0" step="1" value="0">
+    <div class="payment-section clearfix">
+      <div class="f60 fl">
+        <p class="label">每期还款额:</p>
+        <p>￥<span id="payment-wrap"></span></p>
+      </div>
+      <button class="show-popup button-cta fr" data-show="index-cover" style="margin-top:2px;">立即申请</button>
+    </div>
+  </div>
+  <div class="desc-bottom">*实际费率按申请人信用等级来计算，贷款计算器只做参考。</div>
+</div>
+      <!-- <img class="welab-cartoon-aside trs-all" src="/static/modules/app/images/v2/home/mascot-side.png"> -->
+    </section>
+    <!-- /cover-top -->
+
+    <!-- cover-01-->
+    <section class="body-section cover cover-01">
+      <div class="guide-step step-01 clearfix">
+        <div class="guide-step-line"></div>
+        <div class="guide-step-index">1</div>
+        <div class="guide-step-text guide-step-l"></div>
+        <div class="guide-step-text guide-step-r">
+          <h1>极速体验</h1>
+          <p>3分钟完成申请，一天内极速审核，即时提现0等待</p>
+        </div>
+        <div class="loan-list scroll-list">
+  <div class="scroll-list-wrap">
+    <div class="scroll-list-content clearfix">
+      <div class="item fl">
+        <img class="image" src="/static/modules/app/images/v2/home/01.loan.png">
+        <div class="text">
+          <p class="desc-up">
+            我晚上申请，第二天中午就放款了，真的好快，只需要在手机APP上操作一下就搞定了。
+          </p>
+          <p class="desc-down ellipsis">
+            —李同学，21岁，深圳大学
+          </p>
+        </div>
+      </div>
+      <div class="item fl">
+        <img class="image" src="/static/modules/app/images/v2/home/02.loan.png">
+        <div class="text">
+          <p class="desc-up">
+            下载我来贷APP，躺在床上就能把旅游的钱悄悄借了，不用跑门店和按手印，真是太方便了。
+          </p>
+          <p class="desc-down ellipsis">
+            —王同学，22岁，湖南师范大学
+          </p>
+        </div>
+      </div>
+      <div class="item fl">
+        <img class="image" src="/static/modules/app/images/v2/home/03.loan.png">
+        <div class="text">
+          <p class="desc-up">
+            通过我来贷只需填写个人资料并绑定好银行卡就可快速借到钱，取现刷卡都可以，非常方便。
+          </p>
+          <p class="desc-down ellipsis">
+            —李先生，25岁，市场销售
+          </p>
+        </div>
+      </div>
+      <div class="item fl">
+        <img class="image" src="/static/modules/app/images/v2/home/04.loan.png">
+        <div class="text">
+          <p class="desc-up">
+            才提交申请不到1个小时，就审批通过了，钱即时到账，以后缺钱也不怕了。
+          </p>
+          <p class="desc-down ellipsis">
+            —许小姐，25岁，市场销售
+          </p>
+        </div>
+      </div>
+      <div class="item fl">
+        <img class="image" src="/static/modules/app/images/v2/home/05.loan.png">
+        <div class="text">
+          <p class="desc-up">
+            一次最多可借两万元，利息低，特别适合我这种偶尔资金周转困难的月光族。
+          </p>
+          <p class="desc-down ellipsis">
+            —王先生，25岁，IT工程师
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="touch-more-tips">左右滑动以显示更多</div>
+      </div>
+    </section>
+    <!-- /cover-01-->
+
+    <!-- cover-02-->
+    <section class="body-section cover cover-02">
+      <div class="guide-step step-02 clearfix">
+        <div class="guide-step-line"></div>
+        <div class="guide-step-index">2</div>
+        <div class="guide-step-text guide-step-l"></div>
+        <div class="guide-step-text guide-step-r">
+          <h1>灵活体验</h1>
+          <p>有钱随时还，不收违约金</p>
+          <img class="sl trs-all translate-y-out" src="/static/modules/app/images/v2/home/step.02.slogan.png">
+        </div>
+      </div>
+    </section>
+    <!-- /cover-02-->
+
+    <!-- cover-03-->
+    <section class="body-section cover cover-03">
+      <div class="guide-step step-03 clearfix">
+        <div class="guide-step-line top"></div>
+        <div class="guide-step-line bottom"></div>
+        <div class="guide-step-index">3</div>
+        <div class="guide-step-text guide-step-l">
+          <img class="qrcode-hb trs-all scale-out" src="/static/modules/app/images/v2/home/qrcode-hb.jpg">
+          <p></p>
+        </div>
+        <div class="guide-step-text guide-step-r">
+          <h1>超爽体验</h1>
+          <p>注册有礼，最强活动领红包</p>
+          <img class="text-hb" src="/static/modules/app/images/v2/home/text-hb.png">
+        </div>
+      </div>
+    </section>
+    <!-- /cover-03-->
+
+    <!-- cover-04-->
+    <section class="body-section cover cover-04">
+      <div class="guide-step step-04 clearfix">
+        <div class="guide-step-line top"></div>
+        <div class="guide-step-line bottom"></div>
+        <div class="guide-step-index">4</div>
+        <div class="guide-step-text guide-step-l"></div>
+        <div class="guide-step-text guide-step-r">
+          <h1>安全可靠</h1>
+          <p>顶级投资阵容，B轮获10亿元风险投资，贷款有保障</p>
+        </div>
+        <div class="vc-list scroll-list">
+          <div class="scroll-list-wrap">
+            <div class="scroll-list-content clearfix">
+              <a target="_blank" class="vc-item trs-all" href="http://www.khazanah.com.my/">
+                <div class="vc-logo"><img src="/static/modules/app/images/v2/home/khazanah.png"></div>
+                <div class="vc-name ellipsis">马来西亚国库控股公司(Khazanah)</div>
+              </a>
+              <a target="_blank" class="vc-item trs-all 2nd" href="http://www.ing.com/">
+                <div class="vc-logo"><img src="/static/modules/app/images/v2/home/ing.png"></div>
+                <div class="vc-name ellipsis">ING(荷兰国际集团)</div>
+              </a>
+              <a target="_blank" class="vc-item trs-all" href="http://www.gvcgc.com/">
+                <div class="vc-logo"><img src="/static/modules/app/images/v2/home/gtfg.png"></div>
+                <div class="vc-name ellipsis">粤科金融(GTFG)</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="touch-more-tips">左右滑动以显示更多</div>
+      </div>
+    </section>
+    <!-- /cover-04-->
+
+    <!-- cover-05-->
+    <section class="body-section cover cover-05">
+      <div class="guide-step step-05 clearfix">
+        <div class="guide-step-line top"></div>
+        <div class="guide-step-line bottom"></div>
+        <div class="guide-step-index">5</div>
+        <div class="guide-step-text guide-step-l">
+          <img class="mobile-demo trs-all translate-y-out" src="/static/modules/app/images/v2/home/mobile-demo.png">
+        </div>
+        <div class="guide-step-text guide-step-r">
+          <h1>年轻人的借钱神器</h1>
+          <p>我来贷，就是这么方便</p>
+          <div class="qrcode-app-c clearfix">
+            <img class="qrcode-app fl" src="/static/modules/app/images/v2/home/qrcode-app.jpg">
+            <div class="fl">
+              <a id="indexADL" href="http://download.wolaidai.com/releases/wolaidai.a_promotion.apk">
+                <img class="android-btn" src="/static/modules/app/images/v2/home/android-btn.jpg">
+              </a>
+              <a href="https://itunes.apple.com/cn/app/wo-lai-dai-da-xue-sheng-jie/id979116729">
+                <img class="ios-btn" src="/static/modules/app/images/v2/home/ios-btn.jpg">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /cover-05-->
+
+    <!-- bottom-section -->
+    <section class="bottom-section">
+      <h1 class="title">随时.随地.随你借</h1>
+      <p class="text">
+        我来贷结合最新的互联网与金融技术，一直专注于为有资金需求和投资需求的年轻人提供更方便、更快捷的金融服务。用户只需简单四步，就能通过手机平台更加轻松、便捷的完成借款。如有更多问题，欢迎与我们的专业团队联系！
+      </p>
+      <p class="button"><button class="show-popup button-cta" data-show="index-cover">立即申请</button></p>
+      <p class="notice">*须受条款及细则约束，本公司保留贷款审核之最终决定权。</p>
+      <div class="loan-counter clearfix">
+        <div class="counter-item user-counter">
+          <div class="counter-item-info">
+            注册人数
+            <h1 id="user-counter"></h1>
+          </div>
+        </div>
+        <div class="counter-item amount-counter">
+          <div class="counter-item-info">
+            申请金额(￥)
+            <h1 id="amount-counter"></h1>
+          </div>
+        </div>
+      </div>
+      <div class="hot-tel">
+        <strong>客户服务热线</strong>
+        <p>(工作日 9:30-18:30)</p>
+        <a href="tel:400-600-3323"><strong>400-600-3323</strong></a>
+      </div>
+    </section>
+    <!-- /bottom-section -->
+  </section>
+  <!-- /app-container -->
+  <section class="welab-cartoon-section">
+    <a href="javascript:;" class="welab-cartoon"></a>
+  </section>
+  <!-- app-footer -->
+  <footer class="app-footer">
+  <div class="footer-info">
+    <div class="footer-link">
+      <span>友情链接：</span>
+      <a target="_blank" href="http://www.ule.com/">邮乐网</a>
+      <!-- <a target="_blank" href="javascript:;">贷款网</a> -->
+    </div>
+    <div class="copyright">
+      <span>&copy;&nbsp;2015我来贷（www.wolaidai.com | www.wolaidai.cn）All rights reserved. </span>
+      <span>深圳卫盈智信科技有限公司 | <a href="http://www.miitbeian.gov.cn">ICP备案: 粤ICP备14052414号 ICP证 粤B2-20140339</a></span>
+    </div>
+    <div class="contact">
+      <span class="cn">公司地址：广东省深圳市南山区海德三道天利中央广场C座1005</span>
+      <span class="tel">联系电话：400-600-3323</span>
+    </div>
+    <div class="footer-icon">
+      <a class="pos-rel" href="javascript:;">
+        <img src="/static/modules/app/images/v2/home/wx-icon.png">
+        <span class="hover-content pos-abs">
+          <img src="/static/modules/app/images/v2/home/weixin-share-icon.png"><br>
+          <span class="sys">微信扫一扫</span>
+        </span>
+      </a>
+      <a target="_blank" href="http://weibo.com/u/5150768946"><img src="/static/modules/app/images/v2/home/wb-icon.png"></a>
+      <a target="_blank" href="http://www.linkedin.com/company/welab-limited?trk=prof-exp-company-name"><img src="/static/modules/app/images/v2/home/li-icon.png"></a>
+    </div>
+    <div class="certs">
+      <a class="item" target="_blank" href="https://credit.szfw.org/CX20160316018110890355.html" title="我来贷荣获中国互联网“诚信示范单位”认证殊荣">
+        <img src="/static/modules/app/images/v2/home/cxsfwz.png">
+      </a>
+      <a class="item" target="_blank" href="https://search.szfw.org/cert/l/CX20150407007353007870" title="我来贷荣获中国电子商务协会“诚信网站”认证殊荣">
+        <img src="/static/modules/app/images/v2/home/cxwz.png">
+      </a>
+      <a class="item" target="_blank" href="http://www.anquan.org/authenticate/cert/?site=www.wolaidai.com&at=business" title="我来贷荣获安全联盟行业认证">
+        <img src="/static/modules/app/images/v2/home/aqlm.png">
+      </a>
+      <a class="item" target="_blank" href="http://www.itrust.org.cn/Home/Index/itrust_certifi?wm=1305878535" title="网信认证">
+        <img src="/static/modules/app/images/v2/home/wxrz.png">
+      </a>
+      <a class="item" target="_blank" href="http://si.trustutn.org/info?sn=574160411000391616019" title="互联网金融行业认证">
+        <img src="/static/modules/app/images/v2/home/jrrz.jpg">
+      </a>
+      <a class="item" target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e160408440300630403u3f000000&comefrom=verify&trustKey=dn&trustValue=m.wolaidai.com" title="可信网站身份验证">
+        <img src="/static/modules/app/images/v2/home/time_cnnic.jpg">
+      </a>
+    </div>
+    <div class="cert-fixed pos-fixed top-z-index">
+      <a class="item" target="_blank" href="http://www.anquan.org/authenticate/cert/?site=www.wolaidai.com&at=business" title="我来贷荣获安全联盟行业认证">
+        <img src="/static/modules/app/images/v2/home/aqlm_fixed.png">
+      </a>
+    </div>
+  </div>
+</footer>
+  <!-- /app-footer -->
+
+  <div class="index-cover" id="indexCover">
+
+    <div class="index-cover-container">
+        
+        <img style="width:40%; position:absolute; right:0;" src="/static/modules/app/images/pc-bg-young.png">
+        <span id="closePopupBtn">X</span>
+        <div class="popup-title">
+            <h1>扫描二维码，立即我来贷</h1>
+            <div>为了提升用户体验，我来贷建议您在手机端申请</div>
+            <div>扫描下方二维码，3分钟填表，1天内到账</div>
+        </div>
+        <div class="popup-qrcode">
+            <ul class="popup-qrcode-list clearfix">
+                <li class="popup-qrcode-item nofloat">
+                    <img src="/static/modules/app/images/qrcode.png">
+                </li>
+                <li class="popup-qrcode-item nofloat" style="margin-top: 35px;">
+                    <a id="adl" class="btn-dl-white" href="http://download.wolaidai.com/releases/wolaidai.a_promotion.apk" >Android 下载</a>
+                    <a class="ios btn-dl-white" href="https://itunes.apple.com/cn/app/wo-lai-dai-da-xue-sheng-jie/id979116729" >IOS 下载</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+  <script>
+    require('v2/header/header');
+    require('v2/counter/counter');
+    
+    var CountUp = require('countUp');
+    // post the channel to backend
+    var app = require('v2/app/app');
+    require('apiConfig');
+
+    var loanCounter = false;
+    var body = document.body;
+    var docEl = document.documentElement;
+
+    var options = {
+    ??useEasing : true, 
+    ??useGrouping : true, 
+    ??separator : ',', 
+    ??decimal : '.', 
+    ??prefix : '', 
+    ??suffix : '' 
+    };
+
+
+    (function ($, undefined) {
+      'use strict';
+
+      function Carousel(element, options) {
+        this.$el = $(element);
+        this.$items = $(element).children();
+        this.current = options.startItem || 0;
+        this.timeout = options.timeout || 5000;
+        this.displayCls = options.displayCls || 'visible';
+        this.init();
+      };
+
+      Carousel.prototype = {
+        constructor: Carousel,
+        init: function () {
+          this.play();
+          this.interval();
+        },
+        play: function () {
+          this.$items.removeClass(this.displayCls);
+          this.$items.eq(this.current).addClass(this.displayCls);
+          this.current += 1;
+          if (this.current == this.$items.size()) {
+            this.current = 0;
+          }
+        },
+        interval: function () {
+          var self = this;
+          setInterval(function () {
+            self.play();
+          },this.timeout)
+        }
+      };
+
+      $.fn.carousel = function(options) {
+        return this.each(function() {
+          new Carousel(this, options || {});
+        });
+      };
+    })(jQuery);
+
+
+    $(function() {
+      $('.slider, .text-play-list').carousel({timeout:6000});
+      $(window).on('scroll', function () {
+        var scrollTop = docEl.scrollTop ? docEl.scrollTop : body.scrollTop;
+        var scrollHeight = docEl.scrollHeight ? docEl.scrollHeight : body.scrollHeight;
+        var counterOffset = $('.loan-counter').offset().top;
+        var cartoonOffset = $('.welab-cartoon').offset().top;
+        var slTextOffset = $('.cover-02').offset().top;
+        var qrcodeOffset = $('.cover-03').offset().top;
+        var mobileOffset = $('.cover-05').offset().top;
+        var scrollBottom = scrollTop + docEl.clientHeight;
+        if (scrollBottom > scrollHeight - 100 ) {
+          $('.welab-cartoon').addClass('cartoon-animate');
+        }else {
+          $('.welab-cartoon').removeClass('cartoon-animate');
+        };
+        if (scrollTop + 400 > slTextOffset) {
+          $('.sl').addClass('translate-y-in')
+        };
+        if (scrollTop + 400 > qrcodeOffset) {
+          $('.qrcode-hb').addClass('scale-in')
+        };
+        if (scrollTop + 400 > mobileOffset) {
+          $('.mobile-demo').addClass('translate-y-in')
+        };
+        if (scrollTop + 740 > counterOffset) {
+          if (!window.loanCounter) {
+            window.loanCounter = true;
+            app.query('get','v3/loan_applications/summary').done(function(data){
+              if (!data.count || !data.total_amount) {
+                data.count = data.count || 0;
+                data.total_amount = data.total_amount || 0;
+                $('.loan-counter').addClass('not-visible');
+                return;
+              }
+              var userCounter = new CountUp("user-counter", 0, Number(data.count), 0, 0.75, options);
+              var amountCounter = new CountUp("amount-counter", 0, Number(data.total_amount), 0, 0.75, options);
+              userCounter.start();
+              amountCounter.start();
+            });
+          };
+        };
+      }); 
+
+    })
+    
+    $(document).ready(function(){
+      var params = window.location.search.replace('?','');
+      var pObj = {};
+      if (params) {
+        var pAray = params.split("&");
+        if (pAray && pAray.length>0) {
+          for (var i = pAray.length - 1; i >= 0; i--) {
+            var kv = pAray[i].split("=");
+            if (kv && kv.length>0) {
+              pObj[kv[0]] = kv[1];
+            }
+          }
+        }
+      }
+
+      var defaultUrl='http://download.wolaidai.com/releases/wolaidai.a_promotion.apk';
+      if (pObj.channel) {
+        $('#indexADL').attr('href', defaultUrl.replace('a_promotion', pObj.channel));
+      };
+    })
+
+  </script>
+</body>
+</html>

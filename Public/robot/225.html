@@ -1,0 +1,718 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="baidu-site-verification" content="W2D5oPHdhb" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="让财富变得简单，盈盈理财是国内领先的从事基于互联网技术的金融信息撮合交易服务的平台。盈盈理财针对中小企业融资现状推出P2B/P2P投融资服务模式，为大众投资者和急需资金的中小企业及个人，打造一个安全、稳定、高流动性的网络投融资平台。">
+<meta name="keywords" content="盈盈理财,网络理财,个人理财,投资理财,P2P理财,互联网金融,投资理财,货币基金理财,保险产品,网络贷款">
+<title>盈盈理财-让财富变的简单</title>
+<!--样式文件-->
+<link rel="shortcut icon" href="http://www.yingyinglicai.com/favicon.ico">
+<link rel="stylesheet" href="https://yylc-img.b0.upaiyun.com/frontweb/theme/cssnew/reset.css?v=">
+<link rel="stylesheet" href="https://yylc-img.b0.upaiyun.com/frontweb/theme/cssnew/main.css?v=">
+
+<!--脚本文件-->
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/jquery.js?v="></script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/jquery.timers.js?v="></script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/jquery.scrollto.js?v="></script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/jqModal.js?v="></script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/yylc.js?v="></script>
+<script type="text/javascript">
+	var app_path = "",
+		staticServer = "https://yylc-img.b0.upaiyun.com/frontweb",
+		thevalue ="";
+</script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/responsiveslides.min.js?v="></script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/jsnew/jquery.pin.min.js?v="></script>
+
+<script type="text/javascript">
+
+	//页面加载完成后执行
+	window.onload = function() {
+		getSysDate();
+		//计算时间误差值
+		$("#mistiming").val($('#serverDate').val());
+	}; 
+	
+	//获取系统的时间毫秒数
+	function getSysDate(){
+		$.ajax({
+			type: "post",
+			url:  app_path+"/system/date.do",
+			cache:false,
+			timeout : 3000, //超时时间设置，单位毫秒
+		    async : false,//同步提交
+			dataType: "text",
+			success: function(result){
+					if (typeof(result) != 'object') {
+						result = eval('(' + result + ')');
+						$('#serverDate').val(result.systemDate);
+					}
+	        }
+		});
+	}
+
+	function NewDate(str) { 
+		str = str.split('-'); 
+		var date = new Date(); 
+		date.setFullYear(str[0], str[1] - 1, str[2]); 
+		date.setHours(str[3], str[4], str[5], 0); 
+		return date;
+	}
+	function countTime(start,node,tip) {
+		var inode = node;
+		var itip = tip;
+		var startArr = start;
+		var startTime = new Date();
+		startTime.setFullYear(startArr[0],startArr[1] - 1,startArr[2]);
+		startTime.setHours(startArr[3],startArr[4],startArr[5],0);
+		var EndTime=startTime.getTime();
+		GetRTime(EndTime,inode,itip);
+	}
+	function GetRTime(endTime,node,tip) {
+		var nMS =endTime - (parseInt($("#mistiming").val()));
+		var nD = Math.floor(nMS/(1000 * 60 * 60 * 24));
+		var nH = Math.floor(nMS/(1000 * 60 * 60)) % 24;
+		var nM = Math.floor(nMS/(1000 * 60)) % 60;
+		var nS = Math.floor(nMS/1000) % 60;
+		if (nMS < 0){
+			node.html(tip);
+			node.removeClass("wyd-info-8a");
+		} else {
+			node.html((nD * 24 + nH) + '时' + (nM < 10 ? '0' + nM : nM) + '分' + (nS < 10 ? '0' + nS : nS) + '秒后起投'); 
+		}
+	}
+	function changeTime(){
+		$("#mistiming").val(parseInt($("#mistiming").val()) + 1000);
+	}
+	var startDateItems = new Array();
+	$(function(){
+		//计算时间误差值
+		$("#mistiming").val($('#serverDate').val());
+		window.setInterval("changeTime()", 1000);
+		
+		// 执行页面倒计时
+		$("p.yufa").each(function(i){
+			var startDateStr = $(this).attr("salesStartDate");
+			var startDateArr = startDateStr.split("-");
+			startDateItems.push($(this));
+			countTime(startDateArr, startDateItems[i]);
+			window.setInterval("countTime([" + startDateArr + "], startDateItems["+i+"], '立即投标')", 1000);
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="notice" style="display:none;">
+	<div id="notice-con">
+    	<p><span id="notice-tips"></span><i id="notice-close"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/17.png" alt="关闭" title="关闭"></i></p>
+    </div>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58339225-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<div id="header">
+	<div id="header-con">
+        <div id="header-l" class="fl">
+            <span class="icon-sprite icon-i-1"></span>
+            <p class="fl mg-l-1">客服热线 400 870 5800</p>
+            <span id="weibo" class="icon-sprite icon-i-2 topicon"></span>
+            <span id="weixin" class="icon-sprite icon-i-3 topicon"></span>
+            <span id="qq" class="icon-sprite icon-i-4 topicon"></span>
+        </div>
+        <div id="header-r" class="fr">
+        	                <p class="fl"><a href="/user/login.htm" rel="nofollow" class="h-r-first">登录</a></p>
+            	<p class="fl"><a href="/user/register.htm" rel="nofollow">10秒免费注册</a></p>
+			            <p class="fl"><a href="/safe/safeCenterQuery.do" rel="nofollow">安全中心</a></p>
+            <p class="fl"><a href="/help/help-center1.htm" rel="nofollow">帮助中心</a></p>
+            <p class="fl"><a href="/about/about1.htm" rel="nofollow">关于我们</a></p>
+            <p class="fl"><a href="/else/contactUs.htm" rel="nofollow">联系我们</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="menu">
+    <div id="menu-con">
+        <p id="logo" class="fl"><a href="/index.htm"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/logo.png" alt="盈盈理财" title="盈盈理财"></a></p>
+        <div id="nav" class="fr">
+            <span class="nav-a fl active"><a href="/index.htm">首　　页</a></span>
+            <span class="nav-a fl"><a href="/else/safetyGuarantee.htm">安全保障</a><em></em></span>
+            <span class="nav-a fl"><a href="/else/newbieGuide.htm">新手引导</a><em></em></span>
+            <span class="nav-a fl"><a href="/borrow/index.htm">我要借款</a><em></em></span>
+            <span class="nav-b fl"><a href="/product/list.htm" class="icon-sprite icon-i-5">我要投资</a><em></em></span>
+            <span class="nav-b fl"><a href="/account/debit/index.htm" class="icon-sprite icon-i-5">我的盈盈</a><em></em></span>
+        </div>
+    </div>
+</div><input id="serverDate" type="hidden" value="1463715573438">
+<input id="mistiming"  type="hidden" value="">
+
+<div class="slider">
+	<ul class="slider-img" id="sliderbanner">
+	                   <li style="background:url(http://res.yingyinglicai.com:8082/fup/image/banner/pc/201605/201605191839120.jpg) no-repeat center 0;background-color:#fff;"><a href="https://licai.yingyinglicai.com/news/newsDetail.htm?id=184&type=NEW" target="_blank"><img src="http://res.yingyinglicai.com:8082/fup/image/banner/pc/201605/201605191839120.jpg" alt=""></a></li> 
+		                              <li style="background:url(http://res.yingyinglicai.com:8082/fup/image/banner/pc/201605/201605191749120.jpg) no-repeat center 0;background-color:#fff;"><a href="https://gift.yingyinglicai.com/activity/intro/8820160519000213" target="_blank"><img src="http://res.yingyinglicai.com:8082/fup/image/banner/pc/201605/201605191749120.jpg" alt=""></a></li> 
+		                              <li style="background:url(http://res.yingyinglicai.com:8082/fup/image/banner/pc/201605/201605111142480.jpg) no-repeat center 0;background-color:#fff;"><a href="https://gift.yingyinglicai.com/activity/intro/8820160510000206" target="_blank"><img src="http://res.yingyinglicai.com:8082/fup/image/banner/pc/201605/201605111142480.jpg" alt=""></a></li> 
+		                              <li style="background:url(https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/zxhz-new.jpg) no-repeat center 0;background-color:#fff;"><a href="https://licai.yingyinglicai.com/else/banner3.htm" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/zxhz-new.jpg" alt=""></a></li> 
+		                              <li style="background:url(https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/jyzb.jpg) no-repeat center 0;background-color:#fff;"><a href="https://licai.yingyinglicai.com/else/banner2.htm" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/jyzb.jpg" alt=""></a></li> 
+		            	  <!-- <li style="background:url(https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/7.jpg) no-repeat center 0;background-color:#fff;"><a href="/else/banner8.htm" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/7.jpg" alt=""></a></li>
+      <li style="background:url(https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/9.jpg) no-repeat center 0;background-color:#fff;"><a href="/else/banner9.htm" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/9.jpg" alt=""></a></li>
+      <li style="background:url(https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/2.jpg) no-repeat center 0;background-color:#fff;"><a href="/else/banner2.htm" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/2.jpg" alt=""></a></li>
+      <li style="background:url(https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/3.jpg) no-repeat center 0;background-color:#fff;"><a href="/else/banner3.htm" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/banner/3.jpg" alt=""></a></li> -->
+    </ul>
+</div>
+
+<div id="banner-tip">
+    <div id="banner-tip-con">
+    	        <div id="login-no">
+            <p class="login-no-1">安全、稳健、高收益</p>
+            <p class="login-no-2">新注册用户更享好礼</p>
+            <p class="login-no-3"><a href="/user/register.htm" class="icon-n-sprite icon-n-1">10秒免费注册</a></p>
+            <p class="login-no-4">已有账号？<a href="/user/login.htm">立即登录</a></p>
+        </div>
+            </div>
+</div>
+
+<div id="i-content">
+	<div id="i-c-1">
+    	<div id="i-c-a">
+        	<div class="i-title">
+                <h3>盈盈业绩</h3>
+                <p>数据截止2015年4月</p>
+            </div>
+            <div id="yyad">
+            	<p><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/3.png" alt="盈盈业绩" title="盈盈业绩"></p>
+            </div>
+        </div>
+        <div id="i-c-b">
+        	<div class="i-title">
+                <h3>还款通告</h3>
+                <p><a href="/news/PaymentNotice.do">查看更多</a></p>
+            </div>
+            <div id="i-table">
+            	<table cellpadding="0">
+                    <colgroup>
+                        <col class="i-table-1">
+                        <col class="i-table-2">
+                    </colgroup>
+                    <tr>
+                        <th class="i-t-l">项目名</th>
+                        <th class="i-t-r" style="white-space:nowrap; ">还款金额(元)</th>
+                    </tr>
+                                        <tr>
+                    	<td><div class="text-ellipsis-1">盈信宝2962号</div></td>
+                    	<td class="i-t-r">13173.16</td>
+                    </tr>
+		                                <tr>
+                    	<td><div class="text-ellipsis-1">盈信宝2957号</div></td>
+                    	<td class="i-t-r">8782.12</td>
+                    </tr>
+		                                <tr>
+                    	<td><div class="text-ellipsis-1">盈信宝2963号</div></td>
+                    	<td class="i-t-r">8782.12</td>
+                    </tr>
+		                                <tr>
+                    	<td><div class="text-ellipsis-1">盈信宝2940号</div></td>
+                    	<td class="i-t-r">26346.70</td>
+                    </tr>
+		                            </table>
+            </div>
+        </div>
+    </div>
+    <div id="i-c-2">
+    	<div class="i-title">
+            <h3>稳盈贷<span>盈盈正在努力审核项目  <i>10:00~20:00每个整点不定时开售</i></span></h3>
+            <p><a href="/product/list.htm">查看更多</a></p>
+        </div>
+    </div>
+    <div id="i-c-3">
+    	    			     <div class="wyd-pro ">
+	        	<i class="icon-n-sprite icon-n-2"></i>
+	            <a href="/detail/14636-260-500-981-0076.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">聚财564号</span></p>
+	                <p class="wyd-info-2" > 10.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">200,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:98.03%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>98.03%</i> | 剩余<span>3940.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>9.80</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>15天</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro ">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14739-260-500-528-3868.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">优选计划114号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">3,100,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:18.80%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>18.80%</i> | 剩余<span>2517000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>7.20</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>2个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro ">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14746-260-500-137-6187.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">房易贷1456号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">4,800,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:18.79%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>18.79%</i> | 剩余<span>3898000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>7.20</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>3个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro nomarginright">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14714-261-500-917-5563.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">盈信宝7500号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">300,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:63.33%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>63.33%</i> | 剩余<span>110000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>8.00</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>6个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro ">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14531-261-500-408-6577.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">房易贷1399号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">3,000,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:28.63%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>28.63%</i> | 剩余<span>2141000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>8.00</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>6个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro ">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14754-260-500-945-5914.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">盈信宝7511号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">230,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:2.17%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>2.17%</i> | 剩余<span>225000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>8.00</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>6个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro ">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14623-260-500-299-0800.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">聚财561号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">5,000,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:2.26%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>2.26%</i> | 剩余<span>4887000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>8.00</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>6个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                		     <div class="wyd-pro nomarginright">
+	        	<i class="icon-n-sprite "></i>
+	            <a href="/detail/14788-261-500-545-5809.htm" class="wyd-info">
+	            	<p class="wyd-info-1" style="font-weight:bold;">盈信宝7519号</span></p>
+	                <p class="wyd-info-2" > 1000.00元起投</p>
+	                <p class="wyd-info-3">融资金额（元）</p>
+	                <p class="wyd-info-4">200,000</p>
+	                <div class="wyd-info-5">
+	                 
+	                		                    	<div class="wyd-inner-bar-1" style="width:81.50%"></div>
+	                    	                </div>
+	                <p class="wyd-info-6">
+                       	                       		已融资<i>81.50%</i> | 剩余<span>37000.00</span>元
+                       		                </p>
+	                <div class="wyd-info-7">
+	                	<div class="wyd-info-l">
+	                    	<p class="wyd-info-a">预期年化</p>
+	                        <p class="wyd-info-b"><span>9.00</span><i>%</i></p>
+	                    </div>
+	                    <div class="wyd-info-r">
+	                    	<p class="wyd-info-a">项目期限 </p>
+	                        <p class="wyd-info-c"><span>12个月</span><i></i></p>
+	                    </div>
+	                </div>
+	                		            	<p class="wyd-info-8">立即投标</p>
+		            	                
+	            </a>
+	        </div> 
+	                    </div>
+    <div id="i-c-4">
+    	<div id="news-a">
+        	<div class="i-title">
+                <h3>最新动态</h3>
+                <p><a href="/news/newsList.htm?type=NEW">查看更多</a></p>
+            </div>
+            <div class="news-list">
+            	<ul>            	
+            	            		            		                    <li><p><i></i><a href="/news/newsDetail.htm?id=184&type=NEW" target="_blank" title="盈盈理财CEO叶进武获得“2016浙商新领军者”称号">盈盈理财CEO叶进武获得“2016浙商新领军者”称号</a></p><span>2016-05-19</span></li>
+		                    		            		                    <li><p><i></i><a href="/news/newsDetail.htm?id=182&type=NEW" target="_blank" title="浙江省政协副主席、民建浙江省委会主委陈小平一行莅临盈盈理财考察座谈">浙江省政协副主席、民建浙江省委会主委陈小平一行莅临盈盈理财考察座谈</a></p><span>2016-05-13</span></li>
+		                    		            		                    <li><p><i></i><a href="https://gift.yingyinglicai.com/activity/intro/8820160510000206" target="_blank" title="盈盈理财2016年第一季度平台运营报告">盈盈理财2016年第一季度平台运营报告</a></p><span>2016-05-11</span></li>
+		                    		            		                    <li><p><i></i><a href="/news/newsDetail.htm?id=183&type=NEW" target="_blank" title="盈盈理财出席第五届中国创新创业大赛（浙江赛区）启动仪式">盈盈理财出席第五届中国创新创业大赛（浙江赛区）启动仪式</a></p><span>2016-05-04</span></li>
+		                    		            		                    <li><p><i></i><a href="/news/newsDetail.htm?id=179&type=NEW" target="_blank" title="盈盈理财荣获“2015年度现代服务业先进单位”荣誉称号">盈盈理财荣获“2015年度现代服务业先进单位”荣誉称号</a></p><span>2016-04-25</span></li>
+		                    	</ul>
+            </div>
+        </div>
+        <div id="news-b">
+        	<div class="i-title">
+                <h3>媒体新闻</h3>
+                <p><a href="/news/newsList.htm?type=MEDIA">查看更多</a></p>
+            </div>
+            <div class="news-list">
+            	<ul>
+            	                    <li><p><i></i><a href="/news/newsDetail.htm?id=172&type=MEDIA" target="_blank" title="杭州日报《城事周刊》专访盈盈理财">杭州日报 : 杭州日报《城事周刊》专访盈盈理财</a></p><span>2016-01-05</span></li>
+		                            <li><p><i></i><a href="/news/newsDetail.htm?id=170&type=MEDIA" target="_blank" title="杭州日报《领导者》专访盈盈理财CEO">杭州日报 : 杭州日报《领导者》专访盈盈理财CEO</a></p><span>2015-12-30</span></li>
+		                            <li><p><i></i><a href="/news/newsDetail.htm?id=167&type=MEDIA" target="_blank" title="习近平主席主旨演讲引起热烈反响：互联网之光照亮未来">国家网信办 : 习近平主席主旨演讲引起热烈反响：互联网之光照亮未来</a></p><span>2015-12-19</span></li>
+		                            <li><p><i></i><a href="/news/newsDetail.htm?id=163&type=MEDIA" target="_blank" title="世界互联网大会官方媒体">浙江日报 : 世界互联网大会官方媒体</a></p><span>2015-12-15</span></li>
+		                            <li><p><i></i><a href="/news/newsDetail.htm?id=164&type=MEDIA" target="_blank" title="AppBase 11月APP排行:盈盈理财位居全国第2">ITBEAR科技资讯 : AppBase 11月APP排行:盈盈理财位居全国第2</a></p><span>2015-11-30</span></li>
+		                    	</ul>
+            </div>
+        </div>
+    </div>
+    <div id="i-c-5">
+    	<div class="i-title">
+            <h3>合作伙伴</h3>
+            <p><a href="/about/about3.htm">查看更多</a></p>
+        </div>
+        <div id="i-company">
+        	<p id="ac-l"><a href="javascript:;"></a></p>
+        	<p id="ac-r"><a href="javascript:;"></a></p>
+        	<div id="about-company">
+                <div id="about-company-con">
+                    <div class="about-row-con" id="pay-zx">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=0"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/1.jpg" alt="中信银行" title="中信银行"></a></p>
+                    </div>
+                    <div class="about-row-con" id="pay-yb">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=1"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/2.jpg" alt="易宝" title="易宝"></a></p>
+                    </div>
+                     <div class="about-row-con" id="pay-la">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=2"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/longan3.png" alt="隆安律师事务所" title="隆安律师事务所"></a></p>
+                    </div>
+                     <!--
+                   <div class="about-row-con" id="pay-hc">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=2"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/10.jpg" alt="华昌担保" title="华昌担保"></a></p>
+                    </div>
+                    <div class="about-row-con" id="pay-zy">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=3"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/4.jpg" alt="中银律师" title="中银律师"></a></p>
+                    </div>
+                    -->
+                    <div class="about-row-con" id="pay-ld">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=3"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/5.jpg" alt="联动优势" title="联动优势"></a></p>
+                    </div>
+                    <div class="about-row-con" id="pay-hm">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=4"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/6.jpg" alt="好买财富" title="好买财富"></a></p>
+                    </div>
+                    <div class="about-row-con" id="pay-hk">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=5"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/7.jpg" alt="弘康人寿" title="弘康人寿"></a></p>
+                    </div>
+                    <div class="about-row-con" id="pay-cy">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=6"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/8.jpg" alt="长运安信" title="长运安信"></a></p>
+                    </div>
+                    <div class="about-row-con" id="pay-yht">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=7"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/9.jpg" alt="银货通" title="银货通"></a></p>
+                    </div>
+                    <!-- 
+                     <div class="about-row-con" id="pay-jy">
+                        <p class="about-row-1"><a href="/about/about3.htm?index=8"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/3.jpg" alt="巨业担保" title="巨业担保"></a></p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+<div id="download">
+    <div id="download-con">
+        <p id="down-1">下载手机客户端<span id="download-close">×</span></p>
+        <p id="down-2"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/5.png" alt="yylc" title="yylc"></p>
+        <div id="down-3">
+            <div id="down-l">
+                <p><a href="https://itunes.apple.com/cn/app/id660009164?mt=8" target="_blank"></a></p>
+                <p class="down-txt">App Store</p>
+            </div>
+            <div id="down-r">
+                <p id="android"><a href="https://yylc-app.b0.upaiyun.com/download/yylc.apk" target="_blank"></a></p>
+                <p class="down-txt">Android</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+	<div id="f-up">
+        <div id="footer-con-a">
+            <div id="f-1">
+                <p id="f-img">
+                    <span><a href="http://cn.norton.com/" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/7.png" alt="" title=""></a></span>
+                    <span><a href="http://www.pingpinganan.gov.cn/" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/8.png" alt="" title=""></a></span>
+                    <span><a href="http://122.224.75.236/wzba/login.do?method=hdurl&doamin=http://www.yingyinglicai.com/&id=330106000266695&SHID=1223.0AFF_NAME=com.rouger.gs.main.UserInfoAff&AFF_ACTION=qyhzdetail&PAGE_URL=ShowDetail" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/9.png" alt="" title=""></a></span>
+                    <span><a href="/about/about5.htm" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/10.png" alt="" title=""></a></span>
+                    <span><a href="http://www.365anfang.com/" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/11.png" alt="" title=""></a></span>
+                    <span><a href="https://search.szfw.org/cert/l/CX20141015005266005358" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/12.png" alt="" title=""></a></span>
+                    <span><a href="https://ss.knet.cn/verifyseal.dll?sn=e14102033010055136ivxr000000&comefrom=trust" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/13.png" alt="" title=""></a></span>
+                    <span><a href="http://www.anquan.org/authenticate/cert/?site=yingyinglicai.com&sn=2014111117264251930&type=gj" rel="nofollow" target="_blank"><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/hangyerenzheng.png" alt="" title=""></a></span>
+                </p>
+                <p id="f-menu">
+                    <span><a href="/about/about1.htm" rel="nofollow">关于我们</a></span>
+                    <span><a href="/else/newbieGuide.htm" rel="nofollow">新手引导</a></span>
+                    <span><a href="/help/help-center1.htm" rel="nofollow">帮助中心</a></span>
+                    <span><a href="/about/about3.htm" rel="nofollow">合作伙伴</a></span>
+                    <span><a href="/else/safetyGuarantee.htm" rel="nofollow">安全保障</a></span>
+                    <span><a href="/else/joinUs.htm" rel="nofollow">加入我们</a></span>
+                    <span><a href="/else/contactUs.htm" rel="nofollow">联系我们</a></span>
+                    <span><a href="http://www.wangdaizhijia.com" rel="nofollow" target="blank">网贷之家</a></span>
+                </p>
+            </div>
+            <div id="f-2">
+                <p id="f-2-a">客服邮箱：kefu@yingyinglicai.com</p>
+                <p id="f-2-b">客服热线（08:00-23:00）</p>
+                <p id="f-2-c">400-870-5800</p>
+            </div>
+        </div>
+    </div>
+    <div id="f-down" style="height:80px">
+        <div id="footer-con-b" >
+            <p style="height:0px;line-height:0px;padding-top: 30px">Copyright &copy; 2013-2016 Hangzhou LongYing Internet Financial Information Technology Co., Ltd. All Rights Reserved. 浙ICP备13015820号-1</p>
+            <p style="height:0px;line-height:0px;margin-top: 25px">版权所有：杭州龙盈互联网金融信息技术有限公司</p>
+        </div>
+        <p id="datacoo">SH-PC-1-2</p>
+    </div>
+</div>
+
+<div class="to-top"><span></span></div>
+
+<div class="float-frame top-icon" id="weibo-fc" style="display:none;">
+	<div class="inner-frame">
+    	<p>点击关注盈盈理财</p>
+        <p style="text-align:center;"><a href="http://weibo.com/yingyinglicai" style="color:#d91d1f" target="_blank">@盈盈理财</a></p>
+        <span class="diamond-1">◆</span><span class="diamond-2">◆</span>
+    </div>
+</div>
+
+<div class="float-frame top-icon" id="weixin-fc" style="display:none;">
+	<div class="inner-frame">
+    	<p style="text-align:center;">扫描关注盈盈理财</p>
+        <p><img src="https://yylc-img.b0.upaiyun.com/frontweb/theme/imagesnew/6.png" alt="微信" title="微信"></p>
+        <span class="diamond-1">◆</span><span class="diamond-2">◆</span>
+    </div>
+</div>
+
+<div class="float-frame top-icon top-icon-qq" id="qq-fc" style="display:none;">
+	<div class="inner-frame">
+    	<p>盈盈理财投资理财群：</p>
+        <p style="margin-top:35px;">盈盈理财三十二号群 ：</p>
+        <p>283607884</p>
+        <p style="margin-top:35px;">申请加入投资理财群时</p>
+        <p>请提供盈盈理财用户名</p>
+        <span class="diamond-1">◆</span><span class="diamond-2">◆</span>
+    </div>
+</div>
+
+<style> html{display : none ; } </style>
+<script> if( self == top ) { document.documentElement.style.display = 'block' ; } else { top.location = self.location ; } </script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F95da05670644b43e35b7dded652fd434' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript" src="https://yylc-img.b0.upaiyun.com/frontweb/common/js/common.js?v="></script>
+
+<noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/3582025/tongji.gif"/></a></noscript></body>
+<script type="text/javascript">
+	$(function(){
+		function sizeinit(){
+			var wnum = $(window).width();
+			if(wnum > 1310)
+			{
+				$('#download').css({'left':'50%','margin-left':'520px'}).show();
+			}else
+			{
+				$('#download').css({'right':'10px'}).show();;
+			}
+		};
+		
+		$(window).resize(function(e) {
+            sizeinit();
+        });
+		
+		sizeinit();
+		
+		$("#sliderbanner").responsiveSlides({nav:!0,pager:!0,namespace:"sliderbanner",pause:!0});
+		$('#download-con').pin();
+		
+		$('#download-close').click(function(e) {
+            $('#download').hide();
+        });
+		
+		//公告只提示一次
+		var tips = "盈粉们，盈盈将于2014年7月20日22：00至7月21日8：00进行系统升级。届时网站不能访问，请谅解。升级后盈盈更精彩，敬请期待！";
+		
+		function get_cookie(msg)
+		{
+		  var search = msg + "=";
+		  var returnvalue = "";
+		  if(document.cookie.length > 0)
+		  {
+			offset = document.cookie.indexOf(search);
+			if(offset != -1)
+			{
+			  	offset += search.length;
+			  	theend = document.cookie.indexOf(";",offset);
+				if(theend == -1)
+				{
+					theend = document.cookie.length;
+				}
+				returnvalue=unescape(document.cookie.substring(offset,theend));
+			}
+		  }
+		  return returnvalue;
+		}
+		function loadnotice()
+		{
+			$('#notice').hide();
+			$('#notice-tips').html(tips);
+			$('#download').css({'top':'517px'});
+		}
+		function alertornot()
+		{
+			if(get_cookie('alerted')=='')
+			{
+				loadnotice();
+				document.cookie="alerted=yes";
+			}else
+			{
+				$('#notice').hide();
+				$('#download').css({'top':'477px'});
+			}
+		}
+		alertornot();
+		
+		$('#notice-close').click(function(e) {
+            $('#notice').hide();
+			$('#download').css({'top':'477px'});
+        });
+	});
+</script>
+</html>
+

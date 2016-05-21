@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html ng-app="app" id="ng-app">
+<head>
+    <script type="text/javascript">
+        var _speedMark = new Date();
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>广发基金管理有限公司_基金网上直销_费率4折优惠</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Pragma" contect="no-cache">
+
+    <!-- css -->
+    <link href="images/gf_cssrest.css?t=201412091420&v=1.0.1" rel="stylesheet" type="text/css">
+    <link href="images/sy_0731_css.css?t=201412091420&v=1.0.1" rel="stylesheet" type="text/css">
+
+
+    <link href="images/zgn.css?t=201412091420&v=1.0.1" rel="stylesheet" type="text/css">
+
+
+
+    <!-- jquery and js -->
+    <script src="./images/main.js"></script>
+    <script src="./images/jquery.slimscroll.min.js"></script>
+
+    <script>
+        $.getScript('./images/sy_gfjjjs01.js');
+        var fundListInit = false;
+        var $contant, $tables, $tabs;
+
+        function selectFundCatagory (index){
+            if(!fundListInit){
+                $contant = $('.sy_jjjz_table'),
+                $tables = $contant.children(),
+                $tabs = $('.sy_jjjz_tab').children();
+                fundListInit = true;
+            }
+            $tables.hide();
+            $('#fundlist'+ index).show().parents('.slimScrollDiv').show();
+
+            var $selected = $('#fundtab' + index);
+            var selectedIndex = $tabs.filter(".sel").removeClass('sel').index($selected);
+            $selected.addClass('sel').find('span');
+            $tabs.find('span').removeClass('last');
+            $tabs.children().eq(selectedIndex - 1).find('span').addClass('last');
+            $tabs.children().eq(-1).find('span').addClass('last2');
+        }
+        var app = angular.module("app", ["ngResource"]);
+        app.filter("getValue", function(){
+            return function(value, append, nullStr){
+                if(value || value == 0){
+                    return value + (append || "");
+                }else{
+                    return nullStr || "--";
+                }
+            }
+        });
+        app.filter("getColorByValue", function(){
+            return function(v){
+                v = parseFloat(v);
+                var color = {};
+                if(v > 0){
+                    color.color = 'red';
+                }else if(v == 0){
+                    color.color = '';
+                }else{
+                    color.color = 'green';
+                }
+                return color;
+            }
+        });
+        var fundsCtrl = function($scope, $resource, $q, $http, $timeout){
+            $scope._ = window._;
+            $scope.checkRepeat = function(){
+                if(this.$index >= this.category.funds.length - 1){
+                    var height = $("#fundlist" + this.$parent.$parent.$index).height();
+                    if(height > 600){
+                        $("#fundlist" + this.$parent.$parent.$index).slimScroll({
+                            height: "600px"
+                        });
+                    }
+                }
+            }
+            $scope.initTab = function(i){
+                setTimeout(function(){
+                    $('#fundtab' + i).mouseenter(function(){
+                        selectFundCatagory(i);
+                    })
+                },100);
+            }
+
+            $scope.getValue = function(value, fixed, append, nullStr){
+                if(value || value === 0){
+                    if(fixed){
+                        var regFloat = new RegExp("^(-?)([^.]*)\.?([^.]{0," + fixed +"})?([^.])?.*$");
+                        var valueArr = value.toString().match(regFloat);
+
+                        var fValue = value;
+                        if(valueArr[4]){//存在判断位的时候才需要四舍五入
+                            fValue = parseInt(valueArr[2] + valueArr[3]);
+                            if(valueArr[4] >= "5"){//判断位用字符串比较
+                                fValue += 1;
+                            }
+                            fValue /= Math.pow(10, fixed);
+                        }
+                        //fValue就是最后结果的绝对值
+
+                        //按位数补0
+                        value = valueArr[1] || "";//保留正负
+                        if(fixed > 0){
+                            valueArr = fValue.toString().match(regFloat);
+                            value += valueArr[2] + ".";//整数
+                            value += valueArr[3] || "";//小数
+
+                            var smallLength = valueArr[3] ? valueArr[3].length : 0;//现有的小数位
+                            for(var i = smallLength; i < fixed; i ++){
+                                value += "0"
+                            }
+                        }else{
+                            value += fValue;
+                        }
+                    }
+                    return value + (append || '');
+                }else{
+                    return nullStr || '--';
+                }
+            };
+            $scope.getColorByValue = function(v){
+                v = parseFloat(v);
+                if(v > 0){
+                    return 'red';
+                }else if(v == 0){
+                    return '';
+                }else{
+                    return 'green';
+                }
+            };
+
+            $timeout(function(){
+                var api = $resource("/apistore/JsonService",{
+                    service: "BaseInfo"
+                },{"get": {method:"GET"}});
+
+                $q.all([
+                    api.get({method: "Category",op: "queryGFFundCategory"}).$promise,
+                    api.get({method: "Fund",op: "queryFundByGFCategory"}).$promise//,
+                    //$http.get("/csv/gfjjssjz.csv?t=" + (new Date()).getTime())
+                ]).then(function(results){
+                    var categorys = $scope.categorys = results[0].data;
+                    var funds = $scope.funds = results[1].data;
+                    //var realTimeFundsStr = results[2].data;
+                    //var realTimeCategory = {
+                    //    CATEGORYCODE: "0000",
+                    //    CATEGORYNAME: "实时",
+                    //    FUNDNUM: 0,
+                    //    funds: []
+                    //}
+
+                    var categoryIndex = {};
+                    categorys.forEach(function(category, i){
+                        category.funds = [];
+                        categoryIndex[category.CATEGORYCODE] = i;
+                    });
+                    var foundIndexFundType = "";
+                    funds.forEach(function(fund){
+                        try {
+                            fund.NAVDATE = moment(fund.NAVDATE, "YYYYMMDD").toDate();
+                        }
+                        catch(e){
+
+                        }
+
+
+                        var category = categorys[categoryIndex[fund.CATEGORYCODE]];
+                        if(category){
+                            if(fund.INDEXFUNDTYPE){
+                                if(foundIndexFundType.indexOf(fund.INDEXFUNDTYPE) < 0){
+                                    foundIndexFundType += "," + fund.INDEXFUNDTYPE;
+
+                                    var curTypeIndexFunds = funds.filter(function(indexFund){
+                                        return indexFund.INDEXFUNDTYPE == fund.INDEXFUNDTYPE;
+                                    });
+                                    category.funds = category.funds.concat(curTypeIndexFunds);
+                                    category.funds[category.funds.length - 1].lastStyle = true;
+                                }
+                            }else{
+                                category.funds.push(fund);
+                            }
+                        }
+                    });
+
+                    //realTimeFundsStr.split("\n").forEach(function(funStr){
+                    //    var fundStrArr = funStr.split(",");
+
+                    //    realTimeCategory.funds.push({
+                    //        FUNDNAME: fundStrArr[0],
+                    //        NAVUNIT: fundStrArr[1],
+                    //        FUNDDATE: fundStrArr[2]
+                    //    })
+                    //    realTimeCategory.FUNDNUM ++;
+                    //})
+
+                    //categorys.push(realTimeCategory);
+
+                    $timeout(function(){
+                        for(var i = 0; i < categorys.length; i++){
+                            if(categorys[i].funds && categorys[i].funds.length){
+                                selectFundCatagory(i);
+                                break
+                            }
+                        }
+                    }, 500)
+                })
+            }, 500);
+        }
+        var SCEFundCtrl = function($scope, $resource){
+            var api = $resource("/apistore/JsonService",{
+                service: "MarketPerformance",
+                method: "Yield",
+                op: "querySCFYieldByFundcode"
+            },{"get": {method:"GET"}});
+
+            api.get({
+                fundcode: $scope.fund.FUNDCODE
+            }).$promise.then(function(res){
+                var SCFs = res.data;
+                if(!SCFs) return;
+                SCFs .forEach(function(SCF){
+                    SCF.STARTDATE = moment(SCF.STARTDATE, "YYYYMMDD").toDate();
+                    SCF.ENDDATE = moment(SCF.ENDDATE, "YYYYMMDD").toDate();
+                });
+
+                $scope.SCFs = SCFs ;
+            })
+        }
+    </script>
+
+
+    <!-- ie6 png透明图片解决方案 -->
+    <!--[if IE 6]>
+    <script type="text/javascript" src="./images/EvPng.js"></script>
+    <script language="javascript" type="text/javascript">
+        EvPNG.fix(".pngfix,.sy_gjx dd a,.sy_gfnews .new,.sy_gfnews .hot,.sy_jjjz_table td img");
+    </script>
+    <![endif]-->
+
+
+    <!-- webtrends -->
+<!--
+    <script type="text/javascript" src="./images/webtrends.js"></script>
+    <script type="text/javascript">
+        if (typeof(_tag) != "undefined") {
+            if(document.readyState!="complete"){
+                document.onreadystatechange = function(){
+                    if(document.readyState=="complete") _tag.dcsCollect()
+                }
+            }
+            else _tag.dcsCollect()
+        }
+    </script>
+
+    <script>
+        if (document.images){
+            var img=new Image();
+            img.src="http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://sdc.gffunds.com.cn/dcs82b9ujitigdu3gaykxw0hn_5p6b/dcs.gif?dcsdat="+(new Date()).getTime()+"&dcssip=www.gffunds.com.cn&dcsuri=/&WT.tz=8&WT.ti=%25E5%25B9%25BF%25E5%258F%2591%25E5%259F%25BA%25E9%2587%2591%25E7%25AE%25A1%25E7%2590%2586%25E6%259C%2589%25E9%2599%2590%25E5%2585%25AC%25E5%258F%25B8_%25E5%259F%25BA%25E9%2587%2591%25E7%25BD%2591%25E4%25B8%258A%25E7%259B%25B4%25E9%2594%2580_%25E8%25B4%25B9%25E7%258E%25874%25E6%258A%2598%25E4%25BC%2598%25E6%2583%25A0(img)&WT.dl=21&WT.js=Yes";
+        }
+    </script>
+-->
+    <!-- Google GA -->
+<!--
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3795228-1']);
+        _gaq.push(['_addOrganic', 'soso', 'w']);
+        _gaq.push(['_addOrganic', 'yodao', 'q']);
+        _gaq.push(['_addOrganic', 'sogou', 'query']);
+        _gaq.push(['_setDomainName', 'gffunds.com.cn']);
+        _gaq.push(['_setAllowHash', false]);
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackPageLoadTime']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+-->
+<script type="text/javascript" src="http://www.gffunds.com.cn/resource/js/gf_pc_analytics.js?v=20160330"></script>
+</head>
+
+<body>
+
+<!--页头开始 -->
+<!-- 顶部top用户信息/header LOGO等信息/nav 导航 -->
+<!-- top 顶部用户信息 -->
+<!--script src="jquery.1.7.1.js" OLDSRC="jquery.1.7.1.js" OLDID="2542" RELATED="1"></script 有部分页面jquery版本太低  -->
+<style>
+/* clearfix */
+.topclearfix{width:986px;margin:0 auto;clear:both;}
+.topclearfix:before, .topclearfix:after { content:""; display:table;}
+.topclearfix:after{ clear:both; overflow:hidden;}
+.topclearfix{ zoom:1;}
+
+/* sy_top */
+.sy_top{padding-top:3px;height:30px; background:#f8f8f8;}
+.sy_topcontent{height:30px;line-height:30px;}
+
+.sy_top ul,.sy_top li,.sy_top p,.sy_top a,.sy_top span,.sy_top i{margin:0;padding:0;list-style:none;font-size:12px;color:#777;font-family:Arial, "宋体";line-height:30px;}
+.sy_topcontent a,
+.sy_topcontent a:link{color:#777;text-decoration:none;}
+.sy_topcontent a:hover{color:#777;text-decoration:none;}
+
+/* 登陆开户 */
+.sy_topcontent .toreg{float:left;padding-left:34px;width:330px;height:30px;background:url(http://www.gffunds.com.cn/images/sy_topcontent_icon1.jpg) 10px 5px no-repeat;}
+.sy_topcontent .toreg a{}
+.sy_topcontent .toreg a:hover{color:#f17509;}
+
+/* 购物车 */
+.sy_topcontent .gwc{display:none;float:left;width:182px;height:30px;/* background:url(http://www.gffunds.com.cn/images/sy_topcontent_icon2.jpg) left center no-repeat;*/}
+.sy_topcontent .gwc span{color:#ff6d00;font-weight:bold;}
+.sy_topcontent .gwc i{padding-right:15px;background:url(http://www.gffunds.com.cn/images/sy_topcontent_icon4.jpg) right center no-repeat;}
+
+/* 我的账户 */
+.sy_topcontent .userinfo{display: none;float:left;padding-left:60px;width:75px;height:30px;line-height:30px;text-align:center;}/* 我的账户链接无下拉菜单 */
+.sy_topcontent .userinfo a:hover{color:#ff6c00;}
+
+/* 顶部下拉列表 */
+.sy_topcontent .userlink{float:left;width:380px;height:30px;}
+.sy_topcontent .userlink ul{width:380px;height:30px;}
+.sy_topcontent .userlink li{ position:relative;display:inline-block;float:left;width:75px;line-height:30px;text-indent:8px;z-index:500;height:30px}
+.sy_topcontent .userlink li a.link{padding-right:15px;background:url(http://www.gffunds.com.cn/images/sy_topcontent_icon4.jpg) right center no-repeat;}
+.sy_topcontent .userlink li.sel{width:73px;height:29px;line-height:27px;text-indent:7px;border-top:1px solid #ccc;border-left:1px solid #ccc;border-right:1px solid #ccc;border-bottom:0;background:#fff;}
+.sy_topcontent .userlink li.sel a.link {
+    color: #ff6c00;
+    background: url(http://www.gffunds.com.cn/images/sy_topcontent_icon5.jpg) right 5px center #fff no-repeat;
+    position: absolute;
+    z-index: 501;
+    left: 0;
+    top: 0;
+    width: 58px;
+}
+.sy_topcontent .userlink li.linknone{border:0;background:none;}
+.sy_topcontent .userlink li.linknone a.link{background:url(http://www.gffunds.com.cn/images/sy_topcontent_icon4.jpg) right center no-repeat;}
+
+.sy_topcontent .usersublink {
+    display: none;
+    position: absolute;
+    top: 26px;
+    left: -1px;
+    width: 73px;
+    min-height: 30px;
+    _height: inherit;
+    _height: 30px;
+    border: 1px solid #ccc;
+    /* border-top: 0; */
+    background: #fff;
+    z-index: 500;
+}
+.sy_topcontent .usersublink a{display:block;padding:0;margin:0;height:24px;line-height:24px;background:none;}
+.sy_topcontent .usersublink a:hover{color:#ff6c00;}
+
+
+/* 在线客服和收藏本站 */
+.sy_topcontent .ask{float:right;width:240px;height:30px;}
+.sy_topcontent .ask a{float: left;margin-right: 15px;_margin-right:7px; line-height: 30px;}
+.sy_topcontent .ask a.a1{width:92px;height:30px; text-indent:-9999px; background:url(http://www.gffunds.com.cn/images/sy-kf-141021.gif) left center no-repeat;}
+.sy_topcontent .ask a.a2{padding-left: 12px;background:url(http://www.gffunds.com.cn/images/sy-tel-14101601.gif) left center no-repeat; cursor: default;}
+.sy_topcontent .ask a.a3,
+.sy_topcontent .ask a.a4{margin-right:0;}
+
+</style>
+<!-- top 顶部用户信息 -->
+<div class="sy_top">
+	<div class="topclearfix sy_topcontent">
+    	<!-- 免费注册 -->
+        <div class="toreg">
+        	<p>
+<span>欢迎您！</span>
+<a href="javascript:;" onclick="javascript:loginSSO();">登录</a>
+&nbsp;&nbsp;[&nbsp;<a href="https://sso.gffunds.com.cn/ids/gfsso/passport2/register.jsp" target="_blank" class="reg">免费开户</a>&nbsp;]&nbsp;&nbsp;</p>
+        </div>
+        
+        <!-- 购物车 -->
+        <div class="gwc">
+        	<!-- <p>购物车<span>2</span>件<i></i></p> -->
+        </div>
+        
+        <!-- 我的账户-->
+        <div class="userinfo">
+        	<!--a href="https://trade.gffunds.com.cn/network/networkgo.jsp?status=1%26xinhua.sso.page=1">我的账户</a-->
+        </div>
+        
+        <!--快捷菜单 -->
+        <div class="userlink">
+        	<ul>
+                <li>
+                	<a href="#" target="_blank" class="link">移动理财</a>
+                    <style>
+                        #toolbar-online-sevice{
+                            width: 245px;
+                            text-indent: 0;
+                        }
+                        #toolbar-online-sevice .row1{
+                            margin: 12px 0 0 17px;
+                            border-bottom: 1px dashed #bbb;
+                            height: 160px;
+                            width: 210px;
+                        }
+                        #toolbar-online-sevice .row2{
+                            width: 210px;
+                            height: 149px;
+                            margin: 12px 0px 10px 17px;
+                        }
+                        #toolbar-online-sevice .block{
+                            float: left;
+                            width: 98px;
+                            height: 132px;
+                        }
+                        #toolbar-online-sevice .col2{
+                            padding-left: 14px;
+                        }
+                        #toolbar-online-sevice .title{
+                            line-height: 30px;
+                            color: #333;
+                        }
+                        #toolbar-online-sevice .text{
+                            float: left;
+                            line-height: 12px;
+                            text-indent: 0;
+                            color: #999;
+                        }
+                        #toolbar-online-sevice .btn{
+                            padding: 1px 6px;
+                            line-height: 26px;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #fff;
+                            background: #f9ab00;
+                            display: inline-block;
+                        }
+                        #toolbar-online-sevice .btn .symbol{
+                            font-size: 14px;
+                            padding-right: 6px;
+                            font-weight: bold;
+                        }
+                    </style>
+                    <div id="toolbar-online-sevice" class="usersublink">
+                        <div class="row1">
+                            <div class="block">
+                                <p class="title">广发基金APP</p>
+                                <img src="./images/qrcode_app_gf.jpg" />
+                            </div>
+                            <div class="block col2">
+                                <p class="title">微信理财</p>
+                                <img src="./images/qrcode_wx_lc.jpg" />
+                            </div>
+                            <div class="text">扫一扫，查账户、买基金 一手掌握</div>
+                        </div>
+                        <div class="row2">
+                            <div class="block">
+                                <p class="title">钱袋子微信</p>
+                                <img src="./images/qrcode_wx_qdz.jpg" />
+                            </div>
+                            <div class="block col2">
+                                <p class="title">官方微博</p>
+                                <div style="text-indent: 0;">
+                                    <a class="btn" href="http://weibo.com/gffunds" target="_blank">
+                                        <b class="symbol">+</b>关注</a>
+                                </div>
+                            </div>
+                            <div class="text">扫一扫，立即关注</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                	<a href="http://www.gffunds.com.cn/khfw/bzzx/" target="_blank" class="link">自助服务</a>
+                    <div class="usersublink">
+                        <a href="http://www.gffunds.com.cn/xswd/bgxz/" target="_blank">表格下载</a>
+                        <a href="http://www.gffunds.com.cn/xswd/zxjg/" target="_blank">销售渠道</a>
+                        <a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/" target="_blank">常见问题</a>
+                    </div>
+                </li>
+                <li>
+                	<a href="http://www.gffunds.com.cn/gywm/" target="_blank" class="link">关于我们</a>
+                    <div class="usersublink">
+                        <a href="http://www.gffunds.com.cn/gywm/gsjj/" target="_blank">公司简介</a>
+                        <a href="http://www.gffunds.com.cn/gywm/4/" target="_blank">聚焦广发</a>
+                        <a href="http://www.gffunds.com.cn/gywm/jrwm/" target="_blank">加入我们</a>
+                    </div>
+                </li>
+                <li>
+                	<a href="http://www.gffunds.com.cn/zhlc/" target="_blank" class="link">机构理财</a>
+                    <div class="usersublink">
+                    	<a href="http://www.gffunds.com.cn/zhlc/" target="_blank">专户理财</a>
+                        <a href="http://www.gffunds.com.cn/qynj/njxxpl/" target="_blank">企业年金</a>
+                    </div>
+                </li>
+                <li>
+                	<a href="http://bbs.gffunds.com.cn/dx2/portal.php" target="_blank" class="link">社区</a>
+                    <div class="usersublink">
+                        <a href="http://bbs.gffunds.com.cn/dx2/portal.php" target="_blank">社区首页</a>
+                        <a href="http://bbs.gffunds.com.cn/dx2/forum.php" target="_blank">广发论坛</a>
+                        <a href="http://bbs.gffunds.com.cn/dx2/home.php" target="_blank">广发圈</a>
+                        <a href="http://bbs.gffunds.com.cn/dx2/group.php" target="_blank">社区群组</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 在线客服及收藏本站 -->
+        <div class="ask">
+            <a class="a1" href="http://live800.gffunds.com.cn/live800/chatClient/chatbox.jsp?companyID=203&configID=78270&prplType=官网" target="_blank" title="在线客服">在线客服</a>
+            <a class="a2" href="javascript:;">95105828</a>
+            <!-- a class="a3" href="javascript:;" class="storeWeb">收藏本站</a -->
+<a class="a4" href="http://www.gffunds.com.cn/" title="返回首页">返回首页</a>
+        </div>
+    </div>
+</div>
+<!-- header LOGO等信息 -->
+<style>
+/*Christmas background
+body{
+background: url(http://www.gffunds.com.cn/images/sy_background_christmas.jpg) no-repeat top center;
+}*/
+/* clearfix */
+.headerclearfix{width:986px;margin:0 auto;clear:both;}
+.headerclearfix:before, .headerclearfix:after { content:""; display:table;}
+.headerclearfix:after{ clear:both; overflow:hidden;}
+.headerclearfix{ zoom:1;}
+
+/* header */
+.sy_header{height:90px;}
+
+.sy_header h1,.sy_header ul,.sy_header li,.sy_header p,.sy_header a,.sy_header span,.sy_header i{margin:0;padding:0;list-style:none;font-size:12px;color:#777;font-family:Arial, "宋体";}
+.sy_header input{font-size:12px;color:#777;font-family:Arial;background:#fff;}
+.sy_header a,
+.sy_header a:link{color:#777;text-decoration:none;}
+.sy_header a:hover{color:#777;text-decoration:none;}
+
+.sy_logo{float:left;width:470px;}
+.sy_logo h1{float:left;width:180px;height:90px; background:url(http://www.gffunds.com.cn/images/sy_logo.jpg) left center no-repeat; text-indent:-9999px;cursor:pointer;}
+
+/**Christmas logo
+.sy_logo h1{
+float: left;
+    width: 460px;
+    height: 91px;
+    background: url(http://www.gffunds.com.cn/images/sy_logo_christmas.png) left center no-repeat;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+**/
+.sy_logo .sy_logo_kfrx{display:none; float:left;width:202px;height:90px; background:url(http://www.gffunds.com.cn/images/sy_kfrx.jpg) left center no-repeat; text-indent:-9999px;}
+
+.sy_search{float:left;padding-top:32px;width:315px;}
+.sy_search_sel{position:relative;float:left;width:50px;height:30px; background:url(http://www.gffunds.com.cn/images/sy_search_icon1.jpg) left center no-repeat;line-height:30px;text-indent:8px;color:#fff;font-weight:bold; cursor:pointer;z-index:400;}
+#searchtype{color:#fff;line-height:30px;}
+.sy_search_subsel{display:none;position:absolute;top:30px;left:0px;width:48px;height:45px;border:1px solid #ccc; background:#fff; z-index:200;}
+.sy_search_subsel span{display:block;height:22px;line-height:22px;text-indent:8px;}
+.sy_search_subsel span.sel{color:#ff6c00;}
+
+.sy_search_in{float:left;position:relative;*margin-top:-1px;width:205px;height:28px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;border-right:1px solid #ccc;z-index:400;}
+.sy_search_in .searchtxt{border:0;background:none;text-indent:15px;width:205px;height:28px;line-height:28px;color:#c7c7c7;}
+
+.sy_search_insub{position:absolute;top:0px;right:0px;width:30px;height:30px;background:url(http://www.gffunds.com.cn/images/sy_search_icon2.jpg) right center no-repeat;}
+.sy_search_insub .subsearch{border:0;background:none;width:30px;height:30px;cursor:pointer;}
+
+
+.sy_zgslink{float:right;padding-top:32px;width:170px; text-align:right;line-height:18px;font-size:12px;color:#777;}
+.sy_zgslink .linkbox{width: 100%;height: 18px;}
+.sy_zgslink .linkbox1{ position: relative;z-index: 400;}
+.sy_zgslink .wxkfmain{ z-index: 410; position: absolute; left: -47px;top: 0px;  width: 84px;height: 18px;}
+.sy_zgslink .wxkf{padding-left: 18px; background: url(http://www.gffunds.com.cn/images/sy_wxico.gif) left center no-repeat;}
+.sy_zgslink .wxkfewm{ display: none; z-index: 420;position: absolute; left: -6px;top: 10px;  width: 125px;height: 135px; cursor: pointer;}
+.sy_zgslink .oldweb{color:#ff6c00;font-weight:bold;}
+.sy_zgslink a:hover{color:#f67b29;}
+</style>
+
+<link href="./images/fundpicker.css" rel="stylesheet" type="text/css" />
+<script src="./images/fundselector.js"></script>
+<script type="text/javascript" src="./images/webtrends.js"></script>
+
+
+<!-- header LOGO等信息 -->
+<div class="headerclearfix sy_header">
+	<!-- logo -->
+    <div class="sy_logo">
+    	<a href="http://www.gffunds.com.cn/index.htm"><h1>广发基金</h1></a>
+        <div class="sy_logo_kfrx">客服热线：95105828</div>
+    </div>
+    
+    <!-- 搜索 -->
+    <div class="sy_search">
+    	<div class="sy_search_sel">
+        	<span id="searchtype">产品</span>
+            <div class="sy_search_subsel">
+            	<span>产品</span>
+                <span>资讯</span>
+            </div>
+        </div>
+        <div class="sy_search_in">
+        	<input type="text" id="fundPicker" class="searchtxt" value="代码/名称/拼音" />
+        	<input type="text" id="searchtxt" style="display:none;" class="searchtxt" value="" />
+            <div class="sy_search_insub">
+                <input type="submit" id="subsearch" class="subsearch" value="" onclick="webtrends_fun();" />
+            </div>
+            <form action="http://www.gffunds.com.cn/was5/web/search"
+                method="post" id="was_searchform" target="_blank">
+                <input type="hidden" name="channelid" value="272907" />
+                <input type="hidden" name="searchword" id="was_searchword" />
+            </form>
+        </div>
+    </div>
+    
+    <!-- 子公司网站等链接 -->
+    <div class="sy_zgslink">
+    	<div class="linkbox linkbox1">
+    		<!--<div id="wxkfmain" class="wxkfmain">
+	    		<a href="http://www.gffunds.com.cn/html/weixin/" target="_blank" class="wxkf">微信客服</a>
+	    		<div class="wxkfewm">
+	    			<img src="./images/sy_wxewm.png" class="pngfix" />
+	    		</div>
+    		</div>-->
+    		<a href="http://www.gffunds.com.cn/xzglfw/" target="_blank">行政管理服务</a>&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/en" target="_blank" class="oldweb">English</a>
+    	</div>
+        <div class="linkbox">子公司：<a href="http://www.gffunds.com.hk/" target="_blank">广发香港</a>&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/ryzb/" target="_blank">瑞元资本</a></div>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+    function webtrends_fun(){
+        if (typeof(dcsPageTrack)=="function")
+            {dcsPageTrack("WT.oss",document.getElementById("searchtxt").value,false,"WT.oss_pt","资讯",false);}
+    }
+
+    </script>
+<!-- nav部分js引用 -->
+<script type="text/javascript" src="./images/sy_nav_1307.js"></script>
+<!--script src="gf_common.js" OLDSRC="gf_common.js" OLDID="3693" RELATED="1"></script-->
+<script src="/js/gf_common.js?t=3453"></script>
+
+<!-- nav 导航 -->
+<style>
+/* clearfix */
+.navclearfix{width:986px;margin:0 auto;clear:both;}
+.navclearfix:before, .navclearfix:after { content:""; display:table;}
+.navclearfix:after{ clear:both; overflow:hidden;}
+.navclearfix{ zoom:1;}
+
+/* nav */
+.sy_nav{height:64px;}
+
+.sy_nav ul,.sy_nav li,.sy_nav dl,.sy_nav dt,.sy_nav dd,.sy_nav p,.sy_nav a,.sy_nav span,.sy_nav i{margin:0;padding:0;list-style:none;font-size:12px;color:#777;font-family:Arial, "宋体";}
+.sy_nav a,
+.sy_nav a:link{color:#777;text-decoration:none;}
+.sy_nav a:hover{color:#777;text-decoration:none;}
+
+/* 全部基金分类菜单 */
+#gf_qbjjfl{float:left;width:147px;height:34px; background:url(http://www.gffunds.com.cn/images/sy_nav_qbjjfl.jpg) no-repeat;}
+#gf_qbjjfl .jjfllink{display:block;width:147px;height:34px;line-height:34px;color:#fff;font-size:14px;font-weight:bold; text-indent:25px;}
+#gf_qbjjfl .jjfllink:hover{text-decoration:none;}
+
+.gf_qbjjfl_nav{position:relative;display:none;z-index:300;}
+.gf_qbjjfl_navlist{position:absolute;top:0;left:0;width:145px;min-height:238px;_height:inherit;_height:238px;border:1px solid #c3c3c3;border-top:0;background:#fff; z-index:10;}
+.gf_qbjjfl_navlist .biglink{padding:20px 20px 0 20px;height:100px;}
+.gf_qbjjfl_navlist .biglink a{display:block;height:34px;line-height:34px;text-indent:15px;color:#666464;font-size:12px;font-weight:normal;background:url(http://www.gffunds.com.cn/images/biglink_icon.jpg) left center no-repeat;}
+.gf_qbjjfl_navlist .biglink a:hover{color:#0c58ca;background:url(http://www.gffunds.com.cn/images/biglink_icon.jpg) left center no-repeat;}
+.gf_qbjjfl_navdetail{position:absolute;top:0;left:145px;background:#fff;z-index:20;}
+.positionbox{ position:relative;z-index:310;}
+
+.gf_qbjjfl_navlist dd a{display:block;height:34px;line-height:34px; text-indent:20px;font-size:14px;color:#666464;font-weight:bold;}
+.gf_qbjjfl_navlist dd a:hover{ background:url(http://www.gffunds.com.cn/images/sy_nav_qbjjfl_li.jpg) no-repeat;color:#0c58ca; text-decoration:none;}
+.gf_qbjjfl_navlist dd a.sel{background:url(http://www.gffunds.com.cn/images/sy_nav_qbjjfl_li.jpg) no-repeat;color:#0c58ca; text-decoration:none;}
+
+.gf_qbjjfl_link{position:absolute;padding:10px 0;width:440px;min-height:338px;_height:inherit;_height:338px;border:1px solid #c3c3c3;display:none;background:#fff;
+/*阴影*/
+    -moz-box-shadow:0 0 4px #ccc;
+    -webkit-box-shadow:0 0 4px #ccc;
+    box-shadow:0 0 4px #ccc;
+    /* For IE 8 */
+	/*
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=30, Color='#cccccc')";
+	*/
+    /* For IE 5.5 - 7 */
+	/*
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=30, Color='#cccccc');
+*/
+	
+}
+.gf_qbjjfl_link dl{float:left;width:220px;}
+.gf_qbjjfl_link dt{font-size:14px;font-weight:bold;color:#0c58ca;line-height:36px;text-indent:20px;}
+.gf_qbjjfl_link dd{display:block;height:34px;line-height:34px;text-indent:20px;color:#666464;}
+.gf_qbjjfl_link dd.asel{color:#f67b29;}
+.gf_qbjjfl_link dd a{display:block;height:34px;line-height:34px;text-indent:20px;color:#666464;}
+.gf_qbjjfl_link dd a:hover{color:#f67b29;}
+.gf_qbjjfl_link dd a.asel{color:#f67b29;}
+
+/* 导航ul */
+.sy_nav_ul{float:right;padding-left:27px;width:800px;height:34px; background:url(http://www.gffunds.com.cn/images/sy_nav_bg.jpg) no-repeat;}
+.navul{width:800px;height:34px;}
+.navul li{ position:relative;float:left;display:inline-block;padding-right:10px;height:34px;z-index:250;}
+.navul li a.link{display:inline-block;padding:0 10px;height:34px;line-height:34px;color:#fff;font-size:14px;font-weight:bold;text-align:center;}
+.navul li a.sel{background:url(http://www.gffunds.com.cn/images/sy_nav_lisel.jpg) bottom center repeat-x;}
+.navul li a.selr{background:url(http://www.gffunds.com.cn/images/sy_nav_lisel.jpg) bottom center repeat-x;}
+.navul li a.link:hover{background:url(http://www.gffunds.com.cn/images/sy_nav_lisel.jpg) bottom center repeat-x;text-decoration:none;}
+
+/* 横向二级菜单 */
+.subnav{display:none;position:absolute;top:34px;;left:-5px;width:600px;height:28px; z-index:190;}
+.subnav dd{display:inline;float:left;background:#fff url(http://www.gffunds.com.cn/images/sy_subnav_icon.jpg) left center no-repeat;}
+.subnav dd a{display:block;float:left;padding-right:15px;height:28px;line-height:28px;text-indent:10px;color:#595757;}
+.subnav dd a:hover{font-weight:bold;}
+
+/* 如果二级横向导航长度超出页面，则改变二级导航条的位置 */
+.navul .navgfzx{left:-5px;width:800px;}
+.navul .navlcgj{left:-330px;width:800px;}
+.navul .navjjkt{left:-120px;}
+.navul .navkhfw{left:-200px;}
+
+/* 近期热点 */
+.sy_jqrdnav p{ text-indent:5px;line-height:30px;}
+.sy_jqrdnav span{color:#ff9400;}
+.sy_jqrdnav a{margin-right:15px;}
+.sy_jqrdnav a:hover{font-weight:bold;}
+</style>
+
+<!-- nav 导航 -->
+<div class="navclearfix sy_nav">
+	<!-- 全部基金分类 -->
+    <div id="gf_qbjjfl" class="gf_qbjjfl">
+		<a href="http://www.gffunds.com.cn/funds/" class="jjfllink">全部基金分类</a>
+		<div class="gf_qbjjfl_nav">
+			<div class="gf_qbjjfl_navlist">
+            	<dl>
+                
+            		<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/">混合型基金</a></dd>
+                
+            		<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/">指数型基金</a></dd>
+                
+            		<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/">海外型基金</a></dd>
+                
+            		<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/">债券型基金</a></dd>
+                
+            		<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/">货币型基金</a></dd>
+                
+                </dl>
+                <div class="biglink" style="height:125px;">
+                	<hr />
+                    <a href="http://www.gffunds.com.cn/funds/ajjjlck/">按基金经理筛选</a>
+                    <a href="http://www.gffunds.com.cn/funds/gf/open/">广发基金列表</a>
+                    <a href="http://www.gffunds.com.cn/funds/all/open/">全市场基金列表</a>
+                </div>
+			</div>
+			<div class="gf_qbjjfl_navdetail">
+            	<div class="positionbox">
+                    
+                    
+                        <div class="gf_qbjjfl_link">
+                        	<dl>
+                            	<dt>基金名称</dt>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxpcz/">162703｜广发小盘成长混合(LOF)</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjfhh/">270001｜广发聚富混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfwjzz/">270002｜广发稳健增长混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjf/">270005｜广发聚丰混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfclyx/">270006｜广发策略优选混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfdpcz/">270007｜广发大盘成长混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfhxjx/">270008｜广发核心精选混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjrgp/">270021｜广发聚瑞混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfnxzz/">270022｜广发内需增长混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfhylxa/">270025｜广发行业领先混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfhylxhhh/">960001｜广发行业领先混合H</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfzzjx/">270028｜广发制造业精选混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxfjx/">270041｜广发消费品精选混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxjj/">270050｜广发新经济混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfldpz/">000117｜广发轮动配置混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjy_1857/">000167｜广发聚优灵活配置混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfczyxhh/">000214｜广发成长优选混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfqsyx/">000215｜广发趋势优选灵活配置混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfztlxhh/">000477｜广发主题领先混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjzyshh/">000529｜广发竞争优势混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxdl/">000550｜广发新动力混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjxlhhh/">000567｜广发聚祥灵活混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfnxclhh/">000747｜广发逆向策略混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfdc/">000992｜广发套利</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjahhA/">001115｜广发聚安混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjahhC/">001116｜广发聚安混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjbhh/">001189｜广发聚宝混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjhhha/">001206｜广发聚惠混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjhhhc/">001207｜广发聚惠混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfaxhh/">001260｜广发安心混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfathh/">001290｜广发安泰混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjkhha/">001353｜广发聚康混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjkhhc/">001354｜广发聚康混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjthha/">001355｜广发聚泰混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjthhc/">001356｜广发聚泰混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfgghh/">001468｜广发改革混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjjxhha/">001741｜广发百发大数据精选混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjjxhhe/">001742｜广发百发大数据精选混合E</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjczhha/">001734｜广发百发大数据成长混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjczhhe/">001735｜广发百发大数据成长混合E</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjshha/">002025｜广发聚盛混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjshhc/">002026｜广发聚盛混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfdclhh/">001763｜广发多策略混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfafhbhha/">002107｜广发安富回报混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfafhhc/">002108｜广发安富回报混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfahhbhha/">001761｜广发安宏回报混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfahhbhhc/">001762｜广发安宏回报混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxxhh/">002132｜广发鑫享混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxxcyhh/">002124｜广发新兴产业混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfwabb/">002295｜广发稳安保本</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfaxhha/">002116｜广发安享混合A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfaxhhc/">002117｜广发安享混合C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxyhh/">002134｜广发鑫裕混合</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfwxbb/">002446｜广发稳鑫保本</a></dd>
+                                
+                            </dl>
+                            <dl>
+                            	<dt>产品特点</dt>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxpcz/jjjj/">大格局+大消费</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjfhh/jjjj/">关注新兴行业、顺应市场潮流</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfwjzz/jjjj/">行业均衡、稳健成长</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjf/jjjj/">规模大、弹性足、适合大资金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfclyx/jjjj/">互联网+工业4.0+环保</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfdpcz/jjjj/">消费蓝筹、低估价值、优质企业</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfhxjx/jjjj/">沪深300+互联网+</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjrgp/jjjj/">低估值、大蓝筹、强周期</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfnxzz/jjjj/">传统改造、新兴升级</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfhylxa/jjjj/">大小均衡、挖掘确定性成长</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfhylxhhh/jjjj/">大小均衡、挖掘确定性成长</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfzzjx/jjjj/">制造业2025、互联网+</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxfjx/jjjj/">低估值大消费</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxjj/jjjj/">大小均衡、布局前瞻、把握热点</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfldpz/jjjj/">互联网+ 板块轮动、偏好中小市值</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjy_1857/jjjj/">布局市场热点、把握主题机会</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfczyxhh/jjjj/">采用“参与打新+债券”投资策略</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfqsyx/jjjj/">采用“参与打新+债券”投资策略</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfztlxhh/jjjj/">互联网+工业4.0+环保</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjzyshh/jjjj/">TMT+关注新兴行业、顺应市场潮流</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxdl/jjjj/">大小均衡、挖掘确定性成长</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjxlhhh/jjjj/">攻守平衡</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfnxclhh/jjjj/">消费蓝筹、低估价值、优质企业</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfdc/jjjj/">近期打开日期：2016.5.13-19日</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjahhA/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjahhC/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjbhh/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjhhha/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjhhhc/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfaxhh/jjjj/">灵活配置，打新策略为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfathh/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjkhha/jjjj/">灵活配置 打新策略为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjkhhc/jjjj/">灵活配置 打新策略为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjthha/jjjj/">灵活配置 打新策略为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjthhc/jjjj/">灵活配置 打新策略为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfgghh/jjjj/">紧跟改革主题 享政策红利</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjjxhha/jjjj/">大数据2.0</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjjxhhe/jjjj/">大数据2.0</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjczhha/jjjj/">首支成长型主动量化混合基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfbfdsjczhhe/jjjj/">首支成长型主动量化混合基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjshha/jjjj/">灵活配置 可参与新股申购</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfjshhc/jjjj/">灵活配置 可参与新股申购</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfdclhh/jjjj/">金牛基金经理</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfafhbhha/jjjj/">灵活配置 可参与新股申购</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfafhhc/jjjj/">灵活配置 可参与新股申购</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfahhbhha/jjjj/">灵活配置 可参与新股申购</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfahhbhhc/jjjj/">灵活配置 可参与新股申购</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxxhh/jjjj/">大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxxcyhh/jjjj/">新兴产业 尽揽市场热点</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfwabb/jjjj/">稳中求进 攻守兼备</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfaxhha/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfaxhhc/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfxyhh/jjjj/">适合大类资产配置</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/hhxjj/gfwxbb/jjjj/">稳中求进 攻守兼备</a></dd>
+                                
+                            </dl>
+                        </div>
+                    
+                        <div class="gf_qbjjfl_link">
+                        	<dl>
+                            	<dt>基金名称</dt>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhszs/">270010｜广发沪深300ETF联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhs300etf/">510360｜广发沪深300ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzz500etf/">510510｜广发中证500ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzlj/">162711｜广发中证500ETF联接(LOF)</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzxetf/">159907｜广发中小板300ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzxlj/">270026｜广发中小板300联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfsz100/">162714｜广发深证100</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfsz100_a/">150083｜广发深证100A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfsz100_b/">150084｜广发深证100B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqznyetf/">159945｜广发中证全指能源ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfnylj/">001460｜广发中证全指能源ETF联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzycletf/">159944｜广发中证全指原材料ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfycllj/">001459｜广发中证全指原材料联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzzyxfetf/">159946｜广发中证全指主要消费ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzyxflj/">001458｜广发中证全指主要消费联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzkxxfp/">159936｜广发中证全指可选消费ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfkxxf/">001133｜广发中证全指可选消费联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzyyws/">159938｜广发中证全指医药卫生ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfyywslj/">001180｜广发中证全指医药卫生联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzjrdc/">159940｜广发中证全指金融地产ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfjrdclj/">001469｜广发中证全指金融地产联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzxxjsetf/">159939｜广发中证全指信息技术ETF</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfxxjslj/">000942｜广发中证全指信息技术联接</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzsfj/">502056｜广发医疗分级</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzsfja/">502057｜广发医疗分级A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzsfjb/">502058｜广发医疗分级B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzs/">000968｜广发养老指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhbzz/">001064｜广发环保指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfbfyba/">000826｜广发百发100指数A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfbfybe/">000827｜广发百发100指数E</a></dd>
+                                
+                            </dl>
+                            <dl>
+                            	<dt>产品特点</dt>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhszs/jjjj/">宽基｜金融地产、大盘蓝筹股</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhs300etf/jjjj/">宽基｜大盘蓝筹股</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzz500etf/jjjj/">宽基｜中证500、量化必配</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzlj/jjjj/">宽基｜中证500、量化必配</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzxetf/jjjj/">宽基｜行业均衡、高成长</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzxlj/jjjj/">宽基｜行业均衡、高成长</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfsz100/jjjj/">宽基｜小行业，大龙头</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfsz100_a/jjjj/">宽基｜小行业，大龙头</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfsz100_b/jjjj/">宽基｜小行业，大龙头</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqznyetf/jjjj/">行业｜国家战略发展稀缺资源</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfnylj/jjjj/">行业｜国家战略发展稀缺资源</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzycletf/jjjj/">行业｜工业4.0+、中国制造2025</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfycllj/jjjj/">行业｜国家战略 工业4.0</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzzyxfetf/jjjj/">行业｜我国消费增长潜力巨大</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzyxflj/jjjj/">行业｜主要刚需 民生为本</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzkxxfp/jjjj/">行业｜家电、汽车，消费升级</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfkxxf/jjjj/">行业｜家电、汽车，消费升级</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzyyws/jjjj/">行业｜医药大健康方向</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfyywslj/jjjj/">行业｜医药大健康方向</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzjrdc/jjjj/">行业｜金融地产，行业指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfjrdclj/jjjj/">行业｜金融地产，行业指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzzqzxxjsetf/jjjj/">行业｜移动互联+</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfxxjslj/jjjj/">行业｜移动互联+</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzsfj/jjjj/">行业｜领涨抗跌，医路向前</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzsfja/jjjj/">行业｜领涨抗跌，医路向前</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzsfjb/jjjj/">行业｜领涨抗跌，医路向前</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfylzs/jjjj/">主题｜人口老龄化，投健康养老</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhbzz/jjjj/">主题｜环保产业指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfbfyba/jjjj/">策略｜国内首只互联网大数据基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfbfybe/jjjj/">策略｜国内首只互联网大数据基金</a></dd>
+                                
+                            </dl>
+                        </div>
+                    
+                        <div class="gf_qbjjfl_link">
+                        	<dl>
+                            	<dt>基金名称</dt>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqjxrmb/">270023｜广发全球精选股票</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqjxmy/">000906｜广发全球精选股票美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqnyrmb/">270027｜广发全球农业指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqnymy/">000885｜广发全球农业指数美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfnsdkrmb/">270042｜广发纳斯达克100指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfnsdkmy/">000055｜广发纳斯达克100指数美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfmgfdc/">000179｜广发美国房地产指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfmgfdc_1777/">000180｜广发美国房地产指数美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfytzgsyz_1962/">000274｜广发亚太中高收益债券</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfytzgsyz_1971/">000275｜广发亚太中高收益债券美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqylbjzs/">000369｜广发全球医疗保健指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqylbjzsmy/">000370｜广发全球医疗保健指数美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfswkjzs/">001092｜广发生物科技指数</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfswkjmy/">001093｜广发生物科技指数美元</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfnz100etf/">159941｜广发纳指100ETF</a></dd>
+                                
+                            </dl>
+                            <dl>
+                            	<dt>产品特点</dt>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqjxrmb/jjjj/">纯港股+优质企业</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqjxmy/jjjj/">纯港股+优质企业</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqnyrmb/jjjj/">市场唯一一只全球农业产业链基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqnymy/jjjj/">市场唯一一只全球农业产业链基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfnsdkrmb/jjjj/">全球科技前沿</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfnsdkmy/jjjj/">全球科技前沿</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfmgfdc/jjjj/">美国房东，不惧加息</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfmgfdc_1777/jjjj/">美国房东，不惧加息</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfytzgsyz_1962/jjjj/">全球配债首选亚太</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfytzgsyz_1971/jjjj/">全球配债首选亚太</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqylbjzs/jjjj/">汇集全球医疗巨头</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfqqylbjzsmy/jjjj/">汇集全球医疗巨头</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfswkjzs/jjjj/">国内首只纳指生物科技指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfswkjmy/jjjj/">国内首只纳指生物科技指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/QDIIJJ/gfnz100etf/jjjj/">全球科技前沿</a></dd>
+                                
+                            </dl>
+                        </div>
+                    
+                        <div class="gf_qbjjfl_link">
+                        	<dl>
+                            	<dt>基金名称</dt>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfzqzq/">270009｜广发增强债券</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjlzq/">162712｜广发聚利债券(LOF)</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjcxyzqa/">270029｜广发聚财信用债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjcxyzqb/">270030｜广发聚财信用债券B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfnnh/">270043｜广发理财年年红债券</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfsza/">270044｜广发双债添利债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfszc/">270045｜广发双债添利债券C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfcza/">270048｜广发纯债债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfczc/">270049｜广发纯债债券C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqa/">162715｜广发聚源债券A（LOF）</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqc/">162716｜广发聚源债券C（LOF）</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxzqa/">000118｜广发聚鑫债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxzqc/">000119｜广发聚鑫债券C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjjyna_1812/">000267｜广发集利一年定期债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjjync/">000268｜广发集利一年定期债券C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfzzjrz_1924/">000348｜广发中债金融债指数A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfzzjrz_1915/">000349｜广发中债金融债指数C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxa/">000473｜广发集鑫债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxc/">000474｜广发集鑫债券C</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqa002636/">002636｜广发集裕债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqc002637/">002637｜广发集裕债券C</a></dd>
+                                
+                            </dl>
+                            <dl>
+                            	<dt>产品特点</dt>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfzqzq/jjjj/">以中低久期、性价比高的信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjlzq/jjjj/">哑铃结构，信用债+可转债</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjcxyzqa/jjjj/">哑铃结构，信用债+可转债</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjcxyzqb/jjjj/">哑铃结构，信用债+可转债</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfnnh/jjjj/">一年期理财产品</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfsza/jjjj/">以中等久期高等级信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfszc/jjjj/">以中等久期高等级信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfcza/jjjj/">以高等级、中短久期信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfczc/jjjj/">以高等级、中短久期信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqa/jjjj/">以中低久期、高性价比信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqc/jjjj/">以中低久期、高性价比信用债为主</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxzqa/jjjj/">信用债+军工、金融转债和正股</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxzqc/jjjj/">信用债+军工、金融转债和正股</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjjyna_1812/jjjj/">哑铃结构，信用债+可转债</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjjync/jjjj/">哑铃结构，信用债+可转债</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfzzjrz_1924/jjjj/">国内首只金融债指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfzzjrz_1915/jjjj/">国内首只金融债指数基金</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxa/jjjj/">杠杆较低，风格较为灵活</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjxc/jjjj/">杠杆较低，风格较为灵活</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqa002636/jjjj/">风格较为灵活</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/ZQXJJ/gfjyzqc002637/jjjj/">风格较为灵活</a></dd>
+                                
+                            </dl>
+                        </div>
+                    
+                        <div class="gf_qbjjfl_link">
+                        	<dl>
+                            	<dt>基金名称</dt>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhba/">270004｜广发货币A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhbb/">270014｜广发货币B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhbe/">511920｜广发货币E</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc30A/">270046｜广发理财30天债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc30B/">270047｜广发理财30天债券B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc7A/">000037｜广发理财7天债券A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc7B/">000038｜广发理财7天债券B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gftth/">000389｜广发天天红货币A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gftthb/">002183｜广发天天红货币B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfxjba/">519858｜广发现金宝场内货币A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfxjbb/">519859｜广发现金宝场内货币B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfqdzhb/">000509｜广发钱袋子货币</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfttlA/">000475｜广发天天利货币A</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfttlb/">000476｜广发天天利货币B</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfttlE/">001134｜广发天天利货币E</a></dd>
+                                
+                            	<dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhqbhb/">000748｜广发活期宝货币</a></dd>
+                                
+                            </dl>
+                            <dl>
+                            	<dt>产品特点</dt>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhba/jjjj/">天天分红，按月结转</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhbb/jjjj/">天天分红，按月结转</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhbe/jjjj/">天天分红</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc30A/jjjj/">30天理财产品</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc30B/jjjj/">30天理财产品</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc7A/jjjj/">7天理财产品</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gflc7B/jjjj/">7天理财产品</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gftth/jjjj/">天天分红，T+1可赎</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gftthb/jjjj/">天天分红，T+1可赎</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfxjba/jjjj/">场内货币</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfxjbb/jjjj/">场内货币</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfqdzhb/jjjj/">钱袋子可快速取现、免费还款</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfttlA/jjjj/">天天分红，按日结转</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfttlb/jjjj/">天天分红，按日结转</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfttlE/jjjj/">天天分红，按日结转</a></dd>
+                                
+                                <dd><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfhqbhb/jjjj/">每日计息 日日复利</a></dd>
+                                
+                            </dl>
+                        </div>
+                    
+
+            	</div>
+            </div>
+		</div>
+	</div>
+    
+    <!-- 导航 -->
+    <div class="sy_nav_ul">
+    	<ul class="navul">
+            <li><a id="menu_1" href="http://www.gffunds.com.cn/" class="link">首页</a>
+                <div class="subnav sy_jqrdnav">
+                	<p><span>近期热点：</span><a href="http://www.gffunds.com.cn/html/001764/?utm_source=rd&utm_campaign=hgs" target="_blank">广发沪港深</a><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfycllj/" target="_blank">广发原材料联接</a><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzyxflj/" target="_blank">广发主要消费联接</a></p>
+                </div>
+           </li>
+            <li>
+            	<a id="menu_9" href="http://www.gffunds.com.cn/funds/" class="link">基金产品</a>
+            </li>
+            <li>
+            	<a id="menu_6" href="http://www.gffunds.com.cn/vip/" class="link">高端理财</a>
+            </li>
+            <li>
+            	<a id="menu_3" href="https://trade.gffunds.com.cn/GF/index.do" class="link">企业理财</a>
+            </li>
+            <li>
+            	<a id="menu_5" href="http://www.gffunds.com.cn/wsjyjsy/" class="link">网上交易</a>
+                  <div class="subnav">
+                    <dl>
+                        
+                    </dl>
+                </div>
+            </li>
+            <li>
+            	<a id="menu_4" href="http://www.gffunds.com.cn/yingdingtou/" class="link">赢定投</a>
+                    <div class="subnav">
+                    <dl>
+                    	
+                    </dl>
+                </div>
+            </li>
+            <!--li>
+            	<a id="menu_6" href="http://www.gffunds.com.cn/lczb/" class="link">基金管家</a>
+                   <div class="subnav navlcgj">
+                    <dl>
+                        
+
+                    </dl>
+                </div>
+            </li-->
+
+            <li>
+            	<a id="menu_2" href="http://www.gffunds.com.cn/gfzx/" class="link">广发资讯</a>
+                
+                <!-- 二级导航横向铺时的背景 -->
+
+                   <div class="subnav navgfzx">
+                	<dl>
+                       
+                        <dd><a href="/gfzx/">资讯首页</a></dd>
+						
+                        <dd><a href="/gfzx/jjzt/">投资月报</a></dd>
+						
+                        <dd><a href="/gfzx/jjjlhkt/">理财会客厅</a></dd>
+						
+					</dl>
+                </div>
+
+                            </li>
+
+            <li>
+            	<a id="menu_7" href="http://www.gffunds.com.cn/jjkt/" class="link">基金课堂</a>
+                   <div class="subnav navjjkt">
+                    <dl>
+                        
+                        <dd><a href="http://www.gffunds.com.cn/jjkt/xssl/">新手上路</a></dd>
+						
+                        <dd><a href="/jjkt/jjyd/">投基有道</a></dd>
+						
+                        <dd><a href="http://www.gffunds.com.cn/jjkt/ebook/">基金刊物</a></dd>
+						
+                        <dd><a href="/jjkt/tzzjy/">投资者教育</a></dd>
+						
+
+                    </dl>
+                </div>
+            </li>
+
+
+            <li>
+            	<a id="menu_8" href="http://www.gffunds.com.cn/khfw_v2/" class="link" target="_blank">客户服务</a>
+                   <div class="subnav navkhfw">
+                    <dl>
+                        
+                    </dl>
+                </div>
+            </li>
+
+          <!--  <li>
+            	<a id="menu_9" href="http://www.gffunds.com.cn/jjkt/tzzjy/gpzsb/" class="link">投资者教育</a>
+            </li>
+           -->
+        </ul>
+    </div>
+</div>
+
+<script>
+
+//在栏目时默认导航列出同频道
+//var channels_jysy =  ",284";
+			
+   var channels_jhcx =  ",284,1030,322,906,907,3416,3441,327,376,836,1163,834,1162,837,835,292,232,231,199,197,321,3372,3192,3151,3135,3127,3082,2960,2896,2783,2722,2635,2583,2527,2500,2492,2391,2364,2330,2175,2147,2041,1890,1764,1681,1613,1496,1467,1398,1265,1208,1167,1164,1093,1051,1046,1039,995,947,932,933,937,935,938,940,942,946,944,945,943,941,939,936,934,931,930,926,924,243,323,324,325,326,";
+			
+			var channels_qdz =  ",842,866,867,868,869,";
+			
+			var channels_ydt =  ",843,910,909,911,912,948,914,";
+			
+			var channels_ydjy =  ",760,272,266,281,282,1319,283,289,252,273,980,981,1091,1243,1244,1763,2262,";
+
+			var channels_jjjy =  ",768,400,918,919,920,401,402,403,404,405,406,899,379,807,804,805,806,808,810,809,811,1505,1506,1507,1508,1509,1510,1511,1512,900,";
+			
+			var channels_zfyhk =  ",317,2218,2219,2220,2221,2978,210,3047,1475,3404,219,383,979,358,364,362,365,363,367,368,1003,356,366,295,265,287,226,261,329,1495,328,382,391,387,384,1165,1004,227,1006,1005,442,385,392,1397,1166,396,393,394,395,760,272,266,281,282,1319,283,289,252,273,980,981,1091,1243,1244,1763,2262,1116,";
+			
+			var channels_fw =  ",299,461,1023,986,985,426,1523,206,649,762,763,896,895,398,397,427,467,466,465,2302,469,470,471,476,1092,475,474,473,472,511,3191,428,487,1485,1484,1767,1320,1604,486,3246,488,485,1052,489,484,483,481,490,2223,2470,1362,429,492,493,494,2303,2304,2305,2306,430,500,499,498,497,496,433,890,891,477,988,989,990,991,993,994,462,501,503,504,505,506,507,508,509,510,773,425,761,887,888,898,778,787,788,915,2239,";
+			
+			
+
+			if(channels_jhcx.search(",,")!=-1){
+				 document.getElementById("menu_2").className="link selr";
+			}
+		
+			else if(channels_qdz.search(",,")!=-1){
+				document.getElementById("menu_3").className="link selr";
+			}
+
+                           else if(channels_ydt.search(",,")!=-1){
+				document.getElementById("menu_4").className="link selr";
+			}
+			else if(channels_ydjy.search(",,")!=-1){
+				document.getElementById("menu_9").className="link selr";
+			}
+			else if(channels_jjjy.search(",,")!=-1){
+				document.getElementById("menu_6").className="link selr";
+			}
+	
+			else if(channels_zfyhk.search(",,")!=-1){
+				document.getElementById("menu_7").className="link selr";
+			}
+			
+			else if(channels_fw.search(",,")!=-1){
+				document.getElementById("menu_8").className="link selr";
+			}
+			
+			else{
+			    document.getElementById("menu_1").className="link selr";
+			}
+		
+</script>
+<!--页头结束 -->
+
+<!-- content 中间内容部分 -->
+<div class="clearfix sy_content">
+
+    <!-- login_banner 登陆块和banner -->
+    <div class="sy_login_banner shadow">
+
+
+        <!-- login 登陆注册信息 -->
+        <div class="sy_login">
+
+            <h2>买基金 · 查账户</h2>
+            <p class="bt">
+                <a href="https://trade.gffunds.com.cn/network/networkgo.jsp?status=1%26xinhua.sso.page=1">我要登录</a>
+                <a href="https://trade.gffunds.com.cn/main/account/openaccount/openaccount_step1" target="_blank">立即开户</a>
+            </p>
+            <p class="link">
+                <a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/scjycjwt/index_help.htm" target="_blank">常见问题</a>
+                <a href="http://www.gffunds.com.cn/jjkt/xssl/czys/" target="_blank">演示</a>
+                <a href="http://www.gffunds.com.cn/xswd/bgxz/9/201407/t20140721_37989.htm" target="_blank">换卡</a>
+                <a class="z-sel" href="http://www.gffunds.com.cn/jjkt/xssl/lcgb/" target="_blank">新手</a>
+            </p>
+
+            <div class="login-qdz">
+                <div class="login-qdz-tb">
+                    <a class="ti-link" href="http://www.gffunds.com.cn/html/qdz20151228/index.html" target="_blank" title="什么是钱袋子">
+                        <div class="ico" rowspan="2"><img src="./images/login-qdz-tbico.gif" alt="" /></div>
+                        <div class="txt"><span>钱袋子</span><em>&nbsp;</em>&nbsp;&nbsp;什么是钱袋子</div>
+                    </a>
+                    <div class="num">
+                        <a href="http://www.gffunds.com.cn/funds/all/jjmx/yjqk/jjjz/?code=000509" target="_blank" title="钱袋子收益查询"><span>&nbsp;</span>%</a>
+                    </div>
+                </div>
+            </div>
+            <div class="login-qdz" style="padding-top: 6px;">
+                <style>
+.trs-region {font-size:14px;margin:0;padding:0}
+.trs-region a:hover *{color:#ff6c00}
+.trs-row {list-style: none;height:20px;margin:0;padding:2px 0px}
+.trs-cell {/*width:90px;*/}
+.trs-cell a{color: #777}
+.trs-region{
+  width: 233px;
+  .{font-size:12px;}
+}
+.trs-region .trs-cell{
+  margin-right: 8px
+}
+</style>
+<div class="trs-region">
+
+<p class="trs-row">
+
+<a class="trs-cell" href="./jjkt/jjyd/jczt/201605/t20160503_52068.htm" target="_blank"> 
+<FONT color=#ff0000>5月优选组合</FONT>
+</a>
+
+<a class="trs-cell" href="./gfzx/scpl/gnsc/201605/t20160519_52396.htm" target="_blank"> 
+5月19日市场点评
+</a>
+
+</p>
+
+<p class="trs-row">
+
+<a class="trs-cell" href="./jjkt/jjyd/jczt/201604/t20160408_51494.htm" target="_blank"> 
+基金组合排行
+</a>
+
+<a class="trs-cell" href="./jjkt/jjyd/jczt/201509/t20150915_47532.htm" target="_blank"> 
+凯石灵活组合
+</a>
+
+</p>
+
+<p class="trs-row">
+
+<a class="trs-cell" href="http://www.gffunds.com.cn/html/001764/" target="_blank"> 
+<FONT color=#ff0000>广发沪港深新机遇</FONT>　<FONT color=#ff0000>今日15:00结束认购</FONT>
+</a>
+
+</p>
+
+</div>
+            </div>
+        </div>
+
+        <!-- banner banner广告 -->
+        <div class="sy_banner">
+            <!-- banner图片广告 -->
+
+            <div id="banner1" class="sy_banner_pic sy_bannertabs">
+                <div id="bSlide" class="piclist">
+                    <ul class="list">
+
+                        
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/html/001764/?utm_source=banner&utm_campaign=hgs' target="_blank"><img src='./sy/1307/banner/201601/W020160520339278686844.jpg' width="735" height="250" alt='广发沪港深' /></a>
+                                </li>
+                            
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/html/lvyoubaopc/' target="_blank"><img _src='./sy/1307/banner/201601/W020160520345955710690.jpg' width="735" height="250" alt='旅游宝' /></a>
+                                </li>
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/html/banjiazhinan/' target="_blank"><img _src='./sy/1307/banner/201311/W020160516673969623328.png' width="735" height="250" alt='淘宝客户搬家指南' /></a>
+                                </li>
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/gywm/4/201605/t20160512_52327.htm' target="_blank"><img _src='./sy/1307/banner/201403/W020160518536689934829.jpg' width="735" height="250" alt='明星奖' /></a>
+                                </li>
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/ctrade/index.jsp?utm_source=banner&utm_campaign=0ygj' target="_blank"><img _src='./sy/1307/banner/201404/W020151203354212397189.jpg' width="735" height="250" alt='分享0元购基' /></a>
+                                </li>
+                            
+                        
+                    </ul>
+                    <div class="button">
+                        <a href="#" id="slide-prev" class="float-l pngfix">Prev</a>
+                        <a href="#" id="slide-next" class="float-r pngfix">Next</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="banner2" class="sy_banner_pic sy_bannertabs" style="display:none;">
+                <div class="piclist">
+                    <ul class="list">
+                        
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/html/001764/?utm_source=banner&utm_campaign=hgs' target="_blank"><img src='./sy/1307/banner2/201601/W020160520339512903476.jpg' width="735" height="250" alt='广发沪港深' /></a>
+                                </li>
+                            
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/html/lvyoubaopc/' target="_blank"><img _src='./sy/1307/banner2/201601/W020160407373500061675.jpg' width="735" height="250" alt='旅游宝' /></a>
+                                </li>
+                            
+                        
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/html/banjiazhinan/' target="_blank"><img src='./sy/1307/banner2/201403/W020160516674487126975.png' width="735" height="250" alt='搬家指南' /></a>
+                                </li>
+                            
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/gywm/4/201605/t20160512_52327.htm' target="_blank"><img _src='./sy/1307/banner2/201410/W020160518536901343497.jpg' width="735" height="250" alt='明星奖' /></a>
+                                </li>
+                            
+                        
+                            
+                                <li>
+                                    <a href='http://www.gffunds.com.cn/ctrade/index.jsp?utm_source=banner&utm_campaign=0ygj' target="_blank"><img src='./sy/1307/banner2/201404/W020151203354077396751.jpg' width="735" height="250" alt='分享0元购基' /></a>
+                                </li>
+                            
+                            
+                        
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- banner文字广告 -->
+            <div class="sy_banner_txt sy_txttabs">
+                <div class="sy_txtlist">
+                    <ul>
+                        
+                            <li><a href="http://www.gffunds.com.cn/gfzx/scpl/cjxw/201605/t20160519_52397.htm?utm_source=pmd&utm_campaign=ycl" target="_blank">OLED产业渗透率提升 广发原材料联接捕捉新...</a></li>
+                        
+                            <li><a href="http://www.gffunds.com.cn/gywm/4/201605/t20160517_52388.htm?utm_source=pmd&utm_campaign=hyld" target="_blank">广发基金配置宝 助你把握行业轮动</a></li>
+                        
+                            <li><a href="http://www.gffunds.com.cn/jjkt/jjyd/128/dt/201605/t20160516_52357.htm?utm_source=pmd&utm_campaign=dt" target="_blank">智能定投比普通定投更聪明么？大数据告诉...</a></li>
+                        
+                            <li><a href="http://dwz.cn/3le3jc?utm_source=pmd&utm_campaign=txj" target="_blank">每月退休金1万元是一种怎样的人生体验？</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="sy_txtbotton">
+                    <a href="#" id="sy_txtprev" class="float-l">Prev</a>
+                    <a href="#" id="sy_txtnext" class="float-r">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- gfcp 广发产品 -->
+
+
+    <div class="sy_gfcp shadow clearfix">
+        
+
+
+            <!-- qdz 钱袋子 -->
+            <div id="sy_gfcp_qdz" class="sy_gfcpdiv">
+                <a href="http://www.gffunds.com.cn/html/app/appphb/pc/index.html" target="_blank">
+                    <div class="pic1">
+                        <img src="./sy/1307/sygfcp/201505/P020160520321002121576.gif" width="245" height="275" />
+                    </div>
+                </a>
+                <div class="sy_gfcpdivbg"></div>
+
+                <!-- 百发100 -->
+                <!--
+                <div class="bf_jjjz">
+                 <p class="p1"><a href="http://www.gffunds.com.cn/html/bf100" target="_blank">[<span>--</span>]<i class="green">--%</i></a></p>
+                 <p><em>--</em></p>
+                </div>
+                -->
+
+
+
+                <div class="ckxq">
+                    <p class="p1"><a href="http://www.gffunds.com.cn/html/app/appphb/pc/index.html" target="_blank">查看详情&nbsp;&gt;&gt;</a></p>
+                    <p class="p2">投资需谨慎</p>
+                </div>
+                <div class="sy_gfcp_hover sy_gfcp_l"></div>
+                <div class="sy_gfcp_hover sy_gfcp_r"></div>
+                <div class="sy_gfcp_hover sy_gfcp_b"></div>
+            </div>
+            
+
+
+
+
+            <!-- ydt 赢定投 -->
+            <div id="sy_gfcp_ydt" class="sy_gfcpdiv">
+                <a href="https://trade.gffunds.com.cn/GF/index.do" target="_blank">
+                    <div class="pic1">
+                        <img src="./sy/1307/sygfcp/201505/P020160520321489932931.gif" width="245" height="275" />
+                    </div>
+                </a>
+                <div class="sy_gfcpdivbg"></div>
+                <div class="ckxq">
+                    <p class="p1"><a href="https://trade.gffunds.com.cn/GF/index.do" target="_blank">查看详情&nbsp;&gt;&gt;</a></p>
+                    <p class="p2">投资需谨慎</p>
+                </div>
+                <div class="sy_gfcp_hover sy_gfcp_l"></div>
+                <div class="sy_gfcp_hover sy_gfcp_r"></div>
+                <div class="sy_gfcp_hover sy_gfcp_b"></div>
+            </div>
+            
+
+            <!-- jjjx 基金精选组合 -->
+            <div id="sy_gfcp_jjjx" class="sy_gfcpdiv">
+                <a href="http://www.gffunds.com.cn/gfzx/scpl/cjxw/201605/t20160511_52322.htm" target="_blank">
+                    <div class="pic1">
+                        <img src="./sy/1307/sygfcp/201505/P020160520321204627680.gif" width="245" height="275" />
+                    </div>
+                </a>
+                <div class="sy_gfcpdivbg"></div>
+                <div class="ckxq">
+                    <p class="p1"><a href="http://www.gffunds.com.cn/gfzx/scpl/cjxw/201605/t20160511_52322.htm" target="_blank">查看详情&nbsp;&gt;&gt;</a></p>
+                    <p class="p2">至5.13,过往业绩不代表未来,投资需谨慎</p>
+                </div>
+                <div class="sy_gfcp_hover sy_gfcp_l"></div>
+                <div class="sy_gfcp_hover sy_gfcp_r"></div>
+                <div class="sy_gfcp_hover sy_gfcp_b"></div>
+            </div>
+            
+
+            <!-- 高端理财 -->
+            <div id="sy_gfcp_mgfdc" class="sy_gfcpdiv">
+                <a href="http://www.gffunds.com.cn/html/502056-3/" target="_blank">
+                    <div class="pic1">
+                        <img src="./sy/1307/sygfcp/201507/P020160520321331656595.gif" width="245" height="275" />
+                    </div>
+                </a>
+                <div class="sy_gfcpdivbg"></div>
+                <div class="ckxq">
+                    <p class="p1"><a href="http://www.gffunds.com.cn/html/502056-3/" target="_blank">查看详情&nbsp;&gt;&gt;</a></p>
+                    <p class="p2">投资需谨慎</p>
+                </div>
+
+                <!-- 钱袋子 -->
+                <!--
+                            <div class="qdz_jjjz qdz_jjjz_qdz">
+                                <p class="p1"><a href="http://www.gffunds.com.cn/funds/all/jjmx/yjqk/jjjz/?code=000509" target="_blank" style="color:#f00;">[<span>--</span>]</a></p>
+                                <p><em>--</em></p>
+                            </div>
+                -->
+
+                <!-- 天天红 -->
+                <!--
+                            <div class="qdz_jjjz qdz_jjjz_tth" style="right:5px;">
+                                <p class="p1"><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gftth/" target="_blank" style="color:#f00;">[<span>--</span>]</a></p>
+                                <p><em>--</em></p>
+                            </div>
+                -->
+                <div class="ckxq">
+                    <p class="p1"><a href="http://www.gffunds.com.cn/html/502056-3/" target="_blank">&nbsp;<!-- 查看详情&nbsp;&gt;&gt;--></a></p>
+                    <p class="p2">投资需谨慎</p>
+                </div>
+                <div class="sy_gfcp_hover sy_gfcp_l"></div>
+                <div class="sy_gfcp_hover sy_gfcp_r"></div>
+                <div class="sy_gfcp_hover sy_gfcp_b"></div>
+            </div>
+            
+        
+    </div>
+
+    <!-- gfnews 广发新闻资讯1 -->
+    <div class="sy_gfnews shadow">
+
+        <!-- tzgd 投资观点 -->
+        <div class="sy_gfnews_box sy_gfnews_jjgg">
+            <div class="top">
+                <ul>
+                    <li><a href="./gfzx/tzgd/" target="_blank" style="background: url(images/sy_gfnews_tzgd_n.jpg) no-repeat;">投资观点</a></li>
+                </ul>
+                <div class="morelink"><a href="./gfzx/tzgd/" target="_blank">更多&gt;&gt;</a></div>
+            </div>
+            <!-- 投资观点资讯 -->
+            <div id="sy_gfnews_tzgd_t" class="title">
+                <div class="hottitle">
+                    <div class="pic">
+                        <img src="./gfzx/tzgd/images/P020160519403691344612.jpg" width="84" height="84" alt="" />
+                    </div>
+                    
+                        <div class="newstxt">
+                            <h2 title="丁靓：港股下半年有望走强 关注高质量上市公司"><a target="_blank" id="filename" href="./gfzx/tzgd/gsgd/201605/t20160516_52358.htm">[股市观点]丁靓：港股下半年有望走强 关...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-16','<img src="./images/sy_gfnews_new.png" />')})</script></h2>
+                            <p>与A股市场不同，港股市场是以机构投资者为主导的市场，在港股投资必须重视对基本面因素的研究。笔者认为...<a href="./gfzx/tzgd/gsgd/201605/t20160516_52358.htm" target="_blank">[全文]</a></p>
+                        </div>
+                    
+                </div>
+                <ul>
+                    
+                        <li><span>[<a href="./gfzx/tzgd/mzcl/">每周策略</a>]</span><a href="./gfzx/tzgd/mzcl/201605/t20160516_52359.htm" target="_blank" title="4月经济数据低于预期，A股短期承压">4月经济数据低于预期，A股短期承压</a><script>CheckHot('', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-16','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-16</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjzt/gdsyyb/">固定收益月报</a>]</span><a href="http://www.gffunds.com.cn/gfjjgdsyyb/201605_gdyb/schg/" target="_blank" title="信用价值重估，等待配置机会">信用价值重估，等待配置机会</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-12','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-12</i></li>
+                    
+                        <li><span>[<a href="./gfzx/tzgd/gsgd/">股市观点</a>]</span><a href="http://www.gffunds.com.cn/jjkt/jjyd/llzl/201605/t20160510_52148.htm" target="_blank" title="老罗用历史数据告诉你2016年的投资策略">老罗用历史数据告诉你2016年的投资策略</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-10','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-10</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjzt/zsyb/">指数月报</a>]</span><a href="http://www.gffunds.com.cn/zsyb/zsyb1605/zyzs/" target="_blank" title="市场窄幅震荡，题材频繁切换">市场窄幅震荡，题材频繁切换</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-10','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-10</i></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <!-- tzgd 聚焦广发 -->
+        <div class="sy_gfnews_box sy_gfnews_tzgd">
+            <div class="top">
+                <ul>
+                    <li><a href="./gywm/4/" target="_blank" style="background: url(images/sy_gfnews_jjgf_n.jpg) no-repeat;">聚焦广发</a></li>
+                </ul>
+                <div class="morelink"><a href="./gywm/4/" target="_blank">更多&gt;&gt;</a></div>
+            </div>
+            <!-- 聚焦广发资讯 -->
+            <div id="sy_gfnews_jjgf_t" class="title" style="display: block">
+                
+                    
+                        <div class="hottitle">
+                            <div class="pic">
+                                <img src="./gywm/4/images/P020160113414296438526.jpg" width="84" height="84" alt="" />
+                            </div>
+                            <div class="newstxt">
+                                <h2 title="广发全球精选30个交易日规模飙升80%"><a target="_blank" id="filename" href="./gywm/4/201605/t20160517_52387.htm">[聚焦广发]广发全球精选30个交易日规模...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-17','<img src="./images/sy_gfnews_new.png" />')})</script></h2>
+                                <p>4月初以来至5月12日，机构在30个交易日的申购资金达到几个亿，基金资产规模增长比例超过80%。<a href="./gywm/4/201605/t20160517_52387.htm" target="_blank">[全文]</a></p>
+                            </div>
+                        </div>
+                    
+                    <ul>
+                        
+                            <li><span>[<a href="./gywm/4/">聚焦广发</a>]</span><a href="./gywm/4/201605/t20160517_52388.htm" target="_blank" title="广发基金配置宝  助你把握行业轮动">广发基金配置宝  助你把握行业轮动</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-17','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-17</i></li>
+                        
+                            <li><span>[<a href="./gywm/4/">聚焦广发</a>]</span><a href="http://www.gffunds.com.cn/mailpic/khzx/tzzdc0518.htm" target="_blank" title="“2015年基金投资者投资情况调查”获奖名单">“2015年基金投资者投资情况调查”获奖名单</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-17','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-18</i></li>
+                        
+                            <li><span>[<a href="./gywm/4/">聚焦广发</a>]</span><a href="./gywm/4/201605/t20160512_52327.htm" target="_blank" title="多元投资能力全面开花 广发基金囊括12项大奖">多元投资能力全面开花 广发基金囊括12项大奖</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-12','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-12</i></li>
+                        
+                            <li><span>[<a href="./gywm/4/">聚焦广发</a>]</span><a href="./gywm/4/201605/t20160512_52348.htm" target="_blank" title="超2亿IT投入成广发基金非公募业务最强后盾">超2亿IT投入成广发基金非公募业务最强后盾</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-09','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-12</i></li>
+                        
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- jjjz 基金净值 -->
+    <div class="sy_jjjz shadow">
+        <div class="sy_jjjz_main" ng-controller="fundsCtrl">
+            <!-- 基金净值搜索 -->
+            <!--<div class="sy_jjjz_sea">
+                <input type="text" id="sy_jjjz_seakey" onfocus="this.select()" readonly="readonly" value="请输入净值日期" />
+                <input type="button" id="sy_jjjz_seabt" value="查询" />
+            </div>-->
+
+            <!-- 基金净值导航 -->
+            <ul class="sy_jjjz_tab" style="display:none" ng-style="{display: categorys.length ? 'block' : 'none'}">
+                <li ng-repeat="category in categorys" ng-if="category.funds.length > 0" id="fundtab{{$index}}" ><span ng-init="initTab($index)">{{category.CATEGORYNAME}}</span></li>
+            </ul>
+            <div class="sy_jjjz_table">
+                <!-- 通用型基金table -->
+                <div class="sy_gpx_table fundlist" style="display: none;" id="fundlist{{$index}}" ng-repeat="category in categorys" ng-if="category.funds.length > 0" ng-switch="category.CATEGORYNAME.substring(0, 2)">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-default>
+                        <thead>
+                        <tr>
+                            <th>基金代码</th>
+                            <th style="width:240px">基金名称</th>
+                            <th>基金净值</th>
+                            <th>累计净值</th>
+                            <th>净值日期</th>
+                            <th>日涨跌</th>
+                            <th>今年以来</th>
+                            <th>过去一年</th>
+                            <th>申购</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds" ng-if="fund.WEBISSHOW == 'Y'" ng-init="checkRepeat()">
+                            <td style="text-align:center">{{fund.FUNDCODE}}</td>
+                            <td style="text-align: left;padding-left: 30px;"><a ng-href="./funds/?{{fund.FUNDCODE}}" target="_blank">{{fund.WEBPRODUCTNAME}}</a></td>
+                            <td style="text-align:center">{{fund.WEBNAVUNIT}}</td>
+                            <td style="text-align:center">{{fund.WEBNAVACCUMULATED}}</td>
+                            <td style="text-align:center">{{fund.NAVDATE | date : "yyyy-MM-dd"}}</td>
+                            <td style="text-align:center" ng-style="fund.DAYINCREMENTRATE |getColorByValue">{{fund.DAYINCREMENTRATE | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDTHISY|getColorByValue">{{fund.YIELDTHISY | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDLASTY|getColorByValue">{{fund.YIELDLASTY | getValue : '%'}}</td>
+                            <td style="text-align:center">
+                                <img src="./images/sy_gpx_table_gwc2.png" width="16" height="16" alt="暂停申购" ng-if="fund.WEBISOPEN != 'Y'" />
+                                <a target="_blank" ng-href="https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2FBuyAction.do%3Fmethod%3DbuyPre%26businCode%3D022%26fundCode%3D{{fund.FUNDCODE}}" ng-if="fund.WEBISOPEN == 'Y'">
+                                    <img src="./images/sy_gpx_table_gwc.png" alt="申购" />
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-when="指数">
+                        <thead>
+                        <tr>
+                            <th>指数类型</th>
+                            <th>基金代码</th>
+                            <th style="width:240px">基金名称</th>
+                            <th>基金净值</th>
+                            <th>累计净值</th>
+                            <th>净值日期</th>
+                            <th>日涨跌</th>
+                            <th>今年以来</th>
+                            <th>过去一年</th>
+                            <th>申购</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds" ng-if="fund.WEBISSHOW == 'Y'" ng-style="{'border-bottom': fund.lastStyle && !$last ? '2px solid rgb(250,227,183)' : ''}"  ng-init="checkRepeat()">
+                            <td>{{fund.INDEXFUNDTYPE}}</td>
+                            <td style="text-align:center">{{fund.FUNDCODE}}</td>
+                            <td style="text-align: left;padding-left: 30px;"><a ng-href="./funds/?{{fund.FUNDCODE}}" target="_blank">{{fund.WEBPRODUCTNAME}}</a></td>
+                            <td style="text-align:center">{{fund.WEBNAVUNIT}}</td>
+                            <td style="text-align:center">{{fund.WEBNAVACCUMULATED}}</td>
+                            <td style="text-align:center">{{fund.NAVDATE | date : "yyyy-MM-dd"}}</td>
+                            <td style="text-align:center" ng-style="fund.DAYINCREMENTRATE|getColorByValue">{{fund.DAYINCREMENTRATE | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDTHISY|getColorByValue">{{fund.YIELDTHISY | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDLASTY|getColorByValue">{{fund.YIELDLASTY | getValue : '%'}}</td>
+                            <td style="text-align:center">
+                                <img src="./images/sy_gpx_table_gwc2.png" width="16" height="16" alt="暂停申购" ng-if="fund.WEBISOPEN != 'Y'" />
+                                <a target="_blank" ng-href="https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2FBuyAction.do%3Fmethod%3DbuyPre%26businCode%3D022%26fundCode%3D{{fund.FUNDCODE}}" ng-if="fund.WEBISOPEN == 'Y'">
+                                    <img src="./images/sy_gpx_table_gwc.png" alt="申购" />
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-when="货币">
+                        <thead>
+                        <tr>
+                            <th>基金代码</th>
+                            <th style="width:240px">基金名称</th>
+                            <th>截止日期</th>
+                            <th>每万份基金收益(元)</th>
+                            <th>七日收益率</th>
+                            <th>今年以来</th>
+                            <th>过去一年</th>
+                            <th>申购</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds"  ng-if="fund.WEBISSHOW == 'Y' && ['519858', '519859', '511920', '511921'].indexOf(fund.FUNDCODE) < 0"  ng-init="checkRepeat()">
+                            <td style="text-align:center">{{fund.FUNDCODE}}</td>
+                            <td style="text-align: left;padding-left: 30px;"><a ng-href="./funds/?{{fund.FUNDCODE}}" target="_blank">{{fund.WEBPRODUCTNAME}}</a></td>
+                            <td style="text-align:center">{{fund.NAVDATE | date : "yyyy-MM-dd"}}</td>
+                            <td style="text-align:center" ng-style="fund.UNITYIELD|getColorByValue">{{fund.WEBUNITYIELD}}</td>
+                            <td style="text-align:center" ng-style="fund.YEARLYROE7|getColorByValue">{{fund.WEBYEARLYROE7}}%</td>
+                            <td style="text-align:center" ng-style="fund.YIELDTHISY|getColorByValue">{{fund.YIELDTHISY | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDLASTY|getColorByValue">{{fund.YIELDLASTY | getValue : '%'}}</td>
+                            <td style="text-align:center">
+                                <img src="./images/sy_gpx_table_gwc2.png" width="16" height="16" alt="暂停申购" ng-if="fund.WEBISOPEN != 'Y'" />
+                                <a target="_blank" ng-href="https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2FBuyAction.do%3Fmethod%3DbuyPre%26businCode%3D022%26fundCode%3D{{fund.FUNDCODE}}" ng-if="fund.WEBISOPEN == 'Y'">
+                                    <img src="./images/sy_gpx_table_gwc.png" alt="申购" />
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-when="货币">
+                        <thead>
+                        <tr>
+                            <th>基金代码</th>
+                            <th style="width:240px">基金名称</th>
+                            <th>截止日期</th>
+                            <th>日每百万份净值收益(元)</th>
+                            <th>七日收益率</th>
+                            <th>今年以来</th>
+                            <th>过去一年</th>
+                            <th>申购</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds"  ng-if="fund.WEBISSHOW == 'Y' && ['519858', '519859'].indexOf(fund.FUNDCODE) >= 0" ng-init="checkRepeat()">
+                            <td style="text-align:center">{{fund.FUNDCODE}}</td>
+                            <td style="text-align: left;padding-left: 30px;"><a ng-href="./funds/?{{fund.FUNDCODE}}" target="_blank">{{fund.WEBPRODUCTNAME}}</a><a href="http://www.gffunds.com.cn/funds/jjcp/HBXJJ/gfxjba/etf.htm" target="_blank">[相关申赎清单]</a></td>
+                            <td style="text-align:center">{{fund.NAVDATE | date : "yyyy-MM-dd"}}</td>
+                            <td style="text-align:center" ng-style="fund.UNITYIELD|getColorByValue">{{fund.WEBUNITYIELD}}</td>
+                            <td style="text-align:center" ng-style="fund.YEARLYROE7|getColorByValue">{{fund.WEBYEARLYROE7}}%</td>
+                            <td style="text-align:center" ng-style="fund.YIELDTHISY|getColorByValue">{{fund.YIELDTHISY | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDLASTY|getColorByValue">{{fund.YIELDLASTY | getValue : '%'}}</td>
+                            <td style="text-align:center">
+                                <img src="./images/sy_gpx_table_gwc2.png" width="16" height="16" alt="暂停申购" ng-if="fund.WEBISOPEN != 'Y'" />
+                                <a target="_blank" ng-href="https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2FBuyAction.do%3Fmethod%3DbuyPre%26businCode%3D022%26fundCode%3D{{fund.FUNDCODE}}" ng-if="fund.WEBISOPEN == 'Y'">
+                                    <img src="./images/sy_gpx_table_gwc.png" alt="申购" />
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+<!--万份收益-->
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-when="货币">
+                        <thead>
+                        <tr>
+                            <th>基金代码</th>
+                            <th style="width:240px">基金名称</th>
+                            <th>截止日期</th>
+                            <th>日每百份净值收益(元)</th>
+                            <th>七日收益率</th>
+                            <th>今年以来</th>
+                            <th>过去一年</th>
+                            <th>申购</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds"  ng-if="fund.WEBISSHOW == 'Y' && ['511920', '511921'].indexOf(fund.FUNDCODE) >= 0" ng-init="checkRepeat()">
+                            <td style="text-align:center">{{fund.FUNDCODE}}</td>
+                            <td style="text-align: left;padding-left: 30px;"><a ng-href="./funds/?{{fund.FUNDCODE}}" target="_blank">{{fund.WEBPRODUCTNAME}}</a></td>
+                            <td style="text-align:center">{{fund.NAVDATE | date : "yyyy-MM-dd"}}</td>
+                            <td style="text-align:center" ng-style="fund.UNITYIELD|getColorByValue">{{fund.WEBUNITYIELD}}</td>
+                            <td style="text-align:center" ng-style="fund.YEARLYROE7|getColorByValue">{{fund.WEBYEARLYROE7}}%</td>
+                            <td style="text-align:center" ng-style="fund.YIELDTHISY|getColorByValue">{{fund.YIELDTHISY | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDLASTY|getColorByValue">{{fund.YIELDLASTY | getValue : '%'}}</td>
+                            <td style="text-align:center">
+                                <img src="./images/sy_gpx_table_gwc2.png" width="16" height="16" alt="暂停申购" ng-if="fund.WEBISOPEN != 'Y'" />
+                                <a target="_blank" ng-href="https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2FBuyAction.do%3Fmethod%3DbuyPre%26businCode%3D022%26fundCode%3D{{fund.FUNDCODE}}" ng-if="fund.WEBISOPEN == 'Y'">
+                                    <img src="./images/sy_gpx_table_gwc.png" alt="申购" />
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-when="理财">
+                        <thead>
+                        <tr>
+                            <th>基金代码</th>
+                            <th>基金名称</th>
+                            <th>截止日期</th>
+                            <th>每万份基金收益(元)</th>
+                            <th>七日收益率</th>
+                            <th>今年以来</th>
+                            <th>过去一年</th>
+                            <th>申购</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds"  ng-if="fund.WEBISSHOW == 'Y' && ['519858', '519859'].indexOf(fund.FUNDCODE) < 0" ng-init="checkRepeat()">
+                            <td style="text-align:center">{{fund.FUNDCODE}}</td>
+                            <td style="text-align: left;padding-left: 30px;"><a ng-href="./funds/?{{fund.FUNDCODE}}" target="_blank">{{fund.WEBPRODUCTNAME}}</a></td>
+                            <td style="text-align:center">{{fund.NAVDATE | date : "yyyy-MM-dd"}}</td>
+                            <td style="text-align:center" ng-style="fund.UNITYIELD|getColorByValue">{{fund.WEBUNITYIELD}}</td>
+                            <td style="text-align:center" ng-style="fund.YEARLYROE7|getColorByValue">
+                                {{fund.WEBYEARLYROE7}}%
+                                <a class="sy_hbx_tablezhu" href="javascript:void(0);" ng-mouseenter="showSCE=true" ng-mouseleave="showSCE=false" ng-show="SCFs.length" ng-controller="SCEFundCtrl">
+                                    <img src="./images/sy_jjjz_zhu.jpg" width="19" height="19" style="margin:0 5px;vertical-align:middle;" />
+                                    <dl class="sy_hbx_zhutxt" ng-style="{display: showSCE ? 'block' : 'none'}">
+                                        <dt></dt>
+                                        <dd><span class="zhu_l">运作期起始日</span><span class="zhu_c">运作期到期日</span><span class="zhu_r">运作期年化收益率</span></dd>
+                                        <dd ng-class="{last: $last}" ng-repeat="SCF in SCFs"><span class="zhu_l">{{SCF.STARTDATE | date : 'yyyy-MM-dd'}}</span><span class="zhu_c">{{SCF.ENDDATE | date : 'yyyy-MM-dd'}}</span><span class="zhu_r">{{SCF.YIELDYEAR}}</span></dd></dl></a>
+                            </td>
+                            <td style="text-align:center" ng-style="fund.YIELDTHISY|getColorByValue">{{fund.YIELDTHISY | getValue : '%'}}</td>
+                            <td style="text-align:center" ng-style="fund.YIELDLASTY|getColorByValue">{{fund.YIELDLASTY | getValue : '%'}}</td>
+                            <td style="text-align:center">
+                                <img src="./images/sy_gpx_table_gwc2.png" width="16" height="16" alt="暂停申购" ng-if="fund.WEBISOPEN != 'Y'" />
+                                <a target="_blank" ng-href="https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2FBuyAction.do%3Fmethod%3DbuyPre%26businCode%3D022%26fundCode%3D{{fund.FUNDCODE}}" ng-if="fund.WEBISOPEN == 'Y'">
+                                    <img src="./images/sy_gpx_table_gwc.png" alt="申购" />
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" ng-switch-when="DELETED_实时">
+                        <thead>
+                        <tr>
+                            <th width="400">基金名称</th>
+                            <th width="335">基金净值</th>
+                            <th width="250">净值日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="fund in category.funds"  ng-init="checkRepeat()">
+                            <td style="text-align: left;padding-left: 30px;"><a href="./funds/?" target="_blank">{{fund.FUNDNAME}}</a></td>
+                            <td>{{fund.NAVUNIT}}</td>
+                            <td>{{fund.FUNDDATE}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 全球指数 -->
+    <div class="sy_qqzs">
+        <div class="sy_qqzs_nav">
+            <ul>
+                <li id="qqzstabs" class="qqzs">全球指数</li>
+                <li id="qqzs_qt" class="qt sel">其他</li>
+            </ul>
+        </div>
+        <!-- 全球指数数据滚动 -->
+        <div class="sy_qqzstabs">
+            <div class="sy_qqzslist" style="width:875px;height:30px;overflow:hidden;">
+                <iframe data-src="http://data.stock.hexun.com/iframe/iframe_markets.htm" id="sy_qqzslist" width="954" height="30"  frameborder="0" allowtransparency="true" scrolling="no" style="position: absolute;top:-1px;left:-80px;"></iframe>
+            </div>
+            <script>
+                $(function(){
+                    $("#sy_qqzslist").attr("src", $("#sy_qqzslist").data("src"));
+                })
+            </script>
+            <!--<div class="sy_qqzsbotton">
+                <a href="#" id="sy_qqzsprev" class="float-l">Prev</a>
+                <a href="#" id="sy_qqzsnext" class="float-r">Next</a>
+            </div>-->
+        </div>
+
+        <!-- 其他指数 -->
+        <div class="sy_qqzs_qt">
+            <ul>
+                <li>
+                    <a href="#" target="_blank">MSCI全球</a><i></i><i class="green">-0.4%</i>
+                    <a href="#" target="_blank">标普全球农业</a><i></i><i>0.45%</i>
+                    <a href="#" target="_blank">NDX index</a><i></i><i class="green">-1.069%</i>
+                </li>
+            </ul>
+            <a href="javascript:void(0);" id="qqzs-prev" class="qqzs-prev">prev</a>
+            <a href="javascript:void(0);" id="qqzs-next" class="qqzs-next">next</a>
+        </div>
+    </div>
+
+
+    <!-- gfnews 广发新闻资讯2 -->
+    <div class="sy_gfnews shadow">
+
+        <!-- jjgg 基金公告 -->
+        <div class="sy_gfnews_box sy_gfnews_jjgg">
+            <div class="top">
+                <ul>
+                    <li id="sy_gfnews_jjgg"><a href="./gfzx/jjgg/" target="_blank" class="sel">基金公告</a></li>
+                </ul>
+                <div class="morelink"><a href="./gfzx/jjgg/" target="_blank">更多&gt;&gt;</a></div>
+            </div>
+            <div id="sy_gfnews_jjgg_t" class="title">
+                <ul>
+
+                    
+                        <li><span>[<a href="./gfzx/jjgg/zdsj/">重大事件</a>]</span><a target="_blank" href="./gfzx/jjgg/zdsj/201605/t20160520_52412.htm" title="关于增加大智慧财富为旗下部分基金代销机构的公告">关于增加大智慧财富为旗下部分基金代销机...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjgg/flwj/">法律文件</a>]</span><a target="_blank" href="./gfzx/jjgg/flwj/201605/P020160520313433844711.doc" title="广发聚惠灵活配置混合型证券投资基金招募说明书更新【2016年1号】">广发聚惠灵活配置混合型证券投资基金招募...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjgg/flwj/">法律文件</a>]</span><a target="_blank" href="./gfzx/jjgg/flwj/201605/P020160520313026496503.doc" title="广发聚宝混合型证券投资基金招募说明书更新【2016年1号】">广发聚宝混合型证券投资基金招募说明书更...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjgg/flwj/">法律文件</a>]</span><a target="_blank" href="./gfzx/jjgg/flwj/201605/P020160520312398681696.doc" title="广发聚宝混合型证券投资基金招募说明书更新摘要【2016年1号】">广发聚宝混合型证券投资基金招募说明书更...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjgg/flwj/">法律文件</a>]</span><a target="_blank" href="./gfzx/jjgg/flwj/201605/P020160520312692905501.doc" title="广发聚惠灵活配置混合型证券投资基金招募说明书更新摘要【2016年1号】">广发聚惠灵活配置混合型证券投资基金招募...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjgg/flwj/">法律文件</a>]</span><a target="_blank" href="./gfzx/jjgg/flwj/201605/P020160520311929784142.doc" title="广发中证百度百发策略100指数型证券投资基金招募说明书更新【2016年1号】">广发中证百度百发策略100指数型证券投资基...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+                        <li><span>[<a href="./gfzx/jjgg/flwj/">法律文件</a>]</span><a target="_blank" href="./gfzx/jjgg/flwj/201605/P020160520311525568705.doc" title="广发中证百度百发策略100指数型证券投资基金招募说明书更新摘要【2016年1号】">广发中证百度百发策略100指数型证券投资基...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-20','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-20</i></li>
+                    
+
+                </ul>
+            </div>
+        </div>
+        <div class="sy_gfnews_box sy_gfnews_tzgd">
+            <div class="top">
+                <ul>
+                    <li id="sy_gfnews_jjkt"><a href="./jjkt/jjyd/" target="_blank" class="sel">基金课堂</a></li>
+                </ul>
+                <div class="morelink"><a href="./jjkt/jjyd/" target="_blank">更多&gt;&gt;</a></div>
+            </div>
+            <div id="sy_gfnews_jjkt_t" class="title" style="display: block">
+                <ul>
+                    
+                        <li><span>[<a href="./jjkt/jjyd/128/dt/">定投</a>]</span><a target="_blank" href="./jjkt/jjyd/128/dt/201605/t20160516_52357.htm" title="智能定投比普通定投更聪明么？大数据告诉你答案">智能定投比普通定投更聪明么？大数据告诉...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-16','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-16</i></li>
+                    
+                        <li><span>[<a href="./jjkt/jjyd/zszq/">配置宝</a>]</span><a target="_blank" href="./jjkt/jjyd/zszq/201605/t20160513_52353.htm" title="探寻板块轮动规律 借ETF基金玩转猴市波段">探寻板块轮动规律 借ETF基金玩转猴市波段</a><script>CheckHot('', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-13','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-13</i></li>
+                    
+                        <li><span>[<a href="./jjkt/jjyd/rhlc/">如何理财</a>]</span><a target="_blank" href="./jjkt/jjyd/rhlc/201605/t20160513_52351.htm" title="个人理财该注意哪些问题？赶紧学会这六点吧">个人理财该注意哪些问题？赶紧学会这六点吧</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-13','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-13</i></li>
+                    
+                        <li><span>[<a href="./jjkt/jjyd/128/dt/">定投</a>]</span><a target="_blank" href="http://dwz.cn/3le3jc" title="每月退休金1万元是一种怎样的人生体验？">每月退休金1万元是一种怎样的人生体验？</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-13','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-13</i></li>
+                    
+                        <li><span>[<a href="./jjkt/jjyd/llzl/">老罗专栏</a>]</span><a target="_blank" href="./jjkt/jjyd/llzl/201605/t20160510_52148.htm" title="【中级篇】老罗话指数：老罗用历史数据告诉你2016年的投资策略">【中级篇】老罗话指数：老罗用历史数据告...</a><script>CheckHot('', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-10','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-10</i></li>
+                    
+
+                    
+                        <li><span>[<a href="./gfzx/scpl/cjxw/">财经新闻</a>]</span><a target="_blank" href="./gfzx/scpl/cjxw/201605/t20160519_52397.htm" title="OLED产业渗透率提升 广发原材料联接捕捉新材料行情">OLED产业渗透率提升 广发原材料联接捕捉新...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-19','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-19</i></li>
+                    
+                        <li><span>[<a href="./gfzx/scpl/gnsc/">国内市场</a>]</span><a target="_blank" href="./gfzx/scpl/gnsc/201605/t20160519_52396.htm" title="5月19日市场点评：大盘再现一日游行情，成交量再创新低">5月19日市场点评：大盘再现一日游行情，成...</a><script>CheckHot('0', '<img src="./images/sy_gfnews_hot.png" width="33" height="14" />', function (){CheckNow('2016-05-19','<img src="./images/sy_gfnews_new.png" />')})</script><i>2016-05-19</i></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 定投排行 -->
+    <div id="sy_dtph" class="sy_dtph shadow">
+        <div class="sy_dtl">
+            <div class="sy_dtlt">
+                <a href="javascript:;" class="sy_dtlt_s sel" data-class="sy_dtlc_s">申购排行</a>
+                <a href="javascript:;" class="sy_dtlt_d" data-class="sy_dtlc_d">定投排行</a>
+            </div>
+            <div class="sy_dtlc">
+                <div class="sy_dtlcm sy_dtlc_s">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="60%">广发新动力</td>
+                            <td width="40%"><div class="sy_dtlc_ph" style="width:100px;"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="60%">广发改革先锋</td>
+                            <td width="40%"><div class="sy_dtlc_ph" style="width:60px;"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="60%">广发金融地产联接</td>
+                            <td width="40%"><div class="sy_dtlc_ph" style="width:30px;"></div></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="sy_dtlcm sy_dtlc_d">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="60%">广发新动力</td>
+                            <td width="40%"><div class="sy_dtlc_ph" style="width:100px;"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="60%">广发深证100指数</td>
+                            <td width="40%"><div class="sy_dtlc_ph" style="width:60px;"></div></td>
+                        </tr>
+                        <tr>
+                            <td width="60%">广发医疗指数分级</td>
+                            <td width="40%"><div class="sy_dtlc_ph" style="width:30px;"></div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="sy_dtc">
+            <h2>定投收益排行</h2>
+            <div class="sy_dtc_sel">
+                <div class="sy_dtc_sn">
+                    <div class="sy_dtc_sbt" data-val="5">趋势定投</div>
+                    <ul>
+                        <li data-val="1">定期定额/不定额</li>
+                        <li data-val="2">美林时钟</li>
+                        <li data-val="3">趋势左侧</li>
+                        <li data-val="4">趋势右侧</li>
+                        <li data-val="5">趋势定投</li>
+                    </ul>
+                </div>
+                <div class="sy_dtc_sy">
+                    <div class="sy_dtc_sbt" data-val="3">3年</div>
+                    <ul>
+                        <li data-val="1">1年</li>
+                        <li data-val="3">3年</li>
+                        <li data-val="5">5年</li>
+                    </ul>
+                </div>
+            </div>
+            <p>统计周期：<em>2010-10-01</em>~<em>2013-09-17</em></p>
+        </div>
+        <div class="sy_dtr">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th width="33%">基金名称</th>
+                    <th width="33%">左侧趋势定投</th>
+                    <th width="33%">右侧趋势定投</th>
+                </tr>
+                <tr>
+                    <td width="33%" class="tl">广发核心精选</td>
+                    <td width="33%">31.6%</td>
+                    <td width="33%">31.6%</td>
+                </tr>
+                <tr>
+                    <td width="33%" class="tl">广发聚瑞</td>
+                    <td width="33%">27.72%</td>
+                    <td width="33%">27.72%</td>
+                </tr>
+                <tr class="bottomtr">
+                    <td width="33%" class="tl">广发稳健增长</td>
+                    <td width="33%">12.12%</td>
+                    <td width="33%">12.12%</td>
+                </tr>
+                <tr class="ltr">
+                    <td colspan="2" height="35" class="tl">同期上证指数表现：<em>-14.74%</em></td>
+                    <td><a href="http://www.gffunds.com.cn/cal/qsdt/" target="_blank">查看全部 >></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- gjx 工具箱 -->
+    <div class="sy_gjx shadow">
+        <dl>
+            <dt>工具箱</dt>
+            <dd><a href="http://www.gffunds.com.cn/funds/filter/" class="gjx_txjj" target="_blank">挑选基金</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/lczb/jjgj/jjbj/" class="gjx_lcgh" target="_blank">基金比较</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/etrade/" class="gjx_xsph" target="_blank">销售排行</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/lczb/jjgj/mnjsq/rssfdtjsq/" class="gjx_dtcs" target="_blank">定投测算</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/cal/dqde_dqbde/" class="gjx_dtjsq" target="_blank">定投计算器</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/html/dtml/index.html" class="gjx_dtjh" target="_blank">定投计划</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/lczb/jjjb.htm" class="gjx_lczb" target="_blank">理财账本</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/funds/all/open/" class="gjx_qscjj" target="_blank">全市场基金</a></dd>
+            <dd><a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/wsjyjjrm/jjtz/" class="gjx_xssl" target="_blank">新手上路</a></dd>
+        </dl>
+    </div>
+
+    <!-- rdhd 广发热点活动 -->
+    
+        <div class="sy_rdhd shadow" style="display:none;">
+            <a href="http://www.gffunds.com.cn/html/weixinmsy/" target="_blank"><img src="./sy/1307/gg984x98/201309/W020130924316788220801.jpg" width="984" height="98" alt="微信" /></a>
+        </div>
+    
+
+
+
+</div>
+
+<!--尾部模板开始 -->
+<!-- footer 底部信息 -->
+<style>
+/* clearfix */
+.footerclearfix{width:986px;margin:0 auto;clear:both;}
+.footerclearfix:before, .footerclearfix:after { content:""; display:table;}
+.footerclearfix:after{ clear:both; overflow:hidden;}
+.footerclearfix{ zoom:1;}
+
+
+
+/* footer */
+.sy_footer{margin-top:10px;}
+
+.sy_footer ul,.sy_footer li,.sy_footer dl,.sy_footer dt,.sy_footer dd,.sy_footer p,.sy_footer a,.sy_footer span,.sy_footer i{margin:0;padding:0;list-style:none;font-size:12px;color:#777;font-family:Arial, "宋体";}
+.sy_footer a,
+.sy_footer a:link{color:#777;text-decoration:none;}
+.sy_footer a:hover{color:#777;text-decoration:none;}
+
+
+
+
+	/* sy_help 帮助信息 */
+.sy_footer .sy_help{height:160px;margin-bottom:10px;border:1px solid #e1e1e1; background:url(http://www.gffunds.com.cn/images/sy_gfnews_bg.jpg) bottom left repeat-x;
+
+/*  阴影   */
+    -moz-box-shadow:0 0 4px #ccc;
+    -webkit-box-shadow:0 0 4px #ccc;
+    box-shadow:0 0 4px #ccc;
+    /* For IE 8 */
+	/*
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=30, Color='#cccccc')";
+	*/
+    /* For IE 5.5 - 7 */
+
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=30, Color='#cccccc');
+}
+.sy_footer .sy_help dl{float:left;padding:20px 0 0 60px;width:180px;}
+.sy_footer .sy_help dt{line-height:24px;font-size:14px;font-weight:bold;color:#3e3a39;}
+.sy_footer .sy_help dd{line-height:20px;color:#3e3a39;}
+.sy_footer .sy_help dd a{color:#3e3a39;line-height:20px;}
+.sy_footer .sy_help dd a:hover{color:#f67b29;}
+
+
+
+	/* foot */
+.sy_footer .sy_foot{height:110px;line-height:22px;text-align:center;}
+.sy_footer .sy_foot p{color:#ababab;line-height:22px;}
+.sy_footer .sy_foot a{color:#ababab;}
+.sy_footer .sy_foot a:hover{color:#f67b29;}
+
+
+</style>
+<!-- footer 底部信息 -->
+<div class="footerclearfix sy_footer">
+    <!-- help 广发帮助信息 -->
+    <div class="sy_help">
+       
+        <dl>
+        	<dt>新手指南</dt>
+           
+            <dd><a href="http://www.gffunds.com.cn/jjkt/xssl/lcgb/" target="_blank">新手指引</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/scjycjwt/index_help.htm" target="_blank">首次交易</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/etrade/fw/jygz/wsjygz/" target="_blank">业务规则</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/khfw/bzzx/jjdg/" target="_blank">风险测试</a></dd>
+           
+         </dl>
+        
+        <dl>
+        	<dt>常见问题</dt>
+           
+            <dd><a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/wsjy/khdl/" target="_blank">开户/登录</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/khfw/bzzx/cjwt/scjycjwt/" target="_blank">首次交易</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/etrade/fw/jyfl/" target="_blank">交易费率</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/etrade/zfyhk/wyzf/" target="_blank">支付银行卡</a></dd>
+           
+         </dl>
+        
+        <dl>
+        	<dt>客户服务</dt>
+           
+            <dd><a href="http://www.gffunds.com.cn/khfw_v2/" target="_blank">帮助手册</a></dd>
+           
+            <dd><a href="http://live800.gffunds.com.cn/live800/chatClient/chatbox.jsp?companyID=203&configID=78270" target="_blank">在线客服</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/khfw/fwjs/dhfw/" target="_blank">电话服务流程</a></dd>
+           
+            <dd><a href="http://v.gffunds.com.cn/" target="_blank">视频大讲堂</a></dd>
+           
+         </dl>
+        
+        <dl>
+        	<dt>相关清单查询</dt>
+           
+            <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzz500etf/etf.htm" target="_blank">广发中证500ETF清单</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfzxetf/etf.htm" target="_blank">广发中小板300ETF清单</a></dd>
+           
+            <dd><a href="http://www.gffunds.com.cn/funds/jjcp/zsxjj/gfhs300etf/etf.htm" target="_blank">广发沪深300ETF清单</a></dd>
+           
+            <dd><a href="/143/xgqdcx/" target="_blank">查看全部清单>></a></dd>
+           
+         </dl>
+                
+    </div>
+    <div class="sy_foot">
+    <!--
+    <p><a href="http://www.gffunds.com.cn/gywm/" target="_blank">关于我们</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/gywm/lxwm/" target="_blank">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/gywm/gygf/" target="_blank">公益广发</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/wzdt/" target="_blank">网站导航</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">English</a></p>
+    -->
+    <p><a href="http://www.gffunds.com.cn/khfw/tzzjy/zqjbfg/201308/t20130813_30965.htm" target="_blank">风险提示函</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/etrade/fw/jygz/wsjygz/201207/t20120716_22206.htm" target="_blank">投资人权益须知</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/etrade/fw/jygz/jbywgz/" target="_blank">基金业务规则</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/gywm/lxwm/" target="_blank">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/wzdt/" target="_blank">网站导航</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.gffunds.com.cn/en" target="_blank">English</a></p>
+
+    <p>广发基金管理有限公司&nbsp;&nbsp;&nbsp;&nbsp;版权所有&nbsp;&nbsp;&nbsp;&nbsp;All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;[ICP 备案登记证编号:粤ICP备12020109号]</p>
+    <p>传真：020-89899158&nbsp;&nbsp;&nbsp;&nbsp;交易传真：020-89899069&nbsp;&nbsp;&nbsp;&nbsp;地址：广州市海珠区琶洲大道东1号保利国际广场南塔31-33楼&nbsp;&nbsp;&nbsp;&nbsp;邮编：510308</p>
+    <p>客服热线：95105828&nbsp;&nbsp;&nbsp;&nbsp;客服邮箱：services@gffunds.com.cn&nbsp;&nbsp;&nbsp;&nbsp;一对多服务：95105828-2</p>
+    </div>
+
+</div>
+<!--尾部模板结束 -->
+
+
+<!-- jquery and js -->
+<script src="./images/foucs.js"></script>
+
+<!-- 基金选择 -->
+<script>
+<!--
+// 全局调试开关
+var g_isDebug = false;
+var ChannelInfo = {
+    current_chnl : ''|0,// 当前栏目
+    //-- 计算器 ----------------------------
+    calc_dinge  : '1354'|0,// 定期
+    calc_zhuhe  : '1355'|0,// 组合
+    calc_qushi  : '1356'|0,// 趋势
+    calc_mlsz   : '1357'|0,// 美林时钟
+    calc_jieyou : '1358'|0,// 解忧
+    //-- 预警器 ----------------------------
+    warn_zs_spdw : ''|0,// 指数收盘点位
+    warn_zs_zszy : ''|0,// 指数止损止盈
+    warn_zs_qushi : ''|0, // 指数趋势
+    warn_jj_net : ''|0, // 基金净值
+    warn_jj_zszy : ''|0,// 基金止损止盈
+    warn_zhangben : ''|0,// 账本
+    warn_jieyou : ''|0,// 解忧
+    //-- 全市场 ----------------------------
+    allmarket_openfunds  : '1424'|0, // 开放式基金
+    allmarket_moneyfunds : '1425'|0, // 货币基金
+    allmarket_shortProf  : '1426'|0, // 短期业绩
+    allmarket_longProf   : '1427'|0, // 长期业绩
+    //-- 自有基金 ----------------------------
+    gffunds_openfunds  : '1450'|0, // 开放式基金
+    gffunds_moneyfunds : '1451'|0, // 货币基金
+    gffunds_shortProf  : '1452'|0, // 短期业绩
+    gffunds_longProf   : '1453'|0 // 长期业绩
+}; 
+var g_links = {
+    // 全市场基金，基金明细
+    allMarket_detail : './funds/all/jjmx/' || 0,
+    // 广发自有基金，基金明细
+    gffunds_detail : './funds/all/jjmx/' || 0,
+    // 购买
+    trade_buy : "https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2Fbuypre.jsp",
+    // 定投
+    trade_dingtou : "https://trade.gffunds.com.cn/network/networkgo.jsp?gourl=trade%2Funfixbalatrade.jsp",
+    // 基金比较
+    funds_compare : './lczb/jjgj/jjbj/'
+};
+
+// 广发自有基金产品基金代码与基金首页链接的映射信息
+var g_gffundsIndexLinks = (function(){
+    var _gffundCodes = "162703,270001,270002,270005,270006,270007,270008,270021,270022,270025,960001,270028,270041,270050,000117,000167,000214,000215,000477,000529,000550,000567,000747,000992,001115,001116,001189,001206,001207,001260,001290,001353,001354,001355,001356,001468,001741,001742,001734,001735,002025,002026,001763,002107,002108,001761,001762,002132,002124,002295,002116,002117,002134,002446,270010,510360,510510,162711,159907,270026,162714,150083,150084,159945,001460,159944,001459,159946,001458,159936,001133,159938,001180,159940,001469,159939,000942,502056,502057,502058,000968,001064,000826,000827,270023,000906,270027,000885,270042,000055,000179,000180,000274,000275,000369,000370,001092,001093,159941,270009,162712,270029,270030,270043,270044,270045,270048,270049,162715,162716,000118,000119,000267,000268,000348,000349,000473,000474,002636,002637,270004,270014,511920,270046,270047,000037,000038,000389,002183,519858,519859,000509,000475,000476,001134,000748,"||"";
+	_gffundCodes = _gffundCodes.split(",");
+
+	var _gffundChnlInfo = "./funds/jjcp/hhxjj/gfxpcz/,./funds/jjcp/hhxjj/gfjfhh/,./funds/jjcp/hhxjj/gfwjzz/,./funds/jjcp/hhxjj/gfjf/,./funds/jjcp/hhxjj/gfclyx/,./funds/jjcp/hhxjj/gfdpcz/,./funds/jjcp/hhxjj/gfhxjx/,./funds/jjcp/hhxjj/gfjrgp/,./funds/jjcp/hhxjj/gfnxzz/,./funds/jjcp/hhxjj/gfhylxa/,./funds/jjcp/hhxjj/gfhylxhhh/,./funds/jjcp/hhxjj/gfzzjx/,./funds/jjcp/hhxjj/gfxfjx/,./funds/jjcp/hhxjj/gfxjj/,./funds/jjcp/hhxjj/gfldpz/,./funds/jjcp/hhxjj/gfjy_1857/,./funds/jjcp/hhxjj/gfczyxhh/,./funds/jjcp/hhxjj/gfqsyx/,./funds/jjcp/hhxjj/gfztlxhh/,./funds/jjcp/hhxjj/gfjzyshh/,./funds/jjcp/hhxjj/gfxdl/,./funds/jjcp/hhxjj/gfjxlhhh/,./funds/jjcp/hhxjj/gfnxclhh/,./funds/jjcp/hhxjj/gfdc/,./funds/jjcp/hhxjj/gfjahhA/,./funds/jjcp/hhxjj/gfjahhC/,./funds/jjcp/hhxjj/gfjbhh/,./funds/jjcp/hhxjj/gfjhhha/,./funds/jjcp/hhxjj/gfjhhhc/,./funds/jjcp/hhxjj/gfaxhh/,./funds/jjcp/hhxjj/gfathh/,./funds/jjcp/hhxjj/gfjkhha/,./funds/jjcp/hhxjj/gfjkhhc/,./funds/jjcp/hhxjj/gfjthha/,./funds/jjcp/hhxjj/gfjthhc/,./funds/jjcp/hhxjj/gfgghh/,./funds/jjcp/hhxjj/gfbfdsjjxhha/,./funds/jjcp/hhxjj/gfbfdsjjxhhe/,./funds/jjcp/hhxjj/gfbfdsjczhha/,./funds/jjcp/hhxjj/gfbfdsjczhhe/,./funds/jjcp/hhxjj/gfjshha/,./funds/jjcp/hhxjj/gfjshhc/,./funds/jjcp/hhxjj/gfdclhh/,./funds/jjcp/hhxjj/gfafhbhha/,./funds/jjcp/hhxjj/gfafhhc/,./funds/jjcp/hhxjj/gfahhbhha/,./funds/jjcp/hhxjj/gfahhbhhc/,./funds/jjcp/hhxjj/gfxxhh/,./funds/jjcp/hhxjj/gfxxcyhh/,./funds/jjcp/hhxjj/gfwabb/,./funds/jjcp/hhxjj/gfaxhha/,./funds/jjcp/hhxjj/gfaxhhc/,./funds/jjcp/hhxjj/gfxyhh/,./funds/jjcp/hhxjj/gfwxbb/,./funds/jjcp/zsxjj/gfhszs/,./funds/jjcp/zsxjj/gfhs300etf/,./funds/jjcp/zsxjj/gfzz500etf/,./funds/jjcp/zsxjj/gfzzlj/,./funds/jjcp/zsxjj/gfzxetf/,./funds/jjcp/zsxjj/gfzxlj/,./funds/jjcp/zsxjj/gfsz100/,./funds/jjcp/zsxjj/gfsz100_a/,./funds/jjcp/zsxjj/gfsz100_b/,./funds/jjcp/zsxjj/gfzzqznyetf/,./funds/jjcp/zsxjj/gfnylj/,./funds/jjcp/zsxjj/gfzzqzycletf/,./funds/jjcp/zsxjj/gfycllj/,./funds/jjcp/zsxjj/gfzzqzzyxfetf/,./funds/jjcp/zsxjj/gfzyxflj/,./funds/jjcp/zsxjj/gfzzkxxfp/,./funds/jjcp/zsxjj/gfkxxf/,./funds/jjcp/zsxjj/gfzzqzyyws/,./funds/jjcp/zsxjj/gfyywslj/,./funds/jjcp/zsxjj/gfzzqzjrdc/,./funds/jjcp/zsxjj/gfjrdclj/,./funds/jjcp/zsxjj/gfzzqzxxjsetf/,./funds/jjcp/zsxjj/gfxxjslj/,./funds/jjcp/zsxjj/gfylzsfj/,./funds/jjcp/zsxjj/gfylzsfja/,./funds/jjcp/zsxjj/gfylzsfjb/,./funds/jjcp/zsxjj/gfylzs/,./funds/jjcp/zsxjj/gfhbzz/,./funds/jjcp/zsxjj/gfbfyba/,./funds/jjcp/zsxjj/gfbfybe/,./funds/jjcp/QDIIJJ/gfqqjxrmb/,./funds/jjcp/QDIIJJ/gfqqjxmy/,./funds/jjcp/QDIIJJ/gfqqnyrmb/,./funds/jjcp/QDIIJJ/gfqqnymy/,./funds/jjcp/QDIIJJ/gfnsdkrmb/,./funds/jjcp/QDIIJJ/gfnsdkmy/,./funds/jjcp/QDIIJJ/gfmgfdc/,./funds/jjcp/QDIIJJ/gfmgfdc_1777/,./funds/jjcp/QDIIJJ/gfytzgsyz_1962/,./funds/jjcp/QDIIJJ/gfytzgsyz_1971/,./funds/jjcp/QDIIJJ/gfqqylbjzs/,./funds/jjcp/QDIIJJ/gfqqylbjzsmy/,./funds/jjcp/QDIIJJ/gfswkjzs/,./funds/jjcp/QDIIJJ/gfswkjmy/,./funds/jjcp/QDIIJJ/gfnz100etf/,./funds/jjcp/ZQXJJ/gfzqzq/,./funds/jjcp/ZQXJJ/gfjlzq/,./funds/jjcp/ZQXJJ/gfjcxyzqa/,./funds/jjcp/ZQXJJ/gfjcxyzqb/,./funds/jjcp/ZQXJJ/gfnnh/,./funds/jjcp/ZQXJJ/gfsza/,./funds/jjcp/ZQXJJ/gfszc/,./funds/jjcp/ZQXJJ/gfcza/,./funds/jjcp/ZQXJJ/gfczc/,./funds/jjcp/ZQXJJ/gfjyzqa/,./funds/jjcp/ZQXJJ/gfjyzqc/,./funds/jjcp/ZQXJJ/gfjxzqa/,./funds/jjcp/ZQXJJ/gfjxzqc/,./funds/jjcp/ZQXJJ/gfjjyna_1812/,./funds/jjcp/ZQXJJ/gfjjync/,./funds/jjcp/ZQXJJ/gfzzjrz_1924/,./funds/jjcp/ZQXJJ/gfzzjrz_1915/,./funds/jjcp/ZQXJJ/gfjxa/,./funds/jjcp/ZQXJJ/gfjxc/,./funds/jjcp/ZQXJJ/gfjyzqa002636/,./funds/jjcp/ZQXJJ/gfjyzqc002637/,./funds/jjcp/HBXJJ/gfhba/,./funds/jjcp/HBXJJ/gfhbb/,./funds/jjcp/HBXJJ/gfhbe/,./funds/jjcp/HBXJJ/gflc30A/,./funds/jjcp/HBXJJ/gflc30B/,./funds/jjcp/HBXJJ/gflc7A/,./funds/jjcp/HBXJJ/gflc7B/,./funds/jjcp/HBXJJ/gftth/,./funds/jjcp/HBXJJ/gftthb/,./funds/jjcp/HBXJJ/gfxjba/,./funds/jjcp/HBXJJ/gfxjbb/,./funds/jjcp/HBXJJ/gfqdzhb/,./funds/jjcp/HBXJJ/gfttlA/,./funds/jjcp/HBXJJ/gfttlb/,./funds/jjcp/HBXJJ/gfttlE/,./funds/jjcp/HBXJJ/gfhqbhb/,"||"";
+	_gffundChnlInfo = _gffundChnlInfo.split(",");
+    
+    var result = {};
+    for (var i=0, len=_gffundCodes.length; i<len; i++){
+        result[_gffundCodes[i]] = _gffundChnlInfo[i] || "";
+    }
+    return result;
+})();
+
+// 广发自有基金产品基金代码与基金tag的映射信息
+// 分布与WAS接口对接
+var g_gffundsTagLinks = (function(){
+    var _gffundCodes = "162703,270001,270002,270005,270006,270007,270008,270021,270022,270025,960001,270028,270041,270050,000117,000167,000214,000215,000477,000529,000550,000567,000747,000992,001115,001116,001189,001206,001207,001260,001290,001353,001354,001355,001356,001468,001741,001742,001734,001735,002025,002026,001763,002107,002108,001761,001762,002132,002124,002295,002116,002117,002134,002446,270010,510360,510510,162711,159907,270026,162714,150083,150084,159945,001460,159944,001459,159946,001458,159936,001133,159938,001180,159940,001469,159939,000942,502056,502057,502058,000968,001064,000826,000827,270023,000906,270027,000885,270042,000055,000179,000180,000274,000275,000369,000370,001092,001093,159941,270009,162712,270029,270030,270043,270044,270045,270048,270049,162715,162716,000118,000119,000267,000268,000348,000349,000473,000474,002636,002637,270004,270014,511920,270046,270047,000037,000038,000389,002183,519858,519859,000509,000475,000476,001134,000748,"||"";
+	_gffundCodes = _gffundCodes.split(",");
+
+	var _gffundTag = "广发小盘$Tag$广发聚富$Tag$广发稳健$Tag$广发聚丰$Tag$广发优选$Tag$广发大盘$Tag$广发核心$Tag$广发聚瑞$Tag$广发内需$Tag$广发行业领先$Tag$$Tag$广发制造业精选$Tag$$Tag$$Tag$广发轮动配置$Tag$广发聚优$Tag$广发成长优选$Tag$广发趋势优选$Tag$主题领先$Tag$广发竞争优势$Tag$广发新动力$Tag$广发聚祥灵活混合$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$广发300$Tag$$Tag$$Tag$广发500$Tag$广发中小板$Tag$广发中小板300联接$Tag$广发深证100$Tag$广发深证100A$Tag$广发深证100B$Tag$$Tag$$Tag$$Tag$001459$Tag$$Tag$$Tag$可选消费$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$广发百发指数$Tag$广发百发指数$Tag$广发全球精选$Tag$广发全球精选$Tag$广发全球农业$Tag$广发全球农业$Tag$广发纳斯达克$Tag$广发纳斯达克$Tag$广发美国房地产指数$Tag$广发美国房地产指数$Tag$广发亚太中高收益债券$Tag$广发亚太中高收益债券$Tag$广发全球医疗$Tag$广发全球医疗$Tag$$Tag$$Tag$$Tag$广发强债$Tag$广发聚利$Tag$广发聚财$Tag$广发聚财$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$$Tag$广发集鑫A$Tag$广发集鑫C$Tag$$Tag$$Tag$广发货币$Tag$广发货币$Tag$$Tag$广发理财30天债券A$Tag$广发理财30天债券B$Tag$广发理财7天A$Tag$广发理财7天B$Tag$广发天天红$Tag$广发天天红$Tag$广发现金宝$Tag$广发现金宝$Tag$广发钱袋子$Tag$广发天天利$Tag$广发天天利货币$Tag$$Tag$$Tag$"||"";
+	_gffundTag = _gffundTag .split("$Tag$");
+    
+    var result = {};
+    for (var i=0, len=_gffundCodes.length; i<len; i++){
+        result[_gffundCodes[i]] = _gffundTag[i] || "";
+    }
+    return result;
+})();
+
+//-->
+</script>
+
+<!-- 主页相关 -->
+<script src="/js/index_201307.js?t=3454"></script>
+
+<script>
+    $(function(){
+        //二维码
+        $('#ydkhd .ewmlink').hover(function() {
+            $(this).find('.ewmimg').show();
+        },function() {
+            $(this).find('.ewmimg').hide();
+        });
+    })
+</script>
+
+<script type="text/javascript">
+    /*
+     $(function(){
+     $('a').each(function(){
+     var turl = $(this).attr('href');
+     if(turl && (turl.indexOf('.doc')>0 || turl.indexOf('.docx')>0 || turl.indexOf('.pdf')>0))
+     {
+     // $(this).parent().append('<img src="./images/downico.gif" style="width:17px;height:17px;vertical-align: middle;" />');
+     var fileUrl = "/ctrade/download.jsp?filename="  + turl.substr(turl.indexOf("/")+1) + "&filedplyname="
+     + $.trim($(this).attr('title')) + turl.substr(turl.lastIndexOf("."));
+     $(this).attr('href',fileUrl);
+     }
+     });
+     });
+     */
+</script>
+
+</body>
+</html>

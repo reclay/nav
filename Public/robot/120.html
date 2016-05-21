@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>大众影评网，最具活力的影迷粉丝互动平台</title>
+<meta name="keywords" content="大众影评网,影评网,影评"><meta name="description" content="一影一世界，一评一天地。奇葩热帖、明星八卦；犀利影评、吐槽电影；交友互动、免费看电影见明星；电影幕后、电影台词、电影周边，等你来" />
+<link rel="shortcut icon" href="/Images/favicon.ico" />
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="/Js/html5.js"></script>
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/Css/common.css" />
+<style type="text/css">
+	.nav a.hotNavItem{position:relative;color: #f60;}
+	.nav a.hotNavItem.on{position:relative;color: #fff;}
+	.nav a.hotNavItem:hover{color: #fff;}
+	.nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(/Images/HOT.png) no-repeat;}
+/*	.nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
+	.nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
+	/*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
+</style>
+<script type="text/javascript" src="/Js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/Js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/Js/common2.js"></script>
+<script type="text/javascript" src="/Js/common.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4a4681a3b1efbd3cf94cde90ed8a8a95";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<header class="site_nav">
+	<section class="wp clearfix">
+    	<div class="fL">
+        	<span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/Images/wx.jpg" alt="大众影评网微信公众号" /></span>
+        </div>
+        <div class="fR">
+          <ul id="welcome" class="clearfix out">   			
+	<li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li>
+        <li>|</li>
+        <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li>
+        <li>|</li>
+		<li><a href="http://www.51oscar.com/login.html"  title="登录"><i class="icon_man icon"></i>登录</a></li>
+        <li>|</li>
+            	<li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li>
+          	
+    </ul>
+        </div>
+    </section>
+</header>
+<section class="logoAndSreach">
+	<div class="wp clearfix">
+        <div class="logo fL">
+        	<a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/Images/logo.png" alt="大众影评网" /></a>
+        </div>
+        <div class="searchBox fR">
+             <form name="form_sreach" action="/Search/index" method="get" >
+             	<!--[if !IE]><!--> <input class="txt_kw" name="word" type="text" value="" autocomplete="off" placeholder="搜索你感兴趣的" /><!--<![endif]-->
+                <!--[if gte IE 10]> <input class="txt_kw" name="txt_kw" type="text" value="" autocomplete="off" placeholder="搜索你感兴趣的" /> <![endif]-->
+                <!--[if lt IE 10]> <input class="txt_kw" name="txt_kw" type="text" autocomplete="off"  value="搜索你感兴趣的" /> <![endif]-->
+             	<input class="sreach" name="btn_sreach" type="submit" value="" >
+               <!-- <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" > -->
+             <input type="hidden" name="__hash__" value="6666cd76f96956469e7be39d750cc7d9_499af02cd6d4fb94777374a739ec38ae" /></form>
+             <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" >
+			 <input type="hidden" value=""  id="sessionid">
+             <span class="hotLink">
+              <a href="http://www.51oscar.com/movie/38040.html">横冲直撞好莱坞 </a>
+	      		 <a href="http://www.51oscar.com/album/1895.html">十部高分冷门电影推荐</a>
+	      		 <a href="http://www.51oscar.com/album/1908.html">女生在成长路上必看的10部电影</a>
+	      		 <a href="http://www.51oscar.com/album/1921.html">九部电影帮你摆脱失落</a>
+	      		 <a href="http://www.51oscar.com/album/1898.html">2015上半年海外十佳电影</a>
+	      		              </span>
+        </div>
+    </div>
+</section>
+<section class="nav">
+	<nav class="wp clearfix">
+    	<a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
+        <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a>
+        <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a>
+        <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a>
+        <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a>
+        <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a>
+
+        <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a>
+        <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a>
+        <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a>
+
+    </nav>
+</section>
+<script>
+var URL = "http://www.51oscar.com/";
+
+	//下拉菜单
+	function dropMenu(obj){
+		$(obj).each(function(){
+			var theSpan = $(this);
+			var theMenu = theSpan.find(".user_more");
+			var tarHeight = theMenu.height();
+			theMenu.css({height:0,opacity:0});
+			theSpan.hover(
+				function(){
+					
+					theMenu.stop().show().animate({height:175,opacity:1},600);
+				},
+				function(){				
+					theMenu.stop().animate({height:0,opacity:0},600,function(){
+						$(this).css({display:"none"});
+					});
+				}
+			);
+		});
+	}
+	
+ //自动登用的下拉菜单
+	 function dropMenu2(obj){
+		$(obj).each(function(){
+				var theSpan = $(obj);
+				var theMenu = theSpan.find(".user_more");
+				var tarHeight = theMenu.height();
+				//theMenu.css({height:0,opacity:0});
+				theMenu.stop().show().animate({height:175,opacity:1},600);
+				theSpan.live("mouseout",function(){
+						theMenu.stop().animate({height:0,opacity:0},600,function(){
+						$(this).css({display:"none"});
+					});
+				})
+		})
+	}
+ function ajaxGetNotify(u){
+          $.get('/forum/getMsgCount',
+            {usg:u},
+            function(data){
+              $('#auto_msg').html(data);
+            },
+            'json'
+        );
+    }
+	//导航条切换
+	var curr_url=window.location.href;
+	if(/.com\/news/.test(curr_url)){
+		$('#news').addClass('on');
+	}else if(/.com\/movie/.test(curr_url)){
+		$('#movie').addClass('on');
+	}else if(/.com\/review/.test(curr_url)){
+		$('#review').addClass('on');
+	}else if(/.com\/forum/.test(curr_url)){
+		$('#forum').addClass('on');
+	}else if(/.com\/album/.test(curr_url)){
+		$('#album').addClass('on');
+	}else if(/.com\/activity/.test(curr_url)){
+		$('#activity').addClass('on');
+	}else if(/.com\/topic/.test(curr_url)){
+		$('#topic').addClass('on');
+	}else if(/.com\/zhongchou/.test(curr_url)){
+		$('#zhongchou').addClass('on');
+	}else{
+		$('#home').addClass('on');
+	}
+$(document).ready(function(){	
+	//dropMenu(".after_landing");	
+	dropMenu(".user"); 
+	URL = $('#txt_header_url').val() +'/';
+	Common.init(); 
+
+	//forum
+   var sessionid =$('#sessionid').val();
+   if(sessionid){
+	// setInterval("ajaxGetNotify(sessionid)", parseInt(120) * 1000);
+	ajaxGetNotify(sessionid);
+   }	
+});
+</script>
+
+<!-- 内容start -->
+<link rel="stylesheet" href="/Css/index.css" />
+<!--焦点幻灯片 s-->
+<section class="picFocus">
+			<div class="bd">
+				<ul>
+				<li style="background-color:#EFEFEF;">
+                    
+					<a href="http://www.51oscar.com/forum/3588.html" target="_blank" title="" style="background:url(/Uploads/user_thumb/572aa27f5a1f7.jpg) no-repeat center center;" alt="美国队长3">
+						<p class="opacity6"></p>
+						<p class="txt">《美国队长3》：这张片场照被玩坏了</p>
+					</a>
+					</li><li style="background-color:#EFEFEF;">
+                    
+					<a href="http://www.51oscar.com/movie/38683.html" target="_blank" title="" style="background:url(/Uploads/user_thumb/573c07adc5968.jpg) no-repeat center center;" alt="愤怒的小鸟">
+						<p class="opacity6"></p>
+						<p class="txt">《愤怒的小鸟》：萌萌哒很期待</p>
+					</a>
+					</li><li style="background-color:#EFEFEF;">
+                    
+					<a href="http://www.51oscar.com/movie/38684.html" target="_blank" title="" style="background:url(/Uploads/user_thumb/573c08bd42382.jpg) no-repeat center center;" alt="分歧者3：忠诚世界">
+						<p class="opacity6"></p>
+						<p class="txt">《分歧者3：忠诚世界》：越拍越烂了</p>
+					</a>
+					</li><li style="background-color:#EFEFEF;">
+                    
+					<a href="http://www.51oscar.com/movie/38679.html" target="_blank" title="" style="background:url(/Uploads/user_thumb/573526c784536.jpg) no-repeat center center;" alt="超脑48小时">
+						<p class="opacity6"></p>
+						<p class="txt">《超脑48小时》：贱贱和朵妹搭档，美美哒！</p>
+					</a>
+					</li> <li style="background-color:#FDE513;">  
+					<a href="http://www.51oscar.com/forum/1332.html" target="_blank" title="" style="background:url(/Uploads/user_thumb/568f51242a1dc.jpg) no-repeat center center;" alt="合家欢电影">
+						<p class="opacity6"></p>
+						<p class="txt">新春佳节 温馨有爱的合家欢电影盘点</p>
+					</a>
+					</li>				</ul>
+			</div>
+			<div class="hd">
+				<ul>
+				<li><i class="triangle"></i><img src="/Uploads/user_thumb/572aa27f5a1f7.jpg" alt="美国队长3" /></li><li><i class="triangle"></i><img src="/Uploads/user_thumb/573c07adc5968.jpg" alt="愤怒的小鸟" /></li><li><i class="triangle"></i><img src="/Uploads/user_thumb/573c08bd42382.jpg" alt="分歧者3：忠诚世界" /></li><li><i class="triangle"></i><img src="/Uploads/user_thumb/573526c784536.jpg" alt="超脑48小时" /></li><li><i class="triangle"></i><img src="/Uploads/user_thumb/568f51242a1dc.jpg" alt="合家欢电影" /></li>				</ul>
+			</div>
+			
+</section>
+<!--焦点幻灯片 e-->
+
+<!--最新资讯与特别策划 s-->
+<section class="newAndPlan wp clearfix">
+	<section class="new fL">
+    	<div class="title clearfix">
+        	<i class="line"></i><a href="/news/movie.html"  title="最新资讯" target="_self">精彩内容<em>>></em></a>
+        </div>
+        <div class="hotNew">
+        	<dl class="clearfix">
+            	<dt><a href="/news/6108.html" title="电视剧《放开那只魔兽》杀青 王禛女神经追爱路收官" target="_blank" ><img class="imgBorder" src="/Uploads/20160519/573d124019651.jpg" width="228" height="128" alt="电视剧《放开那只魔兽》杀青 王禛女神经追爱路收官" /></a></dt>
+                <dd>
+                    <a class="h2" href="/news/6108.html" title="电视剧《放开那只魔兽》杀青 王禛女神经追爱路收官" target="_blank" >电视剧《放开那只魔兽》杀青 王禛女神经追爱路收官</a>
+                    <p>秉承着“快乐至上”的理念，经过精心的创作，校园魔幻喜剧《放开那只魔兽》在南京杀青前开放媒体探班，导演杨江携王禛、杨天正、张鼎鼎、胡世闻、矫亚亮、惠腾、董晋元一众主演现身，在拍摄的最后阶段，主创们也纷纷表示心情非常激动，虽然剧组生活辛苦，时间也非常紧，但就像个团结欢乐的大家庭，不亦乐乎。</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="list clearfix">
+        <ul>
+        	<li><a href="/news/6106.html" title="郭富城《天亮之前》被虐惨 “亡命鸳鸯”深陷黑帮重围" target="_blank" >郭富城《天亮之前》被虐惨 “亡命鸳鸯”深陷黑帮...</a></li><li><a href="/news/6087.html" title="第23届大影节闭幕 李晨凭《梦想合伙人》成最受欢迎男演员" target="_blank" >第23届大影节闭幕 李晨凭《梦想合伙人》成最受...</a></li><li><a href="/news/6070.html" title="《梦想合伙人》发布“燃情”特辑  梦想不息励志再续" target="_blank" >《梦想合伙人》发布“燃情”特辑  梦想不息励志...</a></li><li><a href="/news/6060.html" title="当《梦想合伙人》遇上“创业难”争议 情感共鸣力敌错误解读" target="_blank" >当《梦想合伙人》遇上“创业难”争议 情感共鸣力...</a></li>        </ul>
+        <ul>
+        	<li><a href="/news/6050.html" title="《梦想合伙人》今日公映  姚晨唐嫣郝蕾热血创业迎接劳动节" target="_blank" >《梦想合伙人》今日公映  姚晨唐嫣郝蕾热血创业...</a></li><li><a href="/news/6046.html" title="《梦想合伙人》姚晨成“电商女魔头” 打造最励志合伙人" target="_blank" >《梦想合伙人》姚晨成“电商女魔头” 打造最励志...</a></li><li><a href="/news/6042.html" title="揭秘《梦想合伙人》七大看点 打造五一档最有福相电影" target="_blank" >揭秘《梦想合伙人》七大看点 打造五一档最有福相...</a></li><li><a href="/news/6032.html" title="《梦想合伙人》曝终极预告海报 李晨感叹姚晨的梦想“太刺激”" target="_blank" >《梦想合伙人》曝终极预告海报 李晨感叹姚晨的梦...</a></li>        </ul>
+        </div>
+    </section><!--最新资讯 e-->
+    <aside class="plan fR">
+    	<div class="title clearfix">
+        	<i class="pen icon"></i>特别策划
+        </div>
+		<div class="sideMenu">
+		<a class="t" href="http://www.51oscar.com/forum/5158.html" title="这些台词讲出了太多人生的真相" target="_blank" >这些台词讲出了太多人生的真相</a>
+			<span class="info">
+            	<a href="http://www.51oscar.com/forum/5158.html" title="这些台词讲出了太多人生的真相" target="_blank" ><img class="imgBorder" src="/Uploads/user_thumb/56652f4fa06b2.jpg" width="238" height="134" alt="这些台词讲出了太多人生的真相" /></a>
+                <p>这些台词讲出了太多人生的真相</p>
+            </span><a class="t" href="http://www.51oscar.com/forum/5163.html" title="美国《帝国》杂志年度20部最佳影片名单" target="_blank" >美国《帝国》杂志年度20部最佳影片名单</a>
+			<span class="info">
+            	<a href="http://www.51oscar.com/forum/5163.html" title="美国《帝国》杂志年度20部最佳影片名单" target="_blank" ><img class="imgBorder" src="/Uploads/user_thumb/56652e012c86b.jpg" width="238" height="134" alt="美国《帝国》杂志年度20部最佳影片名单" /></a>
+                <p>美国《帝国》杂志年度20部最佳影片名单</p>
+            </span><a class="t" href="http://www.51oscar.com/forum/5159.html" title="这些电影的服饰美得不像话！" target="_blank" >这些电影的服饰美得不像话！</a>
+			<span class="info">
+            	<a href="http://www.51oscar.com/forum/5159.html" title="这些电影的服饰美得不像话！" target="_blank" ><img class="imgBorder" src="/Uploads/user_thumb/56652e71b07a4.jpg" width="238" height="134" alt="这些电影的服饰美得不像话！" /></a>
+                <p>这些电影的服饰美得不像话！</p>
+            </span><a class="t" href="http://www.51oscar.com/forum/5164.html" title="2015年度网友票选年度十佳电影" target="_blank" >2015年度网友票选年度十佳电影</a>
+			<span class="info">
+            	<a href="http://www.51oscar.com/forum/5164.html" title="2015年度网友票选年度十佳电影" target="_blank" ><img class="imgBorder" src="/Uploads/user_thumb/56652d716b7c2.jpg" width="238" height="134" alt="2015年度网友票选年度十佳电影" /></a>
+                <p>2015年度网友票选年度十佳电影</p>
+            </span>	    </div>
+	</aside><!--特别策划 e-->
+</section>
+
+<!--最新资讯与特别策划 e-->
+<!--当前热映与即将上映 s-->
+<section class="hotMovie wp">
+    <div class="title clearfix">
+        <i class="line"></i><a href="http://www.51oscar.com/movie/search/0_0_1_0.html" title="当前热映" target="_self">当前热映<em>>></em></a><!-- 跳到电影日历 -->
+    </div>
+    <div class="picScroll">
+        <div class="hd">
+            <a class="next"></a>
+            <a class="prev"></a>
+        </div>
+        <div class="bd">
+            <ul class="picList clearfix">
+                <li>
+                	<a href="/movie/38679.html" title="超脑48小时 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57285af4b2ec9.jpg" width="148" height="208" alt="超脑48小时 " />
+                        <p>超脑48小时 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38662.html" title="别开门 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/5715c65243d3e.jpg" width="148" height="208" alt="别开门 " />
+                        <p>别开门 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38677.html" title="幻体：续命游戏 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/572858b9e76b9.jpg" width="148" height="208" alt="幻体：续命游戏 " />
+                        <p>幻体：续命游戏 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38683.html" title="愤怒的小鸟 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573033d41de07.jpg" width="148" height="208" alt="愤怒的小鸟 " />
+                        <p>愤怒的小鸟 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38678.html" title="再见，在也不见 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/572859dc5a12f.jpg" width="148" height="208" alt="再见，在也不见 " />
+                        <p>再见，在也不见 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38684.html" title="分歧者3：忠诚世界 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57303538b55f7.jpg" width="148" height="208" alt="分歧者3：忠诚世界 " />
+                        <p>分歧者3：忠诚世界 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38681.html" title="谎言大爆炸 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57285cefdb511.jpg" width="148" height="208" alt="谎言大爆炸 " />
+                        <p>谎言大爆炸 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38685.html" title="夜孔雀 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/5730367395eeb.jpg" width="148" height="208" alt="夜孔雀 " />
+                        <p>夜孔雀 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38686.html" title="钢刀 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/5730371e5dd34.jpg" width="148" height="208" alt="钢刀 " />
+                        <p>钢刀 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38682.html" title="购物女王 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57285de7c744e.jpg" width="148" height="208" alt="购物女王 " />
+                        <p>购物女王 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38688.html" title="死亡笔记 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573038ee66af5.jpg" width="148" height="208" alt="死亡笔记 " />
+                        <p>死亡笔记 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38689.html" title="整形师·脸 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573039afe4fe6.jpg" width="148" height="208" alt="整形师·脸 " />
+                        <p>整形师·脸 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38680.html" title="笔仙诡影 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57285c2d91828.jpg" width="148" height="208" alt="笔仙诡影 " />
+                        <p>笔仙诡影 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38690.html" title="在雨中 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57303a8d09e46.jpg" width="148" height="208" alt="在雨中 " />
+                        <p>在雨中 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38687.html" title="708090之深圳恋歌 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57303858f34ba.jpg" width="148" height="208" alt="708090之深圳恋歌 " />
+                        <p>708090之深圳恋歌 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38691.html" title="水滴之梦 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c0a4fa2208.jpg" width="148" height="208" alt="水滴之梦 " />
+                        <p>水滴之梦 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38676.html" title="雏鸟的天空 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/571eef887b0e5.jpg" width="148" height="208" alt="雏鸟的天空 " />
+                        <p>雏鸟的天空 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38675.html" title="男神抱抱 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/571eeee168b73.jpg" width="148" height="208" alt="男神抱抱 " />
+                        <p>男神抱抱 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38674.html" title="妄想症 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/571ddebc65e1b.jpg" width="148" height="208" alt="妄想症 " />
+                        <p>妄想症 <p>
+                    </a>
+                </li><li>
+                	<a href="/movie/38673.html" title="判我有罪 " target="_blank" >
+                        <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/571ddb875a78f.jpg" width="148" height="208" alt="判我有罪 " />
+                        <p>判我有罪 <p>
+                    </a>
+                </li>            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="comingMovie hotMovie wp">
+    <div class="title clearfix">
+        <i class="line"></i><a href="http://www.51oscar.com/movie/search/0_0_2_0.html" title="即将上映" target="_self" >即将上映<em>>></em></a><!-- 跳到电影日历 -->
+    </div>
+    <div class="picScroll">
+        <div class="hd">
+            <a class="next"></a>
+            <a class="prev"></a>
+        </div>
+        <div class="bd">
+            <ul class="picList clearfix">
+            <li>
+                	<time class="icon">05月25日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38692.html" title="自我救赎 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c0b0782b47.jpg" width="98" height="138" alt="自我救赎 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38692.html" title="自我救赎 " target="_blank" >自我救赎 </a>
+                            <p>导演：<em>朱江华 /...</em></p>
+                            <p>类型：<em>剧情</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="自我救赎 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">05月27日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38462.html" title="妖医 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/5625d6a2336ad.jpg" width="98" height="138" alt="妖医 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38462.html" title="妖医 " target="_blank" >妖医 </a>
+                            <p>导演：<em>吴宗强</em></p>
+                            <p>类型：<em>惊悚/悬疑</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="妖医 " data-trailer="http://static.video.qq.com/TPout.swf?vid=i0018wi6xqw&auto=0">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">05月27日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38693.html" title="爱丽丝梦游仙境2：镜中奇遇记 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c0c0e85994.jpg" width="98" height="138" alt="爱丽丝梦游仙境2：镜中奇遇记 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38693.html" title="爱丽丝梦游仙境2：镜中奇遇记 " target="_blank" >爱丽丝梦游仙境...</a>
+                            <p>导演：<em>詹姆斯·博...</em></p>
+                            <p>类型：<em>冒险/奇幻</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="爱丽丝梦游仙境2：镜中奇遇记 " data-trailer="http://static.video.qq.com/TPout.swf?vid=x0020fpv44x&auto=0">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">05月27日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38694.html" title="小蚂蚁之环球大冒险 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c0d08070c6.jpg" width="98" height="138" alt="小蚂蚁之环球大冒险 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38694.html" title="小蚂蚁之环球大冒险 " target="_blank" >小蚂蚁之环球大...</a>
+                            <p>导演：<em>孟文龙 /...</em></p>
+                            <p>类型：<em>喜剧/动画...</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="小蚂蚁之环球大冒险 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">05月27日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38695.html" title="蜜月酒店杀人事件 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c0e530cc55.jpg" width="98" height="138" alt="蜜月酒店杀人事件 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38695.html" title="蜜月酒店杀人事件 " target="_blank" >蜜月酒店杀人事...</a>
+                            <p>导演：<em>张哲洙 /...</em></p>
+                            <p>类型：<em>剧情/悬疑</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="蜜月酒店杀人事件 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">05月27日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38696.html" title="古曼 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c0eedd059a.jpg" width="98" height="138" alt="古曼 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38696.html" title="古曼 " target="_blank" >古曼 </a>
+                            <p>导演：<em>张江南</em></p>
+                            <p>类型：<em>惊悚/恐怖...</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="古曼 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">05月27日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38697.html" title="糖果世界大冒险 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/573c102a73240.jpg" width="98" height="138" alt="糖果世界大冒险 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38697.html" title="糖果世界大冒险 " target="_blank" >糖果世界大冒险...</a>
+                            <p>导演：<em>(小)徐克</em></p>
+                            <p>类型：<em>动画/冒险...</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="糖果世界大冒险 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">06月17日</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/36252.html" title="海底总动员2" target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/thumb_5374370410734.jpg" width="98" height="138" alt="海底总动员2" />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/36252.html" title="海底总动员2" target="_blank" >海底总动员2</a>
+                            <p>导演：<em>安德鲁·斯...</em></p>
+                            <p>类型：<em>喜剧/动画...</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="海底总动员2" data-trailer="http://player.video.qiyi.com/e9aaed942957db4c5eb8012a0bda7391/0/0/w_19rr9f0j59.swf-albumId=562324609-tvId=562324609-isPurchase=0-cnId=27">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">07月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38017.html" title="三体 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/5552c901de1ac.jpg" width="98" height="138" alt="三体 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38017.html" title="三体 " target="_blank" >三体 </a>
+                            <p>导演：<em>张番番</em></p>
+                            <p>类型：<em>科幻</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="三体 " data-trailer="http://play.wasu.cn/kqTz.swf">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">07月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38170.html" title="爵迹 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/559a45d7cbd44.jpg" width="98" height="138" alt="爵迹 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38170.html" title="爵迹 " target="_blank" >爵迹 </a>
+                            <p>导演：<em>郭敬明</em></p>
+                            <p>类型：<em>奇幻</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="爵迹 " data-trailer="http://player.video.qiyi.com/44764256a638c4dceeddb5c3d6c2211e/0/0/w_19rrshv5k1.swf-albumId=3838400909-tvId=3838400909-isPurchase=0-cnId=7">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">00月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/37036.html" title="加勒比海盗5：死无对证" target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/thumb_534f3a79d67e7.jpg" width="98" height="138" alt="加勒比海盗5：死无对证" />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/37036.html" title="加勒比海盗5：死无对证" target="_blank" >加勒比海盗5：...</a>
+                            <p>导演：<em>乔阿吉姆·...</em></p>
+                            <p>类型：<em>动作/冒险...</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="加勒比海盗5：死无对证" data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">00月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38041.html" title="九州·华胥引 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/555d997f80cf0.jpg" width="98" height="138" alt="九州·华胥引 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38041.html" title="九州·华胥引 " target="_blank" >九州·华胥引 </a>
+                            <p>导演：<em>杨磊</em></p>
+                            <p>类型：<em>爱情/奇幻...</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="九州·华胥引 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">00月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38351.html" title="诡新娘 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/55efdbbc248ca.jpg" width="98" height="138" alt="诡新娘 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38351.html" title="诡新娘 " target="_blank" >诡新娘 </a>
+                            <p>导演：<em>王健</em></p>
+                            <p>类型：<em>惊悚</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="诡新娘 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">00月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38480.html" title="临时演员 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/5618c371c9c33.jpg" width="98" height="138" alt="临时演员 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38480.html" title="临时演员 " target="_blank" >临时演员 </a>
+                            <p>导演：<em>钱江汉</em></p>
+                            <p>类型：<em>喜剧/爱情</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="临时演员 " data-trailer="http://static.video.qq.com/TPout.swf?vid=r0018oy7sje&auto=0">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">00月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/38594.html" title="我最好朋友的婚礼 " target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/569c869e8ac24.jpg" width="98" height="138" alt="我最好朋友的婚礼 " />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/38594.html" title="我最好朋友的婚礼 " target="_blank" >我最好朋友的婚...</a>
+                            <p>导演：<em>陈奕利</em></p>
+                            <p>类型：<em>喜剧/爱情</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="我最好朋友的婚礼 " data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li><li>
+                	<time class="icon">00月</time>
+                    <dl class="clearfix">
+                    	<dt>
+                            <a href="/movie/37483.html" title="性本恶" target="_blank" >
+                                <img class="lazyImg pic imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/thumb_53cf5c1c83f80.jpg" width="98" height="138" alt="性本恶" />
+                            </a>
+                        </dt>    
+                    	<dd>
+                        	<a class="t" href="/movie/37483.html" title="性本恶" target="_blank" >性本恶</a>
+                            <p>导演：<em>保罗·托马...</em></p>
+                            <p>类型：<em>犯罪</em></p>
+                            <a class="trailer" href="javascript:viod(0);" title="性本恶" data-trailer="">预告片<i></i></a>                        
+                        </dd>
+                    </dl>
+                </li>            </ul>
+        </div>
+    </div>
+</section>
+
+<!--当前热映与即将上映 e-->
+
+<!--新片影评与电影票房 s-->
+<section class="commAndBO wp clearfix">
+	<section class="comments fL">
+        <div class="title clearfix">
+            <i class="line"></i><a href="http://www.51oscar.com/review.html" title="新片影评" target="_blank">新片影评<em>>></em></a>
+        </div>
+    	<div class="commBox clearfix">
+    	<dl class="hotComm">
+                  <dt>
+                      <a href="/movie/38679.html" title="超脑48小时 " target="_blank" >
+                          <img class="lazyImg  imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/57285af4b2ec9.jpg" width="98" height="138" alt="超脑48小时 " />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11890.html" title="《超脑48小时 》影评：《超脑48小时》：73分。人脑可移植，情感能否同步移植？" target="_blank" >《超脑48小时》：73分。人脑可移植，情感能否同步移植？</a></p>
+                      <p class="m">《超脑48小时》：73分。人脑可移植，情感能否同步移植?近期有两部讨论换脑的电影，《超脑48小时...</p>
+                      <p class="b"><a class="user" href="/someone/2630.html" title="游礁" target="_blank" >游礁</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38679.html" title="超脑48小时 " target="_blank" >《超脑48小...》</a></p>
+                  </dd>
+                </dl><dl class="hotComm">
+                  <dt>
+                      <a href="/movie/38657.html" title="谁的青春不迷茫 " target="_blank" >
+                          <img class="lazyImg  imgBorder" src="/Images/b.gif" data-src="/Uploads/Movie/Poster/571096af46fcf.jpg" width="98" height="138" alt="谁的青春不迷茫 " />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11869.html" title="《谁的青春不迷茫 》影评：电影《谁的青春不迷茫》：让青春在迷茫中逆风飞扬" target="_blank" >电影《谁的青春不迷茫》：让青春在迷茫中逆风飞扬</a></p>
+                      <p class="m">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 林天骄走在熙熙攘攘的大街上，...</p>
+                      <p class="b"><a class="user" href="/someone/2539.html" title="90后作家罗毅祥" target="_blank" >90后作</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38657.html" title="谁的青春不迷茫 " target="_blank" >《谁的青春不...》</a></p>
+                  </dd>
+                </dl>    	
+		
+		<dl class="comm">
+                  <dt>
+                      <a href="/someone/403423.html" title="释凡" target="_blank" >
+                          <img class="lazyImg pic" src="/Images/b.gif" data-src="/Uploads/user_logo/145721141973777.jpg" width="40" height="40" alt="释凡" />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11867.html" title="《百鸟朝凤 》影评：优胜劣汰下的傲骨绝唱" target="_blank" >优胜劣汰下的傲骨绝唱</a></p>
+                      <p class="b"><a class="user" href="/someone/403423.html" title="释凡" target="_blank" >释凡</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38672.html" title="百鸟朝凤 " target="_blank" >《百鸟朝凤 》</a></p>
+                  </dd>
+                </dl><dl class="comm">
+                  <dt>
+                      <a href="/someone/426730.html" title="好萱萱" target="_blank" >
+                          <img class="lazyImg pic" src="/Images/b.gif" data-src="/Uploads/user_logo/146180713732297.jpg" width="40" height="40" alt="好萱萱" />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11857.html" title="《奇幻森林 》影评：当我看《奇幻森林》时，我看到了什么？" target="_blank" >当我看《奇幻森林》时，我看到了什么？</a></p>
+                      <p class="b"><a class="user" href="/someone/426730.html" title="好萱萱" target="_blank" >好萱萱</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38647.html" title="奇幻森林 " target="_blank" >《奇幻森林 》</a></p>
+                  </dd>
+                </dl><dl class="comm">
+                  <dt>
+                      <a href="/someone/2539.html" title="90后作家罗毅祥" target="_blank" >
+                          <img class="lazyImg pic" src="/Images/b.gif" data-src="/Uploads/user_logo/144242163050337.jpg" width="40" height="40" alt="90后作家罗毅祥" />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11852.html" title="《奇幻森林 》影评：电影《奇幻森林》：视觉震撼背后的传统童话" target="_blank" >电影《奇幻森林》：视觉震撼背后的传统童话</a></p>
+                      <p class="b"><a class="user" href="/someone/2539.html" title="90后作家罗毅祥" target="_blank" >90后作家</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38647.html" title="奇幻森林 " target="_blank" >《奇幻森林 》</a></p>
+                  </dd>
+                </dl><dl class="comm">
+                  <dt>
+                      <a href="/someone/2539.html" title="90后作家罗毅祥" target="_blank" >
+                          <img class="lazyImg pic" src="/Images/b.gif" data-src="/Uploads/user_logo/144242163050337.jpg" width="40" height="40" alt="90后作家罗毅祥" />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11822.html" title="《冰河追凶 》影评：电影《冰河追凶》：环环相扣的善恶大迷局" target="_blank" >电影《冰河追凶》：环环相扣的善恶大迷局</a></p>
+                      <p class="b"><a class="user" href="/someone/2539.html" title="90后作家罗毅祥" target="_blank" >90后作家</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38650.html" title="冰河追凶 " target="_blank" >《冰河追凶 》</a></p>
+                  </dd>
+                </dl><dl class="comm">
+                  <dt>
+                      <a href="/someone/403423.html" title="释凡" target="_blank" >
+                          <img class="lazyImg pic" src="/Images/b.gif" data-src="/Uploads/user_logo/145721141973777.jpg" width="40" height="40" alt="释凡" />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11809.html" title="《伦敦陷落 》影评：看爽了就别骂人强奸视听" target="_blank" >看爽了就别骂人强奸视听</a></p>
+                      <p class="b"><a class="user" href="/someone/403423.html" title="释凡" target="_blank" >释凡</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38642.html" title="伦敦陷落 " target="_blank" >《伦敦陷落 》</a></p>
+                  </dd>
+                </dl><dl class="comm">
+                  <dt>
+                      <a href="/someone/426474.html" title="泣之雷" target="_blank" >
+                          <img class="lazyImg pic" src="/Images/b.gif" data-src="/Uploads/user_logo/145800383719565.jpg" width="40" height="40" alt="泣之雷" />
+                      </a>
+                  </dt>    
+                  <dd>
+                      <p class="t"><a href="/review/11808.html" title="《我的特工爷爷 》影评：只有“我”与“爷爷”的中国式家庭" target="_blank" >只有“我”与“爷爷”的中国式家庭</a></p>
+                      <p class="b"><a class="user" href="/someone/426474.html" title="泣之雷" target="_blank" >泣之雷</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38354.html" title="我的特工爷爷 " target="_blank" >《我的特工爷爷 》</a></p>
+                  </dd>
+                </dl>    
+        </div>
+    </section><!--新片影评 e-->
+    
+    <aside class="boxOffice fL">
+    	<div class="title clearfix">
+        	<i class="bar icon"></i>电影票房
+        </div>
+		<div class="slideTxtBox">
+			<div class="hd">
+				<ul class="clearfix"><li>内地</li><li>北美</li><li>香港</li></ul>
+			</div>
+			<div class="bd">
+				<ul class="clearfix">
+                	<li><i class="t">1</i><a href="/movie/38099.html" title="美国队长" target="_blank" >美国队长</a><span>￥102,000</span></li><li><i class="t">2</i><a href="/movie/37771.html" title="奇幻森林" target="_blank" >奇幻森林</a><span>￥98,200</span></li><li><i class="t">3</i><a href="/movie/38530.html" title="北京遇上西雅图之不二..." target="_blank" >北京遇上西雅图之不...</a><span>￥72,600</span></li><li><i >4</i><a href="/movie/38481.html" title="魔宫魅影" target="_blank" >魔宫魅影</a><span>￥8,752</span></li><li><i >5</i><a href="/movie/37815.html" title="梦想合伙人" target="_blank" >梦想合伙人</a><span>￥8,033</span></li><li><i >6</i><a href="/movie/38314.html" title="超脑48小时" target="_blank" >超脑48小时</a><span>￥5,200</span></li><li><i >7</i><a href="/movie/37816.html" title="幻体：续命游戏 " target="_blank" >幻体：续命游戏 </a><span>￥2,670</span></li><li><i >8</i><a href="/movie/38348.html" title="百鸟朝凤" target="_blank" >百鸟朝凤</a><span>￥2,654</span></li><li><i >9</i><a href="/movie/38241.html" title="再见，在也不见" target="_blank" >再见，在也不见</a><span>￥830</span></li><li><i >10</i><a href="/movie/38531.html" title="笔仙诡影" target="_blank" >笔仙诡影</a><span>￥360</span></li>                </ul>                
+			  <ul class="clearfix" style="display:none;">
+                	<li><i class="t">1</i><a href="/movie/37168.html" title="疯狂动物城 " target="_blank" >疯狂动物城 </a><span>$33,183</span></li><li><i class="t">2</i><a href="/movie/0.html" title="奇幻森林" target="_blank" >奇幻森林</a><span>$31,176</span></li><li><i class="t">3</i><a href="/movie/0.html" title="美国队长3" target="_blank" >美国队长3</a><span>$29,589</span></li><li><i >4</i><a href="/movie/37144.html" title="老板" target="_blank" >老板</a><span>$6,114</span></li><li><i >5</i><a href="/movie/0.html" title="理发店3" target="_blank" >理发店3</a><span>5,135</span></li><li><i >6</i><a href="/movie/37815.html" title="猎神：冬日之战" target="_blank" >猎神：冬日之战</a><span>$4,454</span></li><li><i >7</i><a href="/movie/0.html" title="母亲节" target="_blank" >母亲节</a><span>$2,876</span></li><li><i >8</i><a href="/movie/37872.html" title="基努猫" target="_blank" >基努猫</a><span>$1,861</span></li><li><i >9</i><a href="/movie/0.html" title="金钱怪兽" target="_blank" >金钱怪兽</a><span>$1,500</span></li><li><i >10</i><a href="/movie/0.html" title="黑暗" target="_blank" >黑暗</a><span>$518</span></li>                </ul>                
+				<ul class="clearfix" style="display:none;">
+                	<li><i class="t">1</i>
+                        <a href="/movie/0.html" title="美国队长3" target="_blank" >美国队长3</a>
+                        <span>HK$8,927</span>
+                        </li><li><i class="t">2</i>
+                        <a href="/movie/38538.html" title="疯狂动物城" target="_blank" >疯狂动物城</a>
+                        <span>HK$5,075</span>
+                        </li><li><i class="t">3</i>
+                        <a href="/movie/37815.html" title="树大招风" target="_blank" >树大招风</a>
+                        <span>HK$917</span>
+                        </li><li><i >4</i>
+                        <a href="/movie/37168.html" title="北京遇上西雅图之不二..." target="_blank" >北京遇上西雅图之不...</a>
+                        <span>HK$448</span>
+                        </li><li><i >5</i>
+                        <a href="/movie/0.html" title="踏雪寻梅" target="_blank" >踏雪寻梅</a>
+                        <span>HK$426</span>
+                        </li><li><i >6</i>
+                        <a href="/movie/38481.html" title="飞鹰艾迪" target="_blank" >飞鹰艾迪</a>
+                        <span>HK$281</span>
+                        </li><li><i >7</i>
+                        <a href="/movie/0.html" title="灵偶契约" target="_blank" >灵偶契约</a>
+                        <span>HK$227</span>
+                        </li><li><i >8</i>
+                        <a href="/movie/0.html" title="请叫我英雄" target="_blank" >请叫我英雄</a>
+                        <span>HK$116</span>
+                        </li><li><i >9</i>
+                        <a href="/movie/0.html" title="小花的味增汤" target="_blank" >小花的味增汤</a>
+                        <span>HK$35</span>
+                        </li><li><i >10</i>
+                        <a href="/movie/38530.html" title="奔腾人生" target="_blank" >奔腾人生</a>
+                        <span>HK$19</span>
+                        </li>                </ul>                
+			</div>
+		</div>
+    </aside><!--电影票房 e-->
+</section>
+<!--新片影评与电影票房 e-->
+
+<!--发现好电影、热门活动  s-->
+<section class="albumAndEvent wp clearfix">
+	<section class="album fL">
+        <div class="title clearfix">
+            <i class="line"></i><a href="http://www.51oscar.com/album.html" title="发现.好电影" target="_blank" >发现.好电影<em>>></em></a>
+        </div>
+    	<div class="cont clearfix">
+    	
+        	<a class="link1" href="/album/1904.html" title="9部萌出一脸血的真人动画电影" target="_blank">
+            	 <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20150731/1438324680.jpg" alt="9部萌出一脸血的真人动画电影" width="442" height="146" />
+                9部萌出一脸血的真人动画电影            </a>
+        
+       	
+        <a class="link2" href="/album/1908.html" title="女生在成长路上必看的10部电影" target="_blank">
+            	 <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20151211/1449822634.jpg" alt="女生在成长路上必看的10部电影" width="210" height="146" />
+              女生在成长路上必看的10部电影            </a><a class="link2" href="/album/1877.html" title="九部超级温馨又治愈的家庭类电影" target="_blank">
+            	 <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20151207/1449472650.jpg" alt="九部超级温馨又治愈的家庭类电影" width="210" height="146" />
+              九部超级温馨又治愈的家庭类电影            </a><a class="link2" href="/album/1895.html" title="十部高分冷门电影推荐" target="_blank">
+            	 <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20151207/1449472546.jpg" alt="十部高分冷门电影推荐" width="210" height="146" />
+              十部高分冷门电影推荐            </a><a class="link2" href="/album/1921.html" title="九部电影帮你摆脱失落" target="_blank">
+            	 <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20151207/1449472345.jpg" alt="九部电影帮你摆脱失落" width="210" height="146" />
+              九部电影帮你摆脱失落            </a>        </div>
+   </section><!--发现.好电影 e-->
+    
+    <aside class="event fL">
+    	<div class="title clearfix">
+        	<i class="gift icon"></i><a href="http://www.51oscar.com/activity.html" title="热门活动" target="_blank">热门活动<em>>></em></a>
+        </div>
+		<div class="cont">
+        	 <dl>
+                <dt>
+                	<a href="/activity/369.html" title="" target="_blank">大众影评网请你免费看《阿里巴巴2所罗门封印》</a>
+                </dt>
+                <dd>
+                    <p>时间：2016-04-25至2016-04-28</p>
+                    <p>地点：</p>
+                </dd>
+                </dl><dl>
+                <dt>
+                	<a href="/activity/368.html" title="" target="_blank">大众影评网请你免费看《女神时代》</a>
+                </dt>
+                <dd>
+                    <p>时间：2016-04-21至2016-04-22</p>
+                    <p>地点：</p>
+                </dd>
+                </dl><dl>
+                <dt>
+                	<a href="/activity/367.html" title="" target="_blank">大众影评网请你免费看《马小乐之玩具也疯狂》</a>
+                </dt>
+                <dd>
+                    <p>时间：2016-04-20至2016-04-26</p>
+                    <p>地点：</p>
+                </dd>
+                </dl>        </div>	
+    </aside><!--热门活动 e-->
+</section>
+<!--发现好电影、热门活动 e-->
+
+<!--专题精选 s-->
+<section class="topic wp">
+    	<div class="title clearfix">
+        	<i class="gift icon"></i><a href="http://www.51oscar.com/topic.html" title="专题精选" target="_self">专题精选<em>>></em></a>
+        </div>
+		<div class="cont clearfix">
+        	<dl>
+            	<dt><a href="http://www.51oscar.com/forum/3127.html" title="细数攻陷大陆荧屏的九张台湾面孔" target="_blank"> <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20150731/1438328657.jpg" alt="细数攻陷大陆荧屏的九张台湾面孔" width="218" height="135" /></a></dt>
+                <dd>
+                	<p>近年来，随着大陆娱乐市场的日益火爆，港台不少明显纷纷来大陆寻求更大的发展，现在噜噜姐就为大家盘点一下，攻陷大陆荧屏的台湾明星...</p>
+                </dd>
+            </dl><dl>
+            	<dt><a href="http://www.51oscar.com/forum/3120.html" title="《捉妖记》片场照 呆萌遇见逗比" target="_blank"> <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20150731/55bb29841c735.jpg" alt="《捉妖记》片场照 呆萌遇见逗比" width="218" height="135" /></a></dt>
+                <dd>
+                	<p>《捉妖记》自上映以来就备受男女老少等各级观众的喜爱，目前影片票房已经突破16亿，创下国产电影票房新纪录，可喜可贺！然而一部电...</p>
+                </dd>
+            </dl><dl>
+            	<dt><a href="http://www.51oscar.com/forum/3131.html" title="今年暑假，荧幕上的小燕子、白娘子、孙悟空都飞走了！" target="_blank"> <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20150731/1438328008.jpg" alt="今年暑假，荧幕上的小燕子、白娘子、孙悟空都飞走了！" width="218" height="135" /></a></dt>
+                <dd>
+                	<p>往年暑假一到，湖南卫视就开始播放《还珠格格》，然后其他各大卫视跟在后面开始播各种神剧，比如《西游记》《新白娘子传奇》、《少年...</p>
+                </dd>
+            </dl><dl>
+            	<dt><a href="http://www.51oscar.com/forum/3045.html" title="何炅：不会唱歌演戏的主持人不是好导演" target="_blank"> <img class="lazyImg imgBorder" src="/Images/b.gif" data-src="/Uploads/20150710/1436513579.jpg" alt="何炅：不会唱歌演戏的主持人不是好导演" width="218" height="135" /></a></dt>
+                <dd>
+                	<p>何老师纵横演艺圈的各种身份——主持人、演员、歌手、老师、导演。这么多头衔，好像演艺圈还真没多少人能做到呢。</p>
+                </dd>
+            </dl>       	</div>
+</section>
+<!--专题精选 e-->
+<!-- 内容end -->
+<script type="text/javascript" src="/Js/jquery.SuperSlide.2.1.1.js"></script>
+<script>
+//幻灯片
+jQuery(".picFocus").slide({ mainCell:".bd ul",effect:"fold",autoPlay:true,delayTime:1000,interTime:4000,vis:1});
+
+//特别策划
+jQuery(".sideMenu").slide({
+	titCell:".t", //鼠标触发对象
+	targetCell:".info", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+	effect:"slideDown", //targetCell下拉效果
+	delayTime:300 , //效果时间
+	triggerTime:150, //鼠标延迟触发时间（默认150）
+	defaultPlay:true,//默认是否执行效果（默认true）
+	returnDefault:false //鼠标从.sideMen移走后返回默认状态（默认false）
+	});
+//当前热映与即将上映	
+jQuery(".picScroll").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",scroll:5,vis:5,pnLoop:false,autoPlay:false});	
+jQuery(".comingMovie").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",scroll:5,vis:5,pnLoop:false,autoPlay:false});
+
+//电影票房
+jQuery(".slideTxtBox").slide({effect:"fold"});
+
+//播放预告片
+$(".trailer").click(function(){
+		showSwf.show($(this).attr("data-trailer"));	
+});
+</script>
+<!-- 隐藏信息  --> 
+<input type='hidden' id='txt_header_url' value="http://www.51oscar.com" />
+<input type='hidden' id='txt_public_home' value="/Public/Home/" module="Index" ie_page="/movie/ie.html"  baidu_page="/movie/baidu.html" qvod_page="/movie/qvod.html" gvod_page="/movie/gvod.html"  loading_page="/movie/loading.html" />
+<input type='hidden' id='txt_edit_user' value="/personal/toUserEditShare.html"/>
+<div class='hide' id='hide_album_msg' index="/album/toAlbumDatail.html/album_id/" edit="/album/toAlbumEditImg.html/album_id/" movie="/album/toAlbumEditMovie.html/album_id/"></div>
+<div class='hide' id="hide_comment_type" movie="/movie/toMovieInfo.html/id/" album="/album/toAlbumDatail.html/album_id/" topic="/topic/topicView.html/id/"></div>
+<div class='hide' id='hide_user_info' some="http://www.51oscar.com/someone/index/id/" session_id="" index="/personal/index.html" msg_url="http://www.51oscar.com/Personal/msgList" edit_url="http://www.51oscar.com/Personal/toUserEditShare"></div>
+<div class="hide" id="footer_info" footerUrl="/index/ajaxColumnList.html" columnUrl="/login/toColumn.html"></div>
+
+<footer class="footer wp" id="footer">
+	<div class="dlList clearfix">
+    	<dl>
+        	<dt><a href="javascript:viod(0);" title="栏目">栏目</a></dt>
+        	<dd><a href="http://www.51oscar.com/news.html" title="影视资讯" target="_blank" >影视资讯</a></dd>
+        	<dd><a href="http://www.51oscar.com/review.html" title="新片影评" target="_blank" >新片影评</a></dd>
+        	<dd><a href="http://www.51oscar.com/forum.html" title="影视贴吧" target="_blank" >影视贴吧</a></dd>
+        </dl>
+    	<dl>      
+        	<dt><a href="javascript:viod(0);" title="产品服务">产品服务</a></dt>
+        	<dd><a href="http://www.leg3s.com/about/index.html" title="公司简介" target="_blank" >公司简介</a></dd>
+        	<dd><a href="http://www.leg3s.com/product/index.html" title="影视服务" target="_blank" >影视服务</a></dd>
+        	<dd><a href="http://www.leg3s.com/example/index.html" title="案例展示" target="_blank" >案例展示</a></dd>
+        </dl>
+    	<dl> 
+        	<dt><a href="javascript:viod(0);" title="关于我们">关于我们</a></dt>
+        	<dd><a href="http://www.51oscar.com/about.html" title="关于我们" target="_blank" >关于我们</a></dd>
+			<dd><a href="http://www.51oscar.com/login/toColumn/id/32" title="家长监护">家长监护</a></dd>
+        	<dd><a href="http://www.51oscar.com/login/toColumn/id/2" title="联系我们" target="_blank" >联系我们</a></dd>
+        </dl>
+    	<dl> 
+        	<dt><a href="javascript:viod(0);" title="网站条款">网站条款</a></dt>
+        	<dd><a href="http://www.51oscar.com/login/toColumn/id/3" title="免责声明" target="_blank" >免责声明</a></dd>
+        	<dd><a href="http://www.51oscar.com/login/toColumn/id/33" title="会员条款" target="_blank" >会员条款</a></dd>
+        	<dd><a href="http://www.51oscar.com/sitemap.html" title="网站地图" target="_blank" >网站地图</a></dd>
+        </dl>
+    	<dl class="last">
+        	<dt><a href="javascript:viod(0);" title="关注我们">关注我们</a></dt>
+        	<dd><a class="weibo icon" href="http://weibo.com/51oscar" title="新浪微博" target="_blank" >&nbsp;</a></dd>
+        	<dd><a class="weibo_qq icon" href="http://t.qq.com/leg_51oscar" title="腾讯微博" target="_blank" >&nbsp;</a></dd>
+        </dl>
+    </div>
+    <div class="friendLink">
+    	<dl class="clearfix">
+        	<dt>友情链接：</dt>
+            <dd>
+                <ul>
+                   <li><a rel="friend" href="http://www.vstars.cn" title="微明星网" target="_blank" >微明星网</a></li>
+                     <li>|</li><li><a rel="friend" href="http://bbs.haiwainet.cn/portal.php" title="唐人街社区" target="_blank" >唐人街社区</a></li>
+                     <li>|</li><li><a rel="friend" href="http://www.yugaopian.com" title="预告片世界" target="_blank" >预告片世界</a></li>
+                     <li>|</li><li><a rel="friend" href="http://www.joyowo.com/" title="金柚网" target="_blank" >金柚网</a></li>
+                     <li>|</li><li><a rel="friend" href="http://www.movieroad.cn/" title="如影旅行网" target="_blank" >如影旅行网</a></li>
+                     <li>|</li> 
+                </ul>
+           </dd>        
+        </dl>
+    </div>
+    <div class="Copyright"><p>Copyright © 2012 <a href="http://www.51oscar.com" target="_blank" rel="nofollow">大众影评网</a>（51oscar.com）All rights reserved. 粤ICP备07500583号-2 </p></div>
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb333171377f6fc60e48165d7fa43110b' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</footer>
+</body>
+</html>

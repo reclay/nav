@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="指南针全赢博弈,指南针软件,股票软件, 炒股软件,指南针全赢,全赢博弈,全赢,指南针,炒股指南/" />
+<meta name="description" content="指南针全赢博弈是指南针品牌第18年全新打造的股票分析软件，独家披露敢死队资金、率先全国推出估值空间、智能变频分析技术，一站式解决炒股难题，供新老股民各取所需！咨询热线400-818-8080" />
+<link rel="stylesheet" type="text/css" href="skin/default/css/main.css?v=235" />
+<link rel="stylesheet" type="text/css" href="skin/default/css/index.css?v=235" />
+
+<style type="text/css">
+</style>
+
+<script type="text/javascript" src="js/jquery.js?v=8"></script>
+<script type="text/javascript" src="js/jquery.md5.js?v=8"></script>
+<script type="text/javascript" src="js/RSA.js?v=8"></script>
+
+
+<script  type="text/javascript">
+var loadtime = parseInt(new Date().getTime()/1000);
+function onlogin()
+{
+    var personId = document.login_form.personId;
+    var passwd = document.login_form.passwd;
+    var authNum = document.login_form.authNum;
+    if (personId.value.length == 0)
+    {
+        alert("请输入用户名");
+		personId.focus();
+        return false;
+    }
+	if(passwd.value.length == 0)
+    {
+        alert("请输入密码");
+		passwd.focus();
+        return false;
+    }
+	if(authNum.value.length == 0)
+    {
+        alert("请输入验证码");
+		authNum.focus();
+        return false;
+    }
+
+    /* to synchronize time with server */
+    var currtime = parseInt(new Date().getTime()/1000);
+	
+    var timestamp = 1463713412 + currtime - loadtime;
+	
+    var passwdMd5 = $.md5(passwd.value);
+    passwdMd5 = $.md5(personId.value + passwdMd5 + timestamp);
+    document.login_form.timestamp.value = timestamp;
+    document.login_form.passwdMd5.value = passwdMd5;
+
+    /* hide the password */
+    document.login_form.passwd.value = "******";
+    
+    return true;
+}
+
+function refreshPic(){
+	$('#randpic').attr('src', 'http://qy.compass.cn/flashby/auth.php?t=' + Math.random());
+	return false;
+}
+</script>
+
+
+
+<!-- qy.compass.cn_baidu_top start -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?72c2ad6f6e3b9f3c375d6628e7ade701";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- qy.compass.cn_baidu_top end -->
+
+<script type="text/javascript" src="js/panel.js?v={#ver_js#}"></script>
+<script type="text/javascript">
+var current	= 1;
+var timer, time=10000;
+$(document).ready(function(){
+	$('.tabs .title li').click(function(){
+		$(this).parent().children().removeClass('select');
+		$(this).addClass('select');
+		$(this).parent().parent().siblings().children().removeClass('show');
+		var id = $(this).attr('id');
+		id = id.replace('op', 'con');
+		$('#'+id).addClass('show');
+	});
+	
+	$('.tabs .title li').hover(function(){
+		//clearInterval(timer);
+	}, function(){
+		//timer	= setInterval(change, time);
+	});
+	
+	$('.tabs .content .item').hover(function(){
+		//clearInterval(timer);
+	}, function(){
+		//timer	= setInterval(change, time);
+	});
+	//timer	= setInterval(change, time);
+});
+
+function change() {
+	current ++;
+	if(current>3) {
+		current = 1;
+	}
+	$('#adv_op_'+current).click();
+}
+
+function checkForm() {
+	if($('#randcode').val()=='') {
+		alert('请输入下载密码！');
+		$('#randcode').focus();
+		return false;
+	}
+	closePanel('successPanel', true);
+}
+
+function tips() {
+	alert('对不起此项服务只对高端服务平台客户开通（高端用户查看请登陆软件端），高端服务平台咨询电话：\r\n\r\n北京 400-818-8080');
+}
+
+var template = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="" width="560" height="360"'
+	+ 'codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">'
+	+ '<param name="movie" value="{$url}" />'
+	+ '<param name="quality" value="high" />'
+	+ '<param name="bgcolor" value="#ffffff" />'
+	+ '<param name="wmode" value="opaque"/>'
+	+ '<param name="allowFullScreen" value="true"/>'
+	+ '<param name="allowScriptAccess" value="sameDomain" />'
+	+ '<embed src="{$url}" quality="high" bgcolor="#ffffff"'
+	+ '	width="560" height="360" align="middle"'
+	+ '	play="true"'
+	+ '	allowFullScreen="true"'
+	+ '	loop="false"'
+	+ '	quality="high"'
+	+ ' wmode="opaque"'
+	+ '	allowScriptAccess="sameDomain"'
+	+ '	type="application/x-shockwave-flash"'
+	+ '	pluginspage="http://www.adobe.com/go/getflashplayer">'
+	+ '</embed>'
+	+ '</object>';
+
+$(document).ready(function(){
+	
+	$("#tabs22 .head22 li a").click(function(){
+		$("#tabs22 .head22 li a").removeClass('select');
+		$(this).addClass('select');
+		var id = $(this).attr('id');
+		id = id.substring(6);
+		content = template.replace(/\{\$url\}/g, 'skin/default/swf/tab_flash'+id+'.swf?v=3');
+		$("#contents").html(content);
+	});
+	
+	$("#tab_li1").addClass('select');
+	$("#tab_li1").click();
+	
+	$('.teach .op').click(function(){
+		$('.teach .op .ico').removeClass('select');
+		$('.teach .op').next('table').hide();
+		$('.teach .op').next('table').addClass('hidden');
+		
+		var obj = $(this).next();
+		$(this).children('.ico').toggleClass('select');
+		
+		var switchs = obj.attr('class');
+		if(switchs=='hidden') {
+			obj.fadeIn('fast');
+			obj.removeClass('hidden');
+		} else {
+			obj.fadeOut('fast');
+			obj.addClass('hidden');
+		}
+	});
+});
+</script>
+<style type="text/css">
+
+/**  剩者为王第一个（第二个博弈产品页，第三个一键下载）   **/
+#adv .title #adv_op_1 {background:url(./skin/default/images/banner_5357.jpg?v=1); width:324px;}
+#adv .title #adv_op_1.select {background:url(./skin/default/images/banner_5357.jpg?v=1) 0 -45px;}
+#adv .title #adv_op_2 {background:url(./skin/default/images/banner_5445_4.png?v=1); width:324px;}
+#adv .title #adv_op_2.select {background:url(./skin/default/images/banner_5445_4.png?v=1) 0 -45px;}
+#adv .title #adv_op_3 {background:url(./skin/default/images/banner_download.jpg?v=1); width:324px;}
+#adv .title #adv_op_3.select {background:url(./skin/default/images/banner_download.jpg?v=1) 0 -45px;}
+
+/**  博弈版第一个（第二个先锋产品页，第三个一键下载）   **/
+
+#adv .title #adv_op_11 {background:url(./skin/default/images/banner_2016groupIII.jpg?v=1); width:324px;}
+#adv .title #adv_op_11.select {background:url(./skin/default/images/banner_2016groupIII.jpg?v=1) 0 -45px;}
+#adv .title #adv_op_22 {background:url(./skin/default/images/banner_5357.jpg?v=1); width:324px;}
+#adv .title #adv_op_22.select {background:url(./skin/default/images/banner_5357.jpg?v=1) 0 -45px;}
+#adv .title #adv_op_33 {background:url(./skin/default/images/banner_download.jpg?v=1); width:324px;}
+#adv .title #adv_op_33.select {background:url(./skin/default/images/banner_download.jpg?v=1) 0 -45px;}
+
+/*
+#adv .title #adv_op_11 {background:url(./skin/default/images/banner_2016groupIII.jpg?v=1); width:324px;}
+#adv .title #adv_op_11.select {background:url(./skin/default/images/banner_2016groupIII.jpg?v=1) 0 -45px;}
+#adv .title #adv_op_3 {background:url(./skin/default/images/banner_5445_4.png?v=1); width:324px;}
+#adv .title #adv_op_3.select {background:url(./skin/default/images/banner_5445_4.png?v=1) 0 -45px;}
+#adv .title #adv_op_2 {background:url(./skin/default/images/banner_2014pioneer.jpg?v=1); width:324px;}
+#adv .title #adv_op_2.select {background:url(./skin/default/images/banner_2014pioneer.jpg?v=1) 0 -45px;}
+#adv .title #adv_op_33 {background:url(./skin/default/images/banner_5357.jpg?v=1); width:324px;}
+#adv .title #adv_op_33.select {background:url(./skin/default/images/banner_5357.jpg?v=1) 0 -45px;}
+*/
+</style>
+
+<title>指南针全赢博弈官方网站 - 指南针股票软件_指南针炒股软件 - 指南针旗下产品 - 中国证券信息服务行业2011年客户满意第一品牌</title>
+</head>
+
+<body>
+<script type="text/javascript">
+<!--//
+var timer	= null;
+$(document).ready(function(){
+	$('#shareMoreOp').mouseover(function(){
+		$('#shareMore').slideDown();
+		//setTimeout(function(){$('#shareMore').hide()},5000);
+	});
+	$(document).click(function(){
+		$('#shareMore').hide();
+	});
+	$('#shareMore').blur(function(){
+		$(this).hide();
+	});
+	// tab
+	$('#tab a').click(function(){
+		$('#tab a').removeClass('select');
+		$(this).addClass('select');
+	});
+	/**
+	//nav
+	$('#nav1 a').hover(function(){
+		$('#subnav1').slideDown('fast');
+		clearInterval(timer);
+	},function(){
+		hideSubnav();
+	});
+	$('#nav1 a').click(function(){
+		$('#subnav1').hide();
+	});
+	$('#subnav1').blur(function(){
+		//$(this).hide();
+	});
+	$('#subnav1 a').hover(function(){
+		clearInterval(timer);
+	}, function(){
+		//$('#subnav1').hide();
+		hideSubnav();
+	});
+	*/
+});
+function hiddenSubnav() {
+	$('#subnav1').hide();
+	clearInterval(timer);
+}
+function hideSubnav() {
+	timer	= setInterval(hiddenSubnav, 300);
+}
+function showShareMore() {
+	$('#shareMore').show();
+}
+//-->
+</script>
+<div class="main">
+	<div class="head">
+		<div class="link">
+			<a href="http://www.compass.cn/" target="_blank" title="指南针公司官方网站"></a>
+		</div>
+		<div class="follow">
+			<!--
+			<a href="http://t.qq.com/compass430011" target="_blank" title="腾讯微博" class="tencent"><img src="images/ico_sns/ico_qq_t_v.png" alt="" /></a>
+			-->
+			<a href="http://weibo.com/u/2694166204" target="_blank" title="新浪微薄" class="sina"><img src="images/ico_sns/ico_sina_v.png" alt="" /></a>
+		</div>
+				<div class="home"><a href="index.php" title="返回首页"></a></div>
+		<div class="nav">
+			<ul>
+								<li id="nav1"><a href="func.php" target="_blank">全赢博弈版</a></li>
+				<li class="split"></li>
+				<li id="nav2"><a href="special/intro5384/?from=boyi_index_menu" target="_blank">一键选股版</a></li>
+				<li class="split"></li>
+				<li id="nav8"><a href="special/intro5557/?from=boyi_index_menu" target="_blank">先锋版</a></li>
+				<li class="split"></li>
+				<li id="nav3"><a href="special/intro5445/?from=boyi_index_menu" target="_blank">私享家版</a></li>
+				<li class="split"></li>
+				
+				<li id="nav4" ><a href="services.php" target="_self" title="服务中心">服务中心</a></li>
+				<li class="split"></li>
+				<li id="nav5" ><a href="buy.php" target="_self" title="我要购买">我要购买</a></li>
+				<li class="split"></li>
+								<li id="nav7" ><a href="http://www.compass.cn/about/road.php" target="_blank" title="关于我们">关于我们</a></li>
+							</ul>
+		</div>
+		<div class="subnav" id="subnav1">
+			<ul>
+				<li><a href="special/intro5384/?from=boyi_index_menu" target="_blank">博弈一键选股版</a></li>
+				<li><a href="func.php" target="_blank">全赢博弈版</a></li>
+			</ul>
+		</div>
+		<div class="nav_down">
+			<ul>
+				<li style="color:white;border:none;width:56px;">产品下载</li>
+				<li><a title="指南针全赢博弈体验版" id="down_top_5356" target="_blank" href="http://download.compass.cn/resource/5356/upwav5356_49_u.exe">体验版</a></li>
+				<li><a title="指南针全赢博弈版" id="down_top_5357" target="_blank" href="http://download.compass.cn/resource/software/upwav5357.exe">博弈版</a></li>
+				<li><a title="指南针全赢博弈一键选股版" id="down_top_5384" target="_blank" href="http://download.compass.cn/resource/software/upwav5384.exe">一键选股版</a></li>
+				<li><a title="指南针全赢博弈先锋版" id="down_top_5557" target="_blank" href="http://download.compass.cn/resource/software/upwav5557.exe">先锋版</a></li>
+				<li><a title="指南针全赢博弈私享家版" id="down_top_5445" target="_blank" href="http://download.compass.cn/resource/software/upwav5445.exe">私享家版</a></li>
+				<li style="background: url(images/video_span.jpg) 10px 0 no-repeat;text-indent: 20px; border:none;"><a title="教您快速安装" style="color:red;" id="link_top_help" target="_blank" href="services.php?nid=1972208">教您快速安装</a></li>
+			</ul>
+		</div>
+		<div class="loginForm">
+			<div class="login_title">体验版登录</div>
+			<form id="login_form" name="login_form" method="post" action='http://qy.compass.cn/flashby/zlogin.php?action=submit' onsubmit='return onlogin();'>
+				<table cellpadding="0" cellspacing="0" summery="">
+					<tr>
+						<td><label>卡号</label></td>
+						<td><input style="width:60px;" name="personId" type="text" id="personId" maxlength="16" tabindex='1' value="" /></td>
+						<td><label>密码</label></td>
+						<td>
+							<input type="password"  id="passwd" name="passwd" maxlength="32" size="18" tabindex='2'/>
+							<input type="hidden" id="timestamp" name="timestamp" />
+							<input type="hidden" id="passwdMd5" name="passwdMd5" />
+						</td>
+						<td><label>验证码</label></td>
+						<td><input type="text" id="authNum" name="authNum" maxlength="6" style="width:30px;" tabindex='3' /></td>
+						<td><img id="randpic" src="http://qy.compass.cn/flashby/auth.php" onclick="return refreshPic();" style="cursor:pointer;" alt="点击更换验证码" /></td>
+												<td style="background-color:#E9DDB7;"><label><input type="submit" class="bt_login" value="" tabindex="3" /></label></td>
+						<td style="background-color:#E9DDB7;"><label><a href="free/full/?from=boyi_index1" class="bt_reg" tabindex="4" target="_blank"></a></label></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+ 
+<div class="main">
+	<div class="body">
+		<div class="tabs graypanel adpanel" id="adv">
+			 
+			<div class="content">
+				<div id="adv_con_11" class="item show">
+					<a class="itema" href="./special/2016groupIII/?from=qy.compass.cn" title="红五突击团" style="background:url(skin/default/images/head_2016groupIII.jpg?v=1) no-repeat;" target="_blank" ></a>
+					<a target="_blank" href="./special/2016groupIII/?from=qy.compass.cn" title="红五突击团" style="background:url(skin/default/images/btn_2016groupIII.gif?v=1) no-repeat;cursor:pointer;height:100px;left: 664px;top: 168px;width:260px;position:absolute;"></a>
+				</div>
+				<div id="adv_con_22" class="item">
+					<a class="itema" href="./func.php?&from=qy.compass.cn" title="全赢博弈版 四大独家功能" style="background:url(skin/default/images/ad_5357.jpg?v=2) no-repeat;" target="_blank" ></a>
+				</div>
+				<div id="adv_con_33" class="item" style="position:relative;">
+					<a  class="itema" href="http://xz.znz888.cn/?&from=qy.compass.cn" title="一键下载 终身免费" target="_blank" style="background:url(skin/default/images/ad_download.jpg) no-repeat;"></a>
+					<a target="_blank" href="http://download.compass.cn/resource/5356/upwav5356_49_u.exe" style="position:absolute;cursor:pointer;height: 51px; left: 651px; top: 230px; width: 148px;"></a>
+				</div>
+			</div>
+			<div class="title">
+				<ul>
+					<li id="adv_op_11" class="select" title="红五突击团"></li>
+					<li id="adv_op_22" title="全赢博弈版 四大独家功能"></li>
+					<li id="adv_op_33" title="一键下载 终身免费"></li>			
+				</ul>
+			</div>
+					</div>
+	</div>
+</div>
+
+<div class="main">
+	<div class="body">
+		<div class="spacebar" style="width:980px;"></div>
+		
+		<div class="left" style="border: 1px solid #FFA101;width:590px!important;height: 450px;background: url(skin/default/images/left_multiply.jpg?v=2) no-repeat;">
+			<div class="tabs22" id="tabs22">
+				<div class="head22">
+					<ul>
+						<li class="tab_li1"><a href="javascript:void(0);" id="tab_li1" title="选时解决方案">选时解决方案</a></li>
+						<li class="tab_li2"><a href="javascript:void(0);" id="tab_li2" title="选股解决方案">选股解决方案</a></li>
+						<li class="tab_li3"><a href="javascript:void(0);" id="tab_li3" title="操作解决方案">操作解决方案</a></li>
+					</ul>
+				</div>
+				<div class="contents" id="contents">
+				</div>
+				<a href="http://www.znz888.cn/special/intro5557/?from=boyi_index2" title="获取解决方案" id="link_middle_toMultiply" target="_blank" class="to_multiply"></a>
+			</div>
+		</div>
+		
+		<div class="right" style="width:368px;height:452px;">
+			<div class="panel" id="examples" style="border: 1px solid #FFA101; height:450px;">
+				<div class="title"><span class="lecture">讲课地点：互动课堂</span></div>
+				<div class="content timetable">
+					
+					<div class="table">
+						<table cellspacing="0" cellpadding="0">
+																																										<tr>
+								<td class="weekday">
+									<div class="weekname">
+																			周一</div>
+																		05月16日
+																	</td>
+								<td>
+									<div class="con_name">
+																														<div class="course">
+											<div class="mark_left">19:00 耐心等待共振时机</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 博弈内训--大概率与安全性</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 私享内训--看穿个股基本属性</div>
+											<span class="ico_level ico_level10"></span>
+										</div>
+										 
+									</div>
+																	</td>
+							</tr>
+																																																	<tr>
+								<td class="weekday">
+									<div class="weekname">
+																			周二</div>
+																		05月17日
+																	</td>
+								<td>
+									<div class="con_name">
+																														<div class="course">
+											<div class="mark_left">19:00 小幅回升 关注资金</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 博弈内训--弱势震荡 巧分高低</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 私享内训--均线与筹码</div>
+											<span class="ico_level ico_level10"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 从阶段涨幅看强弱</div>
+											<span class="ico_level ico_level5"></span>
+										</div>
+										 
+									</div>
+																	</td>
+							</tr>
+																																																	<tr>
+								<td class="weekday">
+									<div class="weekname">
+																			周三</div>
+																		05月18日
+																	</td>
+								<td>
+									<div class="con_name">
+																														<div class="course">
+											<div class="mark_left">19:00  窄幅震荡何时破？</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 博弈内训--震荡时期该做的事</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 私享内训--左侧与右侧</div>
+											<span class="ico_level ico_level10"></span>
+										</div>
+										 
+									</div>
+																	</td>
+							</tr>
+																																																	<tr>
+								<td class="weekday">
+									<div class="weekname">
+																			周四</div>
+																		05月19日
+																	</td>
+								<td>
+									<div class="con_name">
+																														<div class="course">
+											<div class="mark_left">19:00 震荡磨底 淡然应对</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 博弈内训--快速洞悉主力控盘</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 私享内训-- 阳光私募与价值投资</div>
+											<span class="ico_level ico_level10"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:30 控制风险  把握机会</div>
+											<span class="ico_level ico_level5"></span>
+										</div>
+										 
+									</div>
+																	</td>
+							</tr>
+																																																	<tr>
+								<td class="weekday">
+									<div class="weekname">
+																			周五</div>
+																		05月20日
+																	</td>
+								<td>
+									<div class="con_name">
+																														<div class="course">
+											<div class="mark_left">16:00 磨人行情 策略应对</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+																				<div class="course">
+											<div class="mark_left">19:00 这几个错你别犯</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+										 
+									</div>
+																	</td>
+							</tr>
+																																										<tr>
+								<td class="weekday">
+																		<div class="weekname">周六</div>
+									05月21日
+								</td>
+								<td class="rest">
+									暂未安排课程
+								</td>
+							</tr>
+																																																	<tr>
+								<td class="weekday">
+									<div class="weekname">
+																			周日</div>
+																		05月22日
+																	</td>
+								<td>
+									<div class="con_name">
+																														<div class="course">
+											<div class="mark_left">16:00 下周行情展望</div>
+											<span class="ico_level ico_level0"></span>
+										</div>
+										 
+									</div>
+																		<div class="con_con" title=""></div>
+																	</td>
+							</tr>
+																				</table>
+					</div>
+					<div class="sc_foot">
+						<p style="margin-top:4px;"><span class="ico_level ico_level10"></span><span class="black bold" style="padding-left:5px">VIP版专属</span>&nbsp;听课对象：VIP用户</p>
+						<p style="margin-top:7px;"><span class="ico_level ico_level5"></span><span class="black bold" style="padding-left:5px">一键选股版专属</span>&nbsp;听课对象：一键选股版以上用户</p>
+						<p style="margin-top:7px;"><span class="ico_level ico_level0"></span><span class="black bold" style="padding-left:5px">全赢博弈版专属</span>&nbsp;听课对象：全赢博弈版以上用户</p>
+						<!--
+						<p style="margin-top:7px;"><span class="ico_level ico_level-1"></span><span class="black bold" style="padding-left:5px">公开课</span>&nbsp;听课对象：指南针所有版本用户</p>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="main">
+	<div class="body">
+		<div class="spacebar" style="width:980px;"></div>
+		<div class="left">
+			<div id="analyst" class="panel graypanel">
+				<div class="title">
+					<div class="text"></div>
+					<div class="more">
+					</div>
+				</div>
+				<div class="content blocklist dottedlist">
+					<div class="focus">
+												<div class="pic">
+														<img src="http://image2.compass.cn//2016/05//2016051922145783989326.jpg"/>
+													</div>
+																		<div class="list">
+							<ul>
+																								<li><a href="covernews.php?nid=33755829" target="_blank"><span class="text">[05-19] 观察震荡下的大资金</span><span class="hits">285次</span></a></li>
+																								<li><a href="covernews.php?nid=33755800" target="_blank"><span class="text">[05-18] 低买高卖就这三步</span><span class="hits">1166次</span></a></li>
+																								<li><a href="covernews.php?nid=33755776" target="_blank"><span class="text">[05-17] 巧抓局部热点</span><span class="hits">801次</span></a></li>
+																								<li><a href="covernews.php?nid=33755754" target="_blank"><span class="text">[05-16] 踏准节奏抓机会</span><span class="hits">996次</span></a></li>
+																								<li><a href="covernews.php?nid=33755709" target="_blank"><span class="text">[05-15] 这几个准备要做好</span><span class="hits">1449次</span></a></li>
+																							</ul>
+							<ul>
+																<li><a href="covernews.php?nid=33755650" target="_blank"><span class="text">[05-12] 哪些股票有主力？</span><span class="hits">3471次</span></a></li>
+																								<li><a href="covernews.php?nid=33755579" target="_blank"><span class="text">[05-11] 博弈课堂-- 买在起涨点</span><span class="hits">2534次</span></a></li>
+																								<li><a href="covernews.php?nid=33755544" target="_blank"><span class="text">[05-10] 博弈课堂-- 寻找热门强势股</span><span class="hits">2157次</span></a></li>
+																								<li><a href="covernews.php?nid=33755412" target="_blank"><span class="text">[05-09] 博弈课堂-- 强震之下怎么办？</span><span class="hits">1583次</span></a></li>
+																								<li><a href="covernews.php?nid=33755389" target="_blank"><span class="text">[05-08] 博弈课堂-- 操作中避免这些错</span><span class="hits">1771次</span></a></li>
+															</ul>
+						</div>
+					</div>
+					
+					<div style="float:left;width:324px;">
+						<div class="channelBar"><h1>【操盘内参】</h1></div>
+						<ul>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755846">早：变盘在即 如何选择？</a><div class="time">2016-05-20</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755809">晚：微跌背后有文章</a><div class="time">2016-05-19</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755807">午：箱体震荡临近尾声</a><div class="time">2016-05-19</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755804">早：2800点能否守住？</a><div class="time">2016-05-19</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755790">晚：不见兔子别撒鹰</a><div class="time">2016-05-18</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755788">午：市场如何才能好转？</a><div class="time">2016-05-18</div></li>
+																				</ul>
+					</div>
+					<div style="height:170px;" class="vertialbar"></div>
+					<div style="float:left;width:323px;">
+						<div class="channelBar"><h1>【精品案例】</h1></div>
+						<ul>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755492">逆势牛股的秘密</a><div class="time">2016-05-10</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755325">如何看主力借势挖坑</a><div class="time">2016-05-05</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33755166">布局中线启动品种有诀窍</a><div class="time">2016-04-26</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33754940">赚钱与亏钱的区别</a><div class="time">2016-04-18</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33754806">放量好不好？看它就知道</a><div class="time">2016-04-12</div></li>
+																					<li><span class="ico">&nbsp;</span><a target="_blank" href="services.php?nid=33754714">从二次探底看主力意图</a><div class="time">2016-04-07</div></li>
+																				</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="spacebar" style="width:120px;"></div>
+			<div id="functions" class="panel tabs graypanel">
+				<div class="swf">
+					<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="Copy3" width="277" height="201"
+						codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+						<param name="movie" value="http://player.youku.com/player.php/sid/XNDA0NDMxNTE2/v.swf" />
+						<param name="quality" value="high" />
+						<param name="bgcolor" value="#ffffff" />
+						<param name="wmode" value="opaque" />
+						<param name="allowFullScreen" value="true" />
+						<param name="allowScriptAccess" value="sameDomain" />
+						<embed src="http://player.youku.com/player.php/sid/XNDA0NDMxNTE2/v.swf"  allowFullScreen="true" quality="high" bgcolor="#ffffff"
+							width="277" height="201" align="middle"
+							play="true" wmode="opaque"
+							loop="false"
+							quality="high"
+							allowScriptAccess="sameDomain"
+							type="application/x-shockwave-flash"
+							pluginspage="http://www.adobe.com/go/getflashplayer">
+						</embed>
+					</object>
+				</div>
+				 <div class="text">
+				 		<a class="video_span" href="intro/function_video/function0.php" target="_blank" style="margin-left: -114px; margin-top: 2px;">主力仓位讲解</a>
+				 		<a class="video_span" href="intro/function_video/function0.php?#swf2" target="_blank">舆情监控监控</a>
+				 		<a class="video_span" href="intro/function_video/function0.php?#swf3" target="_blank" style="width:112px;">三大榜单TOP50</a>
+				 		<br/>
+				 		<a class="video_span" href="intro/function_video/function1.php" target="_blank">基础功能讲解</a>
+				 		<a class="video_span" href="intro/function_video/function1.php?#swf2" target="_blank"> 实战运用讲解</a>
+				 		<br/>
+				 		<a class="video_span" href="intro/function_video/function2.php" target="_blank">基础功能讲解</a>
+				 		<a class="video_span" href="intro/function_video/function2.php?#swf2" target="_blank">实战运用讲解</a>
+				 		<br/>
+				 		<a class="video_span" href="intro/function_video/function3.php" target="_blank">基础功能讲解</a>
+				 		<a class="video_span" href="intro/function_video/function3.php?#swf2" target="_blank">实战运用讲解</a>
+				 		<br/>
+				 		<a class="video_span" href="intro/function_video/function4.php" target="_blank">基础功能讲解</a>
+				 		<a class="video_span" href="intro/function_video/function4.php?#swf2" target="_blank">实战运用讲解</a>
+				 </div>
+				
+							</div>
+		</div>
+		<div class="right">
+			<div class="panel graypanel" id="video">
+				<div class="title"></div>
+				<div class="content articlelist">
+					<ul>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33755719" target="_blank">这周行情咱咋办？</a><div class="time">2016-05-16</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33755642" target="_blank">教你学会看盘三步法</a><div class="time">2016-05-12</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33755369" target="_blank">新股申购与中签提醒功能介绍</a><div class="time">2016-05-06</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33755297" target="_blank">0Z开仓大盘没开仓 看哪个？</a><div class="time">2016-05-04</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33755135" target="_blank">面对震荡 如何看清主力底线</a><div class="time">2016-04-25</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754968" target="_blank">牛股是怎样炼成的？</a><div class="time">2016-04-14</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754776" target="_blank">掘金内参</a><div class="time">2016-04-11</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754670" target="_blank">变频资金的优势</a><div class="time">2016-04-06</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754608" target="_blank">四月主题投资路径曝光</a><div class="time">2016-04-03</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754396" target="_blank">新炒作主线布局三类热点</a><div class="time">2016-03-27</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754283" target="_blank">名人堂 私募夜话实录</a><div class="time">2016-03-23</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754176" target="_blank">春季行情掘金攻略</a><div class="time">2016-03-20</div></li>
+												<li><span class="ico">&nbsp;</span><a href="services.php?nid=33754145" target="_blank">低版本如何做板块资金统计</a><div class="time">2016-03-18</div></li>
+											</ul>
+				</div>
+			</div>
+						<div class="spacebar" style="width:120px;height:10px;"></div>
+			<div class="panel graypanel" id="manual" style="border:none; position:relative">
+				<embed height="251" width="301" wmode="opaque" style="position:relative" menu="false" allowFullScreen="true" allowscriptaccess="sameDomain" bgcolor="white" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="High" src="media/swf/music.swf">
+				<a href="video.php" title="" style="position:absolute;width:300px; height: 250px; display:block; left: 0; top: 0; z-index: 10;">
+					<img src="images/empty.gif" width="301" height="251" />
+				</a>
+				</embed>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="main">
+	<div class="body">
+		<div class="spacebar" style="width:980px;"></div>
+		<div id="auths" class="panel graypanel tabs bigpanel">
+			<div class="title"></div>
+			<div class="content">
+				<div class="pic">
+					<a href="http://www.neeq.com.cn/announcement?code=430011" target="_blank"></a>
+				</div>
+				<div class="pic_bg">
+					<div class="scrollimg" id="pics" style="border-top:1px solid #B94957; margin-top:2px;">
+						<table style="width:2500px">
+							<tr>
+								<td id="pic1" style="width:1250px;">
+									<img src="images/auths/auth10.jpg" border="0" height="174"/>
+								</td>
+								<td id="pic2" style="width:1590px;">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<script language="javascript">
+				var speed = 10;
+				var demo = document.getElementById('pics');
+				var demo1 = document.getElementById('pic1');
+				var demo2 = document.getElementById('pic2');
+				demo2.innerHTML = demo1.innerHTML
+				function Marquee(){
+					if (demo2.offsetWidth - demo.scrollLeft <= 0) 
+						demo.scrollLeft -= demo1.offsetWidth
+					else {
+						demo.scrollLeft++
+					}
+				}
+				var MyMar = setInterval(Marquee, speed)
+				demo.onmouseover = function(){
+					clearInterval(MyMar)
+				}
+				demo.onmouseout = function(){
+					MyMar = setInterval(Marquee, speed)
+				}
+				</script>
+				
+				<!--  
+				<div class="pics">
+					<ul>
+						<li><img src="images/auths/auth1.jpg" alt="中国证券信息服务客户满意第一品牌金牌" /></li>
+						<li><img src="images/auths/auth2.jpg" alt="上证所安全运行奖" /></li>
+						<li><img src="images/auths/auth3.jpg" alt="中央财经大学教学实践基地" /></li>
+												<li><img src="images/auths/auth5.jpg?v=1" alt="高新企业证书" /></li>
+						<li><img src="images/auths/auth9.jpg" alt="北京大学与指南针金融实验室" /></li>
+											</ul>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="main">
+	<div class="foot">
+		<div class="top">
+		</div>
+		
+				<div class="copyright">
+			<a href=" http://www.znz888.cn" title="全赢博弈官方网站" target="_blank">全赢博弈官方网站 http://www.znz888.cn</a>
+			<br />
+		 	版权所有 1997 - 2016 <a href="http://www.compass.cn/" target="_blank" title="指南针公司官方网站">北京指南针科技发展股份有限公司</a> <span>京公网安备11010502026940号</span> 京ICP备05002498号/<a href="http://www.compass.cn/icp.html" target="_blank" title="ICP证书">京ICP证030443号</a></div>
+		 </div>
+			</div>
+</div>
+<!--self-->
+<script type="text/javascript">
+var from='qy.compass.cn';
+</script>
+<script type="text/javascript" src="js/pv_my.js?v=8"></script>
+
+
+<!-- qy.compass.cn_baidu_hottom start -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fecf0f13c45ae9b1787dd211283ee4cb0' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- qy.compass.cn_baidu_hottom end -->
+<!-- qy.compass.cn_sogou_bottom start -->
+
+<script  type="text/javascript">
+  var _sogou_sa_q = _sogou_sa_q || [];
+  _sogou_sa_q.push(['_sid', '3-15']);
+ (function() {
+    var _sogou_sa_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    var _sogou_sa_src=_sogou_sa_protocol+"hermes.sogou.com/sa.js%3Fsid%3D3-15";
+    document.write(unescape("%3Cscript src='" + _sogou_sa_src + "' type='text/javascript'%3E%3C/script%3E"));
+    })();
+</script>
+
+<!-- qy.compass.cn_sogou_bottom end -->
+
+<!-- baidu start -->
+<div style="display:none;">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F18630f5ab754e0f170ef0d944db970f4' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+<!-- baidu end -->
+
+<script type="text/javascript" src="http://trace.compass.cn/ujs.php"></script><!-- v8t1b2ew -->
+</body>
+</html>

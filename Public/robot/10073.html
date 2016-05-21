@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta id="viewport" name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta property="wb:webmaster" content="d8a16d6112fc138f" />
+<meta name="baidu-site-verification" content="AEcuH3GtJR" />
+<link rel="shortcut icon" href="http://b3.hoopchina.com.cn/common/favicon.ico" />
+<title>
+虎扑TV - 体育视频互动平台 hupu.tv
+</title>
+
+<meta name="keywords" content="体育直播,NBA2K游戏直播,校园体育赛事直播,户外直播,电子竞技直播,虎扑TV" />
+<meta name="description" content="虎扑TV - 体育视频直播平台，提供高清、流畅的体育视频直播服务，包含丰富的体育赛事、体育活动、校园体育、NBA2K游戏、电子竞技、户外直播等各类体育视频直播内容，精彩体育视频直播尽在虎扑TV。" />
+
+<script>
+        var __dacePageName = 'list';
+
+        !function(win){
+            var HTV = win.HTV = {};
+            // 用户id
+            HTV.getUserId = "" || "";
+            // 用户名称
+            HTV.getUserName = "" || "";
+            // 看球名称
+            HTV.getNickName = "" || "";
+            // 用户登陆状态
+            HTV.isLogin = 0;
+
+            HTV.base_url = 'http:\/\/www.videohupu.com\/';
+            // 跳转登录
+            HTV.jumpLogin = function() {
+                                    window.location.href = 'http:\/\/passport.videohupu.com\/pc\/login?project=hupuTv&from=pc';
+                            };
+
+            HTV.loginUrl = "http://passport.videohupu.com/pc/login?project=hupuTv&from=pc&display=mini&fback=true&jumpurl=http:\/\/www.videohupu.com\/user/auth?absurl=http:\/\/www.videohupu.com\/";
+
+            HTV.registerUrl = "http://passport.videohupu.com/pc/register?project=hupuTv&from=pc&display=mini&fback=true&jumpurl=http:\/\/www.videohupu.com\/user/auth?absurl=http:\/\/www.videohupu.com\/";
+            
+        }(window);
+    </script>
+<script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?31211abefd2e8045ea07857bb7f9eae0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<script src="http://b3.hoopchina.com.cn/web/module/dace/opdace/dace.cross.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="http://b2.hoopchina.com.cn/web/tv/static/common/pkg/common_6110798.css"/><link rel="stylesheet" type="text/css" href="http://b2.hoopchina.com.cn/web/tv/static/common/widget/login/login_d41d8cd.css"/><link rel="stylesheet" type="text/css" href="http://b3.hoopchina.com.cn/web/tv/static/home/pkg/index_1237bd1.css"/></head>
+<body>
+
+<div class="w-header clearfix" id="J-w-header">
+<div class="inner">
+<h1 class="logo">
+<a href="/" title="虎扑TV">虎扑TV</a>
+</h1>
+<div class="nav">
+<ul>
+<li><a href="http://www.videohupu.com/" dace-node="nav_channelClick" class="active">全部房间</a></li>
+<li><a href="http://www.videohupu.com/live" dace-node="nav_channelClick" >赛事直击</a></li>
+<li><a href="http://www.videohupu.com/basketball" dace-node="nav_channelClick" >篮球精选</a></li>
+<li><a href="http://www.videohupu.com/game" dace-node="nav_channelClick" >游戏竞技</a></li>
+<li><a href="http://www.videohupu.com/bxj" dace-node="nav_channelClick" >步行街</a></li>
+<li><a href="http://www.videohupu.com/soccer" dace-node="nav_channelClick" >足球专区</a></li>
+</ul>
+</div>
+<div class="right">
+<div class="unlogin">
+<span class="app"><i class="icon icon-hptv-phone"></i><a href="http://voice.hupu.com/other/2006264.html" target="_blank" dace-node="nav_appDownloadClick">手机客户端</a></span>
+<span class="logreg">
+<i class="icon icon-hptv-user"></i>
+<a href="http://passport.videohupu.com/pc/login?project=hupuTv&from=pc&display=mini&fback=true&jumpurl=http://www.videohupu.com/user/auth?absurl=http://www.videohupu.com/" id="J_loginUrl">登录</a>
+<i class="line">|</i>
+<a href="http://passport.videohupu.com/pc/register?project=hupuTv&from=pc&display=mini&fback=true&jumpurl=http://www.videohupu.com/user/auth?absurl=http://www.videohupu.com/" id="J_registerUrl">注册</a></span>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="index-wrap" id="J-index-wrap">
+<div class="list-wrap">
+<div class="w-title" id="J-w-title">
+<h2>全部房间</h2>
+</div><ul class="list" id="J-list">
+<li>
+<a href="http://www.videohupu.com/10283" dace-node="list_roomClick" title="欧洲杯商业价值论坛">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10283_20160520095644_1608572849.jpeg@300h_534w_1e_1c" alt="欧洲杯商业价值论坛">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">步行街</span>
+欧洲杯商业价值论坛
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>Ritchi</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>209</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10563" dace-node="list_roomClick" title="教授化身蜘蛛侠虐翻路人">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10563_20160517161854_1088345500.jpeg@300h_534w_1e_1c" alt="教授化身蜘蛛侠虐翻路人">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+教授化身蜘蛛侠虐翻路人
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>一起看球</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>74</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/16" dace-node="list_roomClick" title="什么水平？台湾大学篮球联赛！">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_16_20160518165101_987948543.jpeg@300h_534w_1e_1c" alt="什么水平？台湾大学篮球联赛！">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+什么水平？台湾大学篮球联赛！
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>oldorange</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>64</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10411" dace-node="list_roomClick" title="和妹子打球">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10411_20160519193051_812087511.jpeg@300h_534w_1e_1c" alt="和妹子打球">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">赛事直击</span>
+和妹子打球
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>顽石</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>55</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10237" dace-node="list_roomClick" title="球星1on1合辑">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10237_20160506155000_1921185907.jpeg@300h_534w_1e_1c" alt="球星1on1合辑">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+球星1on1合辑
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>TT</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>43</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10303" dace-node="list_roomClick" title="炒菜or陀螺？CL街球合集!">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i3.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10303_20160506120616_1134711580.jpeg@300h_534w_1e_1c" alt="炒菜or陀螺？CL街球合集!">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+炒菜or陀螺？CL街球合集!
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>龙王</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>31</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10260" dace-node="list_roomClick" title="12点继续做饭">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10260_20160504210949_708167356.jpeg@300h_534w_1e_1c" alt="12点继续做饭">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">游戏竞技</span>
+12点继续做饭
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>航母</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>28</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10245" dace-node="list_roomClick" title="现实版SD?台湾高中联赛！">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i3.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10245_20160506172255_1998993.jpeg@300h_534w_1e_1c" alt="现实版SD?台湾高中联赛！">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+现实版SD?台湾高中联赛！
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>罗伯特</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>7</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10289" dace-node="list_roomClick" title="台湾热血篮球纪录片">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i2.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10289_20160505154749_1843238854.jpeg@300h_534w_1e_1c" alt="台湾热血篮球纪录片">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+台湾热血篮球纪录片
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>彩色哥</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>7</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10334" dace-node="list_roomClick" title="遇强则强, 就是这么自信QAQ">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i3.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10334_20160513165900_380838829.jpeg@300h_534w_1e_1c" alt="遇强则强, 就是这么自信QAQ">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">游戏竞技</span>
+遇强则强, 就是这么自信QAQ
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>可爱培</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>6</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10584" dace-node="list_roomClick" title="AND1球星个人合集！">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i3.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10584_20160510094322_587970424.png@300h_534w_1e_1c" alt="AND1球星个人合集！">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+AND1球星个人合集！
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>衿凡</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>6</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10562" dace-node="list_roomClick" title="最强实战街球：教授Professor！">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i2.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10562_20160509142914_682465992.jpeg@300h_534w_1e_1c" alt="最强实战街球：教授Professor！">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+最强实战街球：教授Professor！
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>科比不打铁</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>5</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10550" dace-node="list_roomClick" title="钻1冲大师。">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i2.hoopchina.com.cn/hupuapp/kanqiu/201604/kanqiu_10550_20160430180939_425130696.png@300h_534w_1e_1c" alt="钻1冲大师。">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">游戏竞技</span>
+钻1冲大师。
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>秦跑跑</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>4</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10355" dace-node="list_roomClick" title="篮球鸡汤：纪录片《10000小时》">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i2.hoopchina.com.cn/hupuapp/kanqiu/201604/kanqiu_10355_20160422172550_747674582.jpeg@300h_534w_1e_1c" alt="篮球鸡汤：纪录片《10000小时》">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">篮球精选</span>
+篮球鸡汤：纪录片《10000小时》
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>纯情美少男</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>3</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10315" dace-node="list_roomClick" title="小号升级">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10315_20160520104230_1190210418.jpeg@300h_534w_1e_1c" alt="小号升级">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">游戏竞技</span>
+小号升级
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>毛线</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>3</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+<li>
+<a href="http://www.videohupu.com/10560" dace-node="list_roomClick" title="CUBA康师傅篮球嘉年华">
+<div class="inner"><div class="cover">
+<img class="lazy" data-original="http://i1.hoopchina.com.cn/hupuapp/kanqiu/201605/kanqiu_10560_20160508151513_1384897517.jpeg@300h_534w_1e_1c" alt="CUBA康师傅篮球嘉年华">
+<div class="mask"><i class="icon-hptv-play-o"></i></div>
+<i class="game-status game-status-live">Live</i>
+</div>
+<div class="text">
+<h3 class="room-name mod-overflow">
+<span class="sort">赛事直击</span>
+CUBA康师傅篮球嘉年华
+</h3>
+<div class="info">
+<div class="user">
+<i class="icon-hptv-user"></i>
+<span>Treasure</span>
+</div>
+<div class="audience">
+<i class="icon-hptv-people"></i>
+<span>3</span>
+</div>
+</div>
+</div>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="w-footer">
+<div>虎扑TV网&nbsp;<a href="/icp" target="_blank">京ICP证070154号</a>&nbsp;京ICP备06017531号-5</div>
+<div>
+<a href="http://voice.hupu.com/other/1997623.html" target="_blank">关于我们</a><span>|</span><a href="http://b.qq.com/webc.htm?new=0&sid=800021359&q=7" target="_blank">客服支持</a><span>|</span><a href="http://voice.hupu.com/other/1997628.html" target="_blank">申请成为主播</a><span>|</span><a href="http://voice.hupu.com/other/1997309.html
+" target="_blank">开播指导</a>
+</div>
+</div>
+</body><script type="text/javascript" src="http://b3.hoopchina.com.cn/web/tv/static/common/pkg/lib_4cdf5d8.js"></script>
+<script type="text/javascript" src="http://b3.hoopchina.com.cn/web/tv/static/common/pkg/common_0050553.js"></script>
+<script type="text/javascript" src="http://b2.hoopchina.com.cn/web/tv/static/common/js/underscore/underscore_5d18ca9.js"></script>
+<script type="text/javascript" src="http://b2.hoopchina.com.cn/web/tv/static/home/pkg/index_fd2bbce.js"></script>
+<script type="text/javascript">var __ready = [];__ready.push(function(){	$("img.lazy").lazyload({
+		placeholder: "http://w1.hoopchina.com.cn/huputv/resource/img/cover.png",
+		effect: "fadeIn"
+	});
+
+    if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.match(/7./i)=="7.") {
+        $("#J-list a").on("click", function(){
+            window.location.href = $(this).attr("href");
+        });
+    }
+	});
+__ready.push(function(){	var header = require("common:widget/header/header");
+    header.init();
+
+    
+
+});window.initEvent && window.initEvent();</script></html>

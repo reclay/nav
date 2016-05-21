@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>万方数据知识服务平台</title>
+    <meta name="viewport" content="width=1170" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="万方数据、论文、文献、期刊论文、学位论文、学术会议、中外标准、法律法规、科技成果、中外专利、外文文献" />
+    <meta name="description" content="万方数据知识服务平台-中外学术论文、中外标准、中外专利、科技成果、政策法规等科技文献的在线服务平台。" />
+    <link href="http://static.wanfangdata.com.cn/wfks/css/animate.min.css?v=201512211715" rel="stylesheet" />
+    <link href="http://static.wanfangdata.com.cn/wfks/css/global.min.css?v=201512211715" rel="stylesheet" />
+    <link href="/Content/home/home.min.css" rel="stylesheet" />
+    <!--[if lt IE 9 ]><link href="http://static.wanfangdata.com.cn/wfks/css/ltie9.min.css?v=201512211715" rel="stylesheet" /><![endif]-->
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="search" type="application/opensearchdescription+xml" href="opensearchdescription.xml" title="Wanfang Search" />
+</head>
+<body>
+    <div class="header">
+        <div class="nav clear">
+            <a href="http://www.wanfangdata.com.cn/">
+                <img class="logo" src="http://static.wanfangdata.com.cn/wfks/img/logo_new.png" alt="" /></a>
+            <ul>
+                <li class="active fixed" data-target="search-wrap">检索</li>
+                <li id="navResource" data-target="resource-wrap">资源</li>
+                <li id="navService" data-target="service-wrap">服务</li>
+                <li class="profile"></li>
+            </ul>
+        </div>
+        <div class="width-wrap search-wrap active fixed">
+            <div class="panel search-panel clear">
+                <div class="drp res-drp clear">
+                    <div class="res-lb">
+                        <span id="res" class="lb">学术论文</span>
+                        <i class="icon-more"></i>
+                    </div>
+                    <div class="res-list bd pop" data-open=".res-lb">
+                        <span class="clear-shadow"></span>
+                        <ul class="resource clear"></ul>
+                        <ul class="library clear"></ul>
+                    </div>
+                </div>
+                <input class="search-input" type="search" name="q" autocomplete="off" />
+                <div id="adSearchBtn" class="icon-search-ad" type="button">
+		<div class="search-ad pop">
+                    <a target="_blank" id="adSearchLink" href="http://librarian.wanfangdata.com.cn/">跨库检索</a>
+                    <a target="_blank" href="http://www.wanfangdata.com.cn/NewGuide?helpitem=searchepaper">检索帮助</a>
+                </div>
+		</div>
+                <button class="btn icon-search search-btn" type="submit"></button>
+                <div class="search-tip-field pop"></div>
+            </div>
+        </div>
+        <div class="width-wrap resource-wrap">
+            <div class="panel resource-panel"></div>
+        </div>
+        <div class="width-wrap service-wrap">
+            <div class="panel service-panel clear">
+                <div class="md">
+                    <div class="hd clear">
+                        <i class="icon icon-zzfu"></i>
+                        <h6 class="tt">增值服务</h6>
+                    </div>
+                    <div class="bd">
+                        <a target="_blank" href="http://social.wanfangdata.com.cn/">万方学术圈</a>
+                        <a target="_blank" href="http://trend.wanfangdata.com.cn/">知识脉络分析</a>
+                        <a target="_blank" href="http://librarian.wanfangdata.com.cn/">查新/跨库检索</a>
+                        <a target="_blank" href="http://librarian.wanfangdata.com.cn/ScientificLiterature">科技文献分析</a>                        
+                    </div>
+                </div>
+                <div class="md">
+                    <div class="hd clear">
+                        <i class="icon icon-gjlfu"></i>
+                        <h6 class="tt">工具类服务</h6>
+                    </div>
+                    <div class="bd">
+                        <a target="_blank" href="http://check.wanfangdata.com.cn/">论文相似性检测</a>
+                        <a target="_blank" href="http://stats.wanfangdata.com.cn/">国家经济统计数据库</a>
+                        <a target="_blank" href="http://patentool.wanfangdata.com.cn/">专利工具</a>
+                    </div>
+                </div>
+                <div class="md">
+                    <div class="hd clear">
+                        <i class="icon icon-bjbzyfu"></i>
+                        <h6 class="tt">编辑部专用服务</h6>
+                    </div>
+                    <div class="bd">
+                        <a target="_blank" href="http://stats.editors.wanfangdata.com.cn/">期刊统计分析与评价</a>
+                        <a target="_blank" href="http://www.wanfangdata.com.cn/ResourceDescription/DOI">中文DOI</a>
+                        <a target="_blank" href="http://publish.wanfangdata.com.cn/">优先出版</a>
+                        <a target="_blank" href="http://publish.wanfangdata.com.cn/Regular">同步出版</a>
+                        <a target="_blank" href="http://editors.wanfangdata.com.cn/">编审平台</a>
+                    </div>
+                </div>
+                <div class="md">
+                    <div class="hd clear">
+                        <i class="icon icon-zzzyff"></i>
+                        <h6 class="tt">作者专用服务</h6>
+                    </div>
+                    <div class="bd">
+                        <a target="_blank" href="http://www.wanfangdata.com.cn/UserService?tab=citenotice">引用通知</a>
+                        <a target="_blank" href="http://contribute.wanfangdata.com.cn/">投稿</a>
+                        <a target="_blank" href="http://oa.wanfangdata.com.cn/">OA论文托管</a>
+                    </div>
+                </div>
+                <div class="md last-md">
+                    <div class="hd clear">
+                        <i class="icon icon-yqzl"></i>
+                        <h6 class="tt">舆情专栏</h6>
+                    </div>
+                    <div class="bd">
+                        <a target="_blank" href="http://subject.wanfangdata.com.cn/">专题</a>
+                        <a target="_blank" href="http://message.wanfangdata.com.cn/">科技动态</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="width-wrap account-wrap">
+            <div class="panel account-panel clear">
+                <div class="top-link">
+                    <a class="login-link">登录</a>
+                    <a href="http://login.wanfangdata.com.cn/Register/Index">注册</a>
+                    <a href="http://login.wanfangdata.com.cn/Logout.aspx">退出</a>
+                </div>
+                <div class="account-container">
+                    <div class="account person-account">
+                        <i class="icon icon-point"></i>
+                        <span class="display-name"></span>
+                        <span class="my-link">
+                            <a target="_blank" href="http://www.wanfangdata.com.cn/UserService?tab=myorder">查看订单</a>
+                            <a target="_blank" href="http://www.wanfangdata.com.cn/UserService?tab=citenotice">引用通知</a>
+                            <a target="_blank" href="http://www.wanfangdata.com.cn/UserService?tab=mywallet">我的钱包</a>
+                            <a target="_blank" href="http://tran.wanfangdata.com.cn/Charge.aspx">充值</a>
+                            <a target="_blank" class="last-item" href="http://www.wanfangdata.com.cn/UserService?tab=edituser">个人信息管理</a>
+                        </span>
+                    </div>
+                    <div class="account group-account">
+                        <i class="icon icon-point"></i>
+                        <span class="display-name"></span>
+                        <span class="my-link">
+                            <a target="_blank" class="order-link" href="http://istic.wanfangdata.com.cn/Order">查看订单</a>
+                            <a target="_blank" class="last-item group-center" href="http://www.wanfangdata.com.cn/Organization">服务站</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                            
+    <div class="reource-board-wrap-list">
+        <div class="resource-board-wrap active">
+            <div class="resource-board active clear">
+                <div class="board clear">
+                    <div class="bd">
+                        <a class="title field link" href="#" data-field="name"></a>
+                        <div class="desc field" data-field="desc"></div>
+                    </div>
+                    <div class="right-arrow"></div>
+                </div>
+                <div class="statistics">
+                    <h6 class="field" data-field="title">论文总数</h6>
+                    <div class="total">
+                        <span class="text field count" data-field="total"></span>
+                        <span data-field="unit" class="pian field">篇</span>
+                    </div>
+                    <div class="update">
+                        <i class="icon icon-clock"></i>
+                        <span class="date">最近更新：<span class="field" data-field="updateDate"></span></span>
+                        <span class="text">更新<span class="field count" data-field="update"></span>条</span>
+                        <i class="icon icon-top-arrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-resource-wrap">
+        <div class="section-resource clear">
+            <div class="resource-box check-box">
+                <a class="wrap" target="_blank" href="http://check.wanfangdata.com.cn/">
+                    <h2 class="title">论文相似性检测</h2>
+                    <div class="more">
+                        <span>新论文检测</span>
+                        <span>已发表论文检测</span>
+                        <span>大学生论文检测</span>
+                    </div>
+                </a>
+            </div>
+            <div class="resource-box trend-box">
+                <a class="wrap" target="_blank" href="http://trend.wanfangdata.com.cn/">
+                    <h2 class="title">知识脉络分析</h2>
+                </a>
+            </div>
+            <div class="resource-box social-box">
+                <a class="wrap" target="_blank" href="http://social.wanfangdata.com.cn/">
+                    <h2 class="title">万方学术圈</h2>
+                    <div class="certified">
+                        <span class="btn">成为认证学者</span>
+                        <span>获得<span class="money">500元</span>资助!</span>
+                    </div>
+                </a>
+            </div>
+            <div class="resource-box stats-box">
+                <a class="wrap" target="_blank" href="http://stats.wanfangdata.com.cn/">
+                    <h2 class="title">国家经济统计数据库</h2>
+                </a>
+            </div>
+            <div class="resource-box librarian-box">
+                <a class="wrap" target="_blank" href="http://librarian.wanfangdata.com.cn/">
+                    <h2 class="title">跨库检索</h2>
+                    <div class="more">
+                        <span>高级检索</span>
+                        <span>专业检索</span>
+                    </div>
+                </a>
+            </div>
+            <div class="resource-box more-box btn">
+                <i class="icon icon-add"></i>
+                <span>更多服务</span>
+            </div>
+        </div>
+    </div>
+    <div class="section section-ad">
+        <ul>
+<li><a href="http://www.wanfang.com.cn/zxdt/3j-txt18.html" target="_blank"><img src="http://ad.wanfangdata.com.cn/images/apabiwww.jpg"  /></a></li> 
+<li><a href="http://ad.wanfangdata.com.cn/doc/14zwtz.pdf" target="_blank"><img src="http://ad.wanfangdata.com.cn/images/2016征文通知2.jpg" title="" alt="2016征文通知" /></a></li> 
+<li><a href="http://kaixue.wanfangdata.com.cn" target="_blank"><img src="http://ad.wanfangdata.com.cn/images/kaixue.jpg"  /></a></li> 
+<li><a href="http://www.ifedc.org" target="_blank"><img src="http://ad.wanfangdata.com.cn/images/yqtkt.jpg"  /></a></li>
+<li><a><img src="http://ad.wanfangdata.com.cn/images/jindu.png"  /></a></li>
+<li><a href="http://video.wanfangdata.com.cn/v/play/SI300618543.html" target="_blank"><img src="http://ad.wanfangdata.com.cn/images/wfsp.jpg"  /></a></li>
+<li><a href="http://www.bj429.com.cn" target="_blank"><img src="http://ad.wanfangdata.com.cn/images/wlaq.jpg"  /></a></li>
+</ul>
+                            
+                            
+                            
+                            
+    </div>
+    <div class="section section-products">
+        <h6 class="title">公司其他产品</h6>
+        <a target="_blank" href="http://med.wanfangdata.com.cn">
+            <img src="/Content/home/img/product-med.png" alt="" /></a>
+        <a target="_blank" href="http://video.wanfangdata.com.cn">
+            <img src="/Content/home/img/product-video.png" alt="" /></a>
+        <a target="_blank" href="http://edu.wanfangdata.com.cn">
+            <img src="/Content/home/img/product-edu.png" alt="" /></a>
+        <a target="_blank" href="http://et.wanfangdata.com.cn">
+            <img src="/Content/home/img/product-et.png" alt="" /></a>
+        <a target="_blank" href="http://earth.wanfangdata.com.cn">
+            <img src="/Content/home/img/product-earth.png" alt="" /></a>
+        <a target="_blank" href="http://stads.infosoft.cc" class="product-soft">
+            <img src="/Content/home/img/product-soft.png" alt="" /></a>
+    </div>
+    <div class="footer-wrap">
+        <div class="lt-bg"></div>
+        <div class="rt-bg"></div>
+        <div class="footer clear">
+            <div class="lt">
+                <div class="top">
+                    <a target="_blank" href="http://www.wanfangdata.com.cn/NewGuide">帮助</a>
+                    <a target="_blank" href="http://www.wanfangdata.com.cn/CustomerService/Services">客户服务</a>
+                    <a target="_blank" href="http://www.sojump.com/jq/4550749.aspx">问卷调查</a>
+                    <a target="_blank" href="http://www.wanfangdata.com.cn/AboutUs/index">关于我们</a>
+                    <a target="_blank" href="http://www.wanfang.com.cn/">公司首页</a>
+                    <a target="_blank" href="http://weibo.com/wanfangdata">平台微博</a>
+                    <a target="_blank" href="http://wanfangdata.zhiye.com/">加入我们</a>
+                    <a target="_blank" href="http://www.wanfangdata.com.cn/Sitemap">网站地图</a>
+                    <a id="langCN" data-lang="zn-CN" class="lang">简</a>
+                    <a id="langTW" data-lang="zn-TW" class="lang">繁</a>
+                    <a id="langEN" data-lang="EN" href="http://www.wanfangdata.com/" target="_blank">ENG</a>
+                </div>
+                <div class="bottom">
+                    <div>
+                        <a target="_blank" href="http://ad.wanfangdata.com.cn/images/hlwcb.jpg">互联网出版许可证：新出网证(京)字042号</a>
+                        <a target="_blank" href="http://ad.wanfangdata.com.cn/images/zhengshu_2.jpg">互联网药品信息服务资格证书号：(京)-经营性-2011-0017</a>
+                        <a target="_blank" href="http://ad.wanfangdata.com.cn/images/stjmxkz2.jpg">信息网络传播视听节目许可证 许可证号：0108284 </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="http://ad.wanfangdata.com.cn/images/icp.jpg">京ICP证：010071</a>
+                        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020237" ><img src="http://ad.wanfangdata.com.cn/images/gabeian.png" style="margin-right:2px;"/>京公网安备11010802020237号</a>
+<a target="_blank" href="http://ad.wanfangdata.com.cn/images/yunicp.jpg">万方数据知识资源云服务系统[简称：知识云服务平台]V1.0 证书号：软著登字第1016589号</a>
+                    </div>
+                    <p>万方数据知识服务平台--国家科技支撑计划资助项目（编号：2006BAH03B01）©北京万方数据股份有限公司  万方数据电子出版社</p>
+                </div>
+            </div>
+            <div class="rt">
+                <div class="top">
+                    <i class="icon icon-service"></i>
+                    <span>联系客服</span>
+                </div>
+                <div class="mid">4000-115-888</div>
+                <div class="service-email">service@wanfangdata.com.cn</div>
+            </div>
+        </div>
+    </div>
+                            
+                            
+    <script src="http://static.wanfangdata.com.cn/wfks/lib/jquery-1.11.3.min.js"></script>
+    <script src="http://static.wanfangdata.com.cn/wfks/lib/jquery-ui-1.11.4.custom.min.js"></script>
+    <script src="/Config"></script>
+    <script src="http://static.wanfangdata.com.cn/wfks/js/global.min.js?v=201512211715"></script>
+    
+    <script>
+        var resourceExt = { book: { title: '论文总数', unit: '篇' }, claw: { title: '论文总数', unit: '篇' }, cstad: { title: '论文总数', unit: '篇' }, expert: { title: '论文总数', unit: '篇' }, hy: { title: '论文总数', unit: '篇' }, institution: { title: '论文总数', unit: '篇' }, localchronicleitem: { title: '论文总数', unit: '篇' }, nstl: { title: '论文总数', unit: '篇' }, nstr: { title: '论文总数', unit: '篇' }, paper: { title: '论文总数', unit: '篇' }, patent: { title: '论文总数', unit: '篇' }, qk: { title: '论文总数', unit: '篇' }, scholar: { title: '论文总数', unit: '篇' }, standard: { title: '论文总数', unit: '篇' }, xw: { title: '论文总数', unit: '篇' } };
+        $('.section-ad').unslider({ dots: true});
+    </script>
+    <script src="/Content/home/home.min.js"></script>
+</body>
+</html>

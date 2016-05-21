@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>中国原创音乐基地 5SING</title>
+<meta name="keywords" content="中国原创音乐基地，原创，伴奏，免费伴奏，原创音乐，翻唱，网络歌曲，手机铃声，翻唱音乐，手机彩铃，网络音乐，5sing" />
+<meta name="description" content="中国原创音乐基地，数字音乐网站，汇集了大量的网络歌手的原创音乐歌曲及翻唱歌曲，提供大量歌曲的伴奏以及歌词免费下载，将喜爱的音乐或者歌曲作为手机彩铃下载" />
+<meta http-equiv="mobile-agent" content="format=html5;url=http://5sing.kugou.com/m" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url=http://5sing.kugou.com/m" />
+<meta name="msapplication-TileColor" content="#46bf0a" />
+<meta name="msapplication-TileImage" content="http://static.5sing.kugou.com/public/images/5sing_icon72.png" />
+<link href="http://static.5sing.kugou.com/public/images/5sing_icon72.png" rel="apple-touch-icon" />
+<link rel="stylesheet" href="http://static.5sing.kugou.com/public/v4.1.0/css/public.css">
+<link rel="stylesheet" href="http://static.5sing.kugou.com/public/v4.1.0/css/index.css">
+<script type="text/javascript" src="http://static.5sing.kugou.com/js/jquery1.7.js"></script>
+<script >
+        var TempID = 10000;
+        document.domain = '5sing.kugou.com';
+</script>
+</head>
+<body>
+<div class="ws_head_wrap">
+	<div class="head">
+		<div class="ct clearfix">
+			<a href="/" class="logo" target="_blank"><img src="http://static.5sing.kugou.com/public/v4.1.0/images/logo.png" alt="中国原创音乐基地"></a>
+			<div class="ser_box">
+				<div class="serach">
+					<input class="seh_v jsSearchAutoComplete" type="text" id="txtKey" placeholder="歌曲/歌单/会员">
+					<a href="javascript:;" class="seh_b" style="outline:none;">搜 索</a>
+				</div>
+			</div>
+
+			<div class="top_nav clearfix">
+				<ul class="top_nav_login" >
+					<li><a href="http://5sing.kugou.com/login">登录</a></li>
+					<li><a href="http://5sing.kugou.com/reg">注册</a></li>
+				</ul>
+				<ul class="top_nav_info">
+					<li class="user">
+
+					</li>
+					<li class="message">
+					</li>
+				</ul>
+				<ul>
+                    <li>
+                        <a href="http://5sing.kugou.com/my/writing/add"><i class="icon_upload"></i>上传</a>
+                        <ul class="upload_box">
+                            <li><a href="http://5sing.kugou.com/my/writing/add###yc">上传原创</a></li>
+                            <li><a href="http://5sing.kugou.com/my/writing/add###fc">上传翻唱</a></li>
+                            <li><a href="http://5sing.kugou.com/my/writing/add###bz">上传伴奏</a></li>
+                            <li><a href="http://5sing.kugou.com/my/writing/yc">歌曲管理</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav_app_til" href="javascript:;"><i class="icon_phone"></i>APP</a>
+                        <ul class="app_box">
+                            <li><img src="http://static.5sing.kugou.com/images/5singcode.png" width="100px" height="100px"></li>
+                        </ul>
+                    </li>
+                </ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ws_nav_wrap">
+	<div class="nav">
+		<ul class="clearfix">
+			<li><a href="" class="curr">首页</a></li>
+			<li><a href="http://5sing.kugou.com/yc">原创</a></li>
+			<li><a href="http://5sing.kugou.com/fc">翻唱</a></li>
+			<li><a href="http://5sing.kugou.com/bz">伴奏</a></li>
+			<li><a href="http://5sing.kugou.com/top">榜单</a></li>
+			<li><a href="http://5sing.kugou.com/gd/">歌单</a></li>
+			<li class="bar">|</li>
+			<li><a href="http://5sing.kugou.com/artists">音乐人</a></li>
+			<li><a href="http://huodong.5sing.kugou.com/">活动</a></li>
+			<li><a href="http://club.5sing.kugou.com/">圈子</a></li>
+			<li><a href="http://5singlive.kugou.com" target="_blank">音乐现场</a></li>
+			<li><a href="http://5sing.kugou.com/zc" target="_blank">众筹</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="ws_banner_wrap" style="background:#dedad7">
+	<div id="banner" class="banner_ct">
+		<div class="banner">
+				<script src="http://5sing.kugou.com/poster/show?positionId=11&version=v4.1.0"></script>
+		</div>
+	</div>
+</div>
+
+<div class="ws_main_wrap">
+	<div class="ws_rec_wrap clearfix">
+		<div class="rec_l_wrap">
+			<div class="rec_type" data-style="全部">
+				<div class="hd">分类推荐
+					<div class="types">
+						<a href="javascript:;" class="curr" data-style="全部" onclick='_czc.push(["_trackEvent","首页","分类推荐","编辑推荐"]);'>编辑推荐</a>
+						<span class="bar">|</span>
+						<a href="javascript:;" data-style="古风" onclick='_czc.push(["_trackEvent","首页","分类推荐","古风"]);'>古风</a>
+						<span class="bar">|</span>
+						<a href="javascript:;" data-style="流行" onclick='_czc.push(["_trackEvent","首页","分类推荐","流行"]);'>流行</a>
+						<span class="bar">|</span>
+						<a href="javascript:;" data-style="民谣" onclick='_czc.push(["_trackEvent","首页","分类推荐","民谣"]);'>民谣</a>
+						<span class="bar">|</span>
+						<a href="javascript:;" data-style="摇滚" onclick='_czc.push(["_trackEvent","首页","分类推荐","摇滚"]);'>摇滚</a>
+						<span class="bar">|</span>
+						<a href="javascript:;" data-style="动漫/游戏" onclick='_czc.push(["_trackEvent","首页","分类推荐","动漫/游戏"]);'>动漫游戏</a>
+						<span class="bar">|</span>
+						<a href="javascript:;" data-style="民族&美声" onclick='_czc.push(["_trackEvent","首页","分类推荐","民族&美声"]);'>民族&美声</a>
+					</div>
+					<a href="http://5sing.kugou.com/yc/list?t=1" target="_blank" class="more">更多&gt;</a>
+					<i class="arr"></i>
+				</div>
+
+				<div class="bd clearfix">
+					<div class="bar"></div>
+					
+					<div class="rec_yc animation2">
+						<div class="tit">
+							<i></i>原创推荐
+							<div class="control">
+								<a href="javascript:void(0);" id="RefreshYc"  class="change" title="换一批歌曲"><i></i>下一批</a>
+								<a href="javascript:void(0);" songinfo="yc$3085832$yc$3099530$yc$3097245$yc$3091627$yc$3085869$yc$3049423$yc$3096804$yc$3094593$yc$3074839$yc$3090427" class="playAll PlayerWidget_play" title="播放全部歌曲"><i></i>全部播放</a>
+							</div>
+						</div>
+						<div class="ct">
+							
+							<div class="item on">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3085832.html" class="s_name" target="_blank">二三趣【汐音社】</a>
+									<a href="http://5sing.kugou.com/3303241" class="singer" target="_blank">amurorx78</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img5.5sing.kgimg.com/force/T1OIh_BKh_1RXrhCrK_180_180.jpg" alt="">
+										<p>古风</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3085832.html" class="s_name" target="_blank" title="二三趣【汐音社】" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>二三趣【汐音社】</a>
+											<a href="javascript:void(0);" songinfo="yc$3085832" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/3303241" class="singer" target="_blank">amurorx78</a></p>
+										<p class="info">汐音社出品</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3099530.html" class="s_name" target="_blank">出道吧！moonlight！</a>
+									<a href="http://5sing.kugou.com/31926440" class="singer" target="_blank">KBShinya</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img9.5sing.kgimg.com/force/T1okATBChT1RXrhCrK_180_180.jpg" alt="">
+										<p>对唱/合唱</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3099530.html" class="s_name" target="_blank" title="出道吧！moonlight！" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>出道吧！moonlight！</a>
+											<a href="javascript:void(0);" songinfo="yc$3099530" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/31926440" class="singer" target="_blank">KBShinya</a></p>
+										<p class="info">感谢大家共同的努力！！！做出这首原创曲！！！真是准备了好久啊TAT</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3097245.html" class="s_name" target="_blank">RAINY生日快乐</a>
+									<a href="http://5sing.kugou.com/10489452" class="singer" target="_blank">魏仕超</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img7.5sing.kgimg.com/m/T1nJbJBCKT1RXrhCrK_180_180.jpg" alt="">
+										<p>摇滚</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3097245.html" class="s_name" target="_blank" title="RAINY生日快乐" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>RAINY生日快乐</a>
+											<a href="javascript:void(0);" songinfo="yc$3097245" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/10489452" class="singer" target="_blank">魏仕超</a></p>
+										<p class="info">《RAINY生日快乐》是致敬音乐才子王力宏经典之作《一首简单的歌》的“升级版”。一首...</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3091627.html" class="s_name" target="_blank">梦日白(Daydream)</a>
+									<a href="http://5sing.kugou.com/11520401" class="singer" target="_blank">猫科动物/FELINE</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img7.5sing.kgimg.com/force/T1Om_vBCET1RXrhCrK_180_180.jpg" alt="">
+										<p>摇滚</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3091627.html" class="s_name" target="_blank" title="梦日白(Daydream)" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>梦日白(Daydream)</a>
+											<a href="javascript:void(0);" songinfo="yc$3091627" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/11520401" class="singer" target="_blank">猫科动物/FELINE</a></p>
+										<p class="info">    一天，在梦里，一段有趣的偶遇，一个一直在说“我爱你”的人，恰好满足了一颗渴望...</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3085869.html" class="s_name" target="_blank">【原创】《余香》——橙光「后宫三千人」主题曲</a>
+									<a href="http://5sing.kugou.com/14113620" class="singer" target="_blank">-贰萬-</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img5.5sing.kgimg.com/m/T1Ro_yBX_T1RXrhCrK_180_180.jpg" alt="">
+										<p>古风</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3085869.html" class="s_name" target="_blank" title="【原创】《余香》——橙光「后宫三千人」主题曲" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>【原创】《余香》——橙光「后宫三千人」主题曲</a>
+											<a href="javascript:void(0);" songinfo="yc$3085869" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/14113620" class="singer" target="_blank">-贰萬-</a></p>
+										<p class="info">感谢小熊carry我健气了一回~~曲子跟词都很棒~ 不知道玩过这个游戏的有多少人呢~？</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3049423.html" class="s_name" target="_blank">林</a>
+									<a href="http://5sing.kugou.com/11291009" class="singer" target="_blank">Ian不是铁杆</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img7.5sing.kgimg.com/force/T1FlYjBbA_1RXrhCrK_180_180.jpg" alt="">
+										<p>电子</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3049423.html" class="s_name" target="_blank" title="林" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>林</a>
+											<a href="javascript:void(0);" songinfo="yc$3049423" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/11291009" class="singer" target="_blank">Ian不是铁杆</a></p>
+										<p class="info">让我在这林间，挣扎 放浪 迷离 渴望 扑腾 寻向 搏动 与大地碰撞。</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3096804.html" class="s_name" target="_blank">胖女孩</a>
+									<a href="http://5sing.kugou.com/12580115" class="singer" target="_blank">Judechiu</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img9.5sing.kgimg.com/m/T1OlWvByCT1RXrhCrK_180_180.jpg" alt="">
+										<p>流行</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3096804.html" class="s_name" target="_blank" title="胖女孩" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>胖女孩</a>
+											<a href="javascript:void(0);" songinfo="yc$3096804" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/12580115" class="singer" target="_blank">Judechiu</a></p>
+										<p class="info">送给所有胖女孩</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3094593.html" class="s_name" target="_blank">ill call u FT沦陷乐团</a>
+									<a href="http://5sing.kugou.com/55361916" class="singer" target="_blank">zewen199</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img9.5sing.kgimg.com/force/T1lMZxB5VT1RXrhCrK_180_180.jpg" alt="">
+										<p>流行</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3094593.html" class="s_name" target="_blank" title="ill call u FT沦陷乐团" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>ill call u FT沦陷乐团</a>
+											<a href="javascript:void(0);" songinfo="yc$3094593" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/55361916" class="singer" target="_blank">zewen199</a></p>
+										<p class="info">新专辑《Z.W》主打歌1，感谢沦陷乐团成员的和声，编曲做的很有味道</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3074839.html" class="s_name" target="_blank">如怀尺璧—《浮生六记》收录曲</a>
+									<a href="http://5sing.kugou.com/2185889" class="singer" target="_blank">人衣大人</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img4.5sing.kgimg.com/force/T1reALByYT1RXrhCrK_180_180.jpg" alt="">
+										<p>古风</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3074839.html" class="s_name" target="_blank" title="如怀尺璧—《浮生六记》收录曲" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>如怀尺璧—《浮生六记》收录曲</a>
+											<a href="javascript:void(0);" songinfo="yc$3074839" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/2185889" class="singer" target="_blank">人衣大人</a></p>
+										<p class="info">如怀尺璧——浮生六记之《闺房记乐》他年当与君卜筑于此，买绕屋菜园十亩，课仆妪，植...</p>
+									</div>
+								</div>
+							</div><div class="item">
+								<div class="normal">
+									<a href="http://5sing.kugou.com/yc/3090427.html" class="s_name" target="_blank">是时候</a>
+									<a href="http://5sing.kugou.com/1520978" class="singer" target="_blank">小义学长</a>
+								</div>
+								<div class="hover">
+									<div class="hover_l">
+										<img src="http://img2.5sing.kgimg.com/force/T19nEvByZT1RXrhCrK_180_180.jpg" alt="">
+										<p>流行</p>
+									</div>
+									<div class="hover_r">
+										<p>
+											<a href="http://5sing.kugou.com/yc/3090427.html" class="s_name" target="_blank" title="是时候" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","原创"]);'>是时候</a>
+											<a href="javascript:void(0);" songinfo="yc$3090427" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","原创"]);'></a>
+										</p>
+										<p><a href="http://5sing.kugou.com/1520978" class="singer" target="_blank">小义学长</a></p>
+										<p class="info">五月新歌</p>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+
+					
+					<div class="rec_fc animation2">
+						<div class="tit">
+							<i></i>翻唱推荐
+							<div class="control">
+								<a href="javascript:void(0);" id="RefreshFc" class="change" title="换一批歌曲" title="播放全部歌曲"><i></i>下一批</a>
+								<a href="javascript:void(0);" songinfo="fc$15171866$fc$15115109$fc$15168889$fc$15136012$fc$15154945$fc$15133630$fc$15159263$fc$15155483$fc$15139067$fc$15120832" class="playAll PlayerWidget_play" title="播放全部歌曲"><i></i>全部播放</a>
+							</div>
+						</div>
+						<div class="ct">
+							
+								<div class="item on">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15171866.html" class="s_name" target="_blank">夏夕空 2016piano ver. </a>
+										<a href="http://5sing.kugou.com/3969040" class="singer" target="_blank">匀仔CyRena</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img7.5sing.kgimg.com/m/T1ZKV5B4VT1R4cSCrK_180_180.png" alt="">
+											<p>民谣</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15171866.html" class="s_name" target="_blank" title="夏夕空 2016piano ver. " onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>夏夕空 2016piano ver. </a>
+												<a href="javascript:void(0);" songinfo="fc$15171866" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/3969040" class="singer" target="_blank">匀仔CyRena</a></p>
+											<p class="info">“あの夏の思い出よ”2012年11月因为这首歌与和夜子相识2016年完成了 算是当年的一个...</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15115109.html" class="s_name" target="_blank">【中】In control（HBD to 阿傻）</a>
+										<a href="http://5sing.kugou.com/1090527" class="singer" target="_blank">饼波波boo</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img3.5sing.kgimg.com/m/T1CjL8BCYT1RXrhCrK_180_180.jpg" alt="">
+											<p>R&B</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15115109.html" class="s_name" target="_blank" title="【中】In control（HBD to 阿傻）" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>【中】In control（HBD to 阿傻）</a>
+												<a href="javascript:void(0);" songinfo="fc$15115109" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/1090527" class="singer" target="_blank">饼波波boo</a></p>
+											<p class="info">为什么是这首歌呢因为如果唱梦伴就没有惊喜了啊第一次听这首歌是在某个地方我们俩也是...</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15168889.html" class="s_name" target="_blank">那xx（English Version)</a>
+										<a href="http://5sing.kugou.com/51194377" class="singer" target="_blank">Yian_</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img3.5sing.kgimg.com/m/T1jbDoBChT1RXrhCrK_180_180.jpg" alt="">
+											<p>R&B</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15168889.html" class="s_name" target="_blank" title="那xx（English Version)" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>那xx（English Version)</a>
+												<a href="javascript:void(0);" songinfo="fc$15168889" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/51194377" class="singer" target="_blank">Yian_</a></p>
+											<p class="info">vocal：yian mix：夕柠</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15136012.html" class="s_name" target="_blank">落霞云归</a>
+										<a href="http://5sing.kugou.com/474231" class="singer" target="_blank">江南诚</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img4.5sing.kgimg.com/force/T1IUYvByKT1RXrhCrK_180_180.jpg" alt="">
+											<p>古风</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15136012.html" class="s_name" target="_blank" title="落霞云归" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>落霞云归</a>
+												<a href="javascript:void(0);" songinfo="fc$15136012" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/474231" class="singer" target="_blank">江南诚</a></p>
+											<p class="info">好好听的歌，献丑翻来当五一礼献给大家！祝节日快乐~</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15154945.html" class="s_name" target="_blank">愛情（長沙話）</a>
+										<a href="http://5sing.kugou.com/12042006" class="singer" target="_blank">钟声声妈妈</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img1.5sing.kgimg.com/force/T1QCh4BXCT1RXrhCrK_180_180.jpg" alt="">
+											<p>流行</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15154945.html" class="s_name" target="_blank" title="愛情（長沙話）" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>愛情（長沙話）</a>
+												<a href="javascript:void(0);" songinfo="fc$15154945" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/12042006" class="singer" target="_blank">钟声声妈妈</a></p>
+											<p class="info">真正爱的人，总归是有办法见面的。</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15133630.html" class="s_name" target="_blank"> 小幸运 日语版 (流れ星)</a>
+										<a href="http://5sing.kugou.com/43310906" class="singer" target="_blank">荒木毬菜</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img5.5sing.kgimg.com/force/T1amDnBgbT1RXrhCrK_180_180.jpg" alt="">
+											<p>流行</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15133630.html" class="s_name" target="_blank" title=" 小幸运 日语版 (流れ星)" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'> 小幸运 日语版 (流れ星)</a>
+												<a href="javascript:void(0);" songinfo="fc$15133630" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/43310906" class="singer" target="_blank">荒木毬菜</a></p>
+											<p class="info">我是山川大海，一个藏于制作群的普通英雄。音乐制作QQ群：103342442。</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15159263.html" class="s_name" target="_blank">我的爱都是骨头</a>
+										<a href="http://5sing.kugou.com/10789829" class="singer" target="_blank">v不才v</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img2.5sing.kgimg.com/force/T1HwJ5BybT1RXrhCrK_180_180.jpg" alt="">
+											<p>流行</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15159263.html" class="s_name" target="_blank" title="我的爱都是骨头" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>我的爱都是骨头</a>
+												<a href="javascript:void(0);" songinfo="fc$15159263" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/10789829" class="singer" target="_blank">v不才v</a></p>
+											<p class="info">做这首歌老不容易了但是我现在没空讲！感谢wuli海报君修改了一万多次海报还没有挂我们...</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15155483.html" class="s_name" target="_blank">Confetti</a>
+										<a href="http://5sing.kugou.com/4617846" class="singer" target="_blank">britneylee</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img4.5sing.kgimg.com/force/T1fBJ7B4ET1RXrhCrK_180_180.jpg" alt="">
+											<p>R&B</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15155483.html" class="s_name" target="_blank" title="Confetti" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>Confetti</a>
+												<a href="javascript:void(0);" songinfo="fc$15155483" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/4617846" class="singer" target="_blank">britneylee</a></p>
+											<p class="info">Tori前几张专辑里的歌简直首首心头爱~~其中就包括这首 还有好多歌都好想唱哦！谢谢亲...</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15139067.html" class="s_name" target="_blank">李夏怡 Breathe (叹息) to瑞安生日快乐</a>
+										<a href="http://5sing.kugou.com/4478191" class="singer" target="_blank">PayamI</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img8.5sing.kgimg.com/force/T1S4JvBbKT1RXrhCrK_180_180.jpg" alt="">
+											<p>流行</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15139067.html" class="s_name" target="_blank" title="李夏怡 Breathe (叹息) to瑞安生日快乐" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>李夏怡 Breathe (叹息) to瑞安生日快乐</a>
+												<a href="javascript:void(0);" songinfo="fc$15139067" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/4478191" class="singer" target="_blank">PayamI</a></p>
+											<p class="info">后期:水月图绘:兔子又高又帅唱歌又好听的瑞安！生日快乐！实在不知道送你什么！就送了...</p>
+										</div>
+									</div>
+								</div><div class="item">
+									<div class="normal">
+										<a href="http://5sing.kugou.com/fc/15120832.html" class="s_name" target="_blank">【魔道祖师·群像】浮世</a>
+										<a href="http://5sing.kugou.com/11252009" class="singer" target="_blank">＜D.G＞°夕颜</a>
+									</div>
+									<div class="hover">
+										<div class="hover_l">
+											<img src="http://img10.5sing.kgimg.com/force/T1pULvByJT1RXrhCrK_180_180.jpg" alt="">
+											<p>古风</p>
+										</div>
+										<div class="hover_r">
+											<p>
+												<a href="http://5sing.kugou.com/fc/15120832.html" class="s_name" target="_blank" title="【魔道祖师·群像】浮世" onclick='_czc.push(["_trackEvent","首页", "分类推荐跳转","翻唱"]);'>【魔道祖师·群像】浮世</a>
+												<a href="javascript:void(0);" songinfo="fc$15120832" class="playBtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "分类推荐播放","翻唱"]);'></a>
+											</p>
+											<p><a href="http://5sing.kugou.com/11252009" class="singer" target="_blank">＜D.G＞°夕颜</a></p>
+											<p class="info"></p>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+
+			<div class="rec_gd">
+				<div class="hd">
+					<a href="javascript:void(0);" class="tag curr">歌单</a>
+					<span class="bar">|</span>
+					<a href="javascript:void(0);" class="tag">专辑</a>
+					<a href="/gd/" target="_blank" class="more">更多&gt;</a>
+				</div>
+
+				<div class="bd">
+					
+					<div class="ct gd animation">
+						
+							<div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img5.5sing.kgimg.com/force/T12rZABC_T1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>1303</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="56f97a82739471294481e5ca"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/16219554/dj/56f97a82739471294481e5ca.html" title="Korean · 韩式" target="_blank">Korean · 韩式</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img1.5sing.kgimg.com/force/T1xMJvB7AT1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>1784</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="56d98c6d6b2d3630287369da"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/35102980/dj/56d98c6d6b2d3630287369da.html" title="总有一句歌词直达你心" target="_blank">总有一句歌词直达你心</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img2.5sing.kgimg.com/m/T1MHAABCCT1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>518</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="570a2ce26b2d3667b0a8d78a"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/50480249/dj/570a2ce26b2d3667b0a8d78a.html" title="且問公子來何處" target="_blank">且問公子來何處</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img7.5sing.kgimg.com/m/T1SfJnByAT1R4cSCrK_124_124.png" alt=""></a>
+								<p class="bar"><i></i>613</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="56697da57394713d8ccb2840"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/43157698/dj/56697da57394713d8ccb2840.html" title="关于一些觊觎很久的英文歌" target="_blank">关于一些觊觎很久的英文歌</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img7.5sing.kgimg.com/m/T1oPVvByKT1R4cSCrK_124_124.png" alt=""></a>
+								<p class="bar"><i></i>1259</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="55de9f67482b863a482c6a74"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/49413089/dj/55de9f67482b863a482c6a74.html" title="用一生来将你读懂" target="_blank">用一生来将你读懂</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img2.5sing.kgimg.com/force/T1loEaB5hT1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>45707</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="572c75fddaf0a3059046a8e9"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/37938839/dj/572c75fddaf0a3059046a8e9.html" title="4月原创古风精选30首" target="_blank">4月原创古风精选30首</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img4.5sing.kgimg.com/force/T1FLA7BCCT1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>2834</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="572b50c3482b862298046fc2"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/38037125/dj/572b50c3482b862298046fc2.html" title="青い空" target="_blank">青い空</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img4.5sing.kgimg.com/m/T122LnBydT1R4cSCrK_124_124.png" alt=""></a>
+								<p class="bar"><i></i>3954</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="566f82c56b2d3622187c57a2"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/39350437/dj/566f82c56b2d3622187c57a2.html" title="剑网三门派之明教" target="_blank">剑网三门派之明教</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img6.5sing.kgimg.com/force/T12oAnB_KT1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>2534</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="570a8b097394714c948f3abf"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/10509024/dj/570a8b097394714c948f3abf.html" title="一首首清幽古朴优美动人的民谣" target="_blank">一首首清幽古朴优美动人的民谣</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img9.5sing.kgimg.com/force/T15n_qB4WT1RXrhCrK_124_124.jpg" alt=""></a>
+								<p class="bar"><i></i>889</p>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songlistid="56cd3d3b482b8630c8639f95"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/16852186/dj/56cd3d3b482b8630c8639f95.html" title="就是爱合体" target="_blank">就是爱合体</a></p>
+							</div>
+						
+					</div>
+					
+
+					
+					<div class="ct zj animation">
+						
+							<div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img6.5sing.kgimg.com/force/T1Q0LnBCZT1RXrhCrK_124_124.jpg" alt="A World Full of Adults"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$2873349$yc$3053538$yc$3053541$yc$3053543$yc$3053545"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/18204295/zj/56e7dade6b2d360834655042.html" target="_blank" title="A World Full of Adults">A World Full of Adults</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/18204295" title="萎度" target="_blank">萎度</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img4.5sing.kgimg.com/force/T1ToLnB5dT1RXrhCrK_124_124.jpg" alt="追风筝的人"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$2817403$yc$2817386$yc$2817384$yc$2817383$yc$2817380$yc$2817378$fc$15152927$yc$2932359$yc$2968830$yc$3093192$yc$3093194$yc$3093196"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/6842000/zj/573188077394714f807cf4b1.html" target="_blank" title="追风筝的人">追风筝的人</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/6842000" title="兰天洋老师" target="_blank">兰天洋老师</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img7.5sing.kgimg.com/force/T1Om_vBCET1RXrhCrK_124_124.jpg" alt="【猫科动物】DEMO专辑"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$3091625$yc$2802677$yc$2825271$yc$2846996$yc$2884018$yc$2925630$yc$3091627$yc$2813543$yc$3091628"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/11520401/zj/5729721d6b2d36171c8795bb.html" target="_blank" title="【猫科动物】DEMO专辑">【猫科动物】DEMO专辑</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/11520401" title="猫科动物/FELINE" target="_blank">猫科动物/FELINE</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img7.5sing.kgimg.com/force/T1noCeBCbT1RXrhCrK_124_124.jpg" alt="浑浊大全"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$3077806$yc$3077807$yc$3070690$yc$3044898$yc$2841363$yc$2726405"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/31376357/zj/54be4708fabced08949be7d5.html" target="_blank" title="浑浊大全">浑浊大全</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/31376357" title="聂禹" target="_blank">聂禹</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img7.5sing.kgimg.com/force/T1qlYvB4LT1RXrhCrK_124_124.jpg" alt="2016"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$3076933$yc$3072311$fc$15015246$yc$3001067$yc$3000012"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/11021686/zj/5686330773947138109db59a.html" target="_blank" title="2016">2016</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/11021686" title="清腾" target="_blank">清腾</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img6.5sing.kgimg.com/force/T1tm_5B4KT1RXrhCrK_124_124.jpg" alt="listen to me"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="fc$13724994$fc$13724761$yc$2711216$yc$2711193$yc$2711190$yc$2711188$fc$13724802$fc$13724790$fc$13724786$fc$13724778$fc$13724767$yc$2582299"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/824182/zj/54a64c5731d06e13ac4487e0.html" target="_blank" title="listen to me">listen to me</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/824182" title="爱心觉怀天" target="_blank">爱心觉怀天</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img6.5sing.kgimg.com/force/T186AeB4WT1R4cSCrK_124_124.png" alt="夜的第几章"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$3063599$yc$3063600$yc$3063602$yc$3063604$yc$3063609$yc$3063613$yc$3063617$yc$3063619$yc$3063620$yc$3063628"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/11300583/zj/56f90d46739471294481beeb.html" target="_blank" title="夜的第几章">夜的第几章</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/11300583" title="殇小毅" target="_blank">殇小毅</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img9.5sing.kgimg.com/force/T1p0hnBCYT1RXrhCrK_124_124.jpg" alt="青春是你"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$169578$yc$2860319$yc$2860320$yc$2860323$yc$2860326"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/2600033/zj/56e92e08482b863194d6f7e0.html" target="_blank" title="青春是你">青春是你</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/2600033" title="雨木和雨乐团" target="_blank">雨木和雨乐团</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img3.5sing.kgimg.com/force/T1wUdnB4DT1RXrhCrK_124_124.jpg" alt="《故事》"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$3101327$yc$3101328$yc$2764247$yc$2851010$yc$3048902$yc$2905274$yc$3048924$yc$2949753$yc$2824049$yc$2806612$yc$3048925$yc$3003247$yc$2980851$yc$1546234"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/3250864/zj/54f916bafabced08647fbf16.html" target="_blank" title="《故事》">《故事》</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/3250864" title="叶 里" target="_blank">叶 里</a></p>
+							</div><div class="item">
+								<a href="javascript:void(0);" class="img"><img src="http://img4.5sing.kgimg.com/force/T1jlxoBXWT1RXrhCrK_124_124.jpg" alt="世末系列"></a>
+								<a href="javascript:void(0);" class="cover PlayerWidget_play" songinfo="yc$2603920$yc$2622689$yc$2871399$yc$2887032$yc$2903951$yc$2913468$yc$2929856"><i></i></a>
+								<p class="tit"><a href="http://5sing.kugou.com/18397096/zj/56ca9bd973947168e408b047.html" target="_blank" title="世末系列">世末系列</a></p>
+								<p class="singer"><a href="http://5sing.kugou.com/18397096" title="_COP" target="_blank">_COP</a></p>
+							</div>
+						
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="rec_r_wrap">
+			<!--首发-->
+			<div class="f_pub">
+				<ul class="clearfix" id="firstrelease">
+
+				</ul>
+			</div>
+			<script src="http://5sing.kugou.com/poster/show?positionId=12&version=v4.1.0&firstrelease=1"></script>
+			<!--首发end-->
+
+			<div class="news">
+				<div class="hd">
+					推荐资讯
+					<div class="btns">
+						<a href="javascript:;" class="prev"></a>
+						<a href="javascript:;" class="next"></a>
+					</div>
+				</div>
+
+				<div class="bd">
+					
+					<ul class="animation curr" style="display:block" db="1">
+						
+						<li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168240" target="_blank" title="周末嗨起来！无锡太湖音乐节终极攻略揭秘！">周末嗨起来！无锡太湖音乐节终极攻略揭秘！</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168208" target="_blank" title="【征集活动】感动中国2016群众文化艺术周">【征集活动】感动中国2016群众文化艺术周</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/168186" target="_blank" title="【专题】4月原创古风精选 30首">【专题】4月原创古风精选 30首</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168139" target="_blank" title="郑钧、方大同、陈粒、好妹妹他们都在！">郑钧、方大同、陈粒、好妹妹他们都在！</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10860/168121" target="_blank" title="拾音原创活动“生”预热!！">拾音原创活动“生”预热!！</a></li>
+						
+					</ul><ul class="animation curr" style="display:none" db="0">
+						
+						<li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168127" target="_blank" title="五一ACG动漫音乐节亮点抢先看！豪华巨制！">五一ACG动漫音乐节亮点抢先看！豪华巨制！</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168125" target="_blank" title="如何优雅的玩转五一萤火虫？">如何优雅的玩转五一萤火虫？</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168099" target="_blank" title="动漫我的城市，动漫我的生活">动漫我的城市，动漫我的生活</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168095" target="_blank" title="震荡次元壁！男神女神五一齐聚厦门">震荡次元壁！男神女神五一齐聚厦门</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168084" target="_blank" title="真正的次元狂欢 ，你准备好了吗？">真正的次元狂欢 ，你准备好了吗？</a></li>
+						
+					</ul><ul class="animation curr" style="display:none" db="0">
+						
+						<li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/168055" target="_blank" title="【歌评】《他和他的江湖》——剑点醉意快江湖">【歌评】《他和他的江湖》——剑点醉意快江湖</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/168033" target="_blank" title="【专题】3月原创古风精选 30首">【专题】3月原创古风精选 30首</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/1/168024" target="_blank" title="【调查】如果有免费的音乐课，你想学些什么？！">【调查】如果有免费的音乐课，你想学些什么？！</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/168032" target="_blank" title="5sing再携手萤火虫打造声の盛宴">5sing再携手萤火虫打造声の盛宴</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10860/168019" target="_blank" title="【噪动】拾音乐评栏目「他们正在听」，任性上线">【噪动】拾音乐评栏目「他们正在听」，任性上线</a></li>
+						
+					</ul><ul class="animation curr" style="display:none" db="0">
+						
+						<li class="ell"><i></i><a href="http://5sing.kugou.com/subject/wdqk/index" target="_blank" title="【活动】《武动乾坤》—东方玄幻，诚邀您共唱！">【活动】《武动乾坤》—东方玄幻，诚邀您共唱！</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10860/167906" target="_blank" title="【推荐】拾音一周年 | 就在这儿等">【推荐】拾音一周年 | 就在这儿等</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167974" target="_blank" title="【专题】“福”星到——五音Jw专访">【专题】“福”星到——五音Jw专访</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167926" target="_blank" title="【歌评】《心乡我乡》——此心安处是吾乡">【歌评】《心乡我乡》——此心安处是吾乡</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167900" target="_blank" title="【专题】2月原创古风精选 30首">【专题】2月原创古风精选 30首</a></li>
+						
+					</ul><ul class="animation curr" style="display:none" db="0">
+						
+						<li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/11339/167892" target="_blank" title="【推荐】国风妙音仙侠主题曲《三生》首发">【推荐】国风妙音仙侠主题曲《三生》首发</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167879" target="_blank" title="【话题】我有一壶酒，足以慰风尘。">【话题】我有一壶酒，足以慰风尘。</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167852" target="_blank" title="【专题】“福”星到——慕寒专访">【专题】“福”星到——慕寒专访</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167843" target="_blank" title="【专题】声控日记（二）">【专题】声控日记（二）</a></li><li class="ell"><i></i><a href="http://5sing.kugou.com/zc/project-61" target="_blank" title="【众筹】古风朗诵音乐会《觅得浮生半日闲》-广州站">【众筹】古风朗诵音乐会《觅得浮生半日闲》-广州站</a></li>
+						
+					</ul><ul class="animation curr" style="display:none" db="0">
+						
+						<li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167702" target="_blank" title="【专题】1月原创古风精选 30首">【专题】1月原创古风精选 30首</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167652" target="_blank" title="【专题】汐音社-《浮生六记》">【专题】汐音社-《浮生六记》</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167572" target="_blank" title="【专题】2015年原创古风精选 50首">【专题】2015年原创古风精选 50首</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167565" target="_blank" title="【歌评】《梦遣看花人》—余梦嗟归人，转醒看花瘦">【歌评】《梦遣看花人》—余梦嗟归人，转醒看花瘦</a></li><li class="ell"><i></i><a href="http://club.5sing.kugou.com/detail/10821/167470" target="_blank" title="【专题】寒亭有雪，寂灭之间">【专题】寒亭有雪，寂灭之间</a></li>
+						
+					</ul>
+					
+				</div>
+			</div>
+
+			<div class="rank clearfix" data-type='1'>
+				<div class="hd clearfix">
+					<a href="javascript:;" class="curr">原创排行榜</a>
+					<a href="javascript:;">翻唱流行榜</a>
+					<a href="javascript:;">时下最热</a>
+				</div>
+				<div class="bd">
+				
+					<div class="control">
+						<a href="javascript:;" class="change"><i></i>下一批</a>
+						<a href="javascript:;" songinfo="yc$3099469$yc$3081283$yc$3074839$yc$3085869$yc$3074898$yc$3070502$yc$3100382$yc$3079008$yc$3077220$yc$3094153" class="playAll PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","全部播放"]);'><i></i>全部播放</a>
+					</div>
+					
+					<ul class="tapbox animation curr clearfix" data-info="yc$3099469$yc$3081283$yc$3074839$yc$3085869$yc$3074898$yc$3070502$yc$3100382$yc$3079008$yc$3077220$yc$3094153">
+						
+							<li class="fir">
+								<a href="http://5sing.kugou.com/yc/3099469.html" class="song" target="_blank" title="承剑——《古剑OL》门派群像" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>1</span>承剑——《古剑OL》门派群像</a>
+								<a href="http://5sing.kugou.com/8115809" class="singer" target="_blank">满汉全席音乐团队</a>
+							</li><li class="sec">
+								<a href="http://5sing.kugou.com/yc/3081283.html" class="song" target="_blank" title="别赋" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>2</span>别赋</a>
+								<a href="http://5sing.kugou.com/4063573" class="singer" target="_blank">慕寒</a>
+							</li><li class="thi">
+								<a href="http://5sing.kugou.com/yc/3074839.html" class="song" target="_blank" title="如怀尺璧—《浮生六记》收录曲" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>3</span>如怀尺璧—《浮生六记》收录曲</a>
+								<a href="http://5sing.kugou.com/2185889" class="singer" target="_blank">人衣大人</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3085869.html" class="song" target="_blank" title="【原创】《余香》——橙光「后宫三千人」主题曲" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>4</span>【原创】《余香》——橙光「后宫三千人」主题曲</a>
+								<a href="http://5sing.kugou.com/14113620" class="singer" target="_blank">-贰萬-</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3074898.html" class="song" target="_blank" title="大唐游仙记" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>5</span>大唐游仙记</a>
+								<a href="http://5sing.kugou.com/462455" class="singer" target="_blank">河图</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3070502.html" class="song" target="_blank" title="【笔耕不辍】——陆游" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>6</span>【笔耕不辍】——陆游</a>
+								<a href="http://5sing.kugou.com/6956337" class="singer" target="_blank">-小曲儿-</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3100382.html" class="song" target="_blank" title="半生你我" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>7</span>半生你我</a>
+								<a href="http://5sing.kugou.com/7235174" class="singer" target="_blank">Assen捷</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3079008.html" class="song" target="_blank" title="明月舟  with慕寒 《浮生六记》" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>8</span>明月舟  with慕寒 《浮生六记》</a>
+								<a href="http://5sing.kugou.com/7942224" class="singer" target="_blank">司夏_西国海妖</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3077220.html" class="song" target="_blank" title="【合唱】对弈 - 很多人（《琅琊榜》同人群像歌曲）" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>9</span>【合唱】对弈 - 很多人（《琅琊榜》同人群像歌曲）</a>
+								<a href="http://5sing.kugou.com/18295349" class="singer" target="_blank">妖扬</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3094153.html" class="song" target="_blank" title="苍山负雪" onclick='_czc.push(["_trackEvent","首页", "原创排行榜","歌曲详情页"]);'><span>10</span>苍山负雪</a>
+								<a href="http://5sing.kugou.com/4063573" class="singer" target="_blank">慕寒</a>
+							</li>
+						
+					</ul>
+					
+
+					
+					<ul class="tapbox animation clearfix" data-info="fc$15048123$fc$15118559$fc$15133630$fc$15169077$fc$14988376$fc$15136012$fc$15178382$fc$15010039$fc$15075093$fc$15166762">
+						
+							<li class="fir">
+								<a href="http://5sing.kugou.com/fc/15048123.html" class="song" target="_blank" title="丑八怪" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>1</span>丑八怪</a>
+								<a href="http://5sing.kugou.com/6365097" class="singer" target="_blank">Amy_Chanrich</a>
+							</li><li class="sec">
+								<a href="http://5sing.kugou.com/fc/15118559.html" class="song" target="_blank" title="绅士" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>2</span>绅士</a>
+								<a href="http://5sing.kugou.com/6365097" class="singer" target="_blank">Amy_Chanrich</a>
+							</li><li class="thi">
+								<a href="http://5sing.kugou.com/fc/15133630.html" class="song" target="_blank" title=" 小幸运 日语版 (流れ星)" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>3</span> 小幸运 日语版 (流れ星)</a>
+								<a href="http://5sing.kugou.com/43310906" class="singer" target="_blank">荒木毬菜</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15169077.html" class="song" target="_blank" title="方圆几里" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>4</span>方圆几里</a>
+								<a href="http://5sing.kugou.com/6365097" class="singer" target="_blank">Amy_Chanrich</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/14988376.html" class="song" target="_blank" title="I Hate U I Love U ( With AirDream)" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>5</span>I Hate U I Love U ( With AirDream)</a>
+								<a href="http://5sing.kugou.com/6365097" class="singer" target="_blank">Amy_Chanrich</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15136012.html" class="song" target="_blank" title="落霞云归" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>6</span>落霞云归</a>
+								<a href="http://5sing.kugou.com/474231" class="singer" target="_blank">江南诚</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15178382.html" class="song" target="_blank" title="IF You＆Faded Remix ( 英文摇滚版 )" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>7</span>IF You＆Faded Remix ( 英文摇滚版 )</a>
+								<a href="http://5sing.kugou.com/6365097" class="singer" target="_blank">Amy_Chanrich</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15010039.html" class="song" target="_blank" title="白石溪 Ft.哦漏" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>8</span>白石溪 Ft.哦漏</a>
+								<a href="http://5sing.kugou.com/8498290" class="singer" target="_blank">萧忆情Alex</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15075093.html" class="song" target="_blank" title="【魔道祖师同人歌】盲" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>9</span>【魔道祖师同人歌】盲</a>
+								<a href="http://5sing.kugou.com/5205141" class="singer" target="_blank">括号君</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15166762.html" class="song" target="_blank" title="姑苏" onclick='_czc.push(["_trackEvent","首页", "翻唱排行榜","歌曲详情页"]);'><span>10</span>姑苏</a>
+								<a href="http://5sing.kugou.com/9281405" class="singer" target="_blank">小司命</a>
+							</li>
+						
+					</ul>
+					
+
+					
+					<ul class="tapbox animation clearfix" data-info="yc$3102054$yc$3098495$fc$15166059$fc$15179662$fc$15168622$yc$2882311$yc$2944842$yc$2732572$yc$3020538$yc$2696489">
+						
+							<li class="fir">
+								<a href="http://5sing.kugou.com/yc/3102054.html" class="song" target="_blank" title="酒女"><span>1</span>酒女</a>
+								<a href="http://5sing.kugou.com/54716167" class="singer" target="_blank">Cm7-5sus4和弦</a>
+							</li><li class="sec">
+								<a href="http://5sing.kugou.com/yc/3098495.html" class="song" target="_blank" title="赵磊lay原创歌曲——四季花开"><span>2</span>赵磊lay原创歌曲——四季花开</a>
+								<a href="http://5sing.kugou.com/20935807" class="singer" target="_blank">≈Dream″梦想团</a>
+							</li><li class="thi">
+								<a href="http://5sing.kugou.com/fc/15166059.html" class="song" target="_blank" title="蜗居"><span>3</span>蜗居</a>
+								<a href="http://5sing.kugou.com/25037638" class="singer" target="_blank">Mc陈天乐</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15179662.html" class="song" target="_blank" title="逍遥叹（女版）"><span>4</span>逍遥叹（女版）</a>
+								<a href="http://5sing.kugou.com/12153602" class="singer" target="_blank">若灵°</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/fc/15168622.html" class="song" target="_blank" title="强烈推荐 找老婆现场"><span>5</span>强烈推荐 找老婆现场</a>
+								<a href="http://5sing.kugou.com/55334364" class="singer" target="_blank">安凉网络传媒</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/2882311.html" class="song" target="_blank" title="天河"><span>6</span>天河</a>
+								<a href="http://5sing.kugou.com/39243416" class="singer" target="_blank">海棠月下</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/2944842.html" class="song" target="_blank" title="【聆音】明月天涯"><span>7</span>【聆音】明月天涯</a>
+								<a href="http://5sing.kugou.com/29903693" class="singer" target="_blank">五音Jw</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/2732572.html" class="song" target="_blank" title="牵丝戏 feat. Aki阿杰"><span>8</span>牵丝戏 feat. Aki阿杰</a>
+								<a href="http://5sing.kugou.com/395236" class="singer" target="_blank">银临</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/3020538.html" class="song" target="_blank" title="在水伊方（云飞&郭津彤）"><span>9</span>在水伊方（云飞&郭津彤）</a>
+								<a href="http://5sing.kugou.com/7155630" class="singer" target="_blank">河北王小雅</a>
+							</li><li class="">
+								<a href="http://5sing.kugou.com/yc/2696489.html" class="song" target="_blank" title="【原创】《无归》——《完美世界》主题曲"><span>10</span>【原创】《无归》——《完美世界》主题曲</a>
+								<a href="http://5sing.kugou.com/3250864" class="singer" target="_blank">叶 里</a>
+							</li>
+						
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="http://5singlive.kugou.com/5singJsRetData.php?type=HomeTj"></script>
+
+	<div class="ws_musician_wrap">
+		<div class="hd">热门音乐人<a href="http://5sing.kugou.com/artists" target="_blank" class="more">更多&gt;</a></div>
+		 
+		<div class="bd clearfix">
+			<div class="msc_hot">
+				<div class="ct">
+					<a href="http://5sing.kugou.com/1707229" class="s_name" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>＾Roada＾</a>
+					<a href="http://5sing.kugou.com/1707229" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img10.5sing.kgimg.com/m/T15GxnB5CT1RXrhCrK_190_190.jpg" alt="＾Roada＾"></a>
+					<p class="info">翻唱达人</p>
+				</div>
+			</div>
+			<div class="msc_list clearfix">
+				 
+				<div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/3324528" target="_blank"><img src="http://img9.5sing.kgimg.com/force/T1kJW_BvKT1RXrhCrK_120_120.jpg" alt="Braska"></a></div>
+					<p class="s_name ell">Braska</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/3324528" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img9.5sing.kgimg.com/force/T1kJW_BvKT1RXrhCrK_120_120.jpg" alt="Braska"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/3324528" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>Braska</a></p>
+							<p class="info ell">曲作者/制作人/编曲/歌手</p>
+							<p class="desc">微博请戳~~http://weibo.com/bulasi..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/2628942.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>毫下披星—《锦瑟》专辑曲目</a><a href="javascript:;" songinfo="yc$2628942" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/1177469.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>【古剑】赤璃琴殇</a><a href="javascript:;" songinfo="yc$1177469" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/6352626.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>刹那芳华曲</a><a href="javascript:;" songinfo="fc$6352626" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/7693997.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>月光~ToBE Version~</a><a href="javascript:;" songinfo="fc$7693997" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/14307021.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>牵丝戏 feat.横颜君</a><a href="javascript:;" songinfo="fc$14307021" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/1473905" target="_blank"><img src="http://img2.5sing.kgimg.com/force/T13vh_BbDT1RXrhCrK_120_120.jpg" alt="洛萱"></a></div>
+					<p class="s_name ell">洛萱</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/1473905" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img2.5sing.kgimg.com/force/T13vh_BbDT1RXrhCrK_120_120.jpg" alt="洛萱"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/1473905" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>洛萱</a></p>
+							<p class="info ell">后期/歌手/后期 </p>
+							<p class="desc">歌こそ命
+  ||不常登陆，邀歌合作请..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/fc/5656501.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>なきむし。</a><a href="javascript:;" songinfo="fc$5656501" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/11632615.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>Made Of Stars</a><a href="javascript:;" songinfo="fc$11632615" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/7094509.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>【HB to 自己】如初约定</a><a href="javascript:;" songinfo="fc$7094509" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/7876792.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>いーあるふぁんくらぶ</a><a href="javascript:;" songinfo="fc$7876792" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2462766.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>The Unsaid</a><a href="javascript:;" songinfo="yc$2462766" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/28332347" target="_blank"><img src="http://img9.5sing.kgimg.com/force/T134AvBbCT1RXrhCrK_120_120.jpg" alt="仲佐"></a></div>
+					<p class="s_name ell">仲佐</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/28332347" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img9.5sing.kgimg.com/force/T134AvBbCT1RXrhCrK_120_120.jpg" alt="仲佐"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/28332347" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>仲佐</a></p>
+							<p class="info ell">歌手/曲作者/词作者</p>
+							<p class="desc">独立音乐人, 摇滚歌手. 音乐创作始于高..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/3100466.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>摇曳</a><a href="javascript:;" songinfo="yc$3100466" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3100463.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>这里停车三分钟</a><a href="javascript:;" songinfo="yc$3100463" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3099930.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>合作者</a><a href="javascript:;" songinfo="yc$3099930" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3100459.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>感性的人</a><a href="javascript:;" songinfo="yc$3100459" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3100455.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>一个陌生的怀抱</a><a href="javascript:;" songinfo="yc$3100455" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/39961907" target="_blank"><img src="http://img6.5sing.kgimg.com/m/T17gL7B5KT1RXrhCrK_120_120.jpg" alt="韦海波"></a></div>
+					<p class="s_name ell">韦海波</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/39961907" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img6.5sing.kgimg.com/m/T17gL7B5KT1RXrhCrK_120_120.jpg" alt="韦海波"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/39961907" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>韦海波</a></p>
+							<p class="info ell">歌手</p>
+							<p class="desc">微博同名。毕业于中国地质大学（北京），工..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/fc/15068589.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>平凡之路</a><a href="javascript:;" songinfo="fc$15068589" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/15069427.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>演员</a><a href="javascript:;" songinfo="fc$15069427" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/15068581.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>李白</a><a href="javascript:;" songinfo="fc$15068581" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/13531724.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>兰花指</a><a href="javascript:;" songinfo="fc$13531724" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/15068560.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>Apologize</a><a href="javascript:;" songinfo="fc$15068560" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/928726" target="_blank"><img src="http://img8.5sing.kgimg.com/m/T1J1EvB5CT1RXrhCrK_120_120.jpg" alt="李倩仪"></a></div>
+					<p class="s_name ell">李倩仪</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/928726" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img8.5sing.kgimg.com/m/T1J1EvB5CT1RXrhCrK_120_120.jpg" alt="李倩仪"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/928726" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>李倩仪</a></p>
+							<p class="info ell">词作者/唱片公司/工作室/曲作者</p>
+							<p class="desc"></p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/1802924.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>烟花坠（陈辰）</a><a href="javascript:;" songinfo="yc$1802924" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/70218.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>漫步初夏（小乐）</a><a href="javascript:;" songinfo="yc$70218" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/1563073.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>那些远去的爱（中国好声音妞妞）</a><a href="javascript:;" songinfo="yc$1563073" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/1196747.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>雨后的彩虹（郑源）</a><a href="javascript:;" songinfo="yc$1196747" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2612832.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>待嫁的新娘（凤凰传奇）</a><a href="javascript:;" songinfo="yc$2612832" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/8888383" target="_blank"><img src="http://img9.5sing.kgimg.com/m/T1I0YnB5LT1RXrhCrK_120_120.jpg" alt="可心小屋"></a></div>
+					<p class="s_name ell">可心小屋</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/8888383" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img9.5sing.kgimg.com/m/T1I0YnB5LT1RXrhCrK_120_120.jpg" alt="可心小屋"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/8888383" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>可心小屋</a></p>
+							<p class="info ell">乐评人 /歌手/听众</p>
+							<p class="desc">我是一个热爱音乐的女孩，1999年2月出生，2..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/fc/7639874.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>【韩】只看着你（13岁演唱）</a><a href="javascript:;" songinfo="fc$7639874" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2015364.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>【音核原创】奶奶的留声机（14岁演唱）</a><a href="javascript:;" songinfo="yc$2015364" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/10401021.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>【韩】雪之花（14岁演唱）</a><a href="javascript:;" songinfo="fc$10401021" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2574386.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>最后的夏天（15岁演唱）</a><a href="javascript:;" songinfo="yc$2574386" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/10693907.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>【日+英】Blind Love （14岁演唱）</a><a href="javascript:;" songinfo="fc$10693907" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/1707806" target="_blank"><img src="http://img3.5sing.kgimg.com/force/T1coxKB4LT1RXrhCrK_120_120.jpg" alt="陈 旭东"></a></div>
+					<p class="s_name ell">陈 旭东</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/1707806" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img3.5sing.kgimg.com/force/T1coxKB4LT1RXrhCrK_120_120.jpg" alt="陈 旭东"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/1707806" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>陈 旭东</a></p>
+							<p class="info ell">曲作者/词作者/后期</p>
+							<p class="desc">90后独立音乐人，现场调音师。热爱折腾，完..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/2649763.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>关于未来我不敢一个人去想</a><a href="javascript:;" songinfo="yc$2649763" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3084741.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>Nine</a><a href="javascript:;" songinfo="yc$3084741" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2696652.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>东隅</a><a href="javascript:;" songinfo="yc$2696652" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/fc/13250514.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>南方姑娘</a><a href="javascript:;" songinfo="fc$13250514" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2814118.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>别再见了</a><a href="javascript:;" songinfo="yc$2814118" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/26071510" target="_blank"><img src="http://img4.5sing.kgimg.com/force/T1yG_vByAT1RXrhCrK_120_120.jpg" alt="嗯王子荣 "></a></div>
+					<p class="s_name ell">嗯王子荣 </p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/26071510" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img4.5sing.kgimg.com/force/T1yG_vByAT1RXrhCrK_120_120.jpg" alt="嗯王子荣 "></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/26071510" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>嗯王子荣 </a></p>
+							<p class="info ell">歌手/词作者/曲作者</p>
+							<p class="desc">BananaJazz乐队队长, 廊坊beatbox协会执行..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/2999260.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>长着麋鹿的小树</a><a href="javascript:;" songinfo="yc$2999260" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2909411.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>安了晚安</a><a href="javascript:;" songinfo="yc$2909411" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2366293.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>《请允许我这么放纵》 punk</a><a href="javascript:;" songinfo="yc$2366293" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3074328.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>午安，廊坊小城</a><a href="javascript:;" songinfo="yc$3074328" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2378532.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>《亲爱的你在吗》  Latin</a><a href="javascript:;" songinfo="yc$2378532" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/20620010" target="_blank"><img src="http://img1.5sing.kgimg.com/m/T1AtZuBXCT1RXrhCrK_120_120.jpg" alt="王柏鸿"></a></div>
+					<p class="s_name ell">王柏鸿</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/20620010" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img1.5sing.kgimg.com/m/T1AtZuBXCT1RXrhCrK_120_120.jpg" alt="王柏鸿"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/20620010" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>王柏鸿</a></p>
+							<p class="info ell">歌手/制作人/编曲/曲作者</p>
+							<p class="desc">QQ:1463655926（编曲1500，议价误加）微博..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/2531623.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>剧情杀青 - 孙子涵</a><a href="javascript:;" songinfo="yc$2531623" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/1896729.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>装蒜 - 蒋蒋</a><a href="javascript:;" songinfo="yc$1896729" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2939705.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>黑 - 孙子涵</a><a href="javascript:;" songinfo="yc$2939705" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2701292.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>只是忘了回家的路 - 孙子涵Ft.葛雨晴</a><a href="javascript:;" songinfo="yc$2701292" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2461488.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>别让爱埋葬在昨天 - 小峰峰</a><a href="javascript:;" songinfo="yc$2461488" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><div class="item">
+					<div class="head_pic"><a href="http://5sing.kugou.com/11520401" target="_blank"><img src="http://img7.5sing.kgimg.com/force/T1Om_vBCET1RXrhCrK_120_120.jpg" alt="猫科动物/FELINE"></a></div>
+					<p class="s_name ell">猫科动物/FELINE</p>
+					<div class="hover">
+						<div class="hover_t">
+							<a href="http://5sing.kugou.com/11520401" class="head_pic" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'><img src="http://img7.5sing.kgimg.com/force/T1Om_vBCET1RXrhCrK_120_120.jpg" alt="猫科动物/FELINE"></a>
+							<p class="s_name ell"><a href="http://5sing.kugou.com/11520401" target="_blank" onclick='_czc.push(["_trackEvent","首页","热门音乐人","个人主页"]);'>猫科动物/FELINE</a></p>
+							<p class="info ell">曲作者/词作者/歌手</p>
+							<p class="desc">在百科中，猫科动物是肉食性最强的动物，善..</p>
+						</div>
+						<div class="hover_c">
+							<p>热门歌曲</p>
+							<ul>
+								<li><a href="http://5sing.kugou.com/yc/2925630.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>Magazine People(封面男女)</a><a href="javascript:;" songinfo="yc$2925630" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/3091627.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>梦日白(Daydream)</a><a href="javascript:;" songinfo="yc$3091627" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2846996.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>Just A Girl(只是一个妞)</a><a href="javascript:;" songinfo="yc$2846996" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2813543.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>纠缠(Entanglement)</a><a href="javascript:;" songinfo="yc$2813543" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li><li><a href="http://5sing.kugou.com/yc/2802677.html" target="_blank"  onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲详情页"]);'>吸血鬼(Vampire)</a><a href="javascript:;" songinfo="yc$2802677" class="playbtn PlayerWidget_play" onclick='_czc.push(["_trackEvent","首页","热门音乐人","歌曲播放"]);'></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				 
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+<div class="ws_global_footer">
+	<div class="ws_footer_con">
+		<div class="content clearfix">
+			<div class="concur">
+				<h6><a target="_blank" href="http://5sing.kugou.com/index.html">5sing</a>合作伙伴</h6>
+                <a href="http://www.kugou.com/" target="_blank" class="lg_01"></a>
+                <a href="http://music.10086.cn" target="_blank" class="lg_02"></a>
+                <a href="http://www.118100.cn/" target="_blank" class="lg_03"></a>
+                <a href="http://mv.wo.com.cn/" target="_blank" class="lg_04"></a>
+			</div>
+			<div class="topic">
+				<h6>实用话题</h6>
+				 
+				<ul class="clearfix">
+					 
+					<li class="ell"><a href="http://club.5sing.kugou.com/detail/1/119085" target="_blank" title="网站违规广告细则说明">1、网站违规广告细则说明</a></li><li class="ell"><a href="http://club.5sing.kugou.com/Detail/1/138726" target="_blank" title="申请网站推荐歌手和明星会员">2、申请网站推荐歌手和明星..</a></li><li class="ell"><a href="http://5sing.kugou.com/app/" target="_blank" title="5sing客户端下载">3、5sing客户端下载</a></li><li class="ell"><a href="http://club.5sing.kugou.com/detail/1/27682" target="_blank" title="申请网站推荐歌曲">4、申请网站推荐歌曲</a></li>
+					
+				</ul>
+				 
+			</div>
+			<div class="download">
+				<h6>5sing手机端</h6>
+				<div class="down_l">
+					<a href="http://5sing.kugou.com/app/index_android.html" target="_blank">5sing安卓端下载</a>
+					<a href="http://5sing.kugou.com/app/" target="_blank">5singIOS端下载</a>
+				</div>
+				<div class="down_r">
+					<a href="http://weibo.com/music5sing" target="_blank" class="wb"><i></i>加关注</a>
+					<a href="javascript:;" class="wx"><i></i>加微信</a>
+					<div class="qrcode"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ws_footer_info">
+		<div class="content">
+			<p class="f_nav">
+				<a href="http://5sing.kugou.com/help/detail-200.html" target="_blank">关于我们</a>
+				<a href="http://5sing.kugou.com/help/detail-232.html" target="_blank">权利声明&投诉指引</a>
+				<a href="http://5sing.kugou.com/help/detail-3.html" target="_blank">隐私声明</a>
+				<a href="http://5sing.kugou.com/help/detail-233.html" target="_blank">商务合作</a>
+				<a href="http://5sing.kugou.com/help/detail-234.html" target="_blank">诚聘英才</a>
+				<a href="http://5sing.kugou.com/help/index.html" target="_blank">帮助中心</a>
+				<a href="http://5sing.kugou.com/help/detail-235.html" target="_blank">联系我们</a>
+			</p>
+			<p>5sing中国原创音乐基地   http://5sing.kugou.com/<a href="http://www.miitbeian.gov.cn/" target="_blank" style="margin-left:10px;">粤ICP备09017694号</a></p>
+			<p>网络文化经营许可证：粤网文[2013]0233-083号  |  信息网络传播视听节目许可证：1910564号  |  增值电信业务经营许可证：粤B2-20060339号  |  营业性演出许可证：穗天演440106026</p>
+			<p>广州酷狗计算机科技有限公司版权所有Copyright (C) 2015 KuGou.All Rights Reserved   违法和不良信息举报：www.12377.cn 举报电话：12377</p>
+		</div>
+	</div>
+</div>
+
+<div class="ws_sidebar">
+	<a href="javascript:;" class="btn_qr"></a>
+	<a href="http://5sing.kugou.com/my/message/write?par=41731306" target="_blank" class="btn_re"></a>
+	<a href="javascript:;" class="btn_back"></a>
+	<div class="qr_box"></div>
+</div>
+
+
+<script type="text/javascript" src="http://static.5sing.kugou.com/js/base-min.js"></script>
+<script type="text/javascript" src="http://static.5sing.kugou.com/release/js/modules/v2.9.00/sea.js"></script>
+<script type="text/javascript" src="http://static.5sing.kugou.com/release/js/modules/v2.9.00/main.js"></script>
+<script type="text/javascript" src="http://static.5sing.kugou.com/public/v4.0.7/js/app.js?20141011"></script>
+<script type="text/javascript" src="http://service.5sing.kugou.com/widget/show?sign=tips"></script>
+<script type="text/javascript" src="http://static.5sing.kugou.com/js/common_new.js"></script >
+
+    <!--[if lte IE 6]>
+    <style>
+    html{_background-image:url(about:blank);_background-attachment:fixed;}
+    .go_top{_top:expression(documentElement.scrollTop+documentElement.clientHeight-200+'px');_position: absolute;}
+    </style>
+    <![endif]-->
+   <div style="display:none">
+<script src='http://s29.cnzz.com/stat.php?id=983423&web_id=983423' language='JavaScript' charset='gb2312'></script></div>
+    <!--[if lte IE 6]>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".artist_pic .btn,.group_player .btn").hover(function(){
+            $(this).addClass("ie6_artist_btn");
+        },function(){
+            $(this).removeClass("ie6_artist_btn");
+        });
+    });
+    </script>
+    <![endif]-->
+<script src="http://5sing.kugou.com/poster/show?positionId=3"></script>
+<script src="http://5sing.kugou.com/poster/show?positionId=15"></script>
+<script src="http://kgso.kugou.com/kgso.js"></script>
+</body>
+</html>

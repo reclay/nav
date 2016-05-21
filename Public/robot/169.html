@@ -1,0 +1,626 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="畅易阁，changyige， 线下交易， 畅游官方，天龙八部畅易阁，天龙畅易阁，畅易阁官网， daoju，daojufang，道具，道具坊，道具购买，道具商城，搜狐畅游，游戏商城，天龙八部，斗破苍穹，鹿鼎记，刀剑英雄，新水浒Q传，暗影之剑、新天龙、竞拍，特惠，打折，促销，免费，优惠，特价，官方，活动，抽奖，积分，畅游币，元宝，畅游点，充值，扣点、C2C、B2C、WEB商城、web商城"/>
+	<meta name="description" content="畅易阁道具坊：搜狐畅游官方道具销售及官方线下交易平台，每一笔交易都与游戏数据对应,支持多种支付方式，该平台提供旗下全部游戏的道具销售。在这个平台上，玩家可以享受到各式各样的价格优惠，并参加丰富多彩的游戏促销活动，全部交易由官方提供安全保证。畅易阁道具坊的目标是成为玩家国内最安全、最权威、服务最完善的网络游戏交易平台。"/>
+	<meta name="viewport" content="width=device-width"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="http://public.npt.changyou.com/assets/img/common/bitbug_favicon.ico" type="image/x-icon" rel=icon>
+    <link rel="stylesheet" type="text/css" href="http://public.npt.changyou.com/assets/css/site.css">
+    <script>
+        window.gameListfromServer= [{"id":1,"platformId":1,"platform":"畅游天下","gameId":16,"gameName":"新水浒Q传","gameAbbrName":"xsh","logo":"","vendor":"畅游","gameType":1,"createTime":"2014-08-22 11:57:52","authKey":"","status":1,"crossServer":0,"gameInfor":"新水浒Q传","weight":0,"statusText":"已激活","gameTypeText":"端游","crossServerText":"不支持"},{"id":2,"platformId":1,"platform":"畅游天下","gameId":3,"gameName":"天龙八部","gameAbbrName":"tl","logo":"","vendor":"畅游","gameType":1,"createTime":"2014-08-22 11:59:20","authKey":"","status":1,"crossServer":0,"gameInfor":"新天龙八部","weight":0,"statusText":"已激活","gameTypeText":"端游","crossServerText":"不支持"},{"id":13,"platformId":1,"platform":"畅游天下","gameId":2,"gameName":"刀剑英雄","gameAbbrName":"dj","logo":"无","vendor":"畅游","gameType":1,"createTime":"1970-01-01 00:00:00","authKey":" 无","status":1,"crossServer":0,"gameInfor":"刀剑英雄","weight":0,"statusText":"已激活","gameTypeText":"端游","crossServerText":"不支持"}];
+        window.formToken = "";
+        window.publicPath = "http://public.npt.changyou.com/";
+        window.imagePath = "http://public.npt.changyou.com";
+        window.assetsPath = "http://public.npt.changyou.com/assets/";
+        window.production = true;
+        window.curVersion = "1.1.14";
+
+        function AddFavorite(sURL, sTitle){
+            try{
+                window.external.addFavorite(sURL, sTitle);
+            }
+            catch(e){
+                try{
+                    window.sidebar.addPanel(sTitle, sURL, "");
+                }
+                catch(e){
+                    alert("收藏网站失败，请使用Ctrl+D进行添加");
+                };
+            };
+        };
+        window.imgError = function(obj,width){
+            if(width){
+                obj.src = publicPath + "assets/img/common/none"+width+".jpg";
+            }else{
+                obj.src = publicPath + "assets/img/common/none160.jpg";
+            }
+        }
+
+        //声明_czc对象，CNZZ自定义事件预配置。
+        var _czc = _czc || [];
+        //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+        _czc.push(["_setAccount", "5373220"]);
+    </script>
+
+    <!--[if lt IE 9]>
+        <script src="http://public.npt.changyou.com/assets/js/vendor/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if IE 6]>
+        <script src="http://public.npt.changyou.com/assets/js/vendor/DD_belatedPNG.js" type="text/javascript"></script>
+    <![endif]-->
+	
+		<link type="text/css" rel="stylesheet" href="http://public.npt.changyou.com/assets/css/modules/index.css?v=1.1.14"></link>
+	
+		<title>畅易阁网游交易平台|角色交易|装备交易|游戏币交易|畅游官方合作交易平台</title>
+</head>
+<body>
+
+
+<!-- 顶部导航条 -->
+<div class="g-body  m-top">
+	<div class="g-center">
+		<div class="m-top-left">
+			<span class="m-top-welcome">您好！欢迎访问畅易阁</span>
+                            <span class="m-top-userHandle">
+                    <a href="###" class="toLogin">[登录]</a>
+                </span>
+                <span class="m-top-userHandle">
+                    <a href="http://zhuce.changyou.com/regInit.act?gameType=PE-ZHPT">[免费注册]</a>
+                </span>
+
+
+		</div>
+		<div class="m-top-buttons">
+
+		 
+			<div class="m-top-userbar m-top-slidebar">
+				<a href="http://cyg.changyou.com/user/myCenter/">我的畅易阁</a>
+				<i class="f-iconfont">&#xe602;</i>
+				<ul class="f-dn">
+					<li><a href="http://cyg.changyou.com/userTrade/myBuyed">我购买的商品</a></li>
+					<li><a href="http://cyg.changyou.com/userTrade/mySelling">我出售的商品</a></li>
+					<li><a href="http://cyg.changyou.com/focus/focusGoodsList">我关注的商品</a></li>
+					<li><a href="http://cyg.changyou.com/mycenter/message/messageList/">站內信</a></li>
+				</ul>
+			</div>
+
+			<div class="m-top-cyt m-top-link">
+				<a href="http://pay.cyg.changyou.com/">畅易通</a>
+			</div>
+			<div class="m-top-advice m-top-link">
+				<a href="http://cyg.changyou.com/feedback/index">意见反馈</a>
+			</div>
+			<div class="m-top-help m-top-link">
+				<a href="http://cyg.changyou.com/help/index">帮助中心</a>
+			</div>
+			<div class="m-top-stolenback m-top-link">
+				<a href="http://gm.changyou.com/html/forms/form-1001.jsp" target="_blank">被盗找回</a>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- / 顶部导航条 -->
+
+<!-- 头部 -->
+<header class="g-body m-header">
+	<div class="g-center">
+		<div class="m-header-top">
+			
+			<div class="m-header-logo"><a href="http://cyg.changyou.com/" class="m-logo-link"></a></div>
+
+			<!-- 搜索框 -->
+			<div class="m-header-tools">
+				<div class="m-header-search f-fr">
+					<div class="m-header-gameSelect" id="gameSelect"><span data-role="trigger-content">选择游戏</span> <i class="f-iconfont">&#xe602;</i>
+					</div>
+					<div class="m-header-serverSelect"><span class="alreadySelect">全部区服</span> <i class="f-iconfont">&#xe602;</i></div>
+					<input type="text" class="m-header-goodsInput" maxlength="40">
+					<button class="m-header-searchBtn">搜&nbsp;索</button>
+				</div>
+			</div>
+			<!-- /搜索框 -->
+		</div>
+		
+		<!-- 菜单 -->
+		<nav class="m-menu">
+                <a href="/" class="m-menu-active">首页</a>
+                <a href="/activity">活动专区</a>
+
+			<a href="http://pay.cyg.changyou.com/charge/init">充值</a>
+			<a href="http://pay.cyg.changyou.com/withd/init">提现</a>
+		</nav>
+		<!-- /菜单 -->
+
+	
+	</div>	
+</header>
+<!-- / 头部 -->
+		<div id="server-box" class="m-server-wrap server-list"></div>
+
+
+
+		<!-- BANNER -->
+		<section class="g-body m-banner" id="m-banner" style="background: #F1F0F6">
+			<section class="g-center">
+				<!-- 图片轮播 -->
+				<article class="m-slide">
+					<!-- 轮播缩略图 -->
+					<div id="index-slide">
+						<ul data-switchable-role="nav" class="m-slide-carouselThumb">
+								 <li data-bg="#F1F0F6">
+								 	<span class="mask"></span>
+								 	<img src="http://public.npt.changyou.com/static/carousel/刀剑英雄上线banner小广告111.jpg" alt="" width="180" height="100" data-adaptive-background="1" />
+								 </li>
+								 <li data-bg="#E3E4E9">
+								 	<span class="mask"></span>
+								 	<img src="http://public.npt.changyou.com/static/carousel/水浒全服上线banner小广告.jpg" alt="" width="180" height="100" data-adaptive-background="1" />
+								 </li>
+								 <li data-bg="#E7E3DA">
+								 	<span class="mask"></span>
+								 	<img src="http://public.npt.changyou.com/static/carousel/banner03.jpg" alt="" width="180" height="100" data-adaptive-background="1" />
+								 </li>
+						</ul>
+						<!-- /轮播缩略图 -->
+						<!-- 轮播大图 -->
+						<ul data-switchable-role="content" class="m-slide-carouselContent">
+						    	<li><a href="http://cyg.changyou.com/list#!gameId=2&sort=offlineTime,asc&goodsType=1" target="_blank"><img src="http://public.npt.changyou.com/static/carousel/刀剑上线banne111r.jpg" alt="" width="720" height="300"></a></li>
+						    	<li><a href="http://cyg.changyou.com/list#!gameId=16" target="_blank"><img src="http://public.npt.changyou.com/static/carousel/水浒全服上线banner1.jpg" alt="" width="720" height="300"></a></li>
+						    	<li><a href="http://tl.daoju.changyou.com/auct/index.do" target="_blank"><img src="http://public.npt.changyou.com/static/carousel/banner003.jpg" alt="" width="720" height="300"></a></li>
+						</ul>
+						<div class="m-slide-border">
+                            <div class="u-corner-lt"></div>
+                            <div class="u-corner-rb"></div>
+						</div>
+					</div>
+					<div class="m-slide-notice"  id="index-slideNotice">
+						<div><i class="f-iconfont">&#xe603;</i>
+						最新成交</div>
+						<ul data-switchable-role="content" >
+						 		<li>2016-05-20 10:44:16  【0转 1级】玲玲 220元</li>
+						 		<li>2016-05-20 10:37:17  【浪子 男 4转 135级】事尽茶清瓷杯空 570元</li>
+						 		<li>2016-05-20 10:36:11  【医师 男 5转 149级】彡柚子茶ツ 5000元</li>
+						 		<li>2016-05-20 10:28:56  银两 x1.2亿 55元</li>
+						 		<li>2016-05-20 10:27:57  【术士 男 0转 130级】丶宇少爷 800元</li>
+						 		<li>2016-05-20 09:49:08  银两 x1亿 50元</li>
+						 		<li>2016-05-20 09:37:50  【医师 女 0转 120级】滴答哒 152元</li>
+						 		<li>2016-05-20 09:15:13  【术士 女 0转 115级】╭抹不去太多 150元</li>
+						 		<li>2016-05-20 08:56:48  【0转 1级】玲玲 154元</li>
+						 		<li>2016-05-20 08:41:54  【术士 男 4转 138级】Angle枫 600元</li>
+						 </ul>
+					</div>
+					<!-- /轮播大图 -->
+
+				</article>
+				<!-- /图片轮播 -->
+
+				<!-- 快速充值 -->
+				<aside class="m-fast" id="index-fast">
+					<div class="m-fast-tabs u-tabs">
+						<a href="javascript:void(0)" class="u-tabs-active">最新公告</a>
+                        <a href="javascript:void(0)">直充游戏</a>
+					</div>
+					<div class="m-fast-content">
+
+
+						<!-- 官方公告 -->
+						<div class="m-fast-notice f-dn">
+                                <ul>
+                                        <li class="m-fast-item"><a href="/notice/detail?id=65" target="_blank" title="畅易阁提现失败公告"><span class="m-fast-noticetitle">畅易阁提现失败公告</span><span class="m-fast-noticedate">Feb 23, 2016</span></a></li>
+                                        <li class="m-fast-item"><a href="/notice/detail?id=63" target="_blank" title="客服热线变更公告"><span class="m-fast-noticetitle">客服热线变更公告</span><span class="m-fast-noticedate">Dec 15, 2015</span></a></li>
+                                        <li class="m-fast-item"><a href="/notice/detail?id=61" target="_blank" title="【刀剑英雄】系统维护公告"><span class="m-fast-noticetitle">【刀剑英雄】系统维护公告</span><span class="m-fast-noticedate">Nov 23, 2015</span></a></li>
+                                        <li class="m-fast-item"><a href="/notice/detail?id=59" target="_blank" title="【新水浒Q传】银两交易添加公示期通知"><span class="m-fast-noticetitle">【新水浒Q传】银两交易添加公示期通知</span><span class="m-fast-noticedate">Sep 22, 2015</span></a></li>
+                                        <li class="m-fast-item"><a href="/notice/detail?id=58" target="_blank" title="【鹿鼎记站升级维护通知】"><span class="m-fast-noticetitle">【鹿鼎记站升级维护通知】</span><span class="m-fast-noticedate">Sep 15, 2015</span></a></li>
+                                        <li class="m-fast-item"><a href="/notice/detail?id=57" target="_blank" title="【刀剑英雄】角色交易系统重新开启"><span class="m-fast-noticetitle">【刀剑英雄】角色交易系统重新开启</span><span class="m-fast-noticedate">Sep 11, 2015</span></a></li>
+                                </ul>
+
+                                <a href="/notice/list" target="_blank" class="m-fast-more">更多 >></a>
+                        </div>
+						<!-- 官方公告 -->
+
+                        <!-- 直充游戏 -->
+                        <div class="m-fast-recharge f-dn">
+                            <form action="http://pay.cyg.changyou.com/chong_game/index" method="get" name="fastRecharge">
+                                <input type="hidden" name="gameType" value="0"/>
+                                <div class="m-fast-error" data-role="error"></div>
+                                <div class="m-fast-group">
+                                    <label for="gameid">游戏名称：</label>
+                                    <div class="m-fast-gameselect" id="gameRecharge">
+                                        <span data-role="trigger-content" class="m-fast-gamename">天龙八部</span>
+                                        <i class="f-iconfont">&#xe601;</i>
+                                    </div>
+                                </div>
+                                <div class="m-fast-group">
+                                    <label for="rachargeCount">充值金额：</label>
+                                    <input type="text" require name="cash" data-role="money" maxlength="7" class="m-fast-money">
+                                </div>
+
+                                <div class="m-fast-group">
+                                    <label for="gameMoney">游戏点数：</label>
+                                    <span class="m-fast-gameMoney" data-role="gamemoney">0游戏点</span>
+                                    <span class="m-fast-moneyComment">1元=20游戏点</span>
+                                </div>
+                                <div class="m-fast-group">
+                                    <button class="m-fast-purchase">充值</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /直冲游戏 -->
+
+                    </div>
+				</aside>
+				<!-- /快速充值 -->
+				
+			</section>
+		</section>
+		<!-- / BANNER -->
+		<section class="g-body m-main">
+			<!-- 游戏交易 -->
+			<section class="g-center m-gamesale">
+				<header class="m-gamesale-title">
+					<div class="tips-busi"></div>
+					<h2>游戏交易</h2>
+				</header>
+				<article class="m-gamesale-content">
+					<ul>
+						<li>
+                            <a href="http://tl.cyg.changyou.com/" class="game-pic-tl">
+                                <div class="slogen">全服角色开售，不服来战</div>
+                            </a>
+                        </li>
+						<li>
+                            <a href="/list#!gameId=2" class="game-pic-dj">
+                                <div class="slogen">海量刀币角色，畅想无限</div>
+                            </a>
+                        </li>
+						<li>
+                            <a href="/list#!gameId=16" class="game-pic-sh">
+                                <div class="slogen">全服重磅出击，不容错过</div>
+                            </a>
+                        </li>
+						<li>
+                            <a href="http://ldj.cyg.changyou.com/account/index" class="game-pic-ld">
+                                <div class="slogen">道具无奇不有，等你来挑</div>
+                            </a>
+                        </li>
+						<li>
+                            <span class="game-pic-dp"></span>
+                        </li>
+					</ul>
+					
+				</article>
+			</section>
+			<!-- /游戏交易 -->
+
+			<section class="g-center">
+				<!-- 最新上架 -->
+				<section class="m-newgoods">
+					<header class="m-newgoods-title">
+						<div class="tips-new"></div>
+						<h2>最新上架</h2>
+						<div class="m-newgoods-gamelist" data-switchable-role="nav">
+						</div>
+					</header>
+					<div class="m-newgoods-contentwrap"  data-switchable-role="content">
+    <div data-loading="true" class="u-loading">
+        <img src="http://public.npt.changyou.com/assets/img/common/loading_big.gif" />
+    </div>
+					</div>
+				</section>
+				<!-- /最新上架 -->
+				<!-- 常见问题 -->
+				<aside class="m-faq">
+					<header class="m-faq-title u-widget-title">
+						<h2>常见问题<i class="icon icon-faq"></i></h2>
+						<a href="http://cyg.changyou.com/help/detail?game=0"  class="m-faq-more">更多>></a>
+					</header>
+					<article class="m-faq-content">
+						<div class="m-faq-group">
+							<div class="m-faq-q">
+								<span>Q:</span>
+								<p>畅易阁与其他交易平台有什么不同？</p>
+								
+							</div>
+							<div class="m-faq-a">
+								<span>A:</span>
+								<p>畅易阁是官方虚拟交易平台，交易模式采用与游戏接口直连，全程交易自动化，无须客服人工处理。安全，高效，便捷，让你交易安全又放心。</p>
+								
+							</div>
+						</div><div class="m-faq-group">
+							<div class="m-faq-q">
+								<span>Q:</span>
+								<p>畅易阁平台出售的商品是否会被恶意找回？</p>
+								
+							</div>
+							<div class="m-faq-a">
+								<span>A:</span>
+								<p>畅易阁直连游戏，实现角色，道具，物品自动剥离至您的游戏账号，颠覆传统出售账号的模式，完全不存在找回风险。</p>
+								
+							</div>
+						</div><div class="m-faq-group">
+							<div class="m-faq-q">
+								<span>Q:</span>
+								<p>畅易阁的发货速度怎么样？</p>
+								
+							</div>
+							<div class="m-faq-a">
+								<span>A:</span>
+								<p>畅易阁实现系统自动发货，不需客服人工处理，付款一旦成功，系统立即发货至您的游戏账号。</p>
+								
+							</div>
+						</div><div class="m-faq-group">
+							<div class="m-faq-q">
+								<span>Q:</span>
+								<p>畅易阁是否存在收到的商品与上架信息不符？</p>
+								
+							</div>
+							<div class="m-faq-a">
+								<span>A:</span>
+								<p>一定不会。玩家上架商品系统会自动读取该商品的相关信息，并且商品一旦上架卖家将不可对该商品进行任何操作。</p>
+								
+							</div>
+						</div>
+					</article>
+				</aside>
+				<!-- /常见问题 -->
+				
+			</section>
+
+			<section class="g-center">
+				<!-- 活动专区 -->
+				<section class="m-activity">
+				 	<header class="m-newgoods-title">
+						<div class="tips-active"></div>
+						<h2>活动专区</h2>
+					</header>
+				 	<article class="m-activity-content">
+						<a href="/activity" target="_blank">
+                            <img src="http://public.npt.changyou.com/assets/img/index/active3.jpg" alt="天龙八部">
+                        </a>
+                        <a href="http://tl.daoju.changyou.com/auct/index.do" target="_blank">
+                            <img src="http://public.npt.changyou.com/assets/img/index/active4.jpg" alt="天龙八部">
+                        </a>
+                        <a href="http://tl.daoju.changyou.com/index.do" target="_blank">
+							<img src="http://public.npt.changyou.com/assets/img/index/active1.jpg" alt="天龙八部">
+						</a>
+						<a href="http://xsh.daoju.changyou.com/activity/wholesale" target="_blank">
+							<img src="http://public.npt.changyou.com/assets/img/index/active2.jpg" alt="新水浒Q传">
+						</a>
+					</article>
+				 </section>
+				 <!-- /活动专区 -->
+
+				 <!-- 排行榜 -->
+				 <aside class="m-rank">
+				 	<div class="m-rank-tabs u-tabs">
+				 		<a href="javascript:void(0)" class="m-rank-fans u-tabs-active">人气排行榜</a>
+				 		<a href="javascript:void(0)" class="m-rank-history">历史排行榜</a>
+				 	</div>
+
+				 	<div class="m-rank-listwrap">
+    <div data-loading="true" class="u-loading">
+        <p>正在加载中...</p>
+    </div>
+				 		<div class="m-rank-content"></div>
+				 		<div class="m-rank-content f-dn"></div>
+				 	</div>
+				 </aside>
+				 
+				 <!-- /排行榜 -->
+			</section>
+
+			<!-- 合作游戏 -->
+			<section class="g-center m-friends">
+				<div class="m-friends-logo"></div>
+                <div class="m-friends-wrap">
+				<a href="http://tl.changyou.com/" target="_blank" class="m-friends-tl m-friends-item">
+					<div class="z-tl-grey m-friends-grey">
+						<div></div>
+						<p>天龙八部</p>
+					</div>
+					<div class="z-tl-light m-friends-color">
+						<div></div>
+						<p>天龙八部</p>
+					</div>
+				</a>
+                </div>
+                <div class="m-friends-wrap">
+                    <a href="http://dj.changyou.com/" target="_blank" class="m-friends-dj m-friends-item">
+                        <div class="z-dj-grey m-friends-grey">
+                            <div></div>
+                            <p>刀剑英雄</p>
+                        </div>
+                        <div class="z-dj-light m-friends-color">
+                            <div></div>
+                            <p>刀剑英雄</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="m-friends-wrap">
+                <a href="http://xsh.changyou.com/" target="_blank" class="m-friends-sh m-friends-item">
+					<div class="z-sh-grey m-friends-grey">
+						<div></div>
+						<p>水浒Q传</p>
+					</div>
+					<div class="z-sh-light m-friends-color">
+						<div></div>
+						<p>水浒Q传</p>
+					</div>
+				</a>
+                </div>
+                <div class="m-friends-wrap">
+                <a href="http://dpol.changyou.com/" target="_blank" class="m-friends-dp m-friends-item">
+					<div class="z-dp-grey m-friends-grey">
+						<div></div>
+						<p>斗破苍穹</p>
+					</div>
+					<div class="z-dp-light m-friends-color">
+						<div></div>
+						<p>斗破苍穹</p>
+					</div>
+				</a>
+                </div>
+                <div class="m-friends-wrap">
+                <a href="http://ldj.changyou.com/" target="_blank" class="m-friends-ld m-friends-item">
+					<div class="z-ld-grey m-friends-grey">
+						<div></div>
+						<p>鹿鼎记</p>
+					</div>
+					<div class="z-ld-light m-friends-color">
+						<div></div>
+						<p>鹿鼎记</p>
+					</div>
+				</a>
+                </div>
+                <div class="m-friends-wrap">
+                <a href="http://ffo.changyou.com/" target="_blank" class="m-friends-hx m-friends-item">
+					<div class="z-hx-grey m-friends-grey">
+						<div></div>
+						<p>幻想神域</p>
+					</div>
+					<div class="z-hx-light m-friends-color">
+						<div></div>
+						<p>幻想神域</p>
+					</div>
+				</a>
+                </div>
+                <div class="m-friends-wrap">
+                <a href="http://q.wan.com/" target="_blank" class="m-friends-qs m-friends-item">
+					<div class="z-qs-grey m-friends-grey">
+						<div></div>
+						<p>秦时明月</p>
+					</div>
+					<div class="z-qs-light m-friends-color">
+						<div></div>
+						<p>秦时明月</p>
+					</div>
+				</a>
+                </div>
+				
+			</section>
+			<!-- /合作游戏 -->
+
+			<section class="g-center m-help">
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-saleflow"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">出售流程</h3>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=什么是公示期？">公示期规则</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=出售商品是否需要手续费？">交易手续费</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=商品出售成功后如何收款？">收取货款</a>
+						</div>
+					</div>
+				</article>
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-buyflow"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">购买流程</h3>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=购买商品要满足什么条件？">购买流程</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=支付方式有哪些？">支付方式</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=闪电发货">全自动发货</a>
+						</div>
+					</div>
+				</article>
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-safe"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">交易保障</h3>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=我购买到的角色是否与公示的角色信息完全一致？">商品信息保真</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=商品上架后，去哪儿下架或修改价格？">上架自助管理</a>
+							<a class="f-encode" href="http://pay.cyg.changyou.com/help/helpWithd">提现资金保障</a>
+						</div>
+					</div>
+				</article>
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-faq"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">特色服务</h3>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=官方合作">官方合作</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=闪电发货">闪电发货</a>
+							<a class="f-encode" href="http://cyg.changyou.com/help/rule?game=0&&title=无忧取货">无忧取货</a>
+						</div>
+					</div>
+				</article>
+				
+			</section>
+		</section>
+
+
+<div class="m-footer-wrapper">
+    <div class="m-footer">
+        <div class="m-footer-main">
+            <div class="m-logo-wrap">
+                <a class="m-logo" target="_blank" title="畅游" href="http://www.changyou.com"></a>
+                <a class="m-beian" target="_blank" title="经营性网站备案信息" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202008090900025"></a>
+                <a class="m-stamp" target="_blank" title="电子图章" href="http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=6D050B0F3296450A9690D264233719BD"></a>
+            </div>
+
+            <div class="m-cont">
+                <p><a href="http://www.changyou.com/declaration.shtml" target="_blank">法律声明</a> | <a href="http://www.changyou.com/cu.shtml" target="_blank">联系我们</a></p>
+                <p>北京畅游时代数码技术有限公司 版权所有 Copyright ©2012 ChangYou.com Limited. All rights reserved. </p>
+                <p><a href="http://i1.itc.cn/20120308/2b88_54fc22d2_d391_bb9a_99d7_672a89a5b7f0_1.jpg">京网文[2011]0260-093号</a> &nbsp;|&nbsp;京ICP证：070525号&nbsp;| <a href="http://cyg.changyou.com/declare" target="_blank">畅易阁用户服务协议</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        window.gameList = (function (selectIndex) {
+            var currentEle = document.getElementById("currentGame");
+            var currentGame = currentEle? currentEle.value : 0;
+            var ret = [];
+            if (typeof window.gameListfromServer == "string") {
+                try {
+                    window.gameListfromServer = JSON.parse(window.gameListfromServer);
+                } catch (e) {
+
+                }
+            }
+            for (var i in window.gameListfromServer) {
+                if (window.gameListfromServer[i].gameId == currentGame || i == selectIndex) {
+                    ret.push({
+                        value: window.gameListfromServer[i].gameId,
+                        text: window.gameListfromServer[i].gameName,
+                        selected: true
+                    });
+                } else {
+                    ret.push({
+                        value: window.gameListfromServer[i].gameId,
+                        text: window.gameListfromServer[i].gameName
+                    });
+                }
+
+            }
+            return ret;
+        })(0);
+    </script>
+    
+		<script src="http://public.npt.changyou.com/assets/js/vendor/seajs/seajs/2.2.1/sea.js?v=1.1.14"></script>
+		<script src="http://public.npt.changyou.com/assets/js/config.js?v=1.1.14"></script>
+    		<script>seajs.use("http://public.npt.changyou.com/assets/js/site");</script>
+
+
+			<script>seajs.use("http://public.npt.changyou.com/assets/js/page/index/index.js");</script>
+
+
+	
+    <script>
+        window.onload = function(){
+            var cnzz = document.createElement('script');
+            cnzz.src="http://s11.cnzz.com/stat.php?id=5373220&web_id=5373220";
+            document.body.appendChild(cnzz);
+        }
+    </script>
+</body>
+</html>

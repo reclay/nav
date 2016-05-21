@@ -1,0 +1,2486 @@
+
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>凤凰军事-专业的全方位军事话题平台-凤凰网频道_凤凰网</title> 
+  <meta name="keywords" content="军事频道 军事网站 防务 军事 凤凰军事 军情观察室 防务观察 航母 驱逐舰 潜艇 战斗机 大飞机 预警机 轰炸机 坦克 装甲车" /> 
+  <meta name="description" content="凤凰军事频道，掌握最新的防务新闻，解读最透彻的军事情报，为读者展现全方位的国防评论。领先的话题源自于独立视角，通俗的内容源自于专业精神。无论是专业读者，还是普通爱好者，都可以在凤凰军事频道找到属于自己兴趣范围的一片天地。" /> 
+  <link rel="stylesheet" href="http://y1.ifengimg.com/css/min/basic_new_v2.css" /> 
+  <link rel="stylesheet" href="http://y1.ifengimg.com/a/2015/0918/syj/quweibo/style.css" /> 
+  <script src="http://y1.ifengimg.com/BX/min/BX.1.0.1.U.js"></script> 
+  
+  <script src="http://y1.ifengimg.com/scripts/min/ifeng_common_v1.js"></script> 
+  <script src="http://y0.ifengimg.com/base/jQuery/jquery-1.9.1.min.js"></script> 
+  <script src="http://y3.ifengimg.com/package/special_20130205_49803/js/TabControl.js"></script> 
+  <script src="http://y1.ifengimg.com/JCore/min/scroll.v.1.2.js"></script> 
+  <script>var jq=jQuery.noConflict();</script> 
+  <script>
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+  menu.className=i==cursel?"hover":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+
+
+  </script> 
+  <script type="text/javascript">
+jq(document).ready(function(){
+  jq(".sb input").hover(function(){jq(".sb input").toggleClass("i_h");});
+  jq(".trans").hover(function(){jq(this).toggleClass("trans_h");});
+});
+
+  </script> 
+  <script src="http://m1.ifengimg.com/ifeng/sources/inice_v1.js"></script>
+<script src="http://h0.ifengimg.com/20150625/fa.min.js"></script>
+<script src="http://y0.ifengimg.com/commonpage/1130/F-RequireJS.min.js"></script>
+ </head> 
+ <body> 
+<style>
+.weixin, .weixinBottom {position:fixed;_position:absolute;display:block;right:0;width:120px;height:185px;z-index:100;background-color: #FFF} 
+.weixin {top:450px;_top:expression(documentElement.scrollTop+450); }
+.weixinBottom {bottom:0px;_top:expression(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0));}
+.weixin img, .weixinBottom img{float:left;display:block;}
+.weixin span, .weixinBottom span{float:left;color:#999;cursor:pointer;height:18px;line-height:18px; padding-left:4px;}
+</style>
+<div class="weixin" id="wx">
+    <span id="wx_close">关闭</span> 
+      <img src="http://p3.ifengimg.com/a/2016/0516/5fe93593da14bccsize17_w120_h164.png" width="120" height="164" alt="凤凰新闻客户端" title="凤凰新闻客户端" >
+</div>
+<script>
+(function(document){
+    var CookieManager = {
+        getExpiresDate:function(days, hours, minutes) {
+            var ExpiresDate = new Date();
+            if (typeof days == "number" && typeof hours == "number" && 
+                typeof hours == "number") {
+                ExpiresDate.setDate(ExpiresDate.getDate() + parseInt(days));
+                ExpiresDate.setHours(ExpiresDate.getHours() + parseInt(hours));
+                ExpiresDate.setMinutes(ExpiresDate.getMinutes() + parseInt(minutes));
+                return ExpiresDate.toGMTString();
+            }
+        },  
+        _getValue:function(offset) {
+            var endstr = document.cookie.indexOf (";", offset);
+            if (endstr == -1) {
+                endstr = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(offset, endstr));
+        },
+        get:function(name) {
+            var arg = name + "=";
+            var alen = arg.length;
+            var clen = document.cookie.length;
+            var i = 0;
+            while (i < clen) {
+                var j = i + alen;
+                if (document.cookie.substring(i, j) == arg) {
+                    return this._getValue(j);
+                }
+                i = document.cookie.indexOf(" ", i) + 1;
+                if (i == 0) break; 
+            }
+            return "";
+        },
+        set:function(name, value, expires, path, domain, secure) {
+            document.cookie = name + "=" + escape (value) +
+                ((expires) ? "; expires=" + expires : "") +
+                ((path) ? "; path=" + path : "") +
+                ((domain) ? "; domain=" + domain : "") +
+                ((secure) ? "; secure" : "");
+        }
+    };
+    function locateWX(){
+        if(document.documentElement.clientHeight < 650){
+            appQrcode.className = "weixinBottom";
+        } else {
+            appQrcode.className ="weixin";
+        };
+        if(document.documentElement.clientWidth < 1024){
+            appQrcode.style.display = "none";
+        }else{
+            if(!isClose){
+                appQrcode.style.display = "block";
+            };  
+        };
+
+    };
+
+    var appQrcode = document.getElementById('wx');
+    var closeDom = document.getElementById('wx_close');
+    var isClose = false;//关闭的标志位
+    //读取cookie,控制用户在一个小时之内看不到二维码
+    if(CookieManager.get("wxIsclose")){
+        appQrcode.style.display = "none";
+    }else{
+        locateWX();
+        window.onresize = function(){
+            locateWX();
+        };
+    };
+    closeDom.onclick=function(){
+        appQrcode.style.display = "none";
+        isClose = true;//设置关闭标志位为true
+        //设置cookie
+        CookieManager.set("wxIsclose","true",CookieManager.getExpiresDate(0,1,0));
+    }
+
+
+}(document));
+</script>
+
+  <!--头部 begin--> 
+  <script src="http://y0.ifengimg.com/commonpage/1130/F-RequireJS.min.js"></script> 
+<link rel="stylesheet" href="http://p0.ifengimg.com/fe/zx2/styles/header_f921d774.css"/>
+<div class="h_mainNavNew cDGray h_mainNav" id="f-header">
+    <ul class="list_menu">
+        <li style="background:none; padding-left:2px;"><a href="http://www.ifeng.com/" target="_blank">首页</a></li>
+        
+            <li><a href="http://news.ifeng.com/" target="_blank">资讯</a></li>
+        
+            <li><a href="http://finance.ifeng.com/" target="_blank">财经</a></li>
+        
+            <li><a href="http://ent.ifeng.com/" target="_blank">娱乐</a></li>
+        
+            <li><a href="http://sports.ifeng.com/" target="_blank">体育</a></li>
+        
+            <li><a href="http://fashion.ifeng.com/" target="_blank">时尚</a></li>
+        
+            <li><a href="http://auto.ifeng.com/" target="_blank">汽车</a></li>
+        
+            <li><a href="http://house.ifeng.com/" target="_blank">房产</a></li>
+        
+            <li><a href="http://tech.ifeng.com/" target="_blank">科技</a></li>
+        
+            <li><a href="http://book.ifeng.com/" target="_blank">读书</a></li>
+        
+            <li><a href="http://games.ifeng.com/" target="_blank">游戏</a></li>
+        
+            <li><a href="http://culture.ifeng.com/" target="_blank">文化</a></li>
+        
+            <li><a href="http://news.ifeng.com/history/" target="_blank">历史</a></li>
+        
+            <li><a href="http://news.ifeng.com/mil/" target="_blank">军事</a></li>
+        
+            <li><a href="http://blog.ifeng.com/" target="_blank">博客</a></li>
+        
+            <li><a href="http://cp.ifeng.com/?aid=45" target="_blank">彩票</a></li>
+        
+            <li><a href="http://fo.ifeng.com/" target="_blank">佛教</a></li>
+        
+            <li><a href="http://phtv.ifeng.com/" target="_blank">凤凰卫视</a></li> 
+    </ul>
+    <div class="morehNew" id="f-more">
+        <ul>
+            <li>
+                <a href="http://www.ifeng.com/daohang/" target="_blank">更多</a>
+                <ul id="f-more-box">
+                    <li><a href="http://v.ifeng.com/" target="_blank">视频</a></li>
+                    
+                        <li><a href="http://travel.ifeng.com/" target="_blank">旅游</a></li>
+                    
+                        <li><a href="http://guoxue.ifeng.com/" target="_blank">国学</a></li>
+                    
+                        <li><a href="http://digi.ifeng.com/" target="_blank">数码</a></li>
+                    
+                        <li><a href="http://fashion.ifeng.com/health/" target="_blank">健康</a></li>
+                    
+                        <li><a href="http://home.ifeng.com/" target="_blank">家居</a></li>
+                    
+                        <li><a href="http://astro.ifeng.com/" target="_blank">星座</a></li>
+                    
+                        <li><a href="http://jiu.ifeng.com/" target="_blank">酒业</a></li>
+                    
+                        <li><a href="http://dol.deliver.ifeng.com/c?z=ifeng&amp;la=0&amp;si=2&amp;cg=1&amp;c=1&amp;ci=2&amp;or=7549&amp;l=28704&amp;bg=28703&amp;b=37275&amp;u=http://audi-future.ifeng.com/" target="_blank">未来</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="login" id="js_unlogin_box">
+        <a href="https://id.ifeng.com/user/register/" target="_blank">注册</a><a class="f-login" style="cursor:pointer;" id='js_login_btn'>登录</a>
+    </div>
+    <div class="login" id="js_userInfo_box" style="display: none;">
+        <span class="cRed">
+        <span class="user" style="width: 120px;">
+        <a href="http://my.ifeng.com/?_c=index&amp;_a=my" target="_blank" id='js_userInfo_name'></a>
+        </span>
+        </span>
+        <a class="cGray" id='js_login_exit' style='cursor:pointer;'>退出</a>
+    </div>
+</div>
+<script> 
+requirejs.config({
+        paths: {
+            // 通用登录
+            "public_login": "http://y1.ifengimg.com/commonpage/20151202/public_login.min",
+            "header":"http://y1.ifengimg.com/commonpage/header"
+        },
+        waitSeconds: 20,
+        shim: {}
+});
+require(['header'],function(init){
+    init();
+})
+</script>
+<script src="http://m3.ifengimg.com/a/2015/0129/f.header.js"></script>
+     <!--头部 end--> 
+  <div class="col_w1000"> 
+   <div class="ad08"> 
+    
+  
+<!--s_news_mil_ad_index_banner00_950x90 2016.05.20 09:24:37-->
+<script type="text/javascript">try{aptracker.add(1824);}catch(e){}</script>
+
+
+<script type='text/javascript'>
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+(function() {
+var gads = document.createElement('script');
+gads.async = true;
+gads.type = 'text/javascript';
+var useSSL = 'https:' == document.location.protocol;
+gads.src = (useSSL ? 'https:' : 'http:') + 
+'//www.googletagservices.com/tag/js/gpt.js';
+var node = document.getElementsByTagName('script')[0];
+node.parentNode.insertBefore(gads, node);
+})();
+</script>
+
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/51332160/s_news_mil_ad_index_huazhonghua_p2', [300, 600], 'div-gpt-ad-1403190564958-1').addService(googletag.pubads());
+googletag.defineSlot('/51332160/s_news_mil_ad_index_banner00_950x90', [1000, 90], 'div-gpt-ad-1403190564958-3').addService(googletag.pubads());
+googletag.defineSlot('/51332160/s_mil_index_ad_couplet', [120, 300], 'div-gpt-ad-1405259397921-0').addService(googletag.pubads());
+googletag.defineSlot('/51332160/s_news_mil_ad_index_banner03_950x90', [1000, 90], 'div-gpt-ad-1407410353551-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<div id="AP453" style="display:none;">
+<var style="display:none;" v="1824,35575,6534,杨柳2,B1"></var><code>
+<!--BOF
+<script type="text/javascript">
+var a = 'http://dol.deliver.ifeng.com/c?67bf461f5MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFL4YKbl1RqT7xPVbEKYnMcLZYgIk-Eoovfmam0I6tcajFcbwdla4D-bsO4H6JtcUhZZI3t7-TR4aqV7Mr-aKj7f5dZjGUZNNq94myLin9PdtK2LVeGPz5j_';
+var ad = 'http://c1.ifengimg.com/mappa/2016/04/12/83e51c6f08aee5fdec0ae177a6e0ac96.swf';
+var ad_h5 = '';
+var w = '1000';var h = '90';var isActive = 0;var h5_isActive = 0;var h5_impression = '';
+</script>
+<script type="text/javascript" src="http://y0.ifengimg.com/d0169b18072caddd/2015/1015/yingguang-h5-20151015.js"></script>
+EOF-->
+</code>
+
+<var style="display:none;" v="1824,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<script language="javascript">
+    iis_config = {ap : 1824, tp : 1, w : 1000, h : 90};
+</script>
+<script language="javascript" src="http://m1.ifengimg.com/iis/iis_v1_3.js"></script>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+	if(INice.getCookie('prov') == '9999'){
+		(function(){var u='http://pubads.g.doubleclick.net/gampad/adx?m=text/javascript&sz=1x1&iu=/51332160/s_news_mil_ad_index_banner00_950x90';
+u+="&c="+Math.floor(Math.random()*1000000);p=null;var r=window.location.search.substr(1).match(new RegExp("(^|&)google_preview=([^&]*)(&|$)","i"));
+if(r!=null)p=unescape(r[2]);if(null!=p)u+='&gct='+p;document.write("<script type='text/javascript' src='"+u+"'></"+"script>")})();
+	}else{
+		try{
+			var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+			new adRotatorFactory({identifier : "AP453"});
+		}catch(e){}
+	}
+}catch(e){}
+</script>
+<!--/s_news_mil_ad_index_banner00_950x90-->
+
+   
+   </div> 
+  </div> 
+  <style>
+  .h_searchDiv{width:1000px;margin:0 auto;height:36px; padding-top:25px;}/*150723a*/
+  .h_theLogo{float:left;font-size:12px}
+  .h_theLogo img{float:left;}
+  .h_theLogo .ad00{width:120px; margin-left:30px; float:left;}
+  #h_f_logo{width:128px;height:25px;}
+  .h_find{ width:300px; float:right;}
+  .search{ height:26px;}
+  .search .lb{ width:78px; height:26px; margin-right:5px; position:relative; float:left;}
+  .search .lb ul{ width:78px;}
+  .search .lb ul li{ width:76px; height:24px; line-height:24px; border:1px solid #b2b2b2;}
+  .search .lb ul li a{ color:#666; display:block; width:66px; height:24px; line-height:24px; background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg01_1.gif) no-repeat right top; padding-left:10px;}/*默认背景*/
+  .search .lb ul li a:hover{ background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg01_2.gif) no-repeat right top; text-decoration:none;}
+  .search .lb ul li .a_cl{ background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg01_3.gif) no-repeat right top;}
+  .search .lb ul li ul{ width:51px; display:none; position:absolute; left:0; background:#fff; border:1px solid #b2b2b2; border-top:none;}
+  .search .lb ul li ul li{ width:51px; background:none; border:0; padding-left:0;}
+  .search .lb ul li ul li a{ width:42px; background:none; padding-left:9px;}
+  .search .lb ul li ul li a:hover{ background:#e7e7e7; background-image:none;}
+  .search .t_btn{ width:215px; height:24px; background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg02_1.gif) no-repeat right top; border:1px solid #b2b2b2; float:left;}
+  .search .t_btn_on{ background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg02_2.gif) no-repeat right top;}
+  .search .text_bg{ width:178px; height:24px; line-height:24px; overflow:hidden; float:left;}
+  .search .text_bg .text01{ color:#666; border:none; background:none; width:158px; padding:0 10px; height:24px; line-height:24px;}
+  .search .btn_bg{ width:37px; height:24px; float:left;}
+  .search .btn_bg .btn01{ border:none; background:none; width:37px; height:24px; cursor:pointer;}
+
+  </style> 
+  <div class="h_searchDiv"> 
+   <div class="h_theLogo"> 
+    <a href="http://news.ifeng.com/mil/" target="_blank" title="凤凰军事"><!--150723a begin--><img src="http://y1.ifengimg.com/a/2015/0727/syj/logo/logo_mil.gif" width="127" height="26" title="凤凰网军事" alt="凤凰网军事" /><!--150723a end--><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/t_note.gif" width="226" height="25" /></a> 
+    <div class="ad00"> 
+     
+   
+<!--s_news_mil_index_140321_ad_label_pdgm 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(6441);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="6441,0,0,NULL,fixture"></var>
+
+<!--/s_news_mil_index_140321_ad_label_pdgm-->
+
+    
+    </div> 
+    <div id="h_adpic"> 
+     <script src="http://m1.ifengimg.com/sc_ifeng/js/s_news_index_ad_label_pdgm_180x25.js"></script> 
+    </div> 
+   </div> 
+   <script src="http://m0.ifengimg.com/keywords.js"></script> 
+   <style>
+    .h_find{ width:300px; float:right;}
+    .search{ height:26px;}
+    .search .lb{ width:78px; height:26px; margin-right:5px; position:relative; float:left; z-index:99;}
+    .search .lb ul{ width:78px;}
+    .search .lb ul li{ width:76px; height:24px; line-height:24px; border:1px solid #b2b2b2;}
+    .search .lb ul li a{ color:#666; display:block; width:66px; height:24px; line-height:24px; background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg01_1.gif) no-repeat right top; padding-left:10px;}/*默认背景*/
+    .search .lb ul li a:hover{ background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg01_2.gif) no-repeat right top; text-decoration:none;}
+    .search .lb ul li .a_cl{ background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg01_3.gif) no-repeat right top;}
+    .search .lb ul li ul{ width:51px; display:none; position:absolute; left:0; background:#fff; border:1px solid #b2b2b2; border-top:none;}
+    .search .lb ul li ul li{ width:51px; background:none; border:0; padding-left:0;}
+    .search .lb ul li ul li a{ width:42px; background:none; padding-left:9px;}
+    .search .lb ul li ul li a:hover{ background:#e7e7e7; background-image:none;}
+    .search .t_btn{ width:215px; height:24px; background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg02_1.gif) no-repeat right top; border:1px solid #b2b2b2; float:left;}
+    .search .t_btn_on{ background:url(http://y2.ifengimg.com/e01ed39fc2da5d4a/2013/1023/s_bg02_2.gif) no-repeat right top;}
+    .search .text_bg{ width:178px; height:24px; line-height:24px; overflow:hidden; float:left;}
+    .search .text_bg .text01{ color:#666; border:none; background:none; width:158px; padding:0 10px; height:24px; line-height:24px;}
+    .search .btn_bg{ width:37px; height:24px; float:left;}
+    .search .btn_bg .btn01{ border:none; background:none; width:37px; height:24px; cursor:pointer;}
+  
+   </style> 
+   <div class="h_find"> 
+    <div class="search clearfix"> 
+     <form id="search_form" method="get" action="http://search.ifeng.com/sofeng/search.action" target="_blank"> 
+      <div class="lb" id="searchFormOption"> 
+       <ul class="u_bg"> 
+        <li><a id="loginUl" onclick="header_search.show_option()" onmouseout="header_search.out_option()" onmouseover="header_search.over_option()" style="cursor: default;" class="">站内</a> 
+         <ul id="loginFldselectop" onmouseout="header_search.out_option()" onmouseover="header_search.over_option()" style="display: none;"> 
+          <li id="ra1"><a onclick="header_search.select_option('站内')">站内</a></li> 
+          <li id="ra2"><a onclick="header_search.select_option('站外')">站外</a></li> 
+          <li id="ra3"><a onclick="header_search.select_option('证券')">证券</a></li> 
+          <li id="ra4"><a onclick="header_search.select_option('汽车')">汽车</a></li> 
+          <li id="ra0"><a onclick="header_search.select_option('视频')">视频</a></li> 
+         </ul> </li> 
+       </ul> 
+      </div> 
+      <div class="t_btn clearfix"> 
+       <div class="text_bg" id="suggest_list"> 
+        <input id="keyword" type="text" name="q" value="" class="text01" autocomplete="off" onclick="header_search.clean_default(this.value)" onblur="header_search.set_default(this.value)" /> 
+        <input id="param1" type="hidden" name="c" value="1" /> 
+        <input id="param2" type="hidden" name="" value="" disabled="" /> 
+       </div> 
+       <div class="btn_bg"> 
+        <input name="" type="submit" id="btnSearch1" class="btn01" value="" /> 
+       </div> 
+      </div> 
+     </form> 
+     <script src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0302/newSearch.js"></script> 
+    </div> 
+   </div> 
+  </div> 
+  <!--头部 end--> 
+  <!--导航 begin--> 
+  <div class="col_wbf bg01"> <div class="col_w1000"> 
+ <div class="box_nav"> 
+  <ul class="clearfix"> 
+   <li><a href="http://news.ifeng.com/mil/" target="_blank" title="军事首页">军事首页</a></li> 
+   <li><a href="http://news.ifeng.com/mil/index-phb.shtml" target="_blank" title="综合排行榜">综合排行榜</a></li> 
+   <li><a href="http://news.ifeng.com/mil/air/" target="_blank" title="航空频道">航空频道</a></li> 
+
+   <li><a href="http://phtv.ifeng.com/program/jqgcs/" target="_blank" title="军情观察室">军情观察室</a></li>
+
+    <li><a href="http://news.ifeng.com/listpage/17667/1/list.shtml" target="_blank" title="高清大图">高清大图</a></li> 
+   <li><a href="http://news.ifeng.com/listpage/7113/1/clist.shtml" target="_blank" title="军事专题">军事专题</a></li> 
+   <li><a href="http://news.ifeng.com/listpage/7105/1/list.shtml" target="_blank" title="防务原创">防务原创</a></li> 
+   <li><a href="http://news.ifeng.com/o/dynpage/48-/1/plist.shtml" target="_blank" title="凤凰军机处">凤凰军机处</a></li> 
+   <li><a href="http://news.ifeng.com/o/dynpage/59-/1/plist.shtml" target="_blank" title="张召忠说">张召忠说</a></li> 
+   <li><a href="http://games.ifeng.com/1403c/jsindex.shtml/?af=221376581" target="_blank" title="军事游戏">军事游戏</a></li> 
+
+  </ul> 
+ </div> 
+</div> 
+  </div> 
+  <!--导航 end--> 
+  <div class="col_w1000 mt30 clearfix"> 
+   <div class="col_lm">     <div class="box01_1">
+            <h1>
+            <span>头条</span>
+            <a href="http://news.ifeng.com/a/20160520/48809445_0.shtml" target="_blank" title="王毅回应“美国衰落 中国将被迫领导世界”">王毅回应“美国衰落 中国将被迫领导世界”</a>
+        </h1>
+        <p>外交部长王毅在北京接受了卡塔尔半岛电视台采访：美国现在正在衰落，在未来的十到二十年这种衰落会非常明显，中国已经准备好领导这个世界了吗？哪怕是因为美国衰落中国被迫领导这个世界，中国准备好了吗？</p>
+    </div> 
+
+  <div class="box01_2 clearfix"> 
+    <p><a href="http://news.ifeng.com/listpage/4550/20160520/1/rtlist.shtml" target="_blank" title="即时新闻">即时新闻</a></p> 
+    <div class="scrollList_66" style="overflow: hidden;"> 
+        <div class="photolist" id="photolist_66"> 
+            <ul style="float: left;">
+                    <li><a href='http://news.ifeng.com/a/20160520/48810759_0.shtml' target="_blank" title="俄外交部：只有一个中国 反对任何形式“台独”">俄外交部：只有一个中国 反对任何形式“台独”</a></li>
+                    <li><a href='http://news.ifeng.com/a/20160520/48810645_0.shtml' target="_blank" title="驻美大使：美行为不加约束会真正导致南海军事化">驻美大使：美行为不加约束会真正导致南海军事化</a></li>
+                    <li><a href='http://news.ifeng.com/a/20160520/48810374_0.shtml' target="_blank" title="专家：美军机下降高度或为躲避中方跟踪取证">专家：美军机下降高度或为躲避中方跟踪取证</a></li>
+                    <li><a href='http://news.ifeng.com/a/20160520/48810336_0.shtml' target="_blank" title="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”">凤凰军评:怕走火别擦枪 南海需要“空中手术刀”</a></li>
+                    <li><a href='http://news.ifeng.com/a/20160520/48809869_0.shtml' target="_blank" title="中方回应拦截美机：美军机已抵近海南岛侦察">中方回应拦截美机：美军机已抵近海南岛侦察</a></li>
+                    <li><a href='http://news.ifeng.com/a/20160520/48809527_0.shtml' target="_blank" title="外媒：斯里兰卡无视印度反对 将购买枭龙战机">外媒：斯里兰卡无视印度反对 将购买枭龙战机</a></li>
+            </ul>
+        </div> 
+    </div> 
+</div>
+ 
+  <div id="scrPic_8" class="box01_3">
+        <div class="photo" >
+        <div class="pic">
+            <a href='http://news.ifeng.com/a/20160520/48809006_0.shtml' target="_blank" title="520前夕台重炮部队对海猛轰 全是“老炮”无威胁">
+            <img src="http://d.ifengimg.com/w670_h326/p0.ifengimg.com/a/2016_21/2eb4d1ac0d0051c_size248_w670_h326.jpg" width="670" height="326" alt="520前夕台重炮部队对海猛轰 全是“老炮”无威胁" title="520前夕台重炮部队对海猛轰 全是“老炮”无威胁"/></a>
+        </div>
+        <div class="textbg"></div>
+        <div class="text"><a href='http://news.ifeng.com/a/20160520/48809006_0.shtml' target="_blank" title="520前夕台重炮部队对海猛轰 全是“老炮”无威胁">
+        520前夕台重炮部队对海猛轰 全是“老炮”无威胁</a></div>
+    </div>
+    <div class="photo" >
+        <div class="pic">
+            <a href='http://news.ifeng.com/a/20160519/48801220_0.shtml' target="_blank" title="赤裸挑衅：美军核航母舰载机联队南海空中示威">
+            <img src="http://d.ifengimg.com/w670_h326/p3.ifengimg.com/a/2016_21/18854e6f748d3de_size131_w670_h326.jpg" width="670" height="326" alt="赤裸挑衅：美军核航母舰载机联队南海空中示威" title="赤裸挑衅：美军核航母舰载机联队南海空中示威"/></a>
+        </div>
+        <div class="textbg"></div>
+        <div class="text"><a href='http://news.ifeng.com/a/20160519/48801220_0.shtml' target="_blank" title="赤裸挑衅：美军核航母舰载机联队南海空中示威">
+        赤裸挑衅：美军核航母舰载机联队南海空中示威</a></div>
+    </div>
+    <div class="photo" >
+        <div class="pic">
+            <a href='http://news.ifeng.com/a/20160519/48800541_0.shtml' target="_blank" title="中国又一艘039B潜艇建造完成 工艺细腻战力强大">
+            <img src="http://d.ifengimg.com/w670_h326/p2.ifengimg.com/a/2016_21/c6d58c3d45a95ac_size175_w670_h326.jpg" width="670" height="326" alt="中国又一艘039B潜艇建造完成 工艺细腻战力强大" title="中国又一艘039B潜艇建造完成 工艺细腻战力强大"/></a>
+        </div>
+        <div class="textbg"></div>
+        <div class="text"><a href='http://news.ifeng.com/a/20160519/48800541_0.shtml' target="_blank" title="中国又一艘039B潜艇建造完成 工艺细腻战力强大">
+        中国又一艘039B潜艇建造完成 工艺细腻战力强大</a></div>
+    </div>
+    <div class="photo"  id="ad_jdt04" >
+        <div class="pic">
+            <a href='http://news.ifeng.com/a/20160519/48800300_0.shtml' target="_blank" title="直击俄售华矢量发动机生产车间 厂房陈旧女工认真">
+            <img src="http://d.ifengimg.com/w670_h326/p0.ifengimg.com/a/2016_21/bb9203f6ec4f612_size176_w670_h326.jpg" width="670" height="326" alt="直击俄售华矢量发动机生产车间 厂房陈旧女工认真" title="直击俄售华矢量发动机生产车间 厂房陈旧女工认真"/></a>
+        </div>
+        <div class="textbg"></div>
+        <div class="text"><a href='http://news.ifeng.com/a/20160519/48800300_0.shtml' target="_blank" title="直击俄售华矢量发动机生产车间 厂房陈旧女工认真">
+        直击俄售华矢量发动机生产车间 厂房陈旧女工认真</a></div>
+    </div>
+    <ul class="btPhoto" id="focusNum_8">
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+</div> 
+    
+   
+<!--s_news_mil_index_140321_ad_jdt04 2016.05.20 09:26:42-->
+
+
+<var style="display:none;" v="8707,0,0,NULL,fixture"></var>
+
+<!--/s_news_mil_index_140321_ad_jdt04-->
+
+   
+   </div> 
+   <div class="col_r"> 
+    <div class="box01_4 mt07"> <h3><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/t01.gif" width="70" height="16" /></h3> <div>
+          <dl class="clearfix">
+        <dt><a href="http://news.ifeng.com/mil/junjichu/fenghuangjunjichudi59qi/1.shtml" target="_blank" title="凤凰军机处"><img src="http://d.ifengimg.com/w90_h90/y0.ifengimg.com/cmpp/2016/05/10/d633aaf70a8f431593071e78fe2534f0_size135_w300_h200.jpg" width="90" height="90" alt="凤凰军机处" title="凤凰军机处" class="trans"/></a></dt>
+        <dd>
+          <h4><a href="http://news.ifeng.com/mil/junjichu/fenghuangjunjichudi59qi/1.shtml" target="_blank" title="凤凰军机处">凤凰军机处</a></h4>
+          <p>金灿荣谈南海仲裁 文的武的咱都不怕
+</p>
+        </dd>
+      </dl>
+      <dl class="clearfix">
+        <dt><a href="http://news.ifeng.com/mil/junjichu/fenghuangjunjichudi58qi/1.shtml" target="_blank" title="凤凰军机处"><img src="http://d.ifengimg.com/w90_h90/p3.ifengimg.com/a/2016_19/dcea7a693200e45_size154_w670_h326.jpg" width="90" height="90" alt="凤凰军机处" title="凤凰军机处" class="trans"/></a></dt>
+        <dd>
+          <h4><a href="http://news.ifeng.com/mil/junjichu/fenghuangjunjichudi58qi/1.shtml" target="_blank" title="凤凰军机处">凤凰军机处</a></h4>
+          <p>澳大利亚潜艇肯定会来南海和东海
+</p>
+        </dd>
+      </dl>
+</div> 
+    </div> 
+    <div class="ad mt15"> 
+     
+  
+<!--s_news_mil_index_ad_140321_button01 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(1828);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="1828,0,0,NULL,fixture"></var><iframe src="http://games.ifeng.com/1403m/mila1.shtml" scrolling="no" frameborder="0" style="width:300px; height:200px; border:0px;background-color:transparent;" allowtransparency="true"></iframe>
+
+<!--/s_news_mil_index_ad_140321_button01-->
+
+   
+    </div> 
+   </div> 
+  </div> 
+  <div class="col_w1000 mt36 clearfix"> 
+   <div class="col_l"> 
+    <div class="box400"> <div class="tit01 t_bg01 clearfix"> 
+ <h3>熱點要聞</h3> 
+</div>  <ul class="list01">
+        <li>
+    <a href="http://news.ifeng.com/a/20160520/48810336_0.shtml" target="_blank" title="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”">
+    <img src="http://d.ifengimg.com/w0_h0/p0.ifengimg.com/a/2016_21/6e525bafececbfb_size108_w486_h239.jpg" width="0" height="0" alt="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”" title="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”"/>
+    凤凰军评:怕走火别擦枪 南海需要“空中手术刀”</a>
+    </li>
+    <li>
+    <a href="http://news.ifeng.com/a/20160520/48809527_0.shtml" target="_blank" title="外媒：斯里兰卡无视印度反对 将购买枭龙战机">
+    <img src="http://d.ifengimg.com/w0_h0/p2.ifengimg.com/haina/2016_21/77b2907ae322c5b_w980_h551.jpg" width="0" height="0" alt="外媒：斯里兰卡无视印度反对 将购买枭龙战机" title="外媒：斯里兰卡无视印度反对 将购买枭龙战机"/>
+    外媒：斯里兰卡无视印度反对 将购买枭龙战机</a>
+    </li>
+    <li>
+    <a href="http://news.ifeng.com/a/20160520/48809500_0.shtml" target="_blank" title="千万别犯罪，被这些警械拿住叫你生不如死">
+    <img src="http://d.ifengimg.com/w0_h0/p1.ifengimg.com/a/2016_21/ae7f6dea06919b3_size178_w500_h373.jpg" width="0" height="0" alt="千万别犯罪，被这些警械拿住叫你生不如死" title="千万别犯罪，被这些警械拿住叫你生不如死"/>
+    千万别犯罪，被这些警械拿住叫你生不如死</a>
+    </li>
+    <li>
+    <a href="http://news.ifeng.com/a/20160520/48809366_0.shtml" target="_blank" title="专家：美国走向台前 南海擦枪走火可能性大">
+    <img src="http://d.ifengimg.com/w0_h0/p2.ifengimg.com/haina/2016_21/236351fe830aa9e_w900_h601.jpg" width="0" height="0" alt="专家：美国走向台前 南海擦枪走火可能性大" title="专家：美国走向台前 南海擦枪走火可能性大"/>
+    专家：美国走向台前 南海擦枪走火可能性大</a>
+    </li>
+    <li>
+    <a href="http://news.ifeng.com/a/20160520/48808867_0.shtml" target="_blank" title="解放军演练立体登陆 场地像高雄“不可登陆”点">
+    <img src="http://d.ifengimg.com/w0_h0/p0.ifengimg.com/haina/2016_21/10ef3c9b5f209c3_w287_h204.gif" width="0" height="0" alt="解放军演练立体登陆 场地像高雄“不可登陆”点" title="解放军演练立体登陆 场地像高雄“不可登陆”点"/>
+    解放军演练立体登陆 场地像高雄“不可登陆”点</a>
+    </li>
+    <li>
+    <a href="http://news.ifeng.com/a/20160520/48808839_0.shtml" target="_blank" title="俄媒：中国海军访南非 将以大国身份走向大洋">
+    <img src="http://d.ifengimg.com/w0_h0/p1.ifengimg.com/haina/2016_21/1ca955d029429f8_w915_h610.jpg" width="0" height="0" alt="俄媒：中国海军访南非 将以大国身份走向大洋" title="俄媒：中国海军访南非 将以大国身份走向大洋"/>
+    俄媒：中国海军访南非 将以大国身份走向大洋</a>
+    </li>
+    <li>
+    <a href="http://news.ifeng.com/a/20160519/48801305_0.shtml" target="_blank" title="高新6号足以压制南海小国 面对美日则杯水车薪">
+    <img src="http://d.ifengimg.com/w0_h0/p3.ifengimg.com/a/2016_21/fb10adb4cc76c7c_size150_w604_h327.jpg" width="0" height="0" alt="高新6号足以压制南海小国 面对美日则杯水车薪" title="高新6号足以压制南海小国 面对美日则杯水车薪"/>
+    高新6号足以压制南海小国 面对美日则杯水车薪</a>
+    </li>
+  </ul> 
+     <ul class="list022"> 
+      
+      
+<!--s_news_mil_index_140321_ad_text01 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(2471);aptracker.add(2472);aptracker.add(2473);aptracker.add(2474);aptracker.add(8703);aptracker.add(8704);}catch(e){}</script>
+
+<li>[商讯]
+<var style="display:none;" v="2471,0,0,NULL,fixture"></var><a href="http://dol.deliver.ifeng.com/c?b35cf87b5MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFJsMhIixluz8Aj83IIPSfBwnY1Er4iAjsSjIQaz3sXig1cbwdla4D-btvxvsO9E0w_7yCwfELswD0xSOz8OJZ4u" target="_blank">全球新主流财经门户</a>
+</li>
+
+<li>
+<var style="display:none;" v="2472,0,0,NULL,fixture"></var><a href="http://dol.deliver.ifeng.com/c?742a03c85MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFLh-1_N3mxMKxw6lsCKt4hZt15LxtRfPs6oSASSfPE_2Vcbwdla4D-bIWpX-MUcBuBw9JbVZDZxKIch21E-eg6OFbwf311dmb0" target="_blank">最新最全的车讯信息</a>
+</li>
+
+<li>
+<var style="display:none;" v="2473,0,0,NULL,fixture"></var><a href="http://dol.deliver.ifeng.com/c?c981dcc75MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFJqMidcvQR_eFNTzYS8nBy-0iBS4HeCPpBX6YfopiNM3Vcbwdla4D-biLMb4We9fPoA1yg6LAeUZpIPWdTtXfVErYtV4Y_PmP8" target="_blank">上凤凰看不同的新闻</a>
+</li>
+
+<li>
+<var style="display:none;" v="2474,0,0,NULL,fixture"></var><a href="http://dol.deliver.ifeng.com/c?7e7a19b55MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFIsrMBZ4SmtoG7Nf4P_lnQgMqfGivu9TTHy7peQlB45t1cbwdla4D-bPA_9DTcT8KwA1yg6LAeUZnBf7YqyXt-lrYtV4Y_PmP8" target="_blank">凤凰最牛的汽车评测</a>
+</li>
+
+<li>
+<var style="display:none;" v="8703,0,0,NULL,fixture"></var><a href="http://dol.deliver.ifeng.com/c?14fc50d95MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFKDGT3bHG-LPL9IBaLKWDWwaFLnfyfZ-0WA-Jhy7V4jXlcbwdla4D-bc9xlMom0h3rbC-ltPmM2pq2LVeGPz5j_" target="_blank">凤凰打造教育声音源</a>
+</li>
+
+<li>
+<var style="display:none;" v="8704,0,0,NULL,fixture"></var><a href="http://dol.deliver.ifeng.com/c?be0b4d125MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFJJiHQCplzgPp6hlbwSC3zjc46a0-D_4HiM1wmLCzdLg1cbwdla4D-biLMb4We9fPoA1yg6LAeUZl5xnmi69f2F" target="_blank">来凤凰网了解新资讯</a>
+</li>
+<!--/s_news_mil_index_140321_ad_text01-->
+
+     
+     </ul> 
+    </div> 
+   </div> 
+   <div class="col_m"> 
+    
+    <div class="box242"> 
+ <div class="tit01 t_bg03 clearfix"> 
+  <h3>防务調查</h3> 
+ </div> 
+
+  <style type="text/css">
+    .formList label{line-height:24px;display:block; }
+    .dcPad{padding:0 10px 0 14px;}
+    .dcList strong{padding:5px 0 7px 0;line-height: 24px;display:block;}
+    .dcList strong em{ display:none}
+    .dcList strong.error em{ display:inline; font-weight:normal}
+    .research label{margin:0 0 0 10px;color:#666666;}
+    .research label:hover {color:#09F;cursor:pointer}
+    .research{font-size:12px; font-family:"宋体"; margin:0 auto;padding-bottom:10px;}
+    .research h2{font-size:14px; padding:2px 0;margin-bottom:10px;border-bottom:1px solid #f0f0f0;} 
+    .surBtn{float:left;display:inline;margin:10px 5px 0 10px;width:60px;height:25px;}
+
+    .dcPad{width:220px; height:190px; border-left:1px solid #ddd; border-right:1px solid #ddd; padding:0px 10px 0; background:#f8f8f8; margin-top:3px;}
+    .dcList strong{ font-family:"微软雅黑"; font-size:14px; font-weight:normal; color:#2b2b2b; line-height:22px;}
+    .surBtn{float:left;display:inline;margin:0px 5px 0 0px;width:60px;height:25px;}
+    .tj{width:187px; height:21px; line-height:21px; background:url(http://y1.ifengimg.com/a/2015/0729/syj/logo/list06.gif) repeat-x left top; margin-top:5px;}/*150723a*/
+    .tj input{background:none; border:none; width:99px; height:21px; line-height:21px; background:url(http://y1.ifengimg.com/a/2015/0729/syj/logo/p_bg.gif) no-repeat; color:#fff; text-align:left; float:left; cursor:pointer; margin-right:10px; text-align:center; padding-right:10px;}/*150723a*/
+    .tj a{ color:#666;} 
+    #js_svyResultLink {line-height: 44px;}
+  </style> 
+
+<div class="dcPad">
+  <script>
+     var surveyId = 13072;
+  </script>
+  <div class="research">
+    <form class="formList"  id="js_svyForm">
+      <ul class="dcList clearfix">
+        <li id="js_svy">
+        </li>
+        <li class="tj clearfix">
+          <div class="submit">
+            <input type="button" value="提交" id="js_svySubmit" class="surBtn" />
+            <a href="" id="js_svyResultLink" target="_blank">点击查看结果&gt;&gt;</a>
+          </div>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div> 
+</div>
+<script src="http://y2.ifengimg.com/a/2015/1023/milIndexSurvey.js"></script>
+
+
+    <div class="box242 mt19"> 
+ <div class="tit01 t_bg03 clearfix"> 
+  <h3>军事推荐</h3> 
+ </div> 
+ <ul class="list03"> 
+  <li><a href="http://news.ifeng.com/a/20150324/43405083_0.shtml" target="_blank">凤凰网军事频道编辑招聘启事
+</a></li> 
+  <li><a href="http://www.auvsc.cn/" target="_blank">中国（深圳）国际无人系统展</a></li> 
+ </ul> 
+</div> 
+   </div> 
+   <div class="col_r"> 
+    <ul class="list04"> 
+     <li id="one1" onmouseover="setTab('one',1,3)" class="hover"><a href="http://news.ifeng.com/mil/index-phb.shtml" target="_blank">昨日点击排行</a></li> 
+     <li id="one2" onmouseover="setTab('one',2,3)"><a href="http://news.ifeng.com/mil/index-phb.shtml" target="_blank">今日点击排行</a></li> 
+     <li id="one3" onmouseover="setTab('one',3,3)"><a href="http://news.ifeng.com/mil/index-phb.shtml" target="_blank">一周点击排行</a></li> 
+    </ul> 
+    
+        <ul class="list05" id="con_one_1" >
+	  		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_01.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800810_0.shtml" target="_blank" title="美军一架B-52轰炸机坠毁关岛 现场冒起白烟（图）">美军一架B-52轰炸机坠毁关岛 现场冒起白烟（图）</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_02.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48801305_0.shtml" target="_blank" title="高新6号足以压制南海小国 面对美日则杯水车薪">高新6号足以压制南海小国 面对美日则杯水车薪</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_03.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48801220_0.shtml" target="_blank" title="赤裸挑衅：美军核航母舰载机联队南海空中示威">赤裸挑衅：美军核航母舰载机联队南海空中示威</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_04.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800541_0.shtml" target="_blank" title="中国又一艘039B潜艇建造完成 工艺细腻战力强大">中国又一艘039B潜艇建造完成 工艺细腻战力强大</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_05.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800334_0.shtml" target="_blank" title="中国大批武警罕见现身俄罗斯 将与俄举行联合演习">中国大批武警罕见现身俄罗斯 将与俄举行联合演习</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_06.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800300_0.shtml" target="_blank" title="直击俄售华矢量发动机生产车间 厂房陈旧女工认真">直击俄售华矢量发动机生产车间 厂房陈旧女工认真</a></li>
+		<li  class="bn" ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_07.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800356_0.shtml" target="_blank" title="外媒：中国两架军机在南海上空拦截美军侦察机">外媒：中国两架军机在南海上空拦截美军侦察机</a></li>
+	</ul>
+      <ul class="list05" id="con_one_2" style="display:none;">
+	  		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_01.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160520/48808867_0.shtml" target="_blank" title="解放军演练立体登陆 场地像高雄“不可登陆”点">解放军演练立体登陆 场地像高雄“不可登陆”点</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_02.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160520/48809445_0.shtml" target="_blank" title="王毅回应“美国正在衰落 中国将被迫领导世界”">王毅回应“美国正在衰落 中国将被迫领导世界”</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_03.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160520/48809006_0.shtml" target="_blank" title="520前夕台重炮部队对海猛轰 全是“老炮”无威胁">520前夕台重炮部队对海猛轰 全是“老炮”无威胁</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_04.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48801220_0.shtml" target="_blank" title="赤裸挑衅：美军核航母舰载机联队南海空中示威">赤裸挑衅：美军核航母舰载机联队南海空中示威</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_05.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48801305_0.shtml" target="_blank" title="高新6号足以压制南海小国 面对美日则杯水车薪">高新6号足以压制南海小国 面对美日则杯水车薪</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_06.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160520/48809527_0.shtml" target="_blank" title="外媒：斯里兰卡无视印度反对 将购买枭龙战机">外媒：斯里兰卡无视印度反对 将购买枭龙战机</a></li>
+		<li  class="bn" ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_07.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800541_0.shtml" target="_blank" title="中国又一艘039B潜艇建造完成 工艺细腻战力强大">中国又一艘039B潜艇建造完成 工艺细腻战力强大</a></li>
+	</ul>
+      <ul class="list05" id="con_one_3" style="display:none;">
+	  		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_01.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160516/48777671_0.shtml" target="_blank" title="蔡英文就职在即 网传解放军东风-21D进驻厦门视频">蔡英文就职在即 网传解放军东风-21D进驻厦门视频</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_02.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48800810_0.shtml" target="_blank" title="美军一架B-52轰炸机坠毁关岛 现场冒起白烟（图）">美军一架B-52轰炸机坠毁关岛 现场冒起白烟（图）</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_03.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160514/48769968_0.shtml" target="_blank" title="普京当场看楞：赞完国产装备 军车门把手一拽就掉">普京当场看楞：赞完国产装备 军车门把手一拽就掉</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_04.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160518/48791767_0.shtml" target="_blank" title="观天下:南沙填海越南猛增50万平米 戳穿美国伪正义">观天下:南沙填海越南猛增50万平米 戳穿美国伪正义</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_05.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160516/48778325_0.shtml" target="_blank" title="回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪">回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪</a></li>
+		<li ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_06.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160519/48801305_0.shtml" target="_blank" title="高新6号足以压制南海小国 面对美日则杯水车薪">高新6号足以压制南海小国 面对美日则杯水车薪</a></li>
+		<li  class="bn" ><span><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/n_07.gif" width="10" height="10"></span><a href="http://news.ifeng.com/a/20160514/48770140_0.shtml" target="_blank" title="军媒：解放军有能力应对南海不测 将全面出击">军媒：解放军有能力应对南海不测 将全面出击</a></li>
+    </ul>
+    
+   </div> 
+  </div> 
+  <div class="col_w1000 mt26 clearfix"> 
+   <div class="col_lm"> 
+    <div class="ad"> 
+     
+  
+<!--s_news_mil_ad_index_banner01_640x90 2016.05.20 09:24:37-->
+<script type="text/javascript">try{aptracker.add(1825);}catch(e){}</script>
+
+
+<div id="AP454" style="display:none;">
+<var style="display:none;" v="1825,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<iframe src="http://games.ifeng.com/1403m/mil03.shtml" scrolling="no" frameborder="0" style="width:640px; height:90px; border:0px;background-color=transparent;" allowtransparency="true"></iframe>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+new adRotatorFactory({identifier : "AP454"});
+}catch(e){}
+</script>
+
+<!--/s_news_mil_ad_index_banner01_640x90-->
+
+   
+    </div> 
+   </div>  
+   <div class="col_r">
+      <div class="box05_4"> 
+     
+    
+<!--s_news_mil_ad_index_txtimg_02 2016.05.20 09:24:38-->
+<script type="text/javascript">try{aptracker.add(1831);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="1831,0,0,NULL,fixture"></var><script type="text/javascript">
+var a = 'http://dol.deliver.ifeng.com/c?8f44709d5MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFKaIUmuSUOnEcK2k7sTl99IASVj6TGCA3C6DHFV2W8Q1Fcbwdla4D-bzvJ5L268uXMbm-5IDnxXoIEW9bxf93mE';
+var ad = 'http://c1.ifengimg.com/mappa/2016/02/06/02fddec388404816aeccee31b744af0f.jpg';
+var w = '300';var h = '115';var isActive = 1;
+</script>
+<script type="text/javascript" src="http://y2.ifengimg.com/8d182615793a9f4b/2015/0917/yingguang-20150917a.js"></script>
+
+<!--/s_news_mil_ad_index_txtimg_02-->
+
+    
+    </div> 
+  </div>
+  </div> 
+  <div class="col_w1000 mt26 clearfix"> 
+   <div class="col_l"> 
+    <div class="box400"> <div class="tit02">
+  <h3><a href="http://news.ifeng.com/listpage/7129/1/list.shtmll" target="_blank" title="">中國軍情</a></h3>
+</div>    <ul class="list01 mt14">
+              <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48809869_0.shtml' target="_blank" title="中方回应拦截美机：美军机已抵近海南岛侦察">中方回应拦截美机：美军机已抵近海南岛侦察</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48809445_0.shtml' target="_blank" title="王毅回应“美国正在衰落 中国将被迫领导世界”">王毅回应“美国正在衰落 中国将被迫领导世界”</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48800559_0.shtml' target="_blank" title="疑中国新型航母舰载机曝光 未来或将批量出口">疑中国新型航母舰载机曝光 未来或将批量出口</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48800356_0.shtml' target="_blank" title="外媒：中国两架军机在南海上空拦截美军侦察机">外媒：中国两架军机在南海上空拦截美军侦察机</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48800334_0.shtml' target="_blank" title="中国大批武警罕见现身俄罗斯 将与俄举行联合演习">中国大批武警罕见现身俄罗斯 将与俄举行联合演习</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48791759_0.shtml' target="_blank" title="台陆军装甲车撞树 树没事枪管被撞歪当场傻眼">台陆军装甲车撞树 树没事枪管被撞歪当场傻眼</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48791662_0.shtml' target="_blank" title="台湾民调只有8.3%愿意打仗 “台独”之战必败">台湾民调只有8.3%愿意打仗 “台独”之战必败</a></li>
+   </ul> <div class="more"> 
+ <a href="http://news.ifeng.com/listpage/7129/1/list.shtmll" target="_blank" title="更多新闻">更多</a> 
+</div> 
+    </div> 
+    <div class="box400 mt23"> <div class="tit02"> 
+ <h3><a href="http://news.ifeng.com/listpage/7106/1/list.shtml" target="_blank" title="">臺海風雲</a></h3> 
+</div>  <ul class="list01 mt14">
+              <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48808867_0.shtml' target="_blank" title="解放军演练立体登陆 场地像高雄“不可登陆”点">解放军演练立体登陆 场地像高雄“不可登陆”点</a></li>
+        <li><span>05-12</span><a href='http://news.ifeng.com/a/20160512/48756646_0.shtml' target="_blank" title="解放军在蔡英文上台前夕演练抢滩登陆 被指有深意">解放军在蔡英文上台前夕演练抢滩登陆 被指有深意</a></li>
+        <li><span>05-08</span><a href='http://news.ifeng.com/a/20160508/48719966_0.shtml' target="_blank" title="台湾军舰赴冲之鸟礁护渔 与日本巡视船发生对峙">台湾军舰赴冲之鸟礁护渔 与日本巡视船发生对峙</a></li>
+        <li><span>04-30</span><a href='http://news.ifeng.com/a/20160430/48644000_0.shtml' target="_blank" title="台湾千吨级巡护船赴冲之鸟礁 配20机炮与喷水枪">台湾千吨级巡护船赴冲之鸟礁 配20机炮与喷水枪</a></li>
+        <li><span>04-29</span><a href='http://news.ifeng.com/a/20160429/48631466_0.shtml' target="_blank" title="台媒：台宁愿被美日吃干抹净 也不要大陆善意？">台媒：台宁愿被美日吃干抹净 也不要大陆善意？</a></li>
+        <li><span>04-28</span><a href='http://news.ifeng.com/a/20160428/48620667_0.shtml' target="_blank" title="台当局就渔船被日扣押发声明：反对日本违法扩权">台当局就渔船被日扣押发声明：反对日本违法扩权</a></li>
+   </ul> <div class="more"> 
+ <a href="http://news.ifeng.com/listpage/7106/1/list.shtml" target="_blank" title="更多新闻">更多</a> 
+</div> 
+    </div> 
+    <div class="ad mt20"> 
+     
+  
+<!--s_news_mil_index_ad_140321_button03 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(8705);}catch(e){}</script>
+
+
+<div id="AP3307" style="display:none;">
+<var style="display:none;" v="8705,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<script language="javascript">
+    iis_config = {ap : 8705, tp : 1, w : 400, h : 90};
+</script>
+<script language="javascript" src="http://m1.ifengimg.com/iis/iis_v1_3.js"></script>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+new adRotatorFactory({identifier : "AP3307"});
+}catch(e){}
+</script>
+
+<script type="text/javascript">
+var mfp_channel =  "1";
+var mfp_host = "http://q.s.cr-nielsen.com/mfp/mfpMultipleDelivery.do";
+var mfp_user_cookie_name = "mfp_uid";
+var mfp_js="http://s.cr-nielsen.com/survey.js";
+var pv_rate=0.20000;
+var mfp_attrs = "";
+<!--用户自定义参数定义,格式为Qsystem_X,X为1到10的数字-->
+
+(function () {
+   var D=document;
+	this.MFP = {displays:[]};
+	var h = D.getElementsByTagName("head")[0];
+	var s = D.createElement("script");
+	s.type = "text/javascript";
+	s.charset = "utf-8";
+	s.src = mfp_js;
+	h.firstChild?h.insertBefore(s,h.firstChild):h.appendChild(s);
+})();
+MFP.displays.push("div-guru-ad-1006");
+</script>
+<!--/s_news_mil_index_ad_140321_button03-->
+
+   
+    </div> 
+   </div> 
+   <div class="col_m"> <div class="tit01 t_bg04 clearfix"> 
+ <a href="http://news.ifeng.com/listpage/7134/1/list.shtml" target="_blank" title="更多">更多</a> 
+ <h3><a href="http://news.ifeng.com/listpage/7134/1/list.shtml" target="_blank" title="精彩图片">精彩图片</a></h3> 
+</div> <ul class="list06">
+          <li  class="mt06" >
+        <div class="pic"><a href='http://news.ifeng.com/a/20160519/48802849_0.shtml' target="_blank" title="商女不知亡国恨 韩国女团不识抗日英雄遭痛批"><img src="http://d.ifengimg.com/w240_h160/p2.ifengimg.com/a/2016_21/72c768e7c03837d_size14_w240_h160.jpg" width="240" height="160" alt="商女不知亡国恨 韩国女团不识抗日英雄遭痛批" title="商女不知亡国恨 韩国女团不识抗日英雄遭痛批"  class="trans"/></a></div>
+        <div class="txt"><a href='http://news.ifeng.com/a/20160519/48802849_0.shtml' target="_blank" title="商女不知亡国恨 韩国女团不识抗日英雄遭痛批">商女不知亡国恨 韩团不识安重根</a></div>
+      </li>
+      <li >
+        <div class="pic"><a href='http://news.ifeng.com/a/20160518/48793253_0.shtml' target="_blank" title="美军海豹部队不杀平民导致全军覆没"><img src="http://d.ifengimg.com/w240_h160/p2.ifengimg.com/a/2016_21/f436930720c6c50_size26_w240_h160.jpg" width="240" height="160" alt="美军海豹部队不杀平民导致全军覆没" title="美军海豹部队不杀平民导致全军覆没"  class="trans"/></a></div>
+        <div class="txt"><a href='http://news.ifeng.com/a/20160518/48793253_0.shtml' target="_blank" title="美军海豹部队不杀平民导致全军覆没">美军海豹部队不杀平民导致全军覆没</a></div>
+      </li>
+      <li >
+        <div class="pic"><a href='http://news.ifeng.com/a/20160517/48785417_0.shtml' target="_blank" title="贵族之死：解密杀死未来美国总统的神秘爆炸"><img src="http://d.ifengimg.com/w240_h160/p3.ifengimg.com/a/2016_21/01cfda16f363b40_size12_w240_h160.jpg" width="240" height="160" alt="贵族之死：解密杀死未来美国总统的神秘爆炸" title="贵族之死：解密杀死未来美国总统的神秘爆炸"  class="trans"/></a></div>
+        <div class="txt"><a href='http://news.ifeng.com/a/20160517/48785417_0.shtml' target="_blank" title="贵族之死：解密杀死未来美国总统的神秘爆炸">贵族之死：解密杀死美未来总统的神秘爆炸</a></div>
+      </li>
+</ul> 
+   </div> 
+   <div class="col_r"> 
+    <div class="ad mt32"> 
+     
+    
+<!--s_news_mil_ad_index_huazhonghua_p2 2016.05.20 09:24:37-->
+<script type="text/javascript">try{aptracker.add(1829);}catch(e){}</script>
+
+
+<div id="AP457" style="display:none;">
+<var style="display:none;" v="1829,36290,7620,谢婷婷,6"></var><code>
+<!--BOF
+<script type="text/javascript">
+var a = 'http://dol.deliver.ifeng.com/c?1a904ebd5MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFJJa3INHG_6VG9Wbu2UfzzZQkGt-0UTxijp7BrvQ6xC6tN9cPt3qk0RdPJv8jpqzDX1wYxDZ1erhLJBEzzro7QGfvlfaX7BpbH2kSHVDq7CE-ajq8nChfkj';
+var ad = 'http://c1.ifengimg.com/mappa/2016/04/22/4c85e31cd6316b89695e044f941c9b1b.jpg';
+var w = '300';var h = '600';var isActive = 0;
+</script>
+<script type="text/javascript" src="http://y2.ifengimg.com/8d182615793a9f4b/2015/0917/yingguang-20150917a.js"></script>
+EOF-->
+</code>
+
+<var style="display:none;" v="1829,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<script language="javascript">
+    iis_config = {ap : 1829, tp : 1, w : 300, h : 600};
+</script>
+<script language="javascript" src="http://m1.ifengimg.com/iis/iis_v1_3.js"></script>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+	if(INice.getCookie('prov') == '9999'){
+		document.write("<div id='div-gpt-ad-1403190564958-1' style='width:300px; height:600px;'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1403190564958-1'); });</" + "script></div>");
+	}else{
+		try{
+		var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+		new adRotatorFactory({identifier : "AP457"});
+		}catch(e){}
+	}
+}catch(e){}
+</script>
+<!--/s_news_mil_ad_index_huazhonghua_p2-->
+
+     
+    </div> 
+   </div> 
+  </div> 
+  <div class="col_w1000 clearfix"> 
+   <div class="col_l"> 
+    <div class="box400"> <div class="tit02"> 
+ <h3><a href="http://news.ifeng.com/listpage/7128/1/list.shtml" target="_blank" title="">鄰邦掃描</a></h3> 
+</div>   <ul class="list01 mt14">
+              <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48808868_0.shtml' target="_blank" title="外媒：印度LCA上舰进度获突破 装备美制发动机">外媒：印度LCA上舰进度获突破 装备美制发动机</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48799879_0.shtml' target="_blank" title="日本海军最爱的餐厅带着无数文物 一把火全烧没了">日本海军最爱的餐厅带着无数文物 一把火全烧没了</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48792025_0.shtml' target="_blank" title="外媒：巴基斯坦考虑购买红旗-9 已期盼十多年">外媒：巴基斯坦考虑购买红旗-9 已期盼十多年</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48791760_0.shtml' target="_blank" title="菲律宾扣押两艘中国渔船 25名渔民被菲方扣留">菲律宾扣押两艘中国渔船 25名渔民被菲方扣留</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48791535_0.shtml' target="_blank" title="日媒：越南在南海10岛非法填海 美公布卫星图">日媒：越南在南海10岛非法填海 美公布卫星图</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48790898_0.shtml' target="_blank" title="美国罕见点名越南 要求其停止南海岛礁建设">美国罕见点名越南 要求其停止南海岛礁建设</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48790780_0.shtml' target="_blank" title="印俄签40亿美元五代机设计合同 原型机3年内升空">印俄签40亿美元五代机设计合同 原型机3年内升空</a></li>
+   </ul> <div class="more"> 
+ <a href="http://news.ifeng.com/listpage/7128/1/list.shtml" target="_blank" title="更多新闻">更多</a> 
+</div> 
+    </div> 
+    <div class="box400 mt52"> <div class="tit02"> 
+ <h3><a href="http://news.ifeng.com/listpage/7130/1/list.shtml" target="_blank" title="">環球軍情</a></h3> 
+</div>   <ul class="list01 mt14">
+              <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48802789_0.shtml' target="_blank" title="美媒：美军要用星战计划对付中俄 能拦截核导弹">美媒：美军要用星战计划对付中俄 能拦截核导弹</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48800914_0.shtml' target="_blank" title="伊拉克版真实长坂坡：孤胆卫兵单枪独挡装甲营">伊拉克版真实长坂坡：孤胆卫兵单枪独挡装甲营</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48800810_0.shtml' target="_blank" title="美军一架B-52轰炸机坠毁关岛 现场冒起白烟（图）">美军一架B-52轰炸机坠毁关岛 现场冒起白烟（图）</a></li>
+        <li><span>05-19</span><a href='http://news.ifeng.com/a/20160519/48800553_0.shtml' target="_blank" title="美高超音速武器难拦截 易引发误判导致核大战">美高超音速武器难拦截 易引发误判导致核大战</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48792332_0.shtml' target="_blank" title="应对美国导弹新基地 俄重启克里米亚反导预警站">应对美国导弹新基地 俄重启克里米亚反导预警站</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48792321_0.shtml' target="_blank" title="美军舰炮将装备制导炮弹：射程增3倍 误差不到2米">美军舰炮将装备制导炮弹：射程增3倍 误差不到2米</a></li>
+        <li><span>05-18</span><a href='http://news.ifeng.com/a/20160518/48792070_0.shtml' target="_blank" title="美国数位陆军将领警告：俄陆军战力超过美军">美国数位陆军将领警告：俄陆军战力超过美军</a></li>
+   </ul> <div class="more"> 
+ <a href="http://news.ifeng.com/listpage/7130/1/list.shtml" target="_blank" title="更多新闻">更多</a> 
+</div> 
+    </div> 
+    <div class="box400 mt52"> <div class="tit02"> 
+ <h3><a href="http://news.ifeng.com/listpage/7131/1/list.shtml" target="_blank" title="">防務觀察</a></h3> 
+</div>   <ul class="list01 mt14">
+              <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48810645_0.shtml' target="_blank" title="驻美大使：美行为不加约束会真正导致南海军事化">驻美大使：美行为不加约束会真正导致南海军事化</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48810374_0.shtml' target="_blank" title="专家：美军机下降高度或为躲避中方跟踪取证">专家：美军机下降高度或为躲避中方跟踪取证</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48809527_0.shtml' target="_blank" title="外媒：斯里兰卡无视印度反对 将购买枭龙战机">外媒：斯里兰卡无视印度反对 将购买枭龙战机</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48809526_0.shtml' target="_blank" title="专家：中美南海没退让余地 一时半会缓解不了">专家：中美南海没退让余地 一时半会缓解不了</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48809500_0.shtml' target="_blank" title="千万别犯罪，被这些警械拿住叫你生不如死">千万别犯罪，被这些警械拿住叫你生不如死</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48809366_0.shtml' target="_blank" title="专家：美国走向台前 南海擦枪走火可能性大">专家：美国走向台前 南海擦枪走火可能性大</a></li>
+        <li><span>05-20</span><a href='http://news.ifeng.com/a/20160520/48808884_0.shtml' target="_blank" title="俄媒：中国“光华口”半潜船可保障舰队续航能力">俄媒：中国“光华口”半潜船可保障舰队续航能力</a></li>
+   </ul> <div class="more"> 
+ <a href="http://news.ifeng.com/listpage/7131/1/list.shtml" target="_blank" title="更多新闻">更多</a> 
+</div> 
+    </div> 
+    <div class="ad mt52"> 
+     
+   
+<!--s_news_mil_index_ad_140321_button05 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(8701);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="8701,0,0,NULL,fixture"></var><script language="javascript">
+    iis_config = {ap : 8701, tp : 1, w : 400, h : 150};
+</script>
+<script language="javascript" src="http://m1.ifengimg.com/iis/iis_v1_3.js"></script>
+
+<!--/s_news_mil_index_ad_140321_button05-->
+
+    
+    </div> 
+   </div> 
+   <div class="col_m"> <ul class="list06 pt07">
+          <li>
+        <div class="pic">
+         <a href='http://news.ifeng.com/a/20160516/48777491_0.shtml' target="_blank" title="美冷战轰炸机领先中国很多年 6吨钛合金造前机身">
+         <img src="http://d.ifengimg.com/w240_h160/p1.ifengimg.com/a/2016_21/85f87479da8ad9f_size53_w240_h160.jpg" width="240" height="160" alt="美冷战轰炸机领先中国很多年 6吨钛合金造前机身" title="美冷战轰炸机领先中国很多年 6吨钛合金造前机身"  class="trans"/>
+         </a>
+         </div>
+        <div class="txt">
+        <a href='http://news.ifeng.com/a/20160516/48777491_0.shtml' target="_blank" title="美冷战轰炸机领先中国很多年 6吨钛合金造前机身">美国6吨钛合金造冷战最重轰炸机</a>
+        </div>
+      </li>
+      <li>
+        <div class="pic">
+         <a href='http://news.ifeng.com/a/20160513/48766042_0.shtml' target="_blank" title="军武次位面：中外古代重型兵器大比拼">
+         <img src="http://d.ifengimg.com/w240_h160/p3.ifengimg.com/a/2016_20/04febe7abe31549_size525_w240_h160.jpg" width="240" height="160" alt="军武次位面：中外古代重型兵器大比拼" title="军武次位面：中外古代重型兵器大比拼"  class="trans"/>
+         </a>
+         </div>
+        <div class="txt">
+        <a href='http://news.ifeng.com/a/20160513/48766042_0.shtml' target="_blank" title="军武次位面：中外古代重型兵器大比拼">军武次位面：中外古代重型兵器大比拼</a>
+        </div>
+      </li>
+</ul> 
+    <div class="ad mt20"> 
+     
+   
+<!--s_news_mil_index_ad_140321_button04 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(8706);}catch(e){}</script>
+
+
+<div id="AP3308" style="display:none;">
+<var style="display:none;" v="8706,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<iframe src="http://games.ifeng.com/1403m/miljxb1.shtml" scrolling="no" frameborder="0" style="width:240px; height:400px; border:0px;background-color:transparent;" allowtransparency="true"></iframe>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+new adRotatorFactory({identifier : "AP3308"});
+}catch(e){}
+</script>
+<!--/s_news_mil_index_ad_140321_button04-->
+
+    
+    </div> 
+    <div class="box242 mt32"> <div class="tit01 t_bg04 clearfix"> 
+ <a href="http://news.ifeng.com/mil/special/list_0/1.shtml" target="_blank" title="更多">更多</a> 
+ <h3><a href="http://news.ifeng.com/mil/special/list_0/1.shtml" target="_blank" title="军事专题">军事专题</a></h3> 
+</div> <ul class="list01 mt14">
+        <li><a href='http://news.ifeng.com/mil/special/zgkzsl70zndyb/' target="_blank" title="抗战精神 荣光不衰——中国抗战胜利70周年大阅兵">抗战精神 荣光不衰——中国抗战胜</a></li>
+    <li><a href='http://news.ifeng.com/mil/special/elsgjjsbs/' target="_blank" title="2015年俄罗斯国际军事比赛">2015年俄罗斯国际军事比赛</a></li>
+    <li><a href='http://news.ifeng.com/mil/special/bywmyxjfjxxsm/' target="_blank" title="八一，我们要向解放军学些什么">八一，我们要向解放军学些什么</a></li>
+    <li><a href='http://news.ifeng.com/mil/special/fzlfm/' target="_blank" title="长龙过海：中央军委副主席范长龙访美">长龙过海：中央军委副主席范长龙访</a></li>
+    <li><a href='http://news.ifeng.com/mil/special/nhzbjlsm/' target="_blank" title="南海周边军力扫描 中国胜算几何">南海周边军力扫描 中国胜算几何</a></li>
+    <li><a href='http://news.ifeng.com/mil/special/junshizhanlve/' target="_blank" title="重振三军：习近平新军事战略">重振三军：习近平新军事战略</a></li>
+  </ul> 
+    </div> 
+   </div> 
+   <div class="col_r"> 
+    <div class="box300 mt10"> <div class="tit03"> 
+ <a href="http://news.ifeng.com/listpage/51750/1/list.shtml" target="_blank" title="更多">更多</a> 
+ <h3><a href="http://news.ifeng.com/listpage/51750/1/list.shtml" target="_blank" title="防务短评">防务短评</a></h3> 
+</div> <ul class="list07">
+       <li  class="clearfix">
+      <div class="txt">
+            <p>
+                <a href=' http://news.ifeng.com/a/20160520/48810336_0.shtml ' target="_blank" title="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”">              怕走火别擦枪 南海需要"空中手术刀"
+                </a>
+                <span>  2016.05.20</span>
+            </p>
+      </div>
+      <div class="pic">
+          <a href=' http://news.ifeng.com/a/20160520/48810336_0.shtml ' target="_blank" title="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”">
+            <img src="http://d.ifengimg.com/w110_h80/p0.ifengimg.com/a/2016_21/6e525bafececbfb_size108_w486_h239.jpg" width="110" height="80" alt="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”" title="凤凰军评:怕走火别擦枪 南海需要“空中手术刀”" class="trans"/>
+          </a>
+      </div>
+      <div class="share_hide02" onMouseOver="MM_over(this)" onMouseOut="MM_out(this)"> 
+        <!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn01" data="{'text':'【凤凰军评:怕走火别擦枪 南海需要“空中手术刀”】凤凰军事 凤凰军评 5月20日 5月19日，美国美国国防部称，两架中国歼11战机飞机以&ldquo;不安全&rdquo;方式，在南海国际空域拦截一架正在飞行的美国EP-3侦察机，双方最近时仅相距15米','url':' http://news.ifeng.com/a/20160520/48810336_0.shtml','searchPic':'true'}"> 
+        <a class="bds_tsina" title="分享到新浪微博" href="#"></a> 
+        <a class="bds_qzone" title="分享到QQ空间" href="#"></a> 
+        </div>
+        <!-- Baidu Button END --> 
+      </div>
+    </li>
+    <li  class="clearfix">
+      <div class="txt">
+            <p>
+                <a href=' http://news.ifeng.com/a/20160519/48801305_0.shtml ' target="_blank" title="高新6号足以压制南海小国 面对美日则杯水车薪">              面对美日潜艇 高新6号杯水车薪
+                </a>
+                <span>  2016.05.19</span>
+            </p>
+      </div>
+      <div class="pic">
+          <a href=' http://news.ifeng.com/a/20160519/48801305_0.shtml ' target="_blank" title="高新6号足以压制南海小国 面对美日则杯水车薪">
+            <img src="http://d.ifengimg.com/w110_h80/p3.ifengimg.com/a/2016_21/fb10adb4cc76c7c_size150_w604_h327.jpg" width="110" height="80" alt="高新6号足以压制南海小国 面对美日则杯水车薪" title="高新6号足以压制南海小国 面对美日则杯水车薪" class="trans"/>
+          </a>
+      </div>
+      <div class="share_hide02" onMouseOver="MM_over(this)" onMouseOut="MM_out(this)"> 
+        <!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn01" data="{'text':'【高新6号足以压制南海小国 面对美日则杯水车薪】编者按：作为核大国战略安全的重要基石，弹道导弹战略核潜艇的安全活动区域向来被称为&ldquo;堡垒海域&rdquo;，例如苏联时代的巴伦支海就是这样一个海域。随着中国南海岛礁建设的稳步推进，中美','url':' http://news.ifeng.com/a/20160519/48801305_0.shtml','searchPic':'true'}"> 
+        <a class="bds_tsina" title="分享到新浪微博" href="#"></a> 
+        <a class="bds_qzone" title="分享到QQ空间" href="#"></a> 
+        </div>
+        <!-- Baidu Button END --> 
+      </div>
+    </li>
+    <li  class="clearfix">
+      <div class="txt">
+            <p>
+                <a href=' http://news.ifeng.com/a/20160518/48792532_0.shtml ' target="_blank" title="凤凰军评:167改不是大号054A 验证055兼职陆攻重锤">              167改非大号054A 验证055兼陆攻重锤
+                </a>
+                <span>  2016.05.18</span>
+            </p>
+      </div>
+      <div class="pic">
+          <a href=' http://news.ifeng.com/a/20160518/48792532_0.shtml ' target="_blank" title="凤凰军评:167改不是大号054A 验证055兼职陆攻重锤">
+            <img src="http://d.ifengimg.com/w110_h80/p1.ifengimg.com/a/2016_21/b4c03b2f5496381_size167_w511_h279.jpg" width="110" height="80" alt="凤凰军评:167改不是大号054A 验证055兼职陆攻重锤" title="凤凰军评:167改不是大号054A 验证055兼职陆攻重锤" class="trans"/>
+          </a>
+      </div>
+      <div class="share_hide02" onMouseOver="MM_over(this)" onMouseOut="MM_out(this)"> 
+        <!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn01" data="{'text':'【凤凰军评:167改不是大号054A 验证055兼职陆攻重锤】凤凰军事 凤凰军评 5月18日 目前167舰的改装应该是热度仅次于新航母建造的话题。现在不少观点认为167改将参照054A的模式加装HHQ-16导弹等装备，成为1艘&ldquo;大号054A&rdqu','url':' http://news.ifeng.com/a/20160518/48792532_0.shtml','searchPic':'true'}"> 
+        <a class="bds_tsina" title="分享到新浪微博" href="#"></a> 
+        <a class="bds_qzone" title="分享到QQ空间" href="#"></a> 
+        </div>
+        <!-- Baidu Button END --> 
+      </div>
+    </li>
+    <li  class="bn clearfix" >
+      <div class="txt">
+            <p>
+                <a href=' http://news.ifeng.com/a/20160517/48784623_0.shtml ' target="_blank" title="凤凰军评:001A航母延续结构缺陷 歼15无法全力出击">              001A航母结构有缺陷 J15难全力出击
+                </a>
+                <span>  2016.05.17</span>
+            </p>
+      </div>
+      <div class="pic">
+          <a href=' http://news.ifeng.com/a/20160517/48784623_0.shtml ' target="_blank" title="凤凰军评:001A航母延续结构缺陷 歼15无法全力出击">
+            <img src="http://d.ifengimg.com/w110_h80/p0.ifengimg.com/a/2016_21/ec401ec148797d0_size125_w936_h462.jpg" width="110" height="80" alt="凤凰军评:001A航母延续结构缺陷 歼15无法全力出击" title="凤凰军评:001A航母延续结构缺陷 歼15无法全力出击" class="trans"/>
+          </a>
+      </div>
+      <div class="share_hide02" onMouseOver="MM_over(this)" onMouseOut="MM_out(this)"> 
+        <!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare share-bar-btn01" data="{'text':'【凤凰军评:001A航母延续结构缺陷 歼15无法全力出击】凤凰军事 凤凰军评 5月17日 国产首艘航母开始安装滑跃模块了！相比此前乏味的舰体模块组装，近期网上曝光的滑跃模块安装令人振奋。根据不断透露出的信息，人们已经接受了在建国产首艘航母其实只','url':' http://news.ifeng.com/a/20160517/48784623_0.shtml','searchPic':'true'}"> 
+        <a class="bds_tsina" title="分享到新浪微博" href="#"></a> 
+        <a class="bds_qzone" title="分享到QQ空间" href="#"></a> 
+        </div>
+        <!-- Baidu Button END --> 
+      </div>
+    </li>
+    <script id="bdshare_js" data="type=tools&amp;uid=6467378"></script>
+    <script id="bdshell_js"></script>
+    <script>
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+    </script>   
+</ul> 
+     <script>
+    var scroll_66= new ifeng_Scroll("photolist_66","pre_66","next_66");
+    scroll_66.Speed=10; //滚动速度微调
+    scroll_66.IsSmoothScroll= false;//是否平滑连续滚动 平滑滚动:true 间隔滚动:false
+    scroll_66.PauseTime = 8000;//间隔滚动时每次滚动间隔的时间。单位：毫秒。建议值：100--3000 适用于间隔滚动。
+    scroll_66.Direction = "E"; //滚动方向.向东：E，向北：N
+    scroll_66.Step =1;    //滚动步长，可以理解为滚动速度。值越大速度越快。值范围:1--10
+    scroll_66.ControllerType = "none";//上一个和下一个按钮事件的触发方式:click为点击触发滚动 否则就是 鼠标按住按钮触发滚动。支持click 和mousedown两种模式
+    scroll_66.BackCall = null;//回调函数 滚动到末尾时执行 
+    scroll_66.Init();
+    scroll_66.Start();        //开始滚动
+
+
+     </script> 
+     <script>
+      var focusPic_0 = new TabControl();      
+      focusPic_0.addRange($("focusNum_8").getElementsByTagName("li"),getElementsByClassName($("scrPic_8"),"div","photo"));
+      focusPic_0.triggerType = "mouseover";
+      focusPic_0.enableSlide = true;
+      focusPic_0.slideInterval = 5000;
+      focusPic_0.init();
+  
+     </script> 
+     <script>
+    function MM_over(mmObj) {
+      var mSubObj = mmObj.getElementsByTagName("div")[0];
+      var mSubObj2 = mmObj.getElementsByTagName("span")[0];
+      mSubObj.style.display = "block";
+    }
+    function MM_out(mmObj) {
+      var mSubObj = mmObj.getElementsByTagName("div")[0];
+      var mSubObj2 = mmObj.getElementsByTagName("span")[0];
+      mSubObj.style.display = "none"; 
+    }
+   
+     
+     </script> 
+    </div> 
+    <div class="box300 mt25"> <div class="tit04"> 
+ <a href="http://news.ifeng.com/listpage/7104/1/list.shtml" target="_blank" title="更多">更多</a> 
+ <h3><a href="http://news.ifeng.com/listpage/7104/1/list.shtml" target="_blank" title="戰爭歷史">戰爭歷史</a></h3> 
+</div>         <div class="box05_1 clearfix">
+            <div class="pic">
+            <a href='http://news.ifeng.com/a/20160516/48778325_0.shtml' target="_blank" title="回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪" >
+            <img src="http://d.ifengimg.com/w110_h80/p2.ifengimg.com/a/2016_21/bc92b78cba4d25e_size46_w500_h359.jpg" width="110" height="80" alt="回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪" title="回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪"  class="trans"/>
+            </a>
+            </div>
+            <div class="txt">
+            <a href='http://news.ifeng.com/a/20160516/48778325_0.shtml' target="_blank" title="回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪">回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪</a></div>
+        </div>
+ <ul class="list011 mt09">
+        <li>
+        <a href='http://news.ifeng.com/a/20160517/48785417_0.shtml' target="_blank" title="贵族之死：解密杀死未来美国总统的神秘爆炸" >贵族之死：解密杀死未来美国总统的神秘爆炸</a></li>
+        <li>
+        <a href='http://news.ifeng.com/a/20160516/48778325_0.shtml' target="_blank" title="回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪" >回顾赤瓜礁海战 南充舰第一炮就炸飞越方机枪</a></li>
+        <li>
+        <a href='http://news.ifeng.com/a/20160505/48686409_0.shtml' target="_blank" title="台湾曾偷偷研制核武器 18.5亿美元反应堆被美强拆" >台湾曾偷偷研制核武器 18.5亿美元反应堆被美强</a></li>
+        <li>
+        <a href='http://news.ifeng.com/a/20160422/48546458_0.shtml' target="_blank" title="揭秘中国首颗人造卫星研制：火箭发动机曾遇难题" >揭秘中国首颗人造卫星研制：火箭发动机曾遇难题</a></li>
+</ul> 
+    </div> <div class="box05_2 mt21 clearfix"> 
+ <div class="txt">
+   凤凰网军事微信 
+  <br /> 欢迎扫描关注 
+ </div> 
+ <div class="pic"> 
+  <img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/wx.jpg" width="88" height="89" title="请添加图片名称" alt="请添加图片名称" /> 
+ </div> 
+</div> 
+    <div class="box05_3 mt29"> 
+     
+  
+<!--s_news_mil_ad_index_txtimg_01 2016.05.20 09:26:45-->
+<script type="text/javascript">try{aptracker.add(8085);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="8085,0,0,NULL,fixture"></var>
+<script>
+	(function () {
+		var mfp_base = "http://mfp.deliver.ifeng.com/mfp/mfpMultipleDelivery.do?t=html&ADUNITID=263&CHANNEL=mil";
+		var mfp_user_cookie_name = "userid";
+		var mfp_preview_cookie_name = "PID";
+		function mfp_getCookie(c_name) {
+			var start = document.cookie.indexOf(c_name+"=");
+			if (start ==-1) {return "";}
+			start = start+c_name.length+1;
+			var end = document.cookie.indexOf(";",start);
+			if (end==-1) {end = document.cookie.length;}
+			return decodeURIComponent(document.cookie.substring(start,end));
+		};
+		var mfppid="&"+mfp_preview_cookie_name+"="+mfp_getCookie(mfp_preview_cookie_name);
+		
+		var mfp_url=mfp_base+"&USERID="+mfp_getCookie(mfp_user_cookie_name)+mfppid;
+		document.write('<scr'+'ipt src="'+mfp_url+'"></scr'+'ipt>');
+		
+	})();
+</script>
+<!--/s_news_mil_ad_index_txtimg_01-->
+
+   
+    </div> 
+<div>
+    <div class="box03_1 mt15">
+      <div class="pic">
+      <a href="http://news.ifeng.com/mil/detail_2008_08/20/503512_0.shtml" target="_blank" title="8月20日">
+      <img src="http://d.ifengimg.com/w86_h87/y3.ifengimg.com/a/2015_34/1905be06154abc7.jpg" width="86" height="87" title="8月20日" alt="8月20日" class="trans"/>
+      </a>
+      </div>
+      <div class="txt">
+        <h4><span> 8月20日</span>
+        <a href="http://news.ifeng.com/mil/detail_2008_08/20/503512_0.shtml" target="_blank" title="8月20日">苏军入侵捷克斯洛伐克</a></h4>
+      </div>
+    </div>
+</div>
+   </div> 
+  </div> 
+  <div class="col_w1000 mt28"> <div class="tit05 clearfix"> 
+ <a href="http://news.ifeng.com/listpage/19143/1/list.shtml" target="_blank" title="更多">更多</a> 
+ <h3><a href="http://news.ifeng.com/listpage/19143/1/list.shtml" target="_blank" title="军情观察室"><img src="http://y1.ifengimg.com/38716b164e0f5e63/2014/0329/gcs.gif" width="117" height="33" title="军情观察室" alt="军情观察室" /></a></h3> 
+</div>   <ul class="list09 clearfix">
+        <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160505/48686417_0.shtml ' target="_blank" title="2016年5月4日 军情观察室" >
+      <img src="http://d.ifengimg.com/w170_h120/p1.ifengimg.com/a/2016_19/b33b6631a15418c_size9_w260_h160.jpg" width="170" height="120" alt="2016年5月4日 军情观察室" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160505/48686417_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160505/48686417_0.shtml ' target="_blank" title="2016年5月4日 军情观察室" >2016年5月4日 军情观察室
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160505/48686411_0.shtml ' target="_blank" title="日情报声称解放军运用秘密武器攻击日本卫星" >
+      <img src="http://d.ifengimg.com/w170_h120/p3.ifengimg.com/a/2016_19/b632b418aa41d4d_size10_w260_h160.jpg" width="170" height="120" alt="日情报声称解放军运用秘密武器攻击日本卫星" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160505/48686411_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160505/48686411_0.shtml ' target="_blank" title="日情报声称解放军运用秘密武器攻击日本卫星" >日情报声称解放军运用秘密武器攻击日本卫星
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160421/48532253_0.shtml ' target="_blank" title="解放军火箭军部队成立新DF4战略导弹发射营" >
+      <img src="http://d.ifengimg.com/w170_h120/y0.ifengimg.com/a/2016_17/6d02086f2229876_size12_w260_h160.jpg" width="170" height="120" alt="解放军火箭军部队成立新DF4战略导弹发射营" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160421/48532253_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160421/48532253_0.shtml ' target="_blank" title="解放军火箭军部队成立新DF4战略导弹发射营" >解放军火箭军部队成立新DF4战略导弹发射营
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160407/48378369_0.shtml ' target="_blank" title="马鼎盛：中日或爆无人机大战？最起码不会死人" >
+      <img src="http://d.ifengimg.com/w170_h120/y2.ifengimg.com/a/2016_15/b5b9bbd91cc8bd7_size11_w260_h160.jpg" width="170" height="120" alt="马鼎盛：中日或爆无人机大战？最起码不会死人" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160407/48378369_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160407/48378369_0.shtml ' target="_blank" title="马鼎盛：中日或爆无人机大战？最起码不会死人" >马鼎盛：中日或爆无人机大战？最起码不会死人
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160324/48182573_0.shtml ' target="_blank" title="台湾：发现两名西方人偷拍台军机密卖给大陆" >
+      <img src="http://d.ifengimg.com/w170_h120/y1.ifengimg.com/a/2016_13/0df2a982cf287f3.jpg" width="170" height="120" alt="台湾：发现两名西方人偷拍台军机密卖给大陆" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160324/48182573_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160324/48182573_0.shtml ' target="_blank" title="台湾：发现两名西方人偷拍台军机密卖给大陆" >台湾：发现两名西方人偷拍台军机密卖给大陆
+      </a>
+      </div>
+    </li>
+  </ul> 
+  </div> 
+  <div class="col_w1000 mt28"> <div class="tit05 clearfix"> 
+ <a href="http://news.ifeng.com/listpage/7331/1/list.shtml" target="_blank" title="更多">更多</a> 
+ <h3><a href="http://news.ifeng.com/listpage/7331/1/list.shtml" target="_blank" title="视频集锦">视频集锦</a></h3> 
+</div>   <ul class="list09 clearfix">
+        <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160519/48802849_0.shtml ' target="_blank" title="商女不知亡国恨 韩国女团不识抗日英雄遭痛批" >
+      <img src="http://d.ifengimg.com/w170_h120/p0.ifengimg.com/a/2016_21/efe203a2dffe3e6_size14_w240_h160.jpg" width="170" height="120" alt="商女不知亡国恨 韩国女团不识抗日英雄遭痛批" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160519/48802849_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160519/48802849_0.shtml ' target="_blank" title="商女不知亡国恨 韩国女团不识抗日英雄遭痛批" >商女不知亡国恨 韩国女团不识抗日英雄遭痛批
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160519/48800559_0.shtml ' target="_blank" title="疑中国新型航母舰载机曝光 未来或将批量出口" >
+      <img src="http://d.ifengimg.com/w170_h120/p1.ifengimg.com/a/2016_21/b537153c38ed24f_size16_w480_h270.jpg" width="170" height="120" alt="疑中国新型航母舰载机曝光 未来或将批量出口" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160519/48800559_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160519/48800559_0.shtml ' target="_blank" title="疑中国新型航母舰载机曝光 未来或将批量出口" >疑中国新型航母舰载机曝光 未来或将批量出口
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160519/48800553_0.shtml ' target="_blank" title="美高超音速武器难拦截 易引发误判导致核大战" >
+      <img src="http://d.ifengimg.com/w170_h120/p3.ifengimg.com/a/2016_21/4185e719f6c3658_size18_w480_h360.jpg" width="170" height="120" alt="美高超音速武器难拦截 易引发误判导致核大战" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160519/48800553_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160519/48800553_0.shtml ' target="_blank" title="美高超音速武器难拦截 易引发误判导致核大战" >美高超音速武器难拦截 易引发误判导致核大战
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160518/48793253_0.shtml ' target="_blank" title="美军海豹部队不杀平民导致全军覆没" >
+      <img src="http://d.ifengimg.com/w170_h120/p1.ifengimg.com/a/2016_21/d78160f19525b49_size29_w260_h160.jpg" width="170" height="120" alt="美军海豹部队不杀平民导致全军覆没" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160518/48793253_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160518/48793253_0.shtml ' target="_blank" title="美军海豹部队不杀平民导致全军覆没" >美军海豹部队不杀平民导致全军覆没
+      </a>
+      </div>
+    </li>
+    <li>
+      <div class="pic">
+     <a href=' http://news.ifeng.com/a/20160517/48785417_0.shtml ' target="_blank" title="贵族之死：解密杀死未来美国总统的神秘爆炸" >
+      <img src="http://d.ifengimg.com/w170_h120/p0.ifengimg.com/a/2016_21/549379ca3003077_size13_w260_h160.jpg" width="170" height="120" alt="贵族之死：解密杀死未来美国总统的神秘爆炸" class="trans"/>
+      </a>
+     <a href=' http://news.ifeng.com/a/20160517/48785417_0.shtml ' target="_blank" class="video">&nbsp;
+      </a>
+      </div>
+      <div class="txt">
+     <a href=' http://news.ifeng.com/a/20160517/48785417_0.shtml ' target="_blank" title="贵族之死：解密杀死未来美国总统的神秘爆炸" >贵族之死：解密杀死未来美国总统的神秘爆炸
+      </a>
+      </div>
+    </li>
+  </ul> 
+  </div> 
+  <div class="col_w1000 mt38"> 
+   <div class="ad"> 
+    
+    
+<!--s_news_mil_index_140321_ad_banner02 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(1826);}catch(e){}</script>
+
+
+<div id="AP3310" style="display:none;">
+<var style="display:none;" v="1826,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<script language="javascript">
+    iis_config = {ap : 1826, tp : 1, w : 1000, h : 90};
+</script>
+<script language="javascript" src="http://m1.ifengimg.com/iis/iis_v1_3.js"></script>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+new adRotatorFactory({identifier : "AP3310"});
+}catch(e){}
+</script>
+
+<!--/s_news_mil_index_140321_ad_banner02-->
+
+     
+   </div> 
+  </div> 
+  <div class="col_w1000 mt28"> <div class="tit05 clearfix"> 
+ <h3>軍事書架</h3> 
+</div> 
+   <ul class="list10 clearfix"> 
+        
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/63770/7652888.htm" target="_blank" title="广岛 蘑菇云笼罩的废墟上"><img src="http://res.read.ifeng.com/images/book/63770.jpg" width="126" height="186" alt="广岛 蘑菇云笼罩的废墟上" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/63770/7652888.htm" target="_blank" title="广岛 蘑菇云笼罩的废墟上">广岛 蘑菇云笼罩的废墟上</a></div>
+      </li>
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/66868/8590006.htm" target="_blank" title="开国战将"><img src="http://res.read.ifeng.com/images/book/66868.jpg" width="126" height="186" alt="开国战将" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/66868/8590006.htm" target="_blank" title="开国战将">开国战将</a></div>
+      </li>
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/68856/9065267.htm" target="_blank" title="极其珍贵的隆美尔自述"><img src="http://res.read.ifeng.com/images/book/68856.jpg" width="126" height="186" alt="极其珍贵的隆美尔自述" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/68856/9065267.htm" target="_blank" title="极其珍贵的隆美尔自述">极其珍贵的隆美尔自述</a></div>
+      </li>
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/68679/8956938.htm" target="_blank" title="为你，耶路撒冷"><img src="http://res.read.ifeng.com/images/book/68679.jpg" width="126" height="186" alt="为你，耶路撒冷" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/68679/8956938.htm" target="_blank" title="为你，耶路撒冷">为你，耶路撒冷</a></div>
+      </li>
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/68116/8825302.htm" target="_blank" title="从诺曼底登陆到第三帝国覆灭1944-1945"><img src="http://res.read.ifeng.com/images/book/68116.jpg" width="126" height="186" alt="从诺曼底登陆到第三帝国覆灭1944-1945" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/68116/8825302.htm" target="_blank" title="从诺曼底登陆到第三帝国覆灭1944-1945">从诺曼底登陆到第三帝国覆灭1944-1945</a></div>
+      </li>
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/67584/8716207.htm" target="_blank" title="军政名人的最后岁月"><img src="http://res.read.ifeng.com/images/book/67584.jpg" width="126" height="186" alt="军政名人的最后岁月" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/67584/8716207.htm" target="_blank" title="军政名人的最后岁月">军政名人的最后岁月</a></div>
+      </li>
+      <li>
+        <div class="pic"><a href="http://v.book.ifeng.com/book/ts/67495/8693418.htm" target="_blank" title="斯大林格勒1942"><img src="http://res.read.ifeng.com/images/book/67495.jpg" width="126" height="186" alt="斯大林格勒1942" class="trans trans_h" ></a></div>
+        <div class="txt"><a href="http://v.book.ifeng.com/book/ts/67495/8693418.htm" target="_blank" title="斯大林格勒1942">斯大林格勒1942</a></div>
+      </li>
+
+   </ul> 
+  </div> 
+  
+<!--s_mil_index_ad_150127_banner_03 2016.05.20 09:27:05-->
+<script type="text/javascript">try{aptracker.add(11088);}catch(e){}</script>
+
+
+<div style="clear: both; margin:20px auto; width:1000px;height:90px;">
+<div id="AP4210" style="display:none;">
+<var style="display:none;" v="11088,0,0,NULL,fixture"></var><cite>
+<!--BOF
+<script language="javascript">
+    iis_config = {ap : 11088, tp : 1, w : 1000, h : 90};
+</script>
+<script language="javascript" src="http://m1.ifengimg.com/iis/iis_v1_3.js"></script>
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+new adRotatorFactory({identifier : "AP4210"});
+}catch(e){}
+</script>
+</div>
+<!--/s_mil_index_ad_150127_banner_03-->
+
+  <div class="col_wbf bg03 mt26"> 
+   <div class="col_w1000 bg03"> 
+    <div class="space01">
+      &nbsp; 
+    </div> 
+    <div class="box_13 clearfix"> <div class="col_lm"> 
+ <div class="box_13_1"> 
+  <div class="title03">
+    合作媒体 
+  </div> 
+  <ul class="list_hz"> 
+   <li> <a href="http://www.yidianzixun.com/home?page=channel&id=c7" target="_blank">一点军事</a><span>|</span><a href="http://www.chinamil.com.cn/" target="_blank">中国军网</a><span>|<span><a href="http://www.xinhuanet.com/mil/" target="_blank">新华军事</a><span>|</span><a href="http://military.people.com.cn/" target="_blank">人民网军事</a><span>|</span><a href="http://www.jb.mil.cn/" target="_blank">人民革命军事博物馆</a><span>|</span><a href="http://www.cnr.cn/junshi/" target="_blank">央网军事</a><span>|</span><a href="http://mil.chinanews.com/" target="_blank">中新网军事</a><span>|</span><a href="http://www.hangkong.com" target="_blank">航空网</a><span>|</span><a href="http://mil.qianlong.com/" target="_blank">千龙军事</a></li> 
+
+
+   <li> <a href="http://war.163.com/" target="_blank">网易军事</a><span>|</span><a href="http://mil.news.sohu.com/" target="_blank">搜狐军事</a><span>|</span><a href="http://www.milzx.com" target="_blank">军事在线</a> <span>|</span><a href="http://mil.youth.cn/" target="_blank">中青网军事</a><span>|</span><a href="http://www.chinaiiss.com/" target="_blank">战略网</a><span>|</span><a href="http://www.tiexue.net/" target="_blank">铁血军事</a><span>|</span><a href="http://www.xilu.com/" target="_blank">西陆网</a><span>|</span><a href="http://www.juntx.com" target="_blank">军天下网</a><span>|</span><a href="http://mil.21cn.com/" target="_blank">21CN军事频道</a><span>|</span></span><a href="http://www.afwing.com" target="_blank">空军之翼</a> </li> 
+
+
+   <li></span><a href="http://mil.iqiyi.com/" target="_blank">爱奇艺军事</a><span>| <a href="http://navy.81.cn/" target="_blank">中国海军</a><span>|</span><a href="http://reader.chinamil.com.cn/" target="_blank">军事读者</a><span>|</span><a href="http://www.dsti.net/" target="_blank">国防科技信息网</a><span>|</span><a href="http://www.avicone.com/" target="_blank">航空在线</a><span>|</span><a href="http://www.cannews.com.cn/" target="_blank">中国航空报</a><span>|</span><a href="http://www.xunleimil.com/" target="_blank">迅雷军事</a><span>|</span><a href="http://www.bw40.net/" target="_blank">北纬40度</a><span>|</span><a href="http://www.liangjan.com" target="_blank">亮剑军事</a><span></a></li>
+
+   <li> <a href="http://www.huolan.net/" target="_blank">火蓝军事</a><span>|</span><a 
+href="http://www.miercn.com/" target="_blank">米尔军情</a><span>|</span><a href="http://www.qianyan001.com/" target="_blank">军事前沿</a><span>|</span><a href="http://www.zhige.net/" target="_blank">止戈网</a><span>|</span> <a href="http://www.51junshi.com/" target="_blank">51军情观察室</a><span>|</span><a href="http://www.fxingw.com/" target="_blank">复兴网</a><span>|</span><a href="http://www.81un.net/" target="_blank">81军事网</a><span>|</span><a href="http://www.xoyue.com/" target="_blank">笑月军事</a><span>|</span> <a href="http://www.chnqiang.com/" target="_blank">CHN强国网</a> <span>|</span><a href="http://www.guancha.cn/" target="_blank">观察者网</a> </li> 
+
+   <li> <a href="http://www.m4.cn/" target="_blank">四月网</a><span>|</span><a href="http://www.4yjd.cn" target="_blank">四野第一门户</a><span>|</span><a href="http://www.top81.com.cn/" target="_blank">鼎盛军事</a><span>|</span><a href="http://www.huangpujs.cn/" target="_blank">黄埔军事</a><span>|</span> <a href="http://www.junren.net/" target="_blank">中国军人网</a><span>|</span><a href="http://www.sanjun.com/" target="_blank">三军情报网</a><span>|</span><a href="http://www.bilin.net/" target="_blank">比邻军事网</a><span>|</span><a href="http://www.lzmmil.cn/" target="_blank">龙之梦</a><span>|</span><a href="http://www.junpin360.com/" target="_blank">战甲网</a><span>|</span><a
+href="http://www.junmeng.com/" target="_blank">军盟网</a> </li> 
+
+   <li> <a href="http://www.hao123.com/?src=junshi" target="_blank">hao123军事</a><span>|</span><a href="http://www.1616.net/1/junshi.htm" target="_blank">军事网址集萃</a><span>|</span><a href="http://www.js7tv.cn/ " target="_blank">中国军视网</a><span>|</span><a href="http://www.js811.com/" target="_blank">811军事导航</a><span>|</span><a href="http://www.1616.net/" target="_blank">1616网址导航</a><span>|</span><a href="http://www.hao123.cn/" target="_blank">123网址大全</a><span>|</span><a href="http://123.sogou.com/" target="_blank">搜狗导航</a><span>|<a href="http://www.256.cc/" target="_blank">256导航</a> | <a href="http://www.gggjs.com/" target="_blank">3G军事</a></li>
+ 
+  </ul> 
+ </div> 
+</div> <div class="col_r"> 
+ <div class="box_13_2 clearfix"> 
+  <div class="box_con"> 
+   <div class="b_logo"> 
+    <img src="http://y1.ifengimg.com/a/2015/0731/syj1/logo/mil.gif" width="150" height="37" title="凤凰军事" alt="凤凰军事">
+   </div> 
+   <ul> 
+    <li>凤凰新媒体 军事频道</li> 
+    <li class="clearfix"><span>邮箱：</span><a href="mailTo:mil@ifeng.com" target="_blank"><img src="http://y2.ifengimg.com/a/2014_46/b71f2e1ab287254.gif" width="83" height="26" /></a></li> 
+    <li>凤凰军事官方微博：</li> 
+    <li><a href="http://t.qq.com/milifengcom" target="_blank" title="凤凰网官方微博">http://t.qq.com/milifengcom</a></li> 
+   </ul> 
+  </div> 
+  <div class="wx"> 
+   <img src="http://y3.ifengimg.com/2013/11/04/09475232.jpg" width="83" height="98" title="凤凰新闻客户端" alt="凤凰新闻客户端" /> 
+  </div> 
+ </div> 
+</div> 
+    </div> 
+    <div class="ad08 mt42"> 
+     
+    
+<!--s_news_mil_ad_index_banner03_950x90 2016.05.20 09:24:37-->
+<script type="text/javascript">try{aptracker.add(1827);}catch(e){}</script>
+
+
+<div id="AP452" style="display:none;">
+<code>
+<!--BOF
+<var style="display:none;" v="1827,0,0,NULL,fixture"></var><iframe src="http://www.ifeng.com/ssi-incs/s_all_index_ad_banner_bottom.inc.html" scrolling="no" frameborder="0" style="width:1000px; height:90px; border:0px;background-color=transparent;" allowtransparency="true"></iframe>
+EOF-->
+</code>
+</div>
+<script language="javascript">
+try{
+	if(INice.getCookie('prov') == '9999'){
+		document.write("<div id='div-gpt-ad-1407410353551-0' style='width:1000px; height:90px;'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407410353551-0'); });</" + "script></div>");	
+	}else{
+		try{
+			var defaultAdRotatorConfig = {maxTimes : 1, saleMode : "CPD"};
+			new adRotatorFactory({identifier : "AP452"});
+		}catch(e){}
+	}
+}catch(e){}
+</script>
+<img height=1 width=1 src="http://dolphin.deliver.ifeng.com/c?z=ifeng&la=0&si=2&ci=23&cg=22&c=29&or=232&l=729&bg=729&b=727&u=http://y0.ifengimg.com/34c4a1d78882290c/2012/0528/1x1.gif" />
+<img height=1 width=1 src="http://dolphin.deliver.ifeng.com/c?z=ifeng&la=0&si=2&ci=23&cg=22&c=29&or=232&l=730&bg=730&b=728&u=http://y0.ifengimg.com/34c4a1d78882290c/2012/0528/1x1.gif" />
+
+
+<!--/s_news_mil_ad_index_banner03_950x90-->
+
+     
+    </div>
+  
+    
+<style>.footer{width:1000px;margin:0 auto;border-top:1px solid #ccc}.footer a{color:#000;font-size:12px;text-decoration:none}.footer a:hover{color:#f54343;text-decoration:underline}.footer .footlink{height:28px;padding-top:15px;border-top:1px solid #fff;overflow:hidden;color:#000;line-height:28px;font-size:12px}.footer .fk_l{float:left}.footer .fk_r{float:right;width:200px}.footer .fk_l a{padding:0 7px;border-right:1px solid #000}.footer .fk_l .nolpad{padding-left:0}.footer .fk_l .noborder{border:none}.footer .fk_r ul{overflow:hidden;margin:0;padding:0;list-style:none}.footer .fk_r ul li{float:left;height:28px;overflow:hidden}.footer .fk_r ul .l_bg001{background:url(http://p2.ifengimg.com/a/2016_21/nav0416_14_fd540caa-fd540caadc.gif) no-repeat left 9px;padding-left:19px}.footer .fk_r ul .l_bg002{background:url(http://p2.ifengimg.com/a/2016_21/nav0416_17-68c300b50b.gif) no-repeat left 9px;padding-left:17px;margin-left:18px}.footer .copyright{font-family:Arial,"宋体";color:#666;height:28px;text-align:center;overflow:hidden;line-height:28px}.footer .copyright span{padding-right:12px;font-size:12px}</style>
+<div id="footer" class="footer mt02">
+    <div class="footlink clearfix">
+        <div class="fk_l"><a class="nolpad" href="http://www.ifeng.com/corp/about/intro/" target="_blank">凤凰新媒体介绍</a><a href="http://ir.ifeng.com/" target="_blank">投资者关系 Investor Relations</a><a href="http://www.ifeng.com/corp/ad/" target="_blank">广告服务</a><a href="http://career.ifeng.com/" target="_blank">诚征英才</a><a href="http://www.ifeng.com/corp/privacy/" target="_blank">保护隐私权</a><a href="http://www.ifeng.com/corp/exemption/" target="_blank">免责条款</a><a href="http://www.ifeng.com/corp/feedback/" target="_blank">意见反馈</a><a href="http://phtv.ifeng.com/intro/" target="_blank" class="noborder">凤凰卫视介绍</a></div>
+        <div class="fk_r">
+            <ul class="clearfix">
+                <li class="l_bg001"><a href="http://v.ifeng.com/" target="_blank" title="视频">视频</a></li>
+                <li>·<a href="http://v.ifeng.com/documentary/" target="_blank" title="纪实">纪实</a></li>
+                <li>·<a href="http://v.ifeng.com/live/" target="_blank" title="直播">直播</a></li>
+                <li class="l_bg002"><a href="http://phtv.ifeng.com/" target="_blank" title="凤凰卫视">凤凰卫视</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright"><span>凤凰新媒体</span><span>版权所有</span><span>Copyright ? 2016 Phoenix New Media Limited All Rights Reserved.</span></div>
+</div>
+<!--empty here-->
+<script> var sta_collection_time = new Date().getTime();</script>
+<script id="sta_collection_new">
+    window.analytics(encodeURIComponent(window.location.href));
+    setTimeout(function() {
+        window.aptracker.collection();
+        window.remain();
+    }, 800);
+</script>
+<div id="ifeng_da_le" style="width: 1px; height: 1px;">
+  <script src="http://m0.ifengimg.com/ifeng/sources/120331-iImpression.js"></script>
+</div>
+
+
+   </div> 
+  </div> 
+  
+    
+<!--s_mil_index_ad_interstitial 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(5718);}catch(e){}</script>
+
+
+<script>
+	var fullScreenList = [];
+</script>
+<div id="Ap3312" style="display:none;">
+<var style="display:none;" v="5718,0,0,NULL,fixture"></var>
+</div>
+<script language="javascript">
+if(INice.getCookie('prov') != '9999'){
+	new AdRotator({maxTimes : 1, identifier : 'Ap3312'});
+}
+</script>
+<script>
+if(INice.getCookie('prov') == '9999'){
+		(function(){var u='http://pubads.g.doubleclick.net/gampad/adx?m=text/javascript&sz=1x1&iu=/51332160/s_mil_index_ad_interstitial';
+u+="&c="+Math.floor(Math.random()*1000000);p=null;var r=window.location.search.substr(1).match(new RegExp("(^|&)google_preview=([^&]*)(&|$)","i"));
+if(r!=null)p=unescape(r[2]);if(null!=p)u+='&gct='+p;document.write("<script type='text/javascript' src='"+u+"'></"+"script>")})();
+	}
+</script>
+<script type="text/javascript" src="http://y0.ifengimg.com/89df2be17e58f8ab/2014/1218/fullscreen20141212.js"></script>
+<!--/s_mil_index_ad_interstitial-->
+
+  
+<!--s_mil_index_ad_floatpause 2016.05.20 09:26:42-->
+<script type="text/javascript">try{aptracker.add(5719);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="5719,0,0,NULL,fixture"></var> <style type="text/css">
+body { _background-image:url(0); _background-attachment:fixed; }
+</style>
+<script type="text/javascript" src="http://img.ifeng.com/tres/html/110119adbr/swfobj.js"></script>
+<script type="text/javascript">
+    var ifengAehovering_swfUrl = "http://c1.ifengimg.com/mappa/2016/03/25/2abdf9bb1b3b061f827b23151e2a77fa.jpg";//http://c1.ifengimg.com/mappa/2016/03/25/2abdf9bb1b3b061f827b23151e2a77fa.jpg
+    var ifengAehovering_clickUrl = "http://dol.deliver.ifeng.com/c?97a8e8af5MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFJ5rDHDojFa7wRelWrAwzTRJPRbUhuhhnVcf6XQ_ZekjFcbwdla4D-bSzgo5A_spYUKlxM6HWe7SaT2A7LW7duH0XnK8b1yneLRUBiBqQhY-g";
+    var ifengAehovering_isactive = 0;//是否互动
+    var ifengAehovering_flag_dodge_time = '0'; //废弃参数,没用了
+    var ifengAehovering_dodge_time = '0'; //延时
+    var ifengAehovering_dodge_left = '40'; //距左
+    var ifengAehovering_dodge_bottom = '50'; //距底
+
+     document.write('<div id="ifengAehovering_small" style="z-index: 9999999; position: fixed; display:none; width: 80px; height: 96px; bottom: ' + ifengAehovering_dodge_bottom + 'px; left: ' + ifengAehovering_dodge_left + 'px; display:block; _position:absolute; _top:expression(documentElement.scrollTop + documentElement.clientHeight - this.offsetHeight - ' + ifengAehovering_dodge_bottom + '); _left:' + ifengAehovering_dodge_left + 'px;"><div style="width: 80px; height: 16px;"><a href="javascript:ifengAehovering_closeAll();" style="float: right">关闭广告</a></div><div id="hoveringSource" style="width:80px;height:80px;position:relative;"></div></div>');
+
+    function ifengAehovering_play(ifengAehovering_swfUrl, ifengAehovering_clickUrl, ifengAehovering_dodge_left, ifengAehovering_dodge_bottom) {
+        //var ifengAehovering_clickUrl = encodeURIComponent(ifengAehovering_clickUrl);
+        document.getElementById('ifengAehovering_small').display = "block";
+        var srcExt = ext(ifengAehovering_swfUrl);
+        if(srcExt.toLowerCase() == "jpg" || srcExt.toLowerCase() == "gif" || srcExt.toLowerCase() == "png"){
+            document.getElementById('hoveringSource').innerHTML += '<div style="display: block; width: 80px; height: 80px;"><a href="' + ifengAehovering_clickUrl + '" target="_blank"><img src="' + ifengAehovering_swfUrl + '" width="80" height="80"></a></div>';
+        }else{
+            ifengAehovering_flash(ifengAehovering_swfUrl, ifengAehovering_clickUrl);
+            if(!ifengAehovering_isactive){
+                document.getElementById("hoveringSource").innerHTML += "<div style='width:80px;height:80px;position:absolute;z-index:999;left:0;top:0;'><a href='" + ifengAehovering_clickUrl + "' target='_blank'><img src='http://y0.ifengimg.com/34c4a1d78882290c/2012/0528/1x1.gif' style='width:100%;height:100%;' /></a></div>";
+            }
+            
+//            document.getElementById("ifengAehovering_small").innerHTML += "<div style='width: 80px; height: 16px;'><a href='javascript:ifengAehovering_closeAll();' style='float: right;color:#000;'>关闭</a></div>";
+//            
+        }
+    }
+
+    function ifengAehovering_flash(ifengAehovering_swfUrl, ifengAehovering_clickUrl) {
+        
+        ifengAehovering_clickUrl = encodeURIComponent(ifengAehovering_clickUrl);
+        
+//        var fo = new SWFObject("http://img.ifeng.com/tres/html/110119adbr/hovering_80X96_20110126.swf", "ifengAehovering_flash", "80", "96", 9, "#ffffff");
+//        fo.addVariable("swfUrl", ifengAehovering_swfUrl);
+//        
+        var fo = new SWFObject(ifengAehovering_swfUrl, "ifengAehovering_flash", "80", "80", 9, "#ffffff");
+        fo.addVariable("clickUrl", ifengAehovering_clickUrl);
+        fo.addParam("wmode", "transparent");
+        fo.addParam("allowFullScreen", "true");
+        fo.addParam("allowScriptAccess", "always");
+        fo.write("hoveringSource");
+    }
+
+    function ifengAehovering_closeAll() {
+        document.getElementById('ifengAehovering_small').style.display = "none";
+        document.getElementById('ifengAehovering_small').innerHTML = "";
+        document.getElementById('ifengAehovering_small').style.display = "none";
+    }
+
+    function ext(s) {
+        var pairs;
+        var file;
+        var s = s.replace(/(\\+)/g, '#');
+        pairs = s.split('#');
+        file = pairs[pairs.length - 1];
+        pairs = file.split('.');
+        ext = pairs[pairs.length - 1];
+        return ext.toLowerCase();
+    }
+
+    function ifengAehovering_start() {
+        if(ifengAehovering_dodge_time == '0') {
+            ifengAehovering_play(ifengAehovering_swfUrl, ifengAehovering_clickUrl, ifengAehovering_dodge_left, ifengAehovering_dodge_bottom);
+        } else {
+            setTimeout('ifengAehovering_play(ifengAehovering_swfUrl, ifengAehovering_clickUrl, ifengAehovering_dodge_left, ifengAehovering_dodge_bottom);', ifengAehovering_dodge_time*1000)
+        }
+    }
+
+    if(ifengAehovering_flag_dodge_time === "1") {
+        IFENGDODGE.set_stock('hovering', {"timer":"8","func":ifengAehovering_start,"level":3});
+    } else {
+        ifengAehovering_start();
+    }
+</script>
+
+<!--/s_mil_index_ad_floatpause-->
+
+  
+<!--s_news_mil_ad_index_icon 2014.01.16 09:20:14-->
+<script type="text/javascript">try{aptracker.add(1700);}catch(e){}</script>
+
+
+<div id="Ap_1700" style="display:none;">
+<!--0,0,NULL,fixture--><cite>
+<!--BOF
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+	new AdRotator({maxTimes : 2, identifier : 'Ap_1700'});
+</script>
+<!--/s_news_mil_ad_index_icon-->
+
+  <!--s_mil_index_ad_acrosspart 2011.08.26 09:24:39-->
+
+<!--/s_mil_index_ad_acrosspart-->
+  
+<!--s_news_mil_index_ad_media 2016.05.20 09:24:38-->
+<script type="text/javascript">try{aptracker.add(3255);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="3255,0,0,NULL,fixture"></var>
+<div id="Ap354" style="display:none;">
+
+	<code>
+		<!--BOF
+<script>
+try{
+	if(INice.getCookie('prov') == '9999'){
+		(function(){var u='http://pubads.g.doubleclick.net/gampad/adx?m=text/javascript&sz=1x1&iu=/51332160/s_news_mil_index_ad_media';
+u+="&c="+Math.floor(Math.random()*1000000);p=null;var r=window.location.search.substr(1).match(new RegExp("(^|&)google_preview=([^&]*)(&|$)","i"));
+if(r!=null)p=unescape(r[2]);if(null!=p)u+='&gct='+p;document.write("<script type='text/javascript' src='"+u+"'></"+"script>")})();
+	}else{
+	(function () {
+		var mfp_base = "http://mfp.deliver.ifeng.com/mfp/mfpMultipleDelivery.do?t=html&ADUNITID=214&CHANNEL=mil";
+		var mfp_user_cookie_name = "userid";
+		var mfp_preview_cookie_name = "PID";
+		function mfp_getCookie(c_name) {
+			var start = document.cookie.indexOf(c_name+"=");
+			if (start ==-1) {return "";}
+			start = start+c_name.length+1;
+			var end = document.cookie.indexOf(";",start);
+			if (end==-1) {end = document.cookie.length;}
+			return decodeURIComponent(document.cookie.substring(start,end));
+		};
+		var mfppid="&"+mfp_preview_cookie_name+"="+mfp_getCookie(mfp_preview_cookie_name);
+		
+		var mfp_url=mfp_base+"&USERID="+mfp_getCookie(mfp_user_cookie_name)+mfppid;
+		document.write('<scr'+'ipt src="'+mfp_url+'"></scr'+'ipt>');
+		
+	})();
+	}
+}catch(e){}
+</script>
+
+	EOF-->
+	</code>
+	
+	<cite>
+		<!--BOF
+	
+		EOF-->
+	</cite>
+</div>
+
+<script>
+	var ifengWindow = function(obj){
+		var _ = this;
+		//轮播控制
+		var identifier = obj.identifier;
+		var wrapper = document.getElementById(identifier);
+		var maxTimes = obj.maxTimes;
+		var adContent = '';
+		var elements = wrapper.getElementsByTagName('code');
+		var fixtures = wrapper.getElementsByTagName('cite');
+		//轮播控制cookie
+		var cookieFlag = 'ifengRotator_'+ identifier;
+		var current = _.getcookie(cookieFlag);
+		var timeOut = 43200;//过期时间
+		var element,tempStr;
+		if(typeof current === 'undefined' || current == ''){
+			current =  parseInt(Math.random() * 100000) % maxTimes;
+		}
+		//频次控制cookie
+		var ifengWindowCookieName = 'ifengWindowCookieName' + _.getSecondDomain();
+		if(_.getcookie(ifengWindowCookieName)!=1){
+			_.setcookie(cookieFlag, ((parseInt(current) + 1) % maxTimes), timeOut);
+			if(typeof elements[current] != 'undefined'){
+			element = elements[current];
+			adContent = element.innerHTML;
+		}
+		if(adContent == ''){
+			if(typeof fixtures[0] != 'undefined'){
+				element = fixtures[0];
+				adContent = element.innerHTML;
+			}
+		}
+		adContent = adContent.replace('<!--BOF', '');
+		adContent = adContent.replace('EOF-->', '');
+		}
+		//频次控制
+		var date=new Date();
+		if(_.getcookie(ifengWindowCookieName)!=1){
+			showIfengWindow();
+		}
+		function showIfengWindow(){
+			document.write(adContent);
+			_.setcookie(ifengWindowCookieName, 1, obj.showIntervalTime);	
+		}
+	};
+	ifengWindow.prototype = {
+		//得到一个cookie的值
+		getcookie : function(name) {
+			var splitCookie = document.cookie.split("; ");
+			for(var i = 0; i < splitCookie.length; i++) {
+				var cookieNameValue = splitCookie[i].split("=");
+				if(cookieNameValue[0] == name) {
+					return unescape(cookieNameValue[1]);
+				}
+			}
+			return '';
+		},
+		//种一个cookie
+		setcookie : function(name, value, time) {
+			var date = new Date();
+			var expiresTime = new Date(date.getTime() + time * 1000);
+			document.cookie = name + "=" + escape(value) + ";path=/;expires=" + expiresTime.toGMTString() + ";";
+		},
+		//获得二级域名（频道域名）
+		getSecondDomain : function() {
+				var arr_domain=document.domain.split(".");
+				return arr_domain[0];
+		}
+	}
+	new ifengWindow({
+		showIntervalTime : 600,  //视窗showIntervalTime秒内展示一次
+		maxTimes : 1, //广告流量
+		identifier : 'Ap354'
+	});
+</script>
+<!--/s_news_mil_index_ad_media-->
+
+   
+  
+<!--s_mil_index_ad_couplet 2016.05.20 09:24:37-->
+<script type="text/javascript">try{aptracker.add(2122);}catch(e){}</script>
+
+
+<div id="ArpAdPro_1488" style="display:none;">
+
+<var style="display:none;" v="2122,0,0,NULL,fixture"></var><cite>
+<!--BOF
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+	if(INice.getCookie('prov') == '9999'){
+	(function(){var u='http://pubads.g.doubleclick.net/gampad/adx?m=text/javascript&sz=1x1&iu=/51332160/s_mil_index_ad_couplet';
+u+="&c="+Math.floor(Math.random()*1000000);p=null;var r=window.location.search.substr(1).match(new RegExp("(^|&)google_preview=([^&]*)(&|$)","i"));
+if(r!=null)p=unescape(r[2]);if(null!=p)u+='&gct='+p;document.write("<script type='text/javascript' src='"+u+"'></"+"script>")})();
+	}else{
+		try{
+			var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+			new adRotatorFactory({identifier : "ArpAdPro_1488"});
+		}catch(e){}
+	}
+}catch(e){}
+</script>
+<!--/s_mil_index_ad_couplet-->
+
+  <!--s_mil_index_ad_fanjuanad 2011.08.26 09:23:34-->
+
+<!--/s_mil_index_ad_fanjuanad-->
+  
+<!--s_mil_index_ad_popunder 2016.05.20 09:26:43-->
+<script type="text/javascript">try{aptracker.add(0);}catch(e){}</script>
+
+
+
+<var style="display:none;" v="0,0,0,NULL,fixture"></var>
+
+<!--/s_mil_index_ad_popunder-->
+
+  
+<!--s_mil_index_ad_floatmedia 2016.05.20 09:25:28-->
+<script type="text/javascript">try{aptracker.add(2948);}catch(e){}</script>
+
+
+<div id="AP1701" style="display:none;">
+<var style="display:none;" v="2948,20658,4404,谢婷婷,6"></var><code>
+<!--BOF
+<script language="javascript" type="text/javascript">
+if(("undefined" != typeof INice) && !INice.getBrowser().IPAD){
+var adflashbig = 'http://c1.ifengimg.com/mappa/2016/03/23/0204e3a8fd49e1fe51aca589db1768f9.jpg';
+var adflashsmall = 'http://c1.ifengimg.com/mappa/2016/03/23/2fbbe40403d2020afeca0c2f2b7ed798.jpg';
+var adclickurl = 'http://dol.deliver.ifeng.com/c?be1003de5MluuVuLEVCrlk7CiF1N5piUjVsuTNmWaw1nose1ZFLordi0cPkUsYFI_9S6w8S_qw7lV9lUD94K3OjyEQ9Relcbwdla4D-bSzgo5A_spYUKlxM6HWe7SaT2A7LW7duH0XnK8b1yneLRUBiBqQhY-g';
+var flat_stream_t_showtimer = '0';
+var float_stream_t_small_bottom = '10';
+
+var float_stream_width = 300;  //主动画宽度
+var float_stream_height = 250; //主动画高度
+var float_stream_top = 150;//主动画上边距
+var float_stream_left = 0;//主动画左边距
+var ifcl_stylebigBg= 1;  //是否透明
+var closetimer = 8;   //主动画展示时长
+var maxopentime = 2;   //主动展示次数
+var float_stream_small_right = 0; //浮标右边距
+var float_stream_interaction = 0; //1为互动素材，0为非互动素材
+
+
+if(flat_stream_t_showtimer===''){
+} else {
+	showtimer = flat_stream_t_showtimer;
+}
+if(float_stream_t_small_bottom===''){
+} else {
+	float_stream_small_bottom = float_stream_t_small_bottom;
+}
+
+if(typeof(window.Ifeng_Sc_float_Sleep) == "undefined" || window.Ifeng_Sc_float_Sleep == "" || window.Ifeng_Sc_float_Sleep == 'undefined') {
+} else {
+	showtimer = window.Ifeng_Sc_float_Sleep;
+}
+
+if(typeof(window.Ifeng_Sc_float_Height) == "undefined" || window.Ifeng_Sc_float_Height == "" || window.Ifeng_Sc_float_Height == 'undefined') {
+} else {
+	float_stream_small_bottom = window.Ifeng_Sc_float_Height;
+}
+
+var ifengFlash=function(V,x,X,Z,v,z,i,c,I,l,o)
+{
+	var floatObj=this;
+	if(!document.createElement||!document.getElementById){return}
+	floatObj.id=x?x:'';
+	var O=function(I,i)
+		{
+			for(var l=0;l<I.length;l++){if(I[l]==i){return l}}
+			return-1
+		},
+		C='8.0.42.0';
+	/*if(O(['news.ifeng.com.cn','ent.ifeng.com.cn'],document.domain)>-1)
+	 {
+	 floatObj.ver=C;
+	 }
+	 else
+	 {
+	 floatObj.ver=v?v:C;
+	 }*/
+	floatObj.ver=v?v:C;
+	floatObj.ver=floatObj.ver.replace(/./g,',');
+	floatObj.__classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000";
+	floatObj.__codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version="+floatObj.ver;
+	floatObj.width=X;
+	floatObj.height=Z;
+	floatObj.movie=V;
+	floatObj.src=floatObj.movie;
+	floatObj.bgcolor=z?z:'';
+	floatObj.quality=c?c:"high";
+	floatObj.__pluginspage="http://wwfloatObj.macromedia.com/go/getflashplayer";
+	floatObj.__type="application/x-shockwave-flash";
+	floatObj.useExpressInstall=(typeof(i)=="boolean")?i:false;
+	floatObj.xir=I?I:window.location;
+	floatObj.redirectUrl=l?l:window.location;
+	floatObj.detectKey=(typeof(o)=="boolean")?o:true;
+	floatObj.escapeIs=false;
+	floatObj.__objAttrs={};
+	floatObj.__params={};
+	floatObj.__embedAttrs={};
+	floatObj.__flashVars=[];
+	floatObj.__flashVarsStr="";
+	floatObj.__forSetAttribute("id",floatObj.id);
+	floatObj.__objAttrs["classid"]=floatObj.__classid;
+	floatObj.__forSetAttribute("codebase",floatObj.__codebase);
+	floatObj.__forSetAttribute("width",floatObj.width);
+	floatObj.__forSetAttribute("height",floatObj.height);
+	floatObj.__forSetAttribute("movie",floatObj.movie);
+	floatObj.__forSetAttribute("quality",floatObj.quality);
+	floatObj.__forSetAttribute("pluginspage",floatObj.__pluginspage);
+	floatObj.__forSetAttribute("type",floatObj.__type);
+	floatObj.__forSetAttribute("bgcolor",floatObj.bgcolor)
+};
+ifengFlash.prototype={
+	getFlashHtml:function()
+	{
+		var I=this,i='<object ';
+		for(var l in I.__objAttrs)
+		{
+			i+=l+'="'+I.__objAttrs[l]+'"'+' '
+		}
+		i+='>\n';
+		for(var l in I.__params)
+		{
+			i+='	<param name="'+l+'" value="'+I.__params[l]+'" />\n'
+		}
+		if(I.__flashVarsStr!="")
+		{
+			i+='	<param name="flashvars" value="'+I.__flashVarsStr+'" />\n'
+		}
+		i+='	<embed ';
+		for(var l in I.__embedAttrs)
+		{
+			i+=l+'="'+I.__embedAttrs[l]+'"'+' '
+		}
+		i+='></embed>\n</object>';
+		return i;
+	},
+	__forSetAttribute:function(I,i)
+	{
+		var l=this;
+		if(typeof(I)=="undefined"||I==''||typeof(i)=="undefined"||i=='')
+		{return}
+		I=I.toLowerCase();
+		switch(I)
+		{
+			case "classid":
+				break;
+			case "pluginspage":
+				l.__embedAttrs[I]=i;
+				break;
+			case "onafterupdate":case "onbeforeupdate":case "onblur":case "oncellchange":case "onclick":case "ondblClick":case "ondrag":case "ondragend":case "ondragenter":case "ondragleave":case "ondragover":case "ondrop":case "onfinish":case "onfocus":case "onhelp":case "onmousedown":case "onmouseup":case "onmouseover":case "onmousemove":case "onmouseout":case "onkeypress":case "onkeydown":case "onkeyup":case "onload":case "onlosecapture":case "onpropertychange":case "onreadystatechange":case "onrowsdelete":case "onrowenter":case "onrowexit":case "onrowsinserted":case "onstart":case "onscroll":case "onbeforeeditfocus":case "onactivate":case "onbeforedeactivate":case "ondeactivate":case "codebase":
+			l.__objAttrs[I]=i;
+			break;
+			case "src":case "movie":
+			l.__embedAttrs["src"]=i;
+			l.__params["movie"]=i;
+			break;
+			case "width":case "height":case "align":case "vspace":case "hspace":case "title":case "class":case "name":case "id":case "accesskey":case "tabindex":case "type":
+			l.__objAttrs[I]=l.__embedAttrs[I]=i;
+			break;
+			default:
+				l.__params[I]=l.__embedAttrs[I]=i
+		}
+	},
+	__forGetAttribute:function(i)
+	{
+		var I=this;
+		i=i.toLowerCase();
+		if(typeof I.__objAttrs[i]!="undefined")
+		{
+			return I.__objAttrs[i]
+		}
+		else if(typeof I.__params[i]!="undefined")
+		{
+			return I.__params[i]
+		}
+		else if(typeof I.__embedAttrs[i]!="undefined")
+		{
+			return I.__embedAttrs[i]
+		}
+		else
+		{return null}
+	},
+	setAttribute:function(I,i)
+	{
+		this.__forSetAttribute(I,i)
+	},
+	getAttribute:function(i)
+	{
+		return this.__forGetAttribute(i)
+	},
+	addVariable:function(I,i)
+	{
+		var l=this;
+		if(l.escapeIs)
+		{
+			I=escape(I);
+			i=escape(i)
+		}
+		if(l.__flashVarsStr=="")
+		{
+			l.__flashVarsStr=I+"="+i
+		}
+		else
+		{
+			l.__flashVarsStr+="&"+I+"="+i
+		}
+		l.__embedAttrs["FlashVars"]=l.__flashVarsStr
+	},
+	getVariable:function(I)
+	{
+		var o=this,i=o.__flashVarsStr;if(o.escapeIs){I=escape(I)}
+		var l=new RegExp(I+"=([^\&]*)(\&?)","i").exec(i);
+		if(o.escapeIs){return unescape(RegExp.$1)}
+		return RegExp.$1
+	},
+	addParam:function(I,i)
+	{
+		this.__forSetAttribute(I,i)
+	},
+	getParam:function(i)
+	{
+		return this.__forGetAttribute(i)
+	},
+	write:function(i)
+	{
+		var I=this;
+		if(typeof i=="string")
+		{
+			document.getElementById(i).innerHTML=I.getFlashHtml()
+		}
+		else if(typeof i=="object")
+		{
+			i.innerHTML=I.getFlashHtml()
+		}
+	}
+};
+
+(function(sm_Flashbig_url,sm_Flashsmall_url,sm_ClickUrl,sm_width,sm_height,sm_top,sm_left,sm_bigBg,sm_CloseTimer,sm_MaxOpenTime,sm_small_bottom,sm_small_right,sm_ShowTimer)
+{
+	window.ifshowbig=false;
+	var smCloseTimer= sm_CloseTimer * 1000;
+	var smShowTimer= sm_ShowTimer * 1000;
+	var smMaxOpenTime = sm_MaxOpenTime;
+	if(!sm_small_bottom) sm_small_bottom=15;
+	if(!sm_small_right) sm_small_right=0;
+	var smCloseSt;
+	var smGetPosSt;
+	var ifshowbig=false;
+	var closeall=false;
+	var version=navigator.appVersion.split(";");
+	var trim_Version = '';
+	if(version.length>1){	trim_Version=version[1].replace(/[ ]/g,""); }
+	var isIE6=(navigator.appName=="Microsoft Internet Explorer"&&trim_Version=="MSIE6.0")?true:false;
+	var isXHTML=document.compatMode=="CSS1Compat"?true:false;
+	var pthis=this;
+	var bdy=(document.documentElement&&document.documentElement.clientWidth)?document.documentElement:document.body;
+	var $=function(id){if(document.getElementById){return eval('document.getElementById("'+id+'")')}else{return eval("document.all."+id)}};
+	this.ifengDotInitWrap=function(aType,aId,id,aE,aW,aH,aM,aP,aBg,aPo,aT,aR,aB,aL,aDisp,azI)
+	{//1,"smExtObj","smExtObj","div",sm_width,eval(sm_width>375?sm_height+31:sm_height+31),"0","0","","fixed","0","","","0","none","999999")
+		var lstStr="";
+		if(aType==1)
+		{
+			lstStr+="var "+aId+' = document.createElement("'+aE+'");'
+		}
+		else
+		{
+			if(aType==2){lstStr+="var "+aId+' = document.getElementById("'+aE+'");'}else{return}
+		}
+		if(id!=""){lstStr+=aId+'.id = "'+id+'";'}
+		if(aW!=""){lstStr+=aId+".style.width = "+aW+' + "px";'}
+		if(aH!=""){lstStr+=aId+".style.height = "+aH+' + "px";'}
+		if(aBg!=""){lstStr+=aId+'.style.background = "'+aBg+'";'}
+		if(aM!=""){lstStr+=aId+'.style.margin = "'+aM+'";'}
+		if(aP!=""){lstStr+=aId+'.style.padding = "'+aP+'";'}
+		if(aPo!=""){lstStr+=aId+'.style.position = "'+aPo+'";'}
+		if(aT!=""){lstStr+=aId+'.style.top = "'+aT+'";'}
+		if(aR!=""){lstStr+=aId+'.style.right = "'+aR+'";'}
+		if(aB!=""){lstStr+=aId+'.style.bottom = "'+aB+'";'}
+		if(aL!=""){lstStr+=aId+'.style.left = "'+aL+'";'}
+		if(aDisp!=""){lstStr+=aId+'.style.display = "'+aDisp+'";'}
+		if(azI!=""){lstStr+=aId+'.style.zIndex = "'+azI+'";'}
+		return lstStr
+	};
+	this.ifengDotInitObj=function(theAdId,theAdSrc,theAdUrl,theAdWidth,theAdHeight)
+	{
+		var theAdType=theAdSrc.substring(theAdSrc.length-3).toLowerCase();
+		var tmpAdObj=document.createElement("span");
+		tmpAdObj.style.textAlign="left";
+		switch(theAdType)
+		{
+			case"tml":case"htm":
+			var tmpAdContent=document.createElement("iframe");
+			tmpAdContent.id=theAdId;
+			tmpAdContent.style.width=theAdWidth+"px";
+			tmpAdContent.style.height=theAdHeight+"px";
+			tmpAdContent.src=theAdSrc;
+			tmpAdContent.frameBorder=0;
+			tmpAdContent.scrolling="no";
+			tmpAdContent.marginheight=0;
+			tmpAdContent.marginwidth=0;
+			break;
+			case"swf":
+				var tmpAdContent=document.createElement("div");
+				tmpAdContent.id=theAdId;
+				tmpAdContent.style.width=theAdWidth+"px";
+				tmpAdContent.style.height=theAdHeight+"px";
+				tmpAdContent.style.margin="0 auto";
+				tmpAdContent.style.cursor="pointer";
+				if(float_stream_interaction == 1){//互动
+					theAdSrc += "?clickTag=" + escape(theAdUrl);
+				}
+				var flashObj=new ifengFlash(theAdSrc,theAdId+"_swf",theAdWidth,theAdHeight,"7","",false,"High");
+				if(sm_bigBg==1)
+					flashObj.addParam("wmode","opaque");
+				else
+					flashObj.addParam("wmode","transparent");
+				flashObj.addParam("allowScriptAccess","always");
+				flashObj.addParam("menu","false");
+				flashObj.write(tmpAdContent);
+				if(float_stream_interaction == 0){//非互动
+					var divElement =  document.createElement('div');
+					divElement.style.cssText = 'width:' + float_stream_width + 'px;height:' + float_stream_height + 'px; position:absolute;display:block; background:red;filter:alpha(opacity="0"); -moz-opacity:0;opacity:0;cursor:pointer';
+					divElement.onclick = function(){
+						window.open(theAdUrl);
+					};
+					document.getElementById("smExtObjFlash").appendChild(divElement);
+					var smdivElement =  document.createElement('div');
+					smdivElement.style.cssText = 'width:26px;height:150px; position:absolute;display:block; background:red;filter:alpha(opacity="0"); -moz-opacity:0;opacity:0;cursor:pointer';
+					smdivElement.onclick = function(){
+						window.open(theAdUrl);
+					};
+					document.getElementById("smTagObjFlash").appendChild(smdivElement);
+				}
+				break;
+			case"jpg":case"gif":
+			var tmpAdContent=document.createElement("a");
+			tmpAdContent.id=theAdId;
+			tmpAdContent.style.padding = "0px";
+			tmpAdContent.href=theAdUrl;
+			tmpAdContent.target="_blank";
+			tmpAdContent.style.width=theAdWidth+"px";
+			tmpAdContent.style.height=theAdHeight+"px";
+			tmpAdContent.style.margin="0 auto";
+			tmpAdContent.style.display="block";
+			var ImageObj=new Image();
+			ImageObj.id=theAdId+"_img";
+			ImageObj.style.width=theAdWidth+"px";ImageObj.style.height=theAdHeight+"px";
+			ImageObj.style.border="none";ImageObj.src=theAdSrc;
+			tmpAdContent.appendChild(ImageObj);
+			break;
+			default:
+				var tmpAdContent=document.createElement("a");
+				tmpAdContent.id=theAdId;
+				tmpAdContent.style.padding = "0px";
+				tmpAdContent.href=theAdUrl;
+				tmpAdContent.target="_blank";
+				tmpAdContent.innerText=theAdSrc;
+				break
+		}
+		tmpAdObj.appendChild(tmpAdContent);
+		return tmpAdObj
+	};
+
+	this.initSM=function()
+	{
+		var apthis=this;
+		sm_ClickUrl=(sm_ClickUrl=="")?location.href:sm_ClickUrl;
+		document.write('<span id="StreamMediaWrap"></span>');
+		var pNode=$("StreamMediaWrap");
+		pNode.style.textAlign="left";
+		eval(pthis.ifengDotInitWrap(1,"smExtObj","smExtObj","div",sm_width,eval(sm_width>375?sm_height+31:sm_height+31),"0","0","","fixed","0","","","0","none","999999"));
+		if(isIE6||!isXHTML)
+		{
+			smExtObj.style.position="absolute"
+		}
+		eval(pthis.ifengDotInitWrap(1,"smExtObjFlash","smExtObjFlash","div",sm_width,sm_height,"0","0","","absolute","0","","","0","","100"));
+		if(float_stream_width>375)
+		{
+			eval(pthis.ifengDotInitWrap(1,"smExtObjCls","smExtObjCls","div","77","31","0","0","url(http://img.ifeng.com/tres/recommend/html/test/090518-test-zhong_guanbid.gif) no-repeat","absolute","","0","0","","","300"));
+		}
+		else
+		{
+			eval(pthis.ifengDotInitWrap(1,"smExtObjCls","smExtObjCls","div","97","32","0","0","url(http://y2.ifengimg.com/ifengimcp/pic/20150902/fc06e5ac0fd7f882e468_size21_w97_h32.png) no-repeat","absolute","","0","0","","","300"));
+			//smCloseTimer=5000;
+		}
+		smExtObjCls.style.cursor="pointer";
+		smExtObjCls.overflow="hidden";
+		smExtObjCls.title="关闭广告";
+		if(sm_bigBg==1)
+		{
+			eval(pthis.ifengDotInitWrap(1,"smExtObjBg","smExtObjBg","div",sm_width,sm_height,"0","0","#fff","absolute","0","","","0","","1"));
+			eval(pthis.ifengDotInitWrap(1,"smExtObjBgIfm","smExtObjBgIfm","iframe",sm_width,sm_height,"","","","","","","","","",""));
+			smExtObjBgIfm.frameBorder=0;
+			smExtObjBgIfm.scrolling="no";
+			smExtObjBg.appendChild(smExtObjBgIfm);smExtObj.appendChild(smExtObjBg);
+		}
+		smExtObj.appendChild(smExtObjCls);
+		smExtObj.appendChild(smExtObjFlash);
+		pNode.appendChild(smExtObj);
+		eval(pthis.ifengDotInitWrap(1,"smTagObj","smTagObj","div",25,191,"0","0","","fixed","","0","0","","none","999999"));
+		if(isIE6||!isXHTML){smTagObj.style.position="absolute"}
+		eval(pthis.ifengDotInitWrap(1,"smTagObjFlash","smTagObjFlash","div",25,150,"0","0","","","","","","","",""));
+		eval(pthis.ifengDotInitWrap(1,"smTagObjPlay","smTagObjPlay","div",25,21,"0","0","url(http://img.ifeng.com/tres/recommend/js/floatadrplay.gif) no-repeat center","","","","","","",""));
+		smTagObjPlay.style.cursor="pointer";smTagObjPlay.overflow="hidden";smTagObjPlay.title="重 播";
+		eval(pthis.ifengDotInitWrap(1,"smTagObjCls","smTagObjCls","div",25,20,"0","0","url(http://img.ifeng.com/tres/recommend/js/floatadclose.gif) no-repeat center top","","","","","","",""));
+
+		smTagObjCls.style.cursor="pointer";
+		smTagObjCls.overflow="hidden";
+		smTagObjCls.title="关 闭";
+		smTagObj.appendChild(smTagObjFlash);
+		smTagObj.appendChild(smTagObjPlay);
+		smTagObj.appendChild(smTagObjCls);
+		pNode.appendChild(smTagObj);
+
+		this.getPos=function()
+		{
+			if(isIE6||!isXHTML){smTagObj.style.top=bdy.scrollTop+bdy.offsetHeight-206 - sm_small_bottom +"px"}
+			else{smTagObj.style.bottom=sm_small_bottom+"px"}
+
+			smTagObj.style.right=sm_small_right+"px";
+
+			if(isIE6||!isXHTML){smExtObj.style.top=bdy.scrollTop+sm_top+"px"}
+			else{smExtObj.style.top=sm_top+"px"}
+			//smExtObj.style.left=sm_left>=0?sm_left:(bdy.offsetWidth-sm_width)/2+"px";
+			smExtObj.style.left=((bdy.offsetWidth-sm_width)/2 + sm_left) +"px";//cds add
+			if(isIE6||!isXHTML){smGetPosSt=setTimeout("getPos()",10)}
+		};
+
+		this.playSM=function()
+		{
+			window.ifshowbig=true;
+			clearTimeout(smCloseSt);
+			apthis.getPos();
+			smExtObj.style.display="block";
+			smTagObj.style.display="none";
+			smExtObjFlash.appendChild(pthis.ifengDotInitObj("smExtObjSwf",sm_Flashbig_url,sm_ClickUrl,sm_width,sm_height));
+			smTagObjFlash.innerHTML="";
+			smCloseSt=setTimeout(function(){apthis.closeSM()},smCloseTimer)
+		};
+
+		this.closeSM=function()
+		{
+			window.ifshowbig=false;
+			clearTimeout(smCloseSt);
+			apthis.getPos();
+			smExtObj.style.display="none";
+			smTagObj.style.display="block";
+			smTagObjFlash.appendChild(pthis.ifengDotInitObj("smTagObjSwf",sm_Flashsmall_url,sm_ClickUrl,26,150));
+			smExtObjFlash.innerHTML=""
+		};
+
+		this.closeAllSM=function()
+		{
+			window.ifshowbig=false;
+			clearTimeout(smCloseSt);
+			clearTimeout(smGetPosSt);
+			smExtObj.style.display="none";
+			smTagObj.style.display="none";
+			smExtObjFlash.innerHTML=""
+		};
+
+		this.getAdCookie=function(N)
+		{
+			var c=document.cookie.split("; ");
+			for(var i=0;i<c.length;i++)
+			{
+				var d=c[i].split("=");
+				if(d[0]==N){return unescape(d[1])}
+			}
+			return "";
+		};
+
+		this.setAdCookie=function(N,V,Q)
+		{
+			var L=new Date();
+			var z=new Date(L.getTime()+Q*60000);
+			document.cookie=N+"="+escape(V)+";path=/;expires="+z.toGMTString()+";"
+		};
+		smExtObjCls.onclick=function()
+		{
+			apthis.closeSM()
+		};
+		smTagObjPlay.onclick=function()
+		{
+			apthis.playSM()
+		};
+		smTagObjCls.onclick=function()
+		{
+			apthis.closeAllSM()
+		};
+		this.openWin=function()
+		{
+			var cookie_time = new Date();
+			var getcookieflag = function (url) {
+				var flag_cookie = "";
+				var domain = document.domain.substr(0, (document.domain.length-10));	 //	处理域名
+
+				var href = document.location.href;
+				var start = href.lastIndexOf("/") + 1;
+				var end = href.lastIndexOf(".");
+				href = href.substr(start, end-start);	 //	获取页面的唯一值
+
+				var cookie_time = new Date();
+				var ti = cookie_time.getFullYear().toString() + (cookie_time.getMonth()+1).toString() + cookie_time.getDate().toString();	//	获取日期
+
+				//var url_start = url.indexOf("-") + 1;
+				var url_start = url.lastIndexOf("/") + 1;
+				url = url.substr(url_start, 20);
+				//var url_end = url.indexOf("-");
+				var url_end = url.indexOf(".");
+				url = url_end > 0 ? url.substr(0, url_end) : url;	 //	获取用户素材
+
+				flag_cookie = domain + url + href + ti;
+				return flag_cookie;
+			};
+			var flag_cookie = "ExpendBuoy" + getcookieflag(adflashbig);
+			var smCookie=pthis.getAdCookie(flag_cookie);
+			smCookie=smCookie==""?1:++smCookie;
+			if(smCookie< smMaxOpenTime + 1)
+			{
+				setTimeout(function(){apthis.playSM()}, smShowTimer);
+				pthis.setAdCookie(flag_cookie,smCookie,1440)
+			}
+			else
+			{
+				apthis.closeSM()
+			}
+		};
+		var ifengDotSmStforFS;
+		this.ckeOpenWin=function()
+		{
+			if(typeof(fullScreenForLmt)!="undefined")
+			{
+				if(fullScreenForLmt==false)
+				{
+					clearTimeout(ifengDotSmStforFS);
+					apthis.openWin()
+				}
+				else
+				{
+					if(fullScreenForLmt==true)
+					{
+						ifengDotSmStforFS=setTimeout(function(){apthis.ckeOpenWin()},1000)
+					}
+				}
+			}
+			else
+			{
+				apthis.openWin()
+			}
+		};
+		apthis.ckeOpenWin()
+	};
+
+	pthis.initSM()
+}
+	)(adflashbig,adflashsmall,adclickurl,float_stream_width,float_stream_height,float_stream_top,float_stream_left,ifcl_stylebigBg,closetimer,maxopentime,float_stream_small_bottom,float_stream_small_right,showtimer);
+}
+</script>
+EOF-->
+</code>
+
+<var style="display:none;" v="2948,0,0,NULL,fixture"></var><cite>
+<!--BOF
+EOF-->
+</cite>
+</div>
+<script language="javascript">
+try{
+if(INice.getCookie('prov') == '9999'){
+		(function(){var u='http://pubads.g.doubleclick.net/gampad/adx?m=text/javascript&sz=1x1&iu=/51332160/s_mil_index_ad_floatmedia';
+u+="&c="+Math.floor(Math.random()*1000000);p=null;var r=window.location.search.substr(1).match(new RegExp("(^|&)google_preview=([^&]*)(&|$)","i"));
+if(r!=null)p=unescape(r[2]);if(null!=p)u+='&gct='+p;document.write("<script type='text/javascript' src='"+u+"'></"+"script>")})();
+			}else{
+				try{
+	var defaultAdRotatorConfig = {maxTimes : 2, saleMode : "CPD"};
+			new adRotatorFactory({identifier : "AP1701"});
+		}catch(e){}
+	}
+}catch(e){}
+</script>
+<!--/s_mil_index_ad_floatmedia-->
+
+  <!--s_mil_index_ad_bgwindows 2011.11.19 09:35:50-->
+
+<!--/s_mil_index_ad_bgwindows-->
+    
+  <!-- START WRating v1.0 --> 
+  <script type="text/javascript" src="http://click.wrating.com/c3.js"></script> 
+  <script type="text/javascript">
+var vjClickAcc="860010-2061300100";
+var wrUrl = "http://click.wrating.com/";
+initMouseClick();
+  </script> 
+  <!-- END WRating v1.0 --> 
+<style>
+.footer {border-top:none;}
+.footer .footlink {border-top:none;}
+</style>
+
+ </body>
+</html>

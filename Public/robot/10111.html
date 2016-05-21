@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta property="qc:admins" content="15714660546516051256375" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="renderer" content="webkit" />
+	<title>漫画簿 - 无广告、速度最快的下拉式漫画网站 - 漫画簿</title>
+	<meta name="keywords" content="漫画,漫画大全,在线漫画,日本漫画">	<meta name="description" content="漫画簿是一个专业的漫画网站。无广告、更新速度快、访问速度飞快、下拉式的阅读体验，超过上万部漫画，是漫迷们最喜欢的漫画网站。">			
+		<link rel="stylesheet" href="http://7pn610.com1.z0.glb.clouddn.com/css/app.min.115832d5.css">
+		
+		<!--[if lt IE 9]>
+		
+		<script src="http://7pn610.com1.z0.glb.clouddn.com/js/html5shiv.min.53601738.js"></script>
+		
+		<![endif]-->
+		<link rel="search" type="application/opensearchdescription+xml" href="/assets/search.xml" title="漫画簿" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<meta name="mobile-agent" content="format=html5;url=http://www.manhuabu.com/">	<script>
+		var ROOT = '';
+		var MID = 0;
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?1f08e69d95eab6999b0887de95db6a18";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+
+<div id="navbar" class="fixed navbar shadow-dark">
+	<div class="container relative">
+		<div class="menu horizontal">
+			<ul>
+				<li class="heading"><a href="/">漫画簿</a></li>
+				<li class="navbar-popup" id="nav-filter" data-wrapper="filter"><a href="javascript:void(0)"><i class="iconfont">&#x3595;</i> 分类</a></li>				<!--<li><a href="/topic" class="">话题</a></li>-->
+				<li><a rel="nofollow" href="/shop">积分商城</a></li>
+				<li style="margin-left:180px;">
+					<form class="form" action="/comic/search" method="get">
+						<input type="search" name="query" id="search-comic" placeholder="漫画名/作者/关键词" required />
+						<button type="submit" class="btn">搜索</button>
+					</form>
+				</li>
+				<div class="pull-right">
+										<li><a href="javascript:void(0)" class="js-popup-register" onclick="magic_popup('#dialog-login');login.show_register();">注册</a></li>
+					<li><a href="javascript:void(0)" class="js-popup-login" onclick="magic_popup('#dialog-login');login.show_login();">登陆</a></li>
+									</div>
+			</ul>
+		</div>
+		
+						<div id="filter" class="popup-wrapper x-hide">
+			<div class="arrow-box"><span class="arrow arrow-bottom"></span></div>
+			<div class="list border radius shadow-darker menu horizontal bg-white">
+				<div class="box radius-top bg-grey-light">按条件筛选</div>
+				<div class="item box grid">
+					<label class="g-1-12">按地区：</label>
+					<div class="g-11-12">
+						<a rel="nofollow" href="/filter?category=all&initial=all&update_status=all&area=all" class="pjax active" data-pcate="a" data-pexc="f" data-pdefault="true">全部</a>
+						<a rel="nofollow" href="/filter?category=all&initial=all&update_status=all&area=1" class="pjax" data-pcate="a" data-pexc="f">内地</a>
+						<a rel="nofollow" href="/filter?category=all&initial=all&update_status=all&area=2" class="pjax" data-pcate="a" data-pexc="f">日本</a>
+						<a rel="nofollow" href="/filter?category=all&initial=all&update_status=all&area=3" class="pjax" data-pcate="a" data-pexc="f">欧美</a>
+						<a rel="nofollow" href="/filter?category=all&initial=all&update_status=all&area=4" class="pjax" data-pcate="a" data-pexc="f">港台</a>
+						<a rel="nofollow" href="/filter?category=all&initial=all&update_status=all&area=0" class="pjax" data-pcate="a" data-pexc="f">其他</a>
+					</div>
+				</div>
+				<div class="item box grid">
+					<label class="g-1-12">按分类：</label>
+					<div class="g-11-12">
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=all" class="pjax active" data-pcate="c" data-pexc="f" data-pdefault="true">全部</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=1" class="pjax" data-pcate="c" data-pexc="f">少年热血</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=2" class="pjax" data-pcate="c" data-pexc="f">少女爱情</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=3" class="pjax" data-pcate="c" data-pexc="f">武侠格斗</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=4" class="pjax" data-pcate="c" data-pexc="f">科幻魔幻</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=5" class="pjax" data-pcate="c" data-pexc="f">竞技体育</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=6" class="pjax" data-pcate="c" data-pexc="f">爆笑喜剧</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=7" class="pjax" data-pcate="c" data-pexc="f">侦探推理</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=8" class="pjax" data-pcate="c" data-pexc="f">恐怖灵异</a>
+						<a rel="nofollow" href="/filter?area=all&initial=all&update_status=all&category=9" class="pjax" data-pcate="c" data-pexc="f">耽美BL</a>
+					</div>
+				</div>
+				<div class="item box grid">
+					<label class="g-1-12">按字母：</label>
+					<div class="g-11-12">
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=all" class="pjax active" data-pcate="i" data-pexc="f" data-pdefault="true">全部</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=1" class="pjax" data-pcate="i" data-pexc="f">A</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=2" class="pjax" data-pcate="i" data-pexc="f">B</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=3" class="pjax" data-pcate="i" data-pexc="f">C</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=4" class="pjax" data-pcate="i" data-pexc="f">D</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=5" class="pjax" data-pcate="i" data-pexc="f">E</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=6" class="pjax" data-pcate="i" data-pexc="f">F</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=7" class="pjax" data-pcate="i" data-pexc="f">G</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=8" class="pjax" data-pcate="i" data-pexc="f">H</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=9" class="pjax" data-pcate="i" data-pexc="f">I</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=10" class="pjax" data-pcate="i" data-pexc="f">J</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=11" class="pjax" data-pcate="i" data-pexc="f">K</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=12" class="pjax" data-pcate="i" data-pexc="f">L</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=13" class="pjax" data-pcate="i" data-pexc="f">M</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=14" class="pjax" data-pcate="i" data-pexc="f">N</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=15" class="pjax" data-pcate="i" data-pexc="f">O</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=16" class="pjax" data-pcate="i" data-pexc="f">P</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=17" class="pjax" data-pcate="i" data-pexc="f">Q</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=18" class="pjax" data-pcate="i" data-pexc="f">R</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=19" class="pjax" data-pcate="i" data-pexc="f">S</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=20" class="pjax" data-pcate="i" data-pexc="f">T</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=21" class="pjax" data-pcate="i" data-pexc="f">U</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=22" class="pjax" data-pcate="i" data-pexc="f">V</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=23" class="pjax" data-pcate="i" data-pexc="f">W</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=24" class="pjax" data-pcate="i" data-pexc="f">X</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=25" class="pjax" data-pcate="i" data-pexc="f">Y</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=26" class="pjax" data-pcate="i" data-pexc="f">Z</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&update_status=all&initial=0" class="pjax" data-pcate="i" data-pexc="f">0-9</a>
+					</div>
+				</div>
+				<div class="item box grid">
+					<label class="g-1-12">按进度：</label>
+					<div class="g-11-12">
+						<a rel="nofollow" href="/filter?area=all&category=all&initial=all&update_status=all" class="pjax active" data-pcate="u" data-pexc="f" data-pdefault="true">全部</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&initial=all&update_status=2" class="pjax" data-pcate="u" data-pexc="f">连载</a>
+						<a rel="nofollow" href="/filter?area=all&category=all&initial=all&update_status=1" class="pjax" data-pcate="u" data-pexc="f">完结</a>
+					</div>
+				</div>
+			</div>
+		</div>
+					</div>
+</div>
+
+<div class="container">
+	
+	<div id="main" class="pull-left bg-white radius shadow">
+		<div class="menu grid text-center border-bottom">
+			<div class="g-1-4"><a rel="nofollow" href="/" class="pjax active" data-pcate="o">推荐</a></div>
+			<div class="g-1-4"><a rel="nofollow" href="/order/unfinish" class="pjax" data-pcate="o" data-pexc="o">热门连载</a></div>
+			<div class="g-1-4"><a rel="nofollow" href="/order/finish" class="pjax" data-pcate="o" data-pexc="o">经典完结</a></div>
+			<div class="g-1-4"><a rel="nofollow" href="/order/recent" class="pjax" data-pcate="o" data-pexc="o">最近更新</a></div>
+		</div>
+		<div class="h-10"></div>
+		<div id="pjax-container" class="grid p-5">
+			<div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6371" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/6371_qumb20.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="霸剑的皇姬阿尔缇娜漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6371" target="_blank" title="霸剑的皇姬阿尔缇娜">霸剑的皇姬阿尔缇娜</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6371_113228" target="_blank"><span class="red">第14话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6371" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6371" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6166" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/6166_84lcro.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="天籁之声的天使漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6166" target="_blank" title="天籁之声的天使">天籁之声的天使</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6166_113227" target="_blank"><span class="red">第41话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6166" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6166" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/3408" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/3408_xtb9c6.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="明治绯色奇谭漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/3408" target="_blank" title="明治绯色奇谭">明治绯色奇谭</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/3408_113226" target="_blank"><span class="red">第2部01话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="3408" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="3408" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5915" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/5915_li6r20.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="爱吃拉面的小泉同学漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5915" target="_blank" title="爱吃拉面的小泉同学">爱吃拉面的小泉同学</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5915_113225" target="_blank"><span class="red">第27话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5915" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5915" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5710" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/5710_0rsuq8.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="无职转生漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5710" target="_blank" title="无职转生">无职转生</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5710_113224" target="_blank"><span class="red">第21话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5710" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5710" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6373" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/6373_te44om.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="青楼浪漫谭漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6373" target="_blank" title="青楼浪漫谭">青楼浪漫谭</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6373_113222" target="_blank"><span class="red">第14话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6373" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6373" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/4077" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/4077_3k100u.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="假装女友漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/4077" target="_blank" title="假装女友">假装女友</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/4077_113221" target="_blank"><span class="red">第39话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="4077" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="4077" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/3993" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/3993_j60v3u.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="灵能百分百漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/3993" target="_blank" title="灵能百分百">灵能百分百</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/3993_113220" target="_blank"><span class="red">第94话(1)</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="3993" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="3993" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/2032" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/2032_w5aii5.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="伊达人间漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/2032" target="_blank" title="伊达人间">伊达人间</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/2032_113219" target="_blank"><span class="red">第12话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="2032" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="2032" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/1718" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/1718_e2z4uf.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="上课小动作漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/1718" target="_blank" title="上课小动作">上课小动作</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/1718_113217" target="_blank"><span class="red">第99话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="1718" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="1718" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/1061" target="_blank">
+				<img class="g-1" src="http://7jpo9f.com1.z0.glb.clouddn.com/1061_sc8amz.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="火之丸相扑漫画"/>
+							</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/1061" target="_blank" title="火之丸相扑">火之丸相扑</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/1061_113216" target="_blank"><span class="red">第76话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="1061" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="1061" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/4022" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/4022_44scvo.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="我家的街猫漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/4022" target="_blank" title="我家的街猫">我家的街猫</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/4022_113215" target="_blank"><span class="red">别册41话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="4022" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="4022" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/1056" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/1056_fq41g4.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="魔笛MAGI漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/1056" target="_blank" title="魔笛MAGI">魔笛MAGI</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/1056_113214" target="_blank"><span class="red">第305夜</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="1056" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="1056" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6351" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/6351_5r0v9k.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="SWORD GAI 装刀凯漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6351" target="_blank" title="SWORD GAI 装刀凯">SWORD GAI 装刀凯</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6351_113213" target="_blank"><span class="red">第20话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6351" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6351" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/1639" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/1639_pkcazh.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="虫奉行漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/1639" target="_blank" title="虫奉行">虫奉行</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/1639_113210" target="_blank"><span class="red">第250话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="1639" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="1639" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5826" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5826_tlnwq1.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="电击的皮卡丘漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5826" target="_blank" title="电击的皮卡丘">电击的皮卡丘</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5826_113209" target="_blank"><span class="red">第04卷</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5826" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5826" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/4130" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/4130_47s119.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="橘子酱男孩LITTLE漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/4130" target="_blank" title="橘子酱男孩LITTLE">橘子酱男孩LITTLE</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/4130_113205" target="_blank"><span class="red">第28话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="4130" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="4130" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5122" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5122_smvr8d.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="佛师的佛心 镰仓半身佛师录漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5122" target="_blank" title="佛师的佛心 镰仓半身佛师录">佛师的佛心 镰仓半身佛师录</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5122_113204" target="_blank"><span class="red">第22话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5122" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5122" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6333" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/6333_55wqfo.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="亚人酱有话要说漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6333" target="_blank" title="亚人酱有话要说">亚人酱有话要说</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6333_113203" target="_blank"><span class="red">第25话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6333" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6333" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6383" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/6383_7ov8fg.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="Y之方舟漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6383" target="_blank" title="Y之方舟">Y之方舟</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6383_113202" target="_blank"><span class="red">第04话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6383" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6383" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/4310" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/4310_q8mp9v.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="干物妹小埋漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/4310" target="_blank" title="干物妹小埋">干物妹小埋</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/4310_113201" target="_blank"><span class="red">第151话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="4310" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="4310" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/1037" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/1037_n1zsnv.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="风夏漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/1037" target="_blank" title="风夏">风夏</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/1037_113200" target="_blank"><span class="red">第107话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="1037" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="1037" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5450" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5450_h850el.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="我的英雄学院漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5450" target="_blank" title="我的英雄学院">我的英雄学院</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5450_113199" target="_blank"><span class="red">第90话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5450" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5450" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/1532" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/1532_oq6eeh.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="王者天下漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/1532" target="_blank" title="王者天下">王者天下</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/1532_113198" target="_blank"><span class="red">第473话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="1532" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="1532" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5733" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5733_51e7qi.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="淡岛百景漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5733" target="_blank" title="淡岛百景">淡岛百景</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5733_113197" target="_blank"><span class="red">第06话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5733" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5733" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5327" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5327_qt4owx.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="深宫恋语漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5327" target="_blank" title="深宫恋语">深宫恋语</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5327_113196" target="_blank"><span class="red">第08话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5327" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5327" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/3483" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/3483_xirvs5.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="犯罪王破破内破漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/3483" target="_blank" title="犯罪王破破内破">犯罪王破破内破</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/3483_113195" target="_blank"><span class="red">第25话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="3483" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="3483" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6326" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/6326_uovryd.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="社团破坏者漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6326" target="_blank" title="社团破坏者">社团破坏者</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6326_113194" target="_blank"><span class="red">第36话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6326" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6326" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6050" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/6050_8wb1t9.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="发条精灵战记 天镜的极北之星漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6050" target="_blank" title="发条精灵战记 天镜的极北之星">发条精灵战记 天镜的极北之星</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6050_113193" target="_blank"><span class="red">第19话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6050" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6050" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5781" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5781_q7vdhj.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="世界第一邪恶魔女漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5781" target="_blank" title="世界第一邪恶魔女">世界第一邪恶魔女</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5781_113192" target="_blank"><span class="red">第10话修</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5781" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5781" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/2459" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/2459_izkecs.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="咲Saki阿知贺篇漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/2459" target="_blank" title="咲Saki阿知贺篇">咲Saki阿知贺篇</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+				已完结
+												
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="2459" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="2459" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/2212" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/2212_hjdct6.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="角落里的小空漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/2212" target="_blank" title="角落里的小空">角落里的小空</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/2212_113189" target="_blank"><span class="red">第11话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="2212" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="2212" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5473" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5473_18unx2.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="电波啊 听着吧漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5473" target="_blank" title="电波啊 听着吧">电波啊 听着吧</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5473_113188" target="_blank"><span class="red">第06话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5473" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5473" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5938" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5938_gcnacz.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="婚谈别曲漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5938" target="_blank" title="婚谈别曲">婚谈别曲</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5938_113187" target="_blank"><span class="red">第12话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5938" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5938" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/6128" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/6128_3uk41l.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="即使如此我还是喜欢你漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/6128" target="_blank" title="即使如此我还是喜欢你">即使如此我还是喜欢你</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/6128_113186" target="_blank"><span class="red">第42话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="6128" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="6128" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/3983" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/3983_mcxni8.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="路人女主的养成方法漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/3983" target="_blank" title="路人女主的养成方法">路人女主的养成方法</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/3983_113185" target="_blank"><span class="red">第34话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="3983" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="3983" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5223" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5223_0jh6t8.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="甜蜜稻妻漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5223" target="_blank" title="甜蜜稻妻">甜蜜稻妻</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5223_113184" target="_blank"><span class="red">第14话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5223" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5223" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5293" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5293_35j26n.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="刃牙道漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5293" target="_blank" title="刃牙道">刃牙道</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5293_113183" target="_blank"><span class="red">第108话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5293" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5293" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/4909" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/4909_q1t2dq.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="人偶人生漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/4909" target="_blank" title="人偶人生">人偶人生</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/4909_113182" target="_blank"><span class="red">第22话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="4909" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="4909" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><div class="g-1-4 comic-box hover-wrapper">
+		<div class="radius comic p-5 m-5">
+			<a rel="nofollow" href="/comic/5673" target="_blank">
+									<img class="g-1 js-unveil" data-src="http://7jpo9f.com1.z0.glb.clouddn.com/5673_6hrphy.jpg?imageView2/1/w/158/h/211" width="158" height="211" alt="绝对城前辈的妖怪学讲座漫画"/>			</a>
+			<p class="h-2"></p>
+			<p class="name"><a href="/comic/5673" target="_blank" title="绝对城前辈的妖怪学讲座">绝对城前辈的妖怪学讲座</a></p>
+			<p class="h-3"></p>
+			<p class="meta">
+															更新至 <a rel="nofollow" href="/comic/5673_113181" target="_blank"><span class="red">第12话</span></a>								
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-delete-list hide" data-comic-id="5673" title="取消收藏"><i class="iconfont large red">&#x3575;</i></a>
+				
+				<a href="javascript:void(0)" class="pull-right js-comic-collect-add-list hover-inline" data-comic-id="5673" title="添加收藏"><i class="iconfont large">&#xf0290;</i></a>
+			</p>
+		</div>
+	</div><ul class="paginator"><li><a href="javascript:void(0)" class="pjax btn active">1</a><li><a href="/?p=2" class="pjax btn bg-white">2</a><li><a href="/?p=3" class="pjax btn bg-white">3</a><li><a href="/?p=4" class="pjax btn bg-white">4</a><li><a href="/?p=5" class="pjax btn bg-white">5</a><li><a href="/?p=6" class="pjax btn bg-white">6</a><li><a href="/?p=7" class="pjax btn bg-white">7</a><li><a href="/?p=8" class="pjax btn bg-white">8</a><li><a href="/?p=9" class="pjax btn bg-white">9</a><li><a href="/?p=10" class="pjax btn bg-white">10</a><li><a href="/?p=11" class="pjax btn bg-white">11</a><li><a href="/?p=2" class="pjax btn bg-white">>></a><li><a href="/?p=160" class="pjax btn bg-white">160</a></ul>		</div>
+	</div>
+	
+	<div id="rightbar" class="pull-right">
+		<div class="radius shadow bg-white p-10" id="signin-box">
+							<button class="btn bg-green g-1 signin">
+					<span class="date">星期五</span>
+					<span class="sign">签到</span>
+				</button>			<a rel="nofollow" href="/help" target="_blank" class="help">签到有什么用？</a>
+		</div>
+		<div class="h-20"></div>
+		<div class="radius shadow bg-white">
+			<div class="box radius-top bg-grey-light border-bottom">邀请链接：邀请好友，获得更多积分</div>
+			<div class="item p-10 form">
+									<input type="text" value="登录后获取推广链接" class="g-1" disabled/>				<a rel="nofollow" href="/help#help3" target="_blank" class="small">查看详细规则</a>
+			</div>
+		</div>
+		<div class="h-20"></div>
+		<div class="radius shadow bg-white box text-center">
+			<div class="bdsharebuttonbox" data-text="漫画簿是一个专业的漫画网站。无广告、更新速度快、访问速度飞快、下拉式的阅读体验，超过上万部漫画，是漫迷们最喜欢的漫画网站。" data-desc="最近有朋友推荐我说漫画簿上可以看漫画，纯漫画，不含广告，还可以下拉阅读，希望大家以后想补漫画的时候可以去漫画簿网站看漫画。" data-url="http://www.manhuabu.com/"  >
+				<a rel="nofollow" href="#" class="bds_more" data-cmd="more"></a>
+				<a rel="nofollow" href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+				<a rel="nofollow" href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+				<a rel="nofollow" href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a>
+				<a rel="nofollow" href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+				<a rel="nofollow" href="#" class="bds_tqf" data-cmd="tqf" title="分享到腾讯朋友"></a>
+				<a rel="nofollow" href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+				<a class="bds_count hide" data-cmd="count"></a>
+			</div>
+		</div>
+		<div class="h-20"></div>
+		<div class="radius shadow bg-white">
+			<div class="box radius-top bg-grey-light border-bottom">QQ群：303400143</div>
+			<div class="item p-10">
+				<a rel="nofollow" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=b2a210f7214b4167aa800e93d5f5bf15458453125bbf6e8e29ee04025c3426df"><img border="0" src="http://7pn610.com1.z0.glb.clouddn.com/img/group.png" width="90" height="22" alt="漫画簿" title="漫画簿"></a>
+				<a class="tooltip-qrcode xlarge pull-right" data-tooltip="<img src='http://7pn610.com1.z0.glb.clouddn.com/img/qrcode.png' width='200' height='200'/>"><i class="iconfont">&#xe604;</i></a>
+			</div>
+		</div>
+		<div class="h-20"></div>
+		<div class="radius shadow bg-white">
+			<div class="box radius-top bg-grey-light border-bottom">客户端</div>
+			<div class="item p-10 grid">
+				<div class="g-1-1 text-center">
+					<a rel="nofollow" class="tooltip-qrcode" style="font-size:32px;color:#92b831;" data-tooltip="<div class='text-center xlarge'>Android客户端</div><img src='http://qr.liantu.com/api.php?text=http://www.manhuabu.com/app/android' width='200' height='200'/>" href="http://www.manhuabu.com/app/android"><i class="iconfont">&#xe612;</i></a>
+				</div>
+			</div>
+		</div>
+		<div class="h-20"></div>
+		<div class="menu radius shadow bg-white">
+			<div class="box radius-top bg-grey-light border-bottom">最近更新</div>
+			<div class="item">
+					<a href="/comic/6371" target="_blank" title="霸剑的皇姬阿尔缇娜">
+						<span class="g-2-3 ellipsis">霸剑的皇姬阿尔缇娜</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/6166" target="_blank" title="天籁之声的天使">
+						<span class="g-2-3 ellipsis">天籁之声的天使</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/3408" target="_blank" title="明治绯色奇谭">
+						<span class="g-2-3 ellipsis">明治绯色奇谭</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/5915" target="_blank" title="爱吃拉面的小泉同学">
+						<span class="g-2-3 ellipsis">爱吃拉面的小泉同学</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/5710" target="_blank" title="无职转生">
+						<span class="g-2-3 ellipsis">无职转生</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/6373" target="_blank" title="青楼浪漫谭">
+						<span class="g-2-3 ellipsis">青楼浪漫谭</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/4077" target="_blank" title="假装女友">
+						<span class="g-2-3 ellipsis">假装女友</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/3993" target="_blank" title="灵能百分百">
+						<span class="g-2-3 ellipsis">灵能百分百</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/2032" target="_blank" title="伊达人间">
+						<span class="g-2-3 ellipsis">伊达人间</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/1718" target="_blank" title="上课小动作">
+						<span class="g-2-3 ellipsis">上课小动作</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/1061" target="_blank" title="火之丸相扑">
+						<span class="g-2-3 ellipsis">火之丸相扑</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/4022" target="_blank" title="我家的街猫">
+						<span class="g-2-3 ellipsis">我家的街猫</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/1056" target="_blank" title="魔笛MAGI">
+						<span class="g-2-3 ellipsis">魔笛MAGI</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/6351" target="_blank" title="SWORD GAI 装刀凯">
+						<span class="g-2-3 ellipsis">SWORD GAI 装刀凯</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/1639" target="_blank" title="虫奉行">
+						<span class="g-2-3 ellipsis">虫奉行</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/5826" target="_blank" title="电击的皮卡丘">
+						<span class="g-2-3 ellipsis">电击的皮卡丘</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/4130" target="_blank" title="橘子酱男孩LITTLE">
+						<span class="g-2-3 ellipsis">橘子酱男孩LITTLE</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/5122" target="_blank" title="佛师的佛心 镰仓半身佛师录">
+						<span class="g-2-3 ellipsis">佛师的佛心 镰仓半身佛师录</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/6333" target="_blank" title="亚人酱有话要说">
+						<span class="g-2-3 ellipsis">亚人酱有话要说</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div><div class="item">
+					<a href="/comic/6383" target="_blank" title="Y之方舟">
+						<span class="g-2-3 ellipsis">Y之方舟</span>
+						<span class="black small pull-right">2016-05-16</span>
+					</a>
+				</div>		</div>
+		<div class="h-20"></div>
+			<div class="menu radius shadow bg-white">
+				<div class="box radius-top bg-grey-light border-bottom">精彩评论</div>
+				<div class="item">
+						<a href="/comic/1161/review/1193" target="_blank" title="两个孩子是谁的？">
+							<span class="ellipsis">两个孩子是谁的？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1177" target="_blank" title="优姖的诞生给了枢要守护她的理由">
+							<span class="ellipsis">优姖的诞生给了枢要守护她的理由</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/4255/review/1185" target="_blank" title="邪恶龙不但没变强反而是变弱了">
+							<span class="ellipsis">邪恶龙不但没变强反而是变弱了</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1059/review/1212" target="_blank" title="露西的节操要掉光了">
+							<span class="ellipsis">露西的节操要掉光了</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1476/review/1215" target="_blank" title="为什么恶魔之力比恶魔本身强大？">
+							<span class="ellipsis">为什么恶魔之力比恶魔本身强大？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1059/review/1188" target="_blank" title="777年也启动了时空大门，把灭龙魔导士送到了400年后？">
+							<span class="ellipsis">777年也启动了时空大门，把灭龙魔导士送到了400年后？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5807/review/1247" target="_blank" title="初代应该打不赢斑，斑肯定研究过一代的忍术">
+							<span class="ellipsis">初代应该打不赢斑，斑肯定研究过一代的忍术</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5807/review/1205" target="_blank" title="果真是第七班俩人最后争火影">
+							<span class="ellipsis">果真是第七班俩人最后争火影</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5807/review/1204" target="_blank" title="鸣人会成为六道">
+							<span class="ellipsis">鸣人会成为六道</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1192" target="_blank" title="优姬死了么？枢是怎么复活的？">
+							<span class="ellipsis">优姬死了么？枢是怎么复活的？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1203" target="_blank" title="吸血鬼猎人和吸血鬼能在一起吗？">
+							<span class="ellipsis">吸血鬼猎人和吸血鬼能在一起吗？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1222" target="_blank" title="零和枢谁更喜欢优姬？">
+							<span class="ellipsis">零和枢谁更喜欢优姬？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5807/review/1202" target="_blank" title="是佐助或鼬成火影了吗？">
+							<span class="ellipsis">是佐助或鼬成火影了吗？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5807/review/1208" target="_blank" title="四代火影是史上最强的火影吗？">
+							<span class="ellipsis">四代火影是史上最强的火影吗？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1200" target="_blank" title="吸血鬼骑士结局解读">
+							<span class="ellipsis">吸血鬼骑士结局解读</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5823/review/1272" target="_blank" title="作者画漫画真不容易">
+							<span class="ellipsis">作者画漫画真不容易</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1195" target="_blank" title="枢为什么成全了零跟优姬？">
+							<span class="ellipsis">枢为什么成全了零跟优姬？</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5807/review/1213" target="_blank" title="脑洞大开的火影剧情预测">
+							<span class="ellipsis">脑洞大开的火影剧情预测</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1161/review/1209" target="_blank" title="对于枢来说最好的解放就是死">
+							<span class="ellipsis">对于枢来说最好的解放就是死</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1059/review/1219" target="_blank" title="火龙铁龙和天龙的突然失踪是怎么回事？">
+							<span class="ellipsis">火龙铁龙和天龙的突然失踪是怎么回事？</span>
+						</a>
+					</div>			</div>		<div class="h-20"></div>
+			<div class="menu radius shadow bg-white">
+				<div class="box radius-top bg-grey-light border-bottom">推荐漫画</div>
+				<div class="item">
+						<a href="/comic/59" target="_blank" title="变形金刚">
+							<span class="g-1 ellipsis">变形金刚</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/89" target="_blank" title="漂流教室">
+							<span class="g-1 ellipsis">漂流教室</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/134" target="_blank" title="舞-HIME">
+							<span class="g-1 ellipsis">舞-HIME</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/192" target="_blank" title="绝世无双">
+							<span class="g-1 ellipsis">绝世无双</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1237" target="_blank" title="暗黑破坏神">
+							<span class="g-1 ellipsis">暗黑破坏神</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1697" target="_blank" title="键人">
+							<span class="g-1 ellipsis">键人</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/1733" target="_blank" title="梦色蛋糕师">
+							<span class="g-1 ellipsis">梦色蛋糕师</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/3759" target="_blank" title="出口为零">
+							<span class="g-1 ellipsis">出口为零</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/4103" target="_blank" title="团魂">
+							<span class="g-1 ellipsis">团魂</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/4135" target="_blank" title="月岛教授的思考世界的构成">
+							<span class="g-1 ellipsis">月岛教授的思考世界的构成</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/4432" target="_blank" title="初恋油画">
+							<span class="g-1 ellipsis">初恋油画</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/4980" target="_blank" title="江户盗贼团双雄">
+							<span class="g-1 ellipsis">江户盗贼团双雄</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5242" target="_blank" title="魔女的仆人和魔王的角">
+							<span class="g-1 ellipsis">魔女的仆人和魔王的角</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5263" target="_blank" title="艾利克斯+艾达">
+							<span class="g-1 ellipsis">艾利克斯+艾达</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5464" target="_blank" title="植物图鉴">
+							<span class="g-1 ellipsis">植物图鉴</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5472" target="_blank" title="信长协奏曲">
+							<span class="g-1 ellipsis">信长协奏曲</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5591" target="_blank" title="刀剑神域Mother Rosario">
+							<span class="g-1 ellipsis">刀剑神域Mother Rosario</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/5989" target="_blank" title="恋爱游星">
+							<span class="g-1 ellipsis">恋爱游星</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/6328" target="_blank" title="龙珠EX">
+							<span class="g-1 ellipsis">龙珠EX</span>
+						</a>
+					</div><div class="item">
+						<a href="/comic/6370" target="_blank" title="菜花洋果子店的好工作">
+							<span class="g-1 ellipsis">菜花洋果子店的好工作</span>
+						</a>
+					</div>			</div>		<!--<div class="list radius shadow bg-white">
+			<div class="box radius bg-grey-light border-bottom">今日热议话题</div>
+					</div>-->
+	</div>
+	</div>
+
+<div id="dialog-login" class="zoom-anim-dialog mfp-hide mfp-white-popup">
+	<div class="login">
+		<h4>登录漫画簿</h4>
+		<hr/>
+		<form action="/account/do_login" method="post" class="form grid" onsubmit="login.do_login();return false;">
+			<input type="text" name="name" class="g-1" placeholder="邮箱 或 用户名" required="required">
+			<input type="password" name="password" class="g-1" placeholder="密码" required="required">
+			<div class="g-1 small black">
+				<label class="g-1-3">
+					<input type="checkbox" name="remember" value="1" checked> 自动登录
+				</label>
+				<a href="/account/forgot" class="g-1-3 pull-right text-right black">忘记密码？</a>
+			</div>
+			<div class="g-1">
+				<div class="h-5"></div>
+				<button type="submit" class="btn bg-primary large g-1-4 pull-right login-submit">登录</button>
+			</div>
+		</form>
+		<a href="javascript:void(0)" class="small black switch-register" onclick="login.show_register();">没有帐号？<b>立即注册>></b></a>
+	</div>
+	<div class="register">
+		<h4>注册漫画簿账号</h4>
+		<hr/>
+		<form action="/account/do_register" method="post" class="form grid" onsubmit="login.do_register();return false;">
+			<input type="text" name="uname" class="g-1" placeholder="用户名" required="required">
+			<input type="email" name="email" class="g-1" placeholder="邮箱" required="required">
+			<input type="password" name="password" class="g-1" placeholder="密码" required="required">
+			<div class="g-1">
+				<div class="h-20"></div>
+				<button type="submit" class="btn bg-primary large g-1-4 pull-right register-submit">注册</button>
+			</div>
+		</form>
+		<a href="javascript:void(0)" class="small black switch-login" onclick="login.show_login();">已有帐号？<b>登录>></b></a>
+	</div>
+</div>
+
+<div style="margin-top:100px;width:100%;height:100px;line-height:100px;float:left;"></div>
+<script src="http://7pn610.com1.z0.glb.clouddn.com/js/app.min.40bb653c.js"></script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "http://www.manhuabu.com/",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://www.manhuabu.com/comic/search?query={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script><!--Process: 0.1970s ( Load:0.0128s Init:0.0016s Exec:0.1788s Template:0.0037s ) | DB :8 queries 0 writes  | Cache :1 gets 0 writes  | UseMem:3,741 kb | LoadFile:37 | CallFun:132,1464-->
